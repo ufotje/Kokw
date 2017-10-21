@@ -1,0 +1,25 @@
+<component name="libraryTable">
+  <library name="api">
+    <CLASSES />
+    <JAVADOC>
+      <root url="file://$USER_HOME$/Downloads/hibernate-validator-6.0.3.Final-dist/hibernate-validator-6.0.3.Final/docs/api" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="file://$USER_HOME$/Downloads/hibernate-validator-6.0.3.Final-dist/hibernate-validator-6.0.3.Final/project/annotation-processor/src/main/java" />
+      <root url="file://$USER_HOME$/Downloads/hibernate-validator-6.0.3.Final-dist/hibernate-validator-6.0.3.Final/project/annotation-processor/src/test/java" />
+      <root url="file://$USER_HOME$/Downloads/hibernate-validator-6.0.3.Final-dist/hibernate-validator-6.0.3.Final/project/cdi/src/main/java" />
+      <root url="file://$USER_HOME$/Downloads/hibernate-validator-6.0.3.Final-dist/hibernate-validator-6.0.3.Final/project/cdi/src/test/java" />
+      <root url="file://$USER_HOME$/Downloads/hibernate-validator-6.0.3.Final-dist/hibernate-validator-6.0.3.Final/project/documentation/src/test/java" />
+      <root url="file://$USER_HOME$/Downloads/hibernate-validator-6.0.3.Final-dist/hibernate-validator-6.0.3.Final/project/engine/src/main/java" />
+      <root url="file://$USER_HOME$/Downloads/hibernate-validator-6.0.3.Final-dist/hibernate-validator-6.0.3.Final/project/engine/src/test/java" />
+      <root url="file://$USER_HOME$/Downloads/hibernate-validator-6.0.3.Final-dist/hibernate-validator-6.0.3.Final/project/integration/src/test/java" />
+      <root url="file://$USER_HOME$/Downloads/hibernate-validator-6.0.3.Final-dist/hibernate-validator-6.0.3.Final/project/osgi/felixtest/src/test/java" />
+      <root url="file://$USER_HOME$/Downloads/hibernate-validator-6.0.3.Final-dist/hibernate-validator-6.0.3.Final/project/osgi/integrationtest/src/test/java" />
+      <root url="file://$USER_HOME$/Downloads/hibernate-validator-6.0.3.Final-dist/hibernate-validator-6.0.3.Final/project/performance/src/main/java" />
+      <root url="file://$USER_HOME$/Downloads/hibernate-validator-6.0.3.Final-dist/hibernate-validator-6.0.3.Final/project/performance/src/main/java-bv2" />
+      <root url="file://$USER_HOME$/Downloads/hibernate-validator-6.0.3.Final-dist/hibernate-validator-6.0.3.Final/project/tck-runner/src/main/java" />
+      <root url="file://$USER_HOME$/Downloads/hibernate-validator-6.0.3.Final-dist/hibernate-validator-6.0.3.Final/project/tck-runner/src/test/java" />
+      <root url="file://$USER_HOME$/Downloads/hibernate-validator-6.0.3.Final-dist/hibernate-validator-6.0.3.Final/project/test-utils/src/main/java" />
+    </SOURCES>
+  </library>
+</component>
