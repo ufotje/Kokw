@@ -11,7 +11,7 @@ import java.util.List;
 /**
  * Created by ufotje on 8/10/2017.
  */
-@Repository
+@Repository("memberRepo")
 public interface MemberRepo extends CrudRepository<Member,Integer> {
     @Transactional
     void deleteByName(String firstName, String lastName);

@@ -1,5 +1,7 @@
 package be.kokw;
 
+import be.kokw.repositories.books.interfaces.BookRepo;
+import be.kokw.repositories.books.interfaces.MemberRepo;
 import javafx.application.Application;
 import javafx.stage.Stage;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -15,13 +17,15 @@ public class Main extends Application {
     protected ConfigurableApplicationContext springContext;
     protected StageManager stageManager;
 
-    public static void main(final String[] args) {
+    public static void main(String[] args) {
         Application.launch(args);
     }
 
     @Override
     public void init() throws Exception {
         springContext = springBootApplicationContext();
+        BookRepo repo = springContext.getBean("bookRepo", BookRepo.class);
+        MemberRepo member = springContext.getBean("memberRepo",MemberRepo.class);
     }
 
     @Override
@@ -40,7 +44,7 @@ public class Main extends Application {
      * Scene to be displayed on startup. Example: Functional tests on main
      * window.
      */
-    protected void displayInitialScene() {
+    private void displayInitialScene() {
         stageManager.switchScene(FxmlView.SAMPLE);
     }
 
