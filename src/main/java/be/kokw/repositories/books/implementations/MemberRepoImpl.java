@@ -1,7 +1,10 @@
 package be.kokw.repositories.books.implementations;
 
 import be.kokw.bean.Member;
-import be.kokw.repositories.books.interfaces.MemberRepo;
+import be.kokw.repositories.members.MemberRepo;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Repository;
 
 import java.util.Date;
@@ -10,8 +13,9 @@ import java.util.List;
 /**
  * Created by ufotje on 22/10/2017.
  */
-@Repository("memberRepo")
+@Repository()
 public class MemberRepoImpl implements MemberRepo {
+
     @Override
     public List<Member> findByBDay(Date bDay) {
         return null;
@@ -28,27 +32,32 @@ public class MemberRepoImpl implements MemberRepo {
     }
 
     @Override
-    public <S extends Member> Iterable<S> save(Iterable<S> iterable) {
+    public Member findOne(Long aLong) {
         return null;
     }
 
     @Override
-    public Member findOne(Integer integer) {
-        return null;
-    }
-
-    @Override
-    public boolean exists(Integer integer) {
+    public boolean exists(Long aLong) {
         return false;
     }
 
     @Override
-    public Iterable<Member> findAll() {
+    public List<Member> findAll() {
         return null;
     }
 
     @Override
-    public Iterable<Member> findAll(Iterable<Integer> iterable) {
+    public List<Member> findAll(Sort sort) {
+        return null;
+    }
+
+    @Override
+    public Page<Member> findAll(Pageable pageable) {
+        return null;
+    }
+
+    @Override
+    public List<Member> findAll(Iterable<Long> iterable) {
         return null;
     }
 
@@ -58,7 +67,7 @@ public class MemberRepoImpl implements MemberRepo {
     }
 
     @Override
-    public void delete(Integer integer) {
+    public void delete(Long aLong) {
 
     }
 
@@ -75,5 +84,35 @@ public class MemberRepoImpl implements MemberRepo {
     @Override
     public void deleteAll() {
 
+    }
+
+    @Override
+    public void flush() {
+
+    }
+
+    @Override
+    public void deleteInBatch(Iterable<Member> iterable) {
+
+    }
+
+    @Override
+    public void deleteAllInBatch() {
+
+    }
+
+    @Override
+    public Member getOne(Long aLong) {
+        return null;
+    }
+
+    @Override
+    public <S extends Member> S saveAndFlush(S s) {
+        return null;
+    }
+
+    @Override
+    public <S extends Member> List<S> save(Iterable<S> iterable) {
+        return null;
     }
 }

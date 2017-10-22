@@ -1,7 +1,7 @@
 package be.kokw.repositories.books.interfaces;
 
 import be.kokw.bean.Book;
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
 
 import javax.transaction.Transactional;
 import java.util.List;
@@ -10,7 +10,8 @@ import java.util.List;
  * Created by ufotje on 7/10/2017.
  */
 
-public interface BookRepo extends CrudRepository<Book,Integer> {
+
+public interface BookRepo extends JpaRepository<Book, Long> {
     @Transactional
     public Book findById();
     @Transactional

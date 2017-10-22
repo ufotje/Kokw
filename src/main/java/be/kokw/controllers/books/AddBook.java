@@ -1,8 +1,11 @@
 package be.kokw.controllers.books;
 
+import be.kokw.bean.Book;
 import be.kokw.repositories.books.interfaces.BookRepo;
+import javafx.fxml.FXML;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Tooltip;
@@ -10,30 +13,26 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
-
-
-import be.kokw.bean.Book;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
-
 /**
  * Created by ufotje on 20/10/2017.
+ * This class is used to save a book
  */
-public class AddBook {
+
+ public class AddBook {
+    @FXML
     private TextField title, topic, firstName, lastName, publisher, place, year, pages;
+    @FXML
     private Stage window;
     private BookRepo repo;
 
-    @Autowired
-    public void setRepo(@Qualifier("bookRepo") BookRepo repo) {
+    public AddBook(BookRepo repo) {
         this.repo = repo;
-    }
-
-    public AddBook() {
         init();
     }
 
-    public void init() {
+    @FXML
+    private void init() {
+
         title = new TextField();
         title.setTooltip(new Tooltip("Enter title"));
         title.setPromptText("Title");
@@ -92,10 +91,28 @@ public class AddBook {
         window.show();
     }
 
-    void save() {
-        Book book = new Book(title.getText(), topic.getText(), firstName.getText(), lastName.getText(), publisher.getText(), place.getText(), Integer.parseInt(year.getText()), Integer.parseInt(pages.getText()));
-        System.out.println(book.getAuthorFirstName());
-        repo.save(book);
+    @FXML
+    private void save() {
+        Book book = new Book();
+        book.setTitle(title.getText());
+        book.setTopic(topic.getText());
+        book.setAuthorFirstName(firstName.getText());
+        book.setAuthorLastName(lastName.getText());
+        book.setPublisher(publisher.getText());
+        book.setPlace(place.getText());
+        book.setYearPublished(Integer.parseInt(year.getText()));
+        book.setNrOfPages(Integer.parseInt(pages.getText()));
+        Book newBook = repo.save(book);
+        saveAlert(newBook);
         window.close();
+    }
+
+    @FXML
+    private void saveAlert(Book book) {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("User saved successfully.");
+        alert.setHeaderText(null);
+        alert.setContentText("The book " + book.getTitle() + " has been created");
+        alert.showAndWait();
     }
 }

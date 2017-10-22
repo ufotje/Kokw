@@ -2,8 +2,14 @@ package be.kokw.repositories.books.implementations;
 
 import be.kokw.bean.Book;
 import be.kokw.repositories.books.interfaces.BookRepo;
+
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Repository;
 
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 import java.util.List;
 
 /**
@@ -11,6 +17,14 @@ import java.util.List;
  */
 @Repository("bookRepo")
 public class BookRepoImpl implements BookRepo {
+    private EntityManager manager;
+
+    @PersistenceContext
+    public void setManager(EntityManager manager) {
+        this.manager = manager;
+
+    }
+
     @Override
     public Book findById() {
         return null;
@@ -47,32 +61,38 @@ public class BookRepoImpl implements BookRepo {
     }
 
     @Override
-    public <S extends Book> S save(S s) {
-        return s;
+    public Book save(Book b) {
+        manager.persist(b);
+        return b;
     }
 
     @Override
-    public <S extends Book> Iterable<S> save(Iterable<S> iterable) {
-        return iterable;
-    }
-
-    @Override
-    public Book findOne(Integer integer) {
+    public Book findOne(Long aLong) {
         return null;
     }
 
     @Override
-    public boolean exists(Integer integer) {
+    public boolean exists(Long aLong) {
         return false;
     }
 
     @Override
-    public Iterable<Book> findAll() {
+    public List<Book> findAll() {
         return null;
     }
 
     @Override
-    public Iterable<Book> findAll(Iterable<Integer> iterable) {
+    public List<Book> findAll(Sort sort) {
+        return null;
+    }
+
+    @Override
+    public Page<Book> findAll(Pageable pageable) {
+        return null;
+    }
+
+    @Override
+    public List<Book> findAll(Iterable<Long> iterable) {
         return null;
     }
 
@@ -82,7 +102,7 @@ public class BookRepoImpl implements BookRepo {
     }
 
     @Override
-    public void delete(Integer integer) {
+    public void delete(Long aLong) {
 
     }
 
@@ -99,5 +119,35 @@ public class BookRepoImpl implements BookRepo {
     @Override
     public void deleteAll() {
 
+    }
+
+    @Override
+    public void flush() {
+
+    }
+
+    @Override
+    public void deleteInBatch(Iterable<Book> iterable) {
+
+    }
+
+    @Override
+    public void deleteAllInBatch() {
+
+    }
+
+    @Override
+    public Book getOne(Long aLong) {
+        return null;
+    }
+
+    @Override
+    public Book saveAndFlush(Book b) {
+        return b;
+    }
+
+    @Override
+    public <S extends Book> List<S> save(Iterable<S> iterable) {
+        return null;
     }
 }

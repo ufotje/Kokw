@@ -6,6 +6,7 @@ import java.io.Serializable;
 
 /**
  * Created by ufotje on 4/10/2017.
+ * This is the EntityClass for Table Books
  */
 
 @Entity
@@ -14,24 +15,23 @@ public class Book implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    int id;
+    private int id;
     @Column(name = "Title")
-    String title;
+    private String title;
     @Column(name = "Topic")
-    String topic;
-    @Column(name = "Firstname Author")
-    String authorFirstName;
-    @Column(name = "Lastname Author")
-    String authorLastName;
+    private String topic;
+    @Column(name = "FirstName_Author")
+    private String authorFirstName;
+    @Column(name = "LastName_Author")
+    private String authorLastName;
     @Column(name = "Publisher")
-    String publisher;
+    private String publisher;
     @Column(name = "Place")
-    String place;
-
-    @Column(name = "Year Published")
-    int yearPublished;
-    @Column(name = "Nr of Pages")
-    int nrOfPages;
+    private String place;
+    @Column(name = "Year_Published")
+    private int yearPublished;
+    @Column(name = "Nr_of_Pages")
+    private int nrOfPages;
 
     public Book(String title, String topic, String authorFirstName, String authorLastName, String publisher, String place, int yearPublished, int nrOfPages) {
         this.title = title;
@@ -45,14 +45,6 @@ public class Book implements Serializable {
     }
 
     public Book() {
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public String getTitle() {
@@ -107,8 +99,8 @@ public class Book implements Serializable {
         return yearPublished;
     }
 
-    public void setYearPublished(int yearPubliced) {
-        this.yearPublished = yearPubliced;
+    public void setYearPublished(int yearPublished) {
+        this.yearPublished = yearPublished;
     }
 
     public int getNrOfPages() {
@@ -128,7 +120,7 @@ public class Book implements Serializable {
                 ", authorFirstName='" + authorFirstName + '\'' +
                 ", authorLastName='" + authorLastName + '\'' +
                 ", publisher='" + publisher + '\'' +
-                ", yearPubliced=" + yearPublished +
+                ", yearPublished=" + yearPublished +
                 ", nrOfPages=" + nrOfPages +
                 '}';
     }

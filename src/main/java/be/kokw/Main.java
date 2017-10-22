@@ -1,16 +1,14 @@
 package be.kokw;
 
-import be.kokw.repositories.books.interfaces.BookRepo;
-import be.kokw.repositories.books.interfaces.MemberRepo;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
-
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @SpringBootApplication
@@ -28,7 +26,9 @@ public class Main extends Application {
     @Override
     public void init() throws Exception {
         springContext = SpringApplication.run(Main.class);
-        root = FXMLLoader.load(getClass().getResource("/fxml/sample.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/sample.fxml"));
+        loader.setControllerFactory(springContext::getBean);
+        root = loader.load();
     }
 
     @Override
@@ -36,8 +36,6 @@ public class Main extends Application {
         primaryStage.setTitle("KOKW-AdminApp");
         primaryStage.setScene(new Scene(root, 800, 600));
         primaryStage.show();
-        BookRepo bookRepo = springContext.getBean("bookRepo", BookRepo.class);
-        MemberRepo memberRepo = springContext.getBean("memberRepo",MemberRepo.class);
     }
 
     @Override
