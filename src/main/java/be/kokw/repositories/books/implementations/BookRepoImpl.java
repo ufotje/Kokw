@@ -48,12 +48,12 @@ public class BookRepoImpl implements BookRepo {
 
     @Override
     public <S extends Book> S save(S s) {
-        return null;
+        return s;
     }
 
     @Override
     public <S extends Book> Iterable<S> save(Iterable<S> iterable) {
-        return null;
+        return iterable;
     }
 
     @Override

@@ -1,5 +1,6 @@
 package be.kokw.controllers.books;
 
+import be.kokw.repositories.books.interfaces.BookRepo;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -12,6 +13,8 @@ import javafx.stage.Stage;
 
 
 import be.kokw.bean.Book;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 
 /**
  * Created by ufotje on 20/10/2017.
@@ -19,6 +22,12 @@ import be.kokw.bean.Book;
 public class AddBook {
     private TextField title, topic, firstName, lastName, publisher, place, year, pages;
     private Stage window;
+    private BookRepo repo;
+
+    @Autowired
+    public void setRepo(@Qualifier("bookRepo") BookRepo repo) {
+        this.repo = repo;
+    }
 
     public AddBook() {
         init();
@@ -84,14 +93,9 @@ public class AddBook {
     }
 
     void save() {
-        //Session session = sf.openSession();
-        //session.beginTransaction();
         Book book = new Book(title.getText(), topic.getText(), firstName.getText(), lastName.getText(), publisher.getText(), place.getText(), Integer.parseInt(year.getText()), Integer.parseInt(pages.getText()));
         System.out.println(book.getAuthorFirstName());
-        //session.save(book);
-        //session.getTransaction().commit();
-        //session.close();
-
+        repo.save(book);
         window.close();
     }
 }

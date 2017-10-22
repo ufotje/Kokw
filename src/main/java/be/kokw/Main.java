@@ -28,7 +28,7 @@ public class Main extends Application {
     @Override
     public void init() throws Exception {
         springContext = SpringApplication.run(Main.class);
-        root = FXMLLoader.load(getClass().getResource("fxml/sample.fxml"));
+        root = FXMLLoader.load(getClass().getResource("/fxml/sample.fxml"));
     }
 
     @Override
