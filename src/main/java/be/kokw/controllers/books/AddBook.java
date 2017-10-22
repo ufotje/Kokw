@@ -9,11 +9,7 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.boot.registry.StandardServiceRegistry;
-import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
-import org.hibernate.cfg.Configuration;
+
 
 import be.kokw.bean.Book;
 
@@ -21,9 +17,6 @@ import be.kokw.bean.Book;
  * Created by ufotje on 20/10/2017.
  */
 public class AddBook {
-  //  private final Configuration cfg = new Configuration().configure("sample/hibernate.cfg.xml");
-    //private final StandardServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder().applySettings(cfg.getProperties()).build();
-    //private final SessionFactory sf = cfg.configure().buildSessionFactory(serviceRegistry);
     private TextField title, topic, firstName, lastName, publisher, place, year, pages;
     private Stage window;
 

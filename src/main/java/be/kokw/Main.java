@@ -3,56 +3,45 @@ package be.kokw;
 import be.kokw.repositories.books.interfaces.BookRepo;
 import be.kokw.repositories.books.interfaces.MemberRepo;
 import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.stage.Stage;
+import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.context.ConfigurableApplicationContext;
 
-import be.kokw.config.StageManager;
-import be.kokw.view.FxmlView;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @SpringBootApplication
+@EnableJpaRepositories
 public class Main extends Application {
 
-    protected ConfigurableApplicationContext springContext;
-    protected StageManager stageManager;
+    private ConfigurableApplicationContext springContext;
+    private Parent root;
 
     public static void main(String[] args) {
         Application.launch(args);
+
     }
 
     @Override
     public void init() throws Exception {
-        springContext = springBootApplicationContext();
-        BookRepo repo = springContext.getBean("bookRepo", BookRepo.class);
-        MemberRepo member = springContext.getBean("memberRepo",MemberRepo.class);
+        springContext = SpringApplication.run(Main.class);
+        root = FXMLLoader.load(getClass().getResource("fxml/sample.fxml"));
     }
 
     @Override
-    public void start(Stage stage) throws Exception {
-        stageManager = springContext.getBean(StageManager.class, stage);
-        displayInitialScene();
+    public void start(Stage primaryStage) throws Exception {
+        primaryStage.setTitle("KOKW-AdminApp");
+        primaryStage.setScene(new Scene(root, 800, 600));
+        primaryStage.show();
+        BookRepo bookRepo = springContext.getBean("bookRepo", BookRepo.class);
+        MemberRepo memberRepo = springContext.getBean("memberRepo",MemberRepo.class);
     }
 
     @Override
     public void stop() throws Exception {
         springContext.close();
     }
-
-    /**
-     * Useful to override this method by sub-classes wishing to change the first
-     * Scene to be displayed on startup. Example: Functional tests on main
-     * window.
-     */
-    private void displayInitialScene() {
-        stageManager.switchScene(FxmlView.SAMPLE);
-    }
-
-
-    private ConfigurableApplicationContext springBootApplicationContext() {
-        SpringApplicationBuilder builder = new SpringApplicationBuilder(Main.class);
-        String[] args = getParameters().getRaw().stream().toArray(String[]::new);
-        return builder.run(args);
-    }
-
 }

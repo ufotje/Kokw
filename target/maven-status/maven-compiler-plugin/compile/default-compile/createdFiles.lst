@@ -1,0 +1,12 @@
+be\kokw\controllers\AddMember.class
+be\kokw\logging\ExceptionWriter.class
+be\kokw\config\AppJavaConfig.class
+be\kokw\repositories\books\implementations\MemberRepoImpl.class
+be\kokw\controllers\MenuController.class
+be\kokw\bean\Book.class
+be\kokw\controllers\books\AddBook.class
+be\kokw\Main.class
+be\kokw\repositories\books\implementations\BookRepoImpl.class
+be\kokw\repositories\books\interfaces\BookRepo.class
+be\kokw\bean\Member.class
+be\kokw\repositories\books\interfaces\MemberRepo.class

@@ -1,0 +1,12 @@
+C:\KOKW-AdminFX\src\main\java\be\kokw\config\AppJavaConfig.java
+C:\KOKW-AdminFX\src\main\java\be\kokw\controllers\MenuController.java
+C:\KOKW-AdminFX\src\main\java\be\kokw\repositories\books\implementations\BookRepoImpl.java
+C:\KOKW-AdminFX\src\main\java\be\kokw\repositories\books\interfaces\MemberRepo.java
+C:\KOKW-AdminFX\src\main\java\be\kokw\controllers\books\AddBook.java
+C:\KOKW-AdminFX\src\main\java\be\kokw\Main.java
+C:\KOKW-AdminFX\src\main\java\be\kokw\bean\Member.java
+C:\KOKW-AdminFX\src\main\java\be\kokw\bean\Book.java
+C:\KOKW-AdminFX\src\main\java\be\kokw\controllers\AddMember.java
+C:\KOKW-AdminFX\src\main\java\be\kokw\repositories\books\interfaces\BookRepo.java
+C:\KOKW-AdminFX\src\main\java\be\kokw\logging\ExceptionWriter.java
+C:\KOKW-AdminFX\src\main\java\be\kokw\repositories\books\implementations\MemberRepoImpl.java

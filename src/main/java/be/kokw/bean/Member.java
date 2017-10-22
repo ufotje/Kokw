@@ -14,7 +14,7 @@ import java.util.Date;
  * Created by ufotje on 8/10/2017.
  */
 @Entity
-@Table(name = "members")
+@Table(name = "Members")
 public class Member implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
