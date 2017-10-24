@@ -22,39 +22,39 @@
                                           text="Voeg Toe"/>
                                 <Menu mnemonicParsing="false" text="Zoeken">
                                     <items>
-                                        <MenuItem mnemonicParsing="false" text="Op Tittel"/>
-                                        <MenuItem mnemonicParsing="false" text="Op Auteur"/>
-                                        <MenuItem mnemonicParsing="false" text="Op Uitgever"/>
+                                        <MenuItem mnemonicParsing="false" text="Op Tittel" onAction="#findBookByTitle"/>
+                                        <MenuItem mnemonicParsing="false" text="Op Auteur" onAction="#findBookByAuthor"/>
+                                        <MenuItem mnemonicParsing="false" text="Op Uitgever" onAction="#findBookByPublisher"/>
                                     </items>
                                 </Menu>
                                 <Menu mnemonicParsing="false" text="Verwijder">
                                     <items>
-                                        <MenuItem mnemonicParsing="false" text="Op Tittel"/>
-                                        <MenuItem mnemonicParsing="false" text="Op Auteur"/>
-                                        <MenuItem mnemonicParsing="false" text="Op Uitgever"/>
+                                        <MenuItem mnemonicParsing="false" text="Op Tittel" onAction="#deleteBookByTitle"/>
+                                        <MenuItem mnemonicParsing="false" text="Op Auteur" onAction="#deleteBookByAuthor"/>
+                                        <MenuItem mnemonicParsing="false" text="Op Uitgever" onAction="#deleteBookByPublisher"/>
                                     </items>
                                 </Menu>
                                 <Menu mnemonicParsing="false" text="Updaten">
                                     <items>
-                                        <MenuItem mnemonicParsing="false" text="Op Tittel"/>
-                                        <MenuItem mnemonicParsing="false" text="Op Auteur"/>
-                                        <MenuItem mnemonicParsing="false" text="Op Uitgever"/>
+                                        <MenuItem mnemonicParsing="false" text="Op Tittel" onAction="#updateBookByTitle"/>
+                                        <MenuItem mnemonicParsing="false" text="Op Auteur" onAction="#updateBookByAuthor"/>
+                                        <MenuItem mnemonicParsing="false" text="Op Uitgever" onAction="#updateBookByPublisher"/>
                                     </items>
                                 </Menu>
                             </items>
                         </Menu>
                         <Menu mnemonicParsing="false" text="Leden">
                             <items>
-                                <MenuItem mnemonicParsing="false" text="Voeg toe"/>
-                                <MenuItem mnemonicParsing="false" text="Update"/>
-                                <MenuItem mnemonicParsing="false" text="Verwijder"/>
+                                <MenuItem mnemonicParsing="false" text="Voeg toe" onAction="#addMember"/>
+                                <MenuItem mnemonicParsing="false" text="Update" onAction="#updateMember"/>
+                                <MenuItem mnemonicParsing="false" text="Verwijder" onAction="#deleteMember"/>
                                 <Menu mnemonicParsing="false" text="Zoeken">
                                     <items>
-                                        <MenuItem mnemonicParsing="false" text="Op Naam"/>
-                                        <MenuItem mnemonicParsing="false" text="Op Stad"/>
-                                        <MenuItem mnemonicParsing="false" text="Op geboortedatum"/>
-                                        <MenuItem mnemonicParsing="false" text="Op onbetaald Lidgeld"/>
-                                        <MenuItem mnemonicParsing="false" text="Analen niet Ontvangen"/>
+                                        <MenuItem mnemonicParsing="false" text="Op Naam" onAction="#findMemberByName"/>
+                                        <MenuItem mnemonicParsing="false" text="Op Stad" onAction="#findMemberByCity"/>
+                                        <MenuItem mnemonicParsing="false" text="Op geboortedatum" onAction="#findMemberByDayOfBirth"/>
+                                        <MenuItem mnemonicParsing="false" text="Op onbetaald Lidgeld" onAction="#findMemberByPayed"/>
+                                        <MenuItem mnemonicParsing="false" text="Analen niet Ontvangen" onAction="#findMemberByAnalen"/>
                                     </items>
                                 </Menu>
                             </items>

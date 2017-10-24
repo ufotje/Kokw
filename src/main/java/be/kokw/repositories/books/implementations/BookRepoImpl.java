@@ -61,9 +61,9 @@ public class BookRepoImpl implements BookRepo {
     }
 
     @Override
-    public Book save(Book b) {
-        manager.persist(b);
-        return b;
+    public <S extends Book> S save(S s) {
+        manager.persist(s);
+        return s;
     }
 
     @Override
@@ -142,8 +142,8 @@ public class BookRepoImpl implements BookRepo {
     }
 
     @Override
-    public Book saveAndFlush(Book b) {
-        return b;
+    public <S extends Book> S saveAndFlush(S s) {
+        return null;
     }
 
     @Override

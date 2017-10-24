@@ -4,6 +4,7 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 import org.springframework.boot.SpringApplication;
@@ -14,8 +15,8 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 @SpringBootApplication
 @EnableJpaRepositories
 public class Main extends Application {
-
-    private ConfigurableApplicationContext springContext;
+    public static Stage stage;
+    public static ConfigurableApplicationContext springContext;
     private Parent root;
 
     public static void main(String[] args) {
@@ -33,9 +34,12 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        primaryStage.setTitle("KOKW-AdminApp");
-        primaryStage.setScene(new Scene(root, 800, 600));
-        primaryStage.show();
+        stage = primaryStage;
+        stage.setTitle("KOKW-AdminApp");
+        Image icon = new Image(getClass().getResourceAsStream("/images/logoKOKW.jpg"));
+        stage.getIcons().add(icon);
+        stage.setScene(new Scene(root, 800, 600));
+        stage.show();
     }
 
     @Override

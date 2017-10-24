@@ -7,6 +7,8 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Repository;
 
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 import java.util.Date;
 import java.util.List;
 
@@ -15,6 +17,13 @@ import java.util.List;
  */
 @Repository()
 public class MemberRepoImpl implements MemberRepo {
+    private EntityManager manager;
+
+    @PersistenceContext
+    public void setManager(EntityManager manager) {
+        this.manager = manager;
+
+    }
 
     @Override
     public List<Member> findByBDay(Date bDay) {

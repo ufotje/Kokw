@@ -1,14 +1,222 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.Tooltip?>
+<?import javafx.scene.effect.Glow?>
+<?import javafx.scene.effect.Lighting?>
+<?import javafx.scene.effect.Shadow?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="be.kokw.controllers.books.AddBook"
-            prefHeight="400.0" prefWidth="600.0">
+<BorderPane prefHeight="600.0" prefWidth="800.0" style="-fx-background-image: url(&quot;http://users.telenet.be/hbo5_java/pictures/kokw/logo.jpg&quot;); -fx-background-position: center; -fx-background-repeat: no-repeat; -fx-background-size: cover;" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="be.kokw.controllers.books.AddBook">
+    <top>
+        <VBox alignment="TOP_CENTER" BorderPane.alignment="CENTER">
+            <children>
+                <MenuBar style="-fx-background-color: #85C1E9; -fx-background-radius: 10;" VBox.vgrow="ALWAYS">
+                    <menus>
+                        <Menu mnemonicParsing="false" text="Boeken">
+                            <items>
+                                <MenuItem mnemonicParsing="false" text="Voeg Toe" />
+                                <Menu mnemonicParsing="false" text="Zoeken">
+                                    <items>
+                                        <MenuItem mnemonicParsing="false" text="Op Tittel" />
+                                        <MenuItem mnemonicParsing="false" text="Op Auteur" />
+                                        <MenuItem mnemonicParsing="false" text="Op Uitgever" />
+                                    </items>
+                                </Menu>
+                                <Menu mnemonicParsing="false" text="Verwijder">
+                                    <items>
+                                        <MenuItem mnemonicParsing="false" text="Op Tittel" />
+                                        <MenuItem mnemonicParsing="false" text="Op Auteur" />
+                                        <MenuItem mnemonicParsing="false" text="Op Uitgever" />
+                                    </items>
+                                </Menu>
+                                <Menu mnemonicParsing="false" text="Updaten">
+                                    <items>
+                                        <MenuItem mnemonicParsing="false" text="Op Tittel" />
+                                        <MenuItem mnemonicParsing="false" text="Op Auteur" />
+                                        <MenuItem mnemonicParsing="false" text="Op Uitgever" />
+                                    </items>
+                                </Menu>
+                            </items>
+                        </Menu>
+                        <Menu mnemonicParsing="false" text="Leden">
+                            <items>
+                                <MenuItem mnemonicParsing="false" text="Voeg toe" />
+                                <MenuItem mnemonicParsing="false" text="Update" />
+                                <MenuItem mnemonicParsing="false" text="Verwijder" />
+                                <Menu mnemonicParsing="false" text="Zoeken">
+                                    <items>
+                                        <MenuItem mnemonicParsing="false" text="Op Naam" />
+                                        <MenuItem mnemonicParsing="false" text="Op Stad" />
+                                        <MenuItem mnemonicParsing="false" text="Op geboortedatum" />
+                                        <MenuItem mnemonicParsing="false" text="Op onbetaald Lidgeld" />
+                                        <MenuItem mnemonicParsing="false" text="Analen niet Ontvangen" />
+                                    </items>
+                                </Menu>
+                            </items>
+                        </Menu>
+                    </menus>
+                    <opaqueInsets>
+                        <Insets bottom="6.0" left="6.0" right="6.0" top="6.0" />
+                    </opaqueInsets>
+                    <effect>
+                        <Lighting>
+                            <bumpInput>
+                                <Shadow />
+                            </bumpInput>
+                            <light>
 
-</AnchorPane>
+                            </light>
+                        </Lighting>
+                    </effect>
+                    <cursor>
+                        <Cursor fx:constant="HAND" />
+                    </cursor>
+                </MenuBar>
+            </children>
+        </VBox>
+    </top>
+    <bottom>
+        <VBox alignment="CENTER" fillWidth="false" style="-fx-background-color: #A9CCE3; -fx-background-radius: 10;" BorderPane.alignment="CENTER">
+            <children>
+                <Label style="-fx-font-weight: Bold;" text="©2017" />
+                <Label style="-fx-font-weight: Bold;" text="Designed &amp; Programmed by Demesmaecker Daniel ">
+                    <graphic>
+                        <Label />
+                    </graphic>
+                </Label>
+            </children>
+            <effect>
+                <Glow />
+            </effect>
+            <cursor>
+                <Cursor fx:constant="DEFAULT" />
+            </cursor>
+        </VBox>
+    </bottom>
+   <center>
+      <VBox alignment="CENTER" BorderPane.alignment="CENTER">
+         <BorderPane.margin>
+            <Insets left="10.0" />
+         </BorderPane.margin>
+         <children>
+            <HBox alignment="CENTER_LEFT">
+               <children>
+                  <Label alignment="BOTTOM_CENTER" text="Tittel:" textAlignment="CENTER" HBox.hgrow="ALWAYS">
+                     <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0" />
+                     </padding>
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="title" alignment="CENTER" prefWidth="400.0" promptText="Voer De Tittel v/h Boek in" style="-fx-border-width: 1px; -fx-border-color: #95A5A6; -fx-background-color: transparent;" HBox.hgrow="ALWAYS">
+                     <padding>
+                        <Insets left="10.0" right="10.0" />
+                     </padding>
+                     <HBox.margin>
+                        <Insets left="20.0" right="20.0" />
+                     </HBox.margin>
+                     <tooltip>
+                        <Tooltip text="Voer een tittel in" />
+                     </tooltip>
+                  </TextField>
+               </children>
+               <padding>
+                  <Insets left="10.0" right="10.0" />
+               </padding>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" layoutX="35.0" layoutY="255.0">
+               <children>
+                  <Label alignment="BOTTOM_CENTER" text="Onderwerp:" textAlignment="CENTER" HBox.hgrow="ALWAYS">
+                     <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0" />
+                     </padding>
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="topic" alignment="CENTER" prefWidth="400.0" promptText="Voer het onderwerp v/h Boek in" style="-fx-border-width: 1px; -fx-border-color: #95A5A6; -fx-background-color: transparent;" HBox.hgrow="ALWAYS">
+                     <padding>
+                        <Insets left="10.0" right="10.0" />
+                     </padding>
+                     <HBox.margin>
+                        <Insets left="20.0" right="20.0" />
+                     </HBox.margin>
+                     <tooltip>
+                        <Tooltip text="Voer het onderwerp in" />
+                     </tooltip>
+                  </TextField>
+               </children>
+               <padding>
+                  <Insets left="10.0" right="10.0" />
+               </padding>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" layoutX="35.0" layoutY="273.0">
+               <children>
+                  <Label alignment="BOTTOM_CENTER" text="Achternaam:" textAlignment="CENTER" HBox.hgrow="ALWAYS">
+                     <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0" />
+                     </padding>
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="lastName" alignment="CENTER" prefWidth="400.0" promptText="Voer de achternaam van de autheur in" style="-fx-border-width: 1px; -fx-border-color: #95A5A6; -fx-background-color: transparent; -fx-border-radius: 10;" HBox.hgrow="ALWAYS">
+                     <padding>
+                        <Insets left="10.0" right="10.0" />
+                     </padding>
+                     <HBox.margin>
+                        <Insets left="20.0" right="20.0" />
+                     </HBox.margin>
+                     <tooltip>
+                        <Tooltip text="Voer de achternaam van de autheur in" />
+                     </tooltip>
+                  </TextField>
+               </children>
+               <padding>
+                  <Insets left="10.0" right="10.0" />
+               </padding>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" layoutX="35.0" layoutY="292.0">
+               <children>
+                  <Label alignment="BOTTOM_CENTER" text="Voornaam:" textAlignment="CENTER" HBox.hgrow="ALWAYS">
+                     <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0" />
+                     </padding>
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="firstName" alignment="CENTER" prefWidth="400.0" promptText="Voer de voornaam van de autheur in" style="-fx-border-width: 1px; -fx-border-color: #95A5A6; -fx-background-color: transparent;" HBox.hgrow="ALWAYS">
+                     <padding>
+                        <Insets left="10.0" right="10.0" />
+                     </padding>
+                     <HBox.margin>
+                        <Insets left="20.0" right="20.0" />
+                     </HBox.margin>
+                     <tooltip>
+                        <Tooltip text="Voer de voornaam van de autheur in" />
+                     </tooltip>
+                  </TextField>
+               </children>
+               <padding>
+                  <Insets left="10.0" right="10.0" />
+               </padding>
+            </HBox>
+         </children>
+         <padding>
+            <Insets left="25.0" right="25.0" />
+         </padding>
+      </VBox>
+   </center>
+</BorderPane>
