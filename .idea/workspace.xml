@@ -2,33 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f706f8ad-5c5e-4c8c-9123-98f4956da70d" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../KOKW-AdminFX/src/main/resources/images/logoKOKW.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../KOKW-AdminFX/src/main/java/be/kokw/services/GetControllerBean.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../KOKW-AdminFX/target/classes/be/kokw/controllers/AddMember.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../KOKW-AdminFX/target/classes/be/kokw/controllers/MenuController.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../KOKW-AdminFX/target/classes/be/kokw/controllers/books/AddBook.class" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../KOKW-AdminFX/src/main/java/be/kokw/controllers/AddMember.java" afterPath="$PROJECT_DIR$/../KOKW-AdminFX/src/main/java/be/kokw/controllers/members/AddMember.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../KOKW-AdminFX/target/KOKWAdminFX-1.0.jar" afterPath="$PROJECT_DIR$/../KOKW-AdminFX/target/KOKWAdminFX-1.0.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../KOKW-AdminFX/target/KOKWAdminFX-1.0.jar.original" afterPath="$PROJECT_DIR$/../KOKW-AdminFX/target/KOKWAdminFX-1.0.jar.original" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../KOKW-AdminFX/target/classes/be/kokw/Main.class" afterPath="$PROJECT_DIR$/../KOKW-AdminFX/target/classes/be/kokw/Main.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../KOKW-AdminFX/target/classes/be/kokw/repositories/books/implementations/BookRepoImpl.class" afterPath="$PROJECT_DIR$/../KOKW-AdminFX/target/classes/be/kokw/repositories/books/implementations/BookRepoImpl.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../KOKW-AdminFX/target/classes/be/kokw/repositories/books/implementations/MemberRepoImpl.class" afterPath="$PROJECT_DIR$/../KOKW-AdminFX/target/classes/be/kokw/repositories/books/implementations/MemberRepoImpl.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../KOKW-AdminFX/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../KOKW-AdminFX/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../KOKW-AdminFX/pom.xml" afterPath="$PROJECT_DIR$/../KOKW-AdminFX/pom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../KOKW-AdminFX/src/main/java/be/kokw/Main.java" afterPath="$PROJECT_DIR$/../KOKW-AdminFX/src/main/java/be/kokw/Main.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../KOKW-AdminFX/src/main/java/be/kokw/controllers/MenuController.java" afterPath="$PROJECT_DIR$/../KOKW-AdminFX/src/main/java/be/kokw/controllers/MenuController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../KOKW-AdminFX/src/main/java/be/kokw/controllers/books/AddBook.java" afterPath="$PROJECT_DIR$/../KOKW-AdminFX/src/main/java/be/kokw/controllers/books/AddBook.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../KOKW-AdminFX/src/main/java/be/kokw/repositories/books/implementations/BookRepoImpl.java" afterPath="$PROJECT_DIR$/../KOKW-AdminFX/src/main/java/be/kokw/repositories/books/implementations/BookRepoImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../KOKW-AdminFX/src/main/java/be/kokw/repositories/books/implementations/MemberRepoImpl.java" afterPath="$PROJECT_DIR$/../KOKW-AdminFX/src/main/java/be/kokw/repositories/books/implementations/MemberRepoImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../KOKW-AdminFX/src/main/resources/fxml/addBook.fxml" afterPath="$PROJECT_DIR$/../KOKW-AdminFX/src/main/resources/fxml/addBook.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../KOKW-AdminFX/src/main/resources/fxml/addMember.fxml" afterPath="$PROJECT_DIR$/../KOKW-AdminFX/src/main/resources/fxml/addMember.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../KOKW-AdminFX/src/main/resources/fxml/sample.fxml" afterPath="$PROJECT_DIR$/../KOKW-AdminFX/src/main/resources/fxml/sample.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../KOKW-AdminFX/target/classes/fxml/addBook.fxml" afterPath="$PROJECT_DIR$/../KOKW-AdminFX/target/classes/fxml/addBook.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../KOKW-AdminFX/target/classes/fxml/addMember.fxml" afterPath="$PROJECT_DIR$/../KOKW-AdminFX/target/classes/fxml/addMember.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../KOKW-AdminFX/target/classes/fxml/sample.fxml" afterPath="$PROJECT_DIR$/../KOKW-AdminFX/target/classes/fxml/sample.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../KOKW-AdminFX/target/maven-archiver/pom.properties" afterPath="$PROJECT_DIR$/../KOKW-AdminFX/target/maven-archiver/pom.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../KOKW-AdminFX/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterPath="$PROJECT_DIR$/../KOKW-AdminFX/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../KOKW-AdminFX/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterPath="$PROJECT_DIR$/../KOKW-AdminFX/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" />
     </list>
     <ignored path="$PROJECT_DIR$/../KOKW-AdminFX/out/" />
     <ignored path="$PROJECT_DIR$/../KOKW-AdminFX/target/" />
@@ -45,11 +19,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/../KOKW-AdminFX/src/main/java/be/kokw/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="114">
-              <caret line="18" column="10" lean-forward="false" selection-start-line="18" selection-start-column="10" selection-end-line="18" selection-end-column="10" />
+            <state relative-caret-position="129">
+              <caret line="28" column="0" lean-forward="false" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -116,7 +90,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AddBook.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="AddBook.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../KOKW-AdminFX/src/main/java/be/kokw/controllers/books/AddBook.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="129">
@@ -1093,15 +1067,15 @@
       <updated>1508608062017</updated>
       <workItem from="1508608069437" duration="43900000" />
       <workItem from="1508785239610" duration="8710000" />
-      <workItem from="1508858044282" duration="18919000" />
+      <workItem from="1508858044282" duration="19319000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="71529000" />
+    <option name="totallyTimeSpent" value="71929000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="0" width="1612" height="984" extended-state="1" />
+    <frame x="-7" y="0" width="1612" height="984" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1122,7 +1096,7 @@
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.43002546" sideWeight="0.49739584" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.43002546" sideWeight="0.49739584" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32951653" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2591146" sideWeight="0.49107143" order="0" side_tool="false" content_ui="combo" />
@@ -1529,14 +1503,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../KOKW-AdminFX/src/main/java/be/kokw/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="18" column="10" lean-forward="false" selection-start-line="18" selection-start-column="10" selection-end-line="18" selection-end-column="10" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../KOKW-AdminFX/src/main/java/be/kokw/repositories/books/implementations/MemberRepoImpl.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="168">
@@ -1618,6 +1584,14 @@
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../KOKW-AdminFX/src/main/java/be/kokw/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="129">
+          <caret line="28" column="0" lean-forward="false" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
