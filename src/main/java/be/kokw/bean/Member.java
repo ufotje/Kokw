@@ -8,7 +8,7 @@ import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.Date;
+import java.time.LocalDate;
 
 /**
  * Created by ufotje on 8/10/2017.
@@ -31,8 +31,20 @@ public class Member implements Serializable{
     @NotEmpty(message = "*Please provide an email")
     private String email;
     @Column(name = "birthday")
-    private Date bDay;
+    private LocalDate bDay;
     private boolean board;
+
+    public Member(String firstName, String lastName, String street, int houseNr, int zip, String city, String email, LocalDate bDay, boolean board) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.street = street;
+        this.houseNr = houseNr;
+        this.zip = zip;
+        this.city = city;
+        this.email = email;
+        this.bDay = bDay;
+        this.board = board;
+    }
 
     public int getId() {
         return id;
@@ -98,11 +110,11 @@ public class Member implements Serializable{
         this.email = email;
     }
 
-    public Date getbDay() {
+    public LocalDate getbDay() {
         return bDay;
     }
 
-    public void setbDay(Date bDay) {
+    public void setbDay(LocalDate bDay) {
         this.bDay = bDay;
     }
 

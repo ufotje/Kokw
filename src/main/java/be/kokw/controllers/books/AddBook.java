@@ -2,16 +2,16 @@ package be.kokw.controllers.books;
 
 import be.kokw.Main;
 import be.kokw.bean.Book;
-import be.kokw.controllers.MenuController;
 import be.kokw.repositories.books.interfaces.BookRepo;
-import be.kokw.services.GetControllerBean;
+import be.kokw.utility.GetControllerBean;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 /**
@@ -26,16 +26,17 @@ public class AddBook{
     private Stage window;
     private BookRepo repo;
 
-    public AddBook() {
+    public AddBook() throws Exception{
+
     }
 
-    public AddBook(BookRepo repo) throws Exception {
-        this.repo = repo;
-        init();
+    @Autowired
+    public void setBookRepo(@Qualifier("bookRepo") BookRepo bookRepo) {
+        repo = bookRepo;
     }
 
     @FXML
-    private void init() throws Exception {
+    public void init() throws Exception {
         Parent root = GetControllerBean.getBean("/fxml/addBook.fxml");
         window = Main.stage;
         window.setTitle("Add New Book");
@@ -50,6 +51,9 @@ public class AddBook{
         saveAlert(newBook);
         window.close();
     }
+
+    @FXML
+    public void addMore(){}
 
     @FXML
     private void saveAlert(Book book) {

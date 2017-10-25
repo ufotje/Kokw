@@ -1,36 +1,59 @@
 package be.kokw.controllers.members;
 
 import be.kokw.Main;
-import be.kokw.controllers.MenuController;
+import be.kokw.bean.Member;
 import be.kokw.repositories.members.MemberRepo;
-
-import be.kokw.services.GetControllerBean;
+import be.kokw.utility.GetControllerBean;
 import javafx.fxml.FXML;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.DatePicker;
+import javafx.scene.control.RadioButton;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
+
 
 /**
  * Created by ufotje on 21/10/2017.
  */
 
 @Component
-public class AddMember{
+public class AddMember {
     private Stage window;
     private MemberRepo repo;
+    @FXML
+    private TextField firstName;
+    @FXML
+    private TextField lastName;
+    @FXML
+    private TextField street;
+    @FXML
+    private TextField houseNr;
+    @FXML
+    private TextField zip;
+    @FXML
+    private TextField city;
+    @FXML
+    private TextField email;
+    @FXML
+    private RadioButton board;
+    @FXML
+    private DatePicker bDay;
 
-    public AddMember() {
+    public AddMember() throws Exception{
+
     }
 
-    public AddMember(MemberRepo repo) throws Exception{
-        this.repo = repo;
-        init();
+    @Autowired
+    public void setMemberRepo(@Qualifier("memberRepo") MemberRepo memberRepo) {
+        repo = memberRepo;
     }
 
     @FXML
-    private void init() throws Exception {
+    public void init() throws Exception {
         Parent root = GetControllerBean.getBean("/fxml/addMember.fxml");
         window = Main.stage;
         window.setTitle("Add New Member");
@@ -39,8 +62,15 @@ public class AddMember{
     }
 
     @FXML
-    private void save(){}
+    private void save() {
+        Boolean isBoard = board.isSelected();
+        Member member = new Member(firstName.getText(),lastName.getText(),street.getText(),Integer.parseInt(houseNr.getText()),Integer.parseInt(zip.getText()),city.getText(),email.getText(),bDay.getValue(),isBoard);
+        System.out.println(member.getbDay());
+        repo.save(member);
+    }
 
     @FXML
-    private  void addMore(){}
+    private void addMore() {
+        System.out.println(repo.toString());
+    }
 }
