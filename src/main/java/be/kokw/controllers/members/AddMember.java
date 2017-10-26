@@ -1,16 +1,12 @@
 package be.kokw.controllers.members;
 
-import be.kokw.Main;
 import be.kokw.bean.Member;
 import be.kokw.repositories.members.MemberRepo;
-import be.kokw.utility.GetControllerBean;
+import be.kokw.utility.Validation;
 import javafx.fxml.FXML;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
-import javafx.stage.Stage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
@@ -18,32 +14,23 @@ import org.springframework.stereotype.Component;
 
 /**
  * Created by ufotje on 21/10/2017.
+ * ControllerClass to save (a) new Member(s)
  */
 
 @Component
 public class AddMember {
-    private Stage window;
     private MemberRepo repo;
+
     @FXML
-    private TextField firstName;
-    @FXML
-    private TextField lastName;
-    @FXML
-    private TextField street;
-    @FXML
-    private TextField houseNr;
-    @FXML
-    private TextField zip;
-    @FXML
-    private TextField city;
-    @FXML
-    private TextField email;
+    private TextField firstName, lastName, street, houseNr, zip, city, email;
+
     @FXML
     private RadioButton board;
+
     @FXML
     private DatePicker bDay;
 
-    public AddMember() throws Exception{
+    public AddMember() throws Exception {
 
     }
 
@@ -53,24 +40,21 @@ public class AddMember {
     }
 
     @FXML
-    public void init() throws Exception {
-        Parent root = GetControllerBean.getBean("/fxml/addMember.fxml");
-        window = Main.stage;
-        window.setTitle("Add New Member");
-        window.setScene(new Scene(root));
-        window.show();
-    }
-
-    @FXML
     private void save() {
-        Boolean isBoard = board.isSelected();
-        Member member = new Member(firstName.getText(),lastName.getText(),street.getText(),Integer.parseInt(houseNr.getText()),Integer.parseInt(zip.getText()),city.getText(),email.getText(),bDay.getValue(),isBoard);
-        System.out.println(member.getbDay());
-        repo.save(member);
+        if (Validation.validate("Voornaam:", firstName.getText(), "[a-zA-Z]+") &&
+                Validation.validate("Achternaam:", lastName.getText(), "[a-zA-Z]+")
+                && Validation.validate("Straatnaam:", street.getText(), "[a-zA-Z]+")
+                && Validation.validate("Huisnummer:", houseNr.getText(), "[0-9]")
+                && Validation.validate("Postcode:", zip.getText(), "[0-9]")
+                && Validation.validate("Stad:", city.getText(), "[a-zA-Z]+")
+                && Validation.validate("Email:", email.getText(), "[a-zA-Z0-9][a-zA-Z0-9._]*@[a-zA-Z0-9]+([.][a-zA-Z]+)+")
+                && Validation.emptyValidation("Geboortedatum:", bDay.getEditor().getText().isEmpty())){
+            Member member = new Member(firstName.getText(), lastName.getText(), street.getText(), Integer.parseInt(houseNr.getText()), Integer.parseInt(zip.getText()), city.getText(), email.getText(), bDay.getValue(), board.isSelected());
+            repo.save(member);
+        }
     }
 
     @FXML
     private void addMore() {
-        System.out.println(repo.toString());
     }
 }

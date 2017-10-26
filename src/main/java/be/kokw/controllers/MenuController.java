@@ -1,10 +1,9 @@
 package be.kokw.controllers;
 
 
-import be.kokw.controllers.books.AddBook;
 import be.kokw.controllers.members.AddMember;
+import be.kokw.utility.ChangeScene;
 import javafx.fxml.FXML;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 
 /**
@@ -12,17 +11,13 @@ import org.springframework.stereotype.Controller;
  * This is the MenuControllerClass
  */
 @Controller
-@Qualifier
 public class MenuController {
-    private AddBook addBook;
-
 
     //BookMethods
     //Add a Book
     @FXML
     private void addBook() throws Exception {
-        addBook = new AddBook();
-        addBook.init();
+        ChangeScene.init("/fxml/books/addBook.fxml","addBook");
     }
 
     //Find a Book
@@ -68,8 +63,7 @@ public class MenuController {
     //Add a Member
     @FXML
     private void addMember() throws Exception {
-        AddMember member = new AddMember();
-        member.init();
+        ChangeScene.init("/fxml/books/addMember.fxml","addMember");
     }
 
     //Find a Member

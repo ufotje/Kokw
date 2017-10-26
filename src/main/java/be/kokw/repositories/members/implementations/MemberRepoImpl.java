@@ -1,4 +1,4 @@
-package be.kokw.repositories.books.implementations;
+package be.kokw.repositories.members.implementations;
 
 import be.kokw.bean.Member;
 import be.kokw.repositories.members.MemberRepo;
@@ -15,7 +15,7 @@ import java.util.List;
 /**
  * Created by ufotje on 22/10/2017.
  */
-@Repository()
+@Repository("memberRepo")
 public class MemberRepoImpl implements MemberRepo {
     private EntityManager manager;
 
@@ -37,6 +37,7 @@ public class MemberRepoImpl implements MemberRepo {
 
     @Override
     public <S extends Member> S save(S s) {
+        manager.persist(s);
         return null;
     }
 
