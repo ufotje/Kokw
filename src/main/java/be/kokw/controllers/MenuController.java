@@ -1,16 +1,13 @@
 package be.kokw.controllers;
 
-
-import be.kokw.controllers.members.AddMember;
 import be.kokw.utility.ChangeScene;
 import javafx.fxml.FXML;
-import org.springframework.stereotype.Controller;
 
 /**
  * Created by ufotje on 20/10/2017.
  * This is the MenuControllerClass
  */
-@Controller
+
 public class MenuController {
 
     //BookMethods
@@ -19,7 +16,6 @@ public class MenuController {
     private void addBook() throws Exception {
         ChangeScene.init("/fxml/books/addBook.fxml","addBook");
     }
-
     //Find a Book
     @FXML
     private void findBookByTitle() {
@@ -63,7 +59,7 @@ public class MenuController {
     //Add a Member
     @FXML
     private void addMember() throws Exception {
-        ChangeScene.init("/fxml/books/addMember.fxml","addMember");
+        ChangeScene.init("/fxml/members/addMember.fxml","addMember");
     }
 
     //Find a Member

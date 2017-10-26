@@ -1,20 +1,17 @@
 package be.kokw.controllers.books;
 
-import be.kokw.Main;
 import be.kokw.bean.Book;
+import be.kokw.controllers.MenuController;
 import be.kokw.repositories.books.interfaces.BookRepo;
 import be.kokw.utility.ChangeScene;
-import be.kokw.utility.GetControllerBean;
+import be.kokw.utility.SaveAlert;
 import be.kokw.utility.Validation;
 import javafx.fxml.FXML;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
-import javafx.stage.Stage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
+
 
 /**
  * Created by ufotje on 20/10/2017.
@@ -22,12 +19,12 @@ import org.springframework.stereotype.Component;
  */
 
 @Component
-public class AddBook{
+public class AddBook extends MenuController{
     @FXML
     private TextField title, topic, firstName, lastName, publisher, place, year, pages;
     private BookRepo repo;
 
-    public AddBook() throws Exception{
+    public AddBook() {
 
     }
 
@@ -38,21 +35,55 @@ public class AddBook{
 
     @FXML
     public void save() throws Exception {
-        Book book = new Book(title.getText(), topic.getText(), firstName.getText(), lastName.getText(), publisher.getText(), place.getText(), Integer.parseInt(year.getText()), Integer.parseInt(pages.getText()));
-        Book newBook = repo.save(book);
-        saveAlert(newBook);
-        ChangeScene.init("/fxml/sample.fxml","KOKW-AdminApp");
+        if (validated()) {
+            Book book = new Book(title.getText(), topic.getText(), firstName.getText(), lastName.getText(), publisher.getText(), place.getText(), Integer.parseInt(year.getText()), Integer.parseInt(pages.getText()));
+            repo.save(book);
+            String alert = "with title: '" + title.getText() + "'";
+            SaveAlert.saveAlert("book", alert);
+            ChangeScene.init("/fxml/sample.fxml", "KOKW-AdminApp");
+        }
     }
 
     @FXML
-    public void addMore(){}
+    public void addMore() {
+        if (validated()) {
+            Book book = new Book(title.getText(), topic.getText(), firstName.getText(), lastName.getText(), publisher.getText(), place.getText(), Integer.parseInt(year.getText()), Integer.parseInt(pages.getText()));
+            repo.save(book);
+            clearFields();
+        }
+    }
 
-    @FXML
-    private void saveAlert(Book book) {
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("Book saved successfully.");
-        alert.setHeaderText(null);
-        alert.setContentText("The book " + book.getTitle() + " has been created");
-        alert.showAndWait();
+    private boolean validated() {
+        boolean valid = false;
+        if (Validation.emptyValidation("Tittel", title.getText().isEmpty() &&
+                Validation.emptyValidation("Topic", topic.getText().isEmpty()) &&
+                Validation.validate("Achternaam Auteur", lastName.getText(), "[a-zA-Z]+") &&
+                Validation.validate("Voornaam Auteur:", firstName.getText(), "[a-zA-Z]+")) &&
+                Validation.validate("Uitgeverij:", publisher.getText(), "[a-zA-Z]+") &&
+                Validation.emptyValidation("Plaats Uitgeverij", place.getText().isEmpty()) &&
+                Validation.validate("Jaar van publicatie:", year.getText(), "[0-9999]+") &&
+                Validation.validate("Aantal Bladzijden:", pages.getText(), "[0-9999]+")) {
+            valid = true;
+        }
+        return valid;
+    }
+
+    private void clearFields(){
+        title.setText(null);
+        title.setPromptText(title.getPromptText());
+        topic.setText(null);
+        topic.setPromptText(topic.getPromptText());
+        firstName.setText(null);
+        firstName.setPromptText(firstName.getPromptText());
+        lastName.setText(null);
+        lastName.setPromptText(lastName.getPromptText());
+        publisher.setText(null);
+        publisher.setPromptText(publisher.getPromptText());
+        place.setText(null);
+        place.setPromptText(place.getPromptText());
+        year.setText(null);
+        year.setPromptText(year.getPromptText());
+        pages.setText(null);
+        pages.setText(pages.getPromptText());
     }
 }

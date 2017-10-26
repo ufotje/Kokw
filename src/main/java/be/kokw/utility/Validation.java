@@ -7,6 +7,7 @@ import java.util.regex.Pattern;
 
 /**
  * Created by ufotje on 26/10/2017.
+ * utilityClass with ValidationMethods
  */
 public class Validation {
     public static boolean validate(String field, String value, String pattern){
