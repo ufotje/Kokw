@@ -1,7 +1,6 @@
 package be.kokw.controllers.books;
 
 import be.kokw.bean.Book;
-import be.kokw.controllers.MenuController;
 import be.kokw.repositories.books.interfaces.BookRepo;
 import be.kokw.utility.ChangeScene;
 import be.kokw.utility.SaveAlert;
@@ -19,7 +18,7 @@ import org.springframework.stereotype.Component;
  */
 
 @Component
-public class AddBook extends MenuController{
+public class AddBook{
     @FXML
     private TextField title, topic, firstName, lastName, publisher, place, year, pages;
     private BookRepo repo;
@@ -40,7 +39,7 @@ public class AddBook extends MenuController{
             repo.save(book);
             String alert = "with title: '" + title.getText() + "'";
             SaveAlert.saveAlert("book", alert);
-            ChangeScene.init("/fxml/sample.fxml", "KOKW-AdminApp");
+            ChangeScene.init("/fxml/menu.fxml", "KOKW-AdminApp");
         }
     }
 

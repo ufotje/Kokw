@@ -2,12 +2,14 @@ package be.kokw.controllers;
 
 import be.kokw.utility.ChangeScene;
 import javafx.fxml.FXML;
+import org.springframework.stereotype.Controller;
 
 /**
  * Created by ufotje on 20/10/2017.
  * This is the MenuControllerClass
  */
 
+@Controller
 public class MenuController {
 
     //BookMethods

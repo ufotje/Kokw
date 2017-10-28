@@ -22,88 +22,12 @@
 <BorderPane prefHeight="600.0" prefWidth="800.0" style="-fx-background-image: url(&quot;http://users.telenet.be/hbo5_java/pictures/kokw/logo.jpg&quot;); -fx-background-position: center; -fx-background-repeat: no-repeat; -fx-background-size: cover;" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="be.kokw.controllers.members.AddMember">
 <top>
     <VBox BorderPane.alignment="CENTER">
-        <children>
-            <MenuBar style="-fx-background-color: #85C1E9; -fx-background-radius: 10;">
-                <menus>
-                    <Menu mnemonicParsing="false" text="Boeken">
-                        <items>
-                            <MenuItem id="addBook" fx:id="addBook" mnemonicParsing="false" text="Voeg Toe" />
-                            <Menu mnemonicParsing="false" text="Zoeken">
-                                <items>
-                                    <MenuItem mnemonicParsing="false" text="Op Tittel" />
-                                    <MenuItem mnemonicParsing="false" text="Op Auteur" />
-                                    <MenuItem mnemonicParsing="false" text="Op Uitgever" />
-                                </items>
-                            </Menu>
-                            <Menu mnemonicParsing="false" text="Verwijder">
-                                <items>
-                                    <MenuItem mnemonicParsing="false" text="Op Tittel" />
-                                    <MenuItem mnemonicParsing="false" text="Op Auteur" />
-                                    <MenuItem mnemonicParsing="false" text="Op Uitgever" />
-                                </items>
-                            </Menu>
-                            <Menu mnemonicParsing="false" text="Updaten">
-                                <items>
-                                    <MenuItem mnemonicParsing="false" text="Op Tittel" />
-                                    <MenuItem mnemonicParsing="false" text="Op Auteur" />
-                                    <MenuItem mnemonicParsing="false" text="Op Uitgever" />
-                                </items>
-                            </Menu>
-                        </items>
-                    </Menu>
-                    <Menu mnemonicParsing="false" text="Leden">
-                        <items>
-                            <MenuItem mnemonicParsing="false" text="Voeg toe" />
-                            <MenuItem mnemonicParsing="false" text="Update" />
-                            <MenuItem mnemonicParsing="false" text="Verwijder" />
-                            <Menu mnemonicParsing="false" text="Zoeken">
-                                <items>
-                                    <MenuItem mnemonicParsing="false" text="Op Naam" />
-                                    <MenuItem mnemonicParsing="false" text="Op Stad" />
-                                    <MenuItem mnemonicParsing="false" text="Op geboortedatum" />
-                                    <MenuItem mnemonicParsing="false" text="Op onbetaald Lidgeld" />
-                                    <MenuItem mnemonicParsing="false" text="Analen niet Ontvangen" />
-                                </items>
-                            </Menu>
-                        </items>
-                    </Menu>
-                </menus>
-                <opaqueInsets>
-                    <Insets bottom="6.0" left="6.0" right="6.0" top="6.0" />
-                </opaqueInsets>
-                <effect>
-                    <Lighting>
-                        <bumpInput>
-                            <Shadow />
-                        </bumpInput>
-                        <light>
-
-                        </light>
-                    </Lighting>
-                </effect>
-                <cursor>
-                    <Cursor fx:constant="HAND" />
-                </cursor>
-            </MenuBar>
-        </children>
+            <fx:include source="/fxml/menu.fxml" />
     </VBox>
 </top>
 <bottom>
     <VBox alignment="CENTER" fillWidth="false" style="-fx-background-color: #A9CCE3; -fx-background-radius: 10;" BorderPane.alignment="CENTER">
-        <children>
-            <Label style="-fx-font-weight: Bold;" text="©2017" />
-            <Label style="-fx-font-weight: Bold;" text="Designed &amp; Programmed by Demesmaecker Daniel ">
-                <graphic>
-                    <Label />
-                </graphic>
-            </Label>
-        </children>
-        <effect>
-            <Glow />
-        </effect>
-        <cursor>
-            <Cursor fx:constant="DEFAULT" />
-        </cursor>
+       <fx:include source="/fxml/footer.fxml" />
     </VBox>
 </bottom>
 <center>

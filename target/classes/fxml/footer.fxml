@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.effect.Glow?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            prefWidth="800.0">
+    <bottom>
+        <VBox alignment="CENTER" style="-fx-background-color: #A9CCE3; -fx-background-radius: 10;"
+              BorderPane.alignment="CENTER">
+            <Label style="-fx-font-weight: Bold;" text="©2017"/>
+            <Label style="-fx-font-weight: Bold;" text="Designed &amp; Programmed by Demesmaecker Daniel ">
+                <graphic>
+                    <Label/>
+                </graphic>
+            </Label>
+            <effect>
+                <Glow/>
+            </effect>
+            <cursor>
+                <Cursor fx:constant="DEFAULT"/>
+            </cursor>
+        </VBox>
+    </bottom>
+</BorderPane>

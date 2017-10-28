@@ -15,7 +15,7 @@ public interface ChangeScene {
         Parent root = GetControllerBean.getBean(resource);
         Stage window = Main.stage;
         window.setTitle(title);
-        window.setScene(new Scene(root,800,600));
+        window.getScene().setRoot(root);
         window.show();
     }
 }

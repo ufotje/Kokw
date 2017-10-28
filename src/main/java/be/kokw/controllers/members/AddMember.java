@@ -20,7 +20,7 @@ import org.springframework.stereotype.Component;
  */
 
 @Component
-public class AddMember extends MenuController {
+public class AddMember{
     private MemberRepo repo;
 
     @FXML
