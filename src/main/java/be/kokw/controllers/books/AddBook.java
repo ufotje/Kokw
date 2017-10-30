@@ -1,7 +1,7 @@
 package be.kokw.controllers.books;
 
 import be.kokw.bean.Book;
-import be.kokw.repositories.books.interfaces.BookRepo;
+import be.kokw.repositories.BookRepo;
 import be.kokw.utility.ChangeScene;
 import be.kokw.utility.SaveAlert;
 import be.kokw.utility.Validation;
@@ -23,13 +23,13 @@ public class AddBook{
     private TextField title, topic, firstName, lastName, publisher, place, year, pages;
     private BookRepo repo;
 
-    public AddBook() {
-
+    @Autowired
+    private void SetBookRepo(@Qualifier("bookRepo")BookRepo repo){
+        this.repo = repo;
     }
 
-    @Autowired
-    public void setBookRepo(@Qualifier("bookRepo") BookRepo bookRepo) {
-        repo = bookRepo;
+    public AddBook() {
+
     }
 
     @FXML

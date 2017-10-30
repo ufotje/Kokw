@@ -33,6 +33,9 @@ public class Book implements Serializable {
     @Column(name = "Nr_of_Pages")
     private int nrOfPages;
 
+    public Book() {
+    }
+
     public Book(String title, String topic, String authorFirstName, String authorLastName, String publisher, String place, int yearPublished, int nrOfPages) {
         this.title = title;
         this.topic = topic;
@@ -42,9 +45,6 @@ public class Book implements Serializable {
         this.place = place;
         this.yearPublished = yearPublished;
         this.nrOfPages = nrOfPages;
-    }
-
-    public Book() {
     }
 
     public String getTitle() {

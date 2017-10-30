@@ -1,5 +1,7 @@
 package be.kokw;
 
+import be.kokw.repositories.BookRepo;
+import be.kokw.repositories.MemberRepo;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -13,7 +15,7 @@ import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @SpringBootApplication
-@EnableJpaRepositories
+@EnableJpaRepositories(basePackages = "be.kokw.repositories")
 public class Main extends Application {
     public static Stage stage;
     public static ConfigurableApplicationContext springContext;
@@ -47,3 +49,4 @@ public class Main extends Application {
         springContext.close();
     }
 }
+

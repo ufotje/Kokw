@@ -1,8 +1,7 @@
 package be.kokw.controllers.members;
 
 import be.kokw.bean.Member;
-import be.kokw.controllers.MenuController;
-import be.kokw.repositories.members.MemberRepo;
+import be.kokw.repositories.MemberRepo;
 import be.kokw.utility.SaveAlert;
 import be.kokw.utility.Validation;
 import javafx.fxml.FXML;
@@ -65,9 +64,9 @@ public class AddMember{
         if(Validation.validate("Voornaam:", firstName.getText(), "[a-zA-Z]+") &&
                 Validation.validate("Achternaam:", lastName.getText(), "[a-zA-Z]+")
                 && Validation.validate("Straatnaam:", street.getText(), "[a-zA-Z]+")
-                && Validation.validate("Huisnummer:", houseNr.getText(), "[0-1000]")
-                && Validation.validate("Postcode:", zip.getText(), "[0-9999]")
-                && Validation.validate("Stad:", city.getText(), "[a-zA-Z]+[-]")
+                && Validation.validate("Huisnummer:", houseNr.getText(), "[0-9]+")
+                && Validation.validate("Postcode:", zip.getText(), "[0-9]+[0-9]+[0-9]+[0-9]")
+                && Validation.validate("Stad:", city.getText(), "[a-zA-Z-]+")
                 && Validation.validate("Email:", email.getText(), "[a-zA-Z0-9][a-zA-Z0-9._]*@[a-zA-Z0-9]+([.][a-zA-Z]+)+")
                 && Validation.emptyValidation("Geboortedatum:", bDay.getEditor().getText().isEmpty())){
             validated = true;

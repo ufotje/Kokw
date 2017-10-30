@@ -1,15 +1,19 @@
 package be.kokw.repositories.books.implementations;
 
 import be.kokw.bean.Book;
-import be.kokw.repositories.books.interfaces.BookRepo;
 
+import be.kokw.repositories.BookRepo;
+import javafx.collections.ObservableList;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.TypedQuery;
 import java.util.List;
 
 /**
@@ -37,7 +41,8 @@ public class BookRepoImpl implements BookRepo {
 
     @Override
     public List<Book> findByAuthorFirstNameAndAuthorLastName(String firstName, String lastName) {
-        return null;
+        TypedQuery<Book> query = manager.createQuery("select b from Book b where b.authorFirstName = :firstname and b.authorLastName = :lastname",Book.class);
+        return query.setParameter("firstname", firstName).setParameter("lastname",lastName).getResultList();
     }
 
     @Override
