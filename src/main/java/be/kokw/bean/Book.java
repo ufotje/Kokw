@@ -47,6 +47,14 @@ public class Book implements Serializable {
         this.nrOfPages = nrOfPages;
     }
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
     public String getTitle() {
         return title;
     }
@@ -79,12 +87,12 @@ public class Book implements Serializable {
         this.authorLastName = authorLastName;
     }
 
-    public String getPublicher() {
+    public String getPublisher() {
         return publisher;
     }
 
-    public void setPublisher(String publicer) {
-        this.publisher = publicer;
+    public void setPublisher(String publisher) {
+        this.publisher = publisher;
     }
 
     public String getPlace() {
