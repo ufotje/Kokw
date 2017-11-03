@@ -2,8 +2,7 @@ package be.kokw.controllers.books.delete;
 
 
 import be.kokw.repositories.BookRepo;
-import be.kokw.utility.ChangeScene;
-import be.kokw.utility.DeleteAlert;
+import be.kokw.utility.Alert;
 import be.kokw.utility.NewStage;
 import be.kokw.utility.Validation;
 import javafx.fxml.FXML;
@@ -15,6 +14,7 @@ import org.springframework.stereotype.Component;
 
 /**
  * Created by ufotje on 2/11/2017.
+ * Delete Book By TitleClass
  */
 @Component
 public class ByTitle {
@@ -31,15 +31,18 @@ public class ByTitle {
     @FXML
     public void init()throws Exception{
         window = NewStage.getStage("Verwijder Boek op Titel!","/fxml/books/delete/dialogpaneByTitle.fxml");
-        window.showAndWait();
-
+        window.show();
     }
+
     @FXML
     private void delete(){
         if(Validation.emptyValidation("Titel",title.getText().isEmpty())){
-            bookRepo.deleteByTitle(title.getText());
-            window.close();
-            DeleteAlert.deleteAlert("Book",title.getText());
+            if(bookRepo.deleteByTitle(title.getText())>0) {
+                Alert.alert("Book Deleted", "The book " + title.getText() + "has been successful deleted");
+                window.close();
+            }else{
+                Alert.alert("Book Not Found","The book '" + title.getText() + "' has not been found!");
+            }
         }
     }
 }

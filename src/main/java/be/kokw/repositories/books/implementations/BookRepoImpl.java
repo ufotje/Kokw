@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 import javax.persistence.TypedQuery;
 import java.util.List;
 
@@ -33,7 +34,8 @@ public class BookRepoImpl implements BookRepo {
 
     @Override
     public Book findByTitle(String title) {
-        return null;
+        TypedQuery<Book> query = manager.createQuery("select b from Book b where b.title = :title",Book.class);
+        return query.setParameter("title", title).getSingleResult();
     }
 
     @Override
@@ -58,8 +60,10 @@ public class BookRepoImpl implements BookRepo {
     }
 
     @Override
-    public void deleteByTitle(String title) {
-
+    public int deleteByTitle(String title) {
+        Query query = manager.createQuery("delete from Book AS b where b.title= :title");
+        query.setParameter("title", title);
+        return query.executeUpdate();
     }
 
     @Override

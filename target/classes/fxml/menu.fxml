@@ -19,20 +19,16 @@
                     <MenuItem mnemonicParsing="false" onAction="#addBook"
                               text="Voeg Toe"/>
                     <Menu mnemonicParsing="false" text="Zoeken">
-                        <MenuItem mnemonicParsing="false" text="Op Tittel" onAction="#findBookByTitle"/>
+                        <MenuItem mnemonicParsing="false" text="Op Titel" onAction="#findBookByTitle"/>
                         <MenuItem mnemonicParsing="false" text="Op Auteur" onAction="#findBookByAuthor"/>
                         <MenuItem mnemonicParsing="false" text="Op Uitgever" onAction="#findBookByPublisher"/>
                     </Menu>
                     <Menu mnemonicParsing="false" text="Verwijder">
-                        <MenuItem mnemonicParsing="false" text="Op Tittel" onAction="#deleteBookByTitle"/>
+                        <MenuItem mnemonicParsing="false" text="Op Titel" onAction="#deleteBookByTitle"/>
                         <MenuItem mnemonicParsing="false" text="Op Auteur" onAction="#deleteBookByAuthor"/>
                         <MenuItem mnemonicParsing="false" text="Op Uitgever" onAction="#deleteBookByPublisher"/>
                     </Menu>
-                    <Menu mnemonicParsing="false" text="Updaten">
-                        <MenuItem mnemonicParsing="false" text="Op Tittel" onAction="#updateBookByTitle"/>
-                        <MenuItem mnemonicParsing="false" text="Op Auteur" onAction="#updateBookByAuthor"/>
-                        <MenuItem mnemonicParsing="false" text="Op Uitgever" onAction="#updateBookByPublisher"/>
-                    </Menu>
+                        <MenuItem mnemonicParsing="false" text="Updaten" onAction="#updateBookByTitle"/>
                 </Menu>
                 <Menu mnemonicParsing="false" text="Leden">
                     <MenuItem mnemonicParsing="false" text="Voeg toe" onAction="#addMember"/>

@@ -24,7 +24,9 @@ public class MenuController {
 
     //Find a Book
     @FXML
-    private void findBookByTitle() {
+    private void findBookByTitle() throws Exception {
+        Stage window = NewStage.getStage("Vind Boek op Titel!","/fxml/books/search/dialogpaneByTitle.fxml");
+        window.show();
     }
 
     @FXML
@@ -40,14 +42,6 @@ public class MenuController {
     //Update a book
     @FXML
     private void updateBookByTitle() {
-    }
-
-    @FXML
-    private void updateBookByAuthor() {
-    }
-
-    @FXML
-    private void updateBookByPublisher() {
     }
 
     //Delete a Book

@@ -2,7 +2,7 @@ package be.kokw.controllers.members;
 
 import be.kokw.bean.Member;
 import be.kokw.repositories.MemberRepo;
-import be.kokw.utility.SaveAlert;
+import be.kokw.utility.Alert;
 import be.kokw.utility.Validation;
 import javafx.fxml.FXML;
 import javafx.scene.control.DatePicker;
@@ -45,8 +45,8 @@ public class AddMember{
         if (valid()){
             Member member = new Member(firstName.getText(), lastName.getText(), street.getText(), Integer.parseInt(houseNr.getText()), Integer.parseInt(zip.getText()), city.getText(), email.getText(), bDay.getValue(), board.isSelected());
             repo.save(member);
-            String name = "with name: '" + firstName.getText() + " " + lastName.getText() + "'";
-            SaveAlert.saveAlert("member", name);
+            String name = "The member with name: '" + firstName.getText() + " " + lastName.getText() + "' has been successfully saved!";
+            Alert.alert("Member saved!", name);
         }
     }
 

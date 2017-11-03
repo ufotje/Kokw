@@ -2,8 +2,8 @@ package be.kokw.controllers.books;
 
 import be.kokw.bean.Book;
 import be.kokw.repositories.BookRepo;
+import be.kokw.utility.Alert;
 import be.kokw.utility.ChangeScene;
-import be.kokw.utility.SaveAlert;
 import be.kokw.utility.Validation;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
@@ -37,8 +37,8 @@ public class AddBook{
         if (validated()) {
             Book book = new Book(title.getText(), topic.getText(), firstName.getText(), lastName.getText(), publisher.getText(), place.getText(), Integer.parseInt(year.getText()), Integer.parseInt(pages.getText()));
             repo.save(book);
-            String alert = "with title: '" + title.getText() + "'";
-            SaveAlert.saveAlert("book", alert);
+            String alert = "The book with title: '" + title.getText() + "' has been successfully saved!";
+            Alert.alert("Book saved!", alert);
             ChangeScene.init("/fxml/menu.fxml", "KOKW-AdminApp");
         }
     }
