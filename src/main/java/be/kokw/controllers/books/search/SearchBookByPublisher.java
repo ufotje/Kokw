@@ -13,35 +13,38 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Component;
 
 import static javafx.collections.FXCollections.observableArrayList;
 
 /**
  * Created by ufotje on 3/11/2017.
  */
-public class ByTitle {
+
+@Component
+public class SearchBookByPublisher {
     @FXML
-    private TextField title;
+    private TextField publisher;
     @FXML
     private TableView<Book> table;
     @FXML
-    private TableColumn<Book,Integer> idCol = new TableColumn();
+    private TableColumn<Book,Integer> idCol;
     @FXML
-    private TableColumn<Book,String> titleCol = new TableColumn();
+    private TableColumn<Book,String> titleCol;
     @FXML
-    private TableColumn<Book,String> topicCol = new TableColumn();
+    private TableColumn<Book,String> topicCol;
     @FXML
-    private TableColumn<Book,String> firstNameCol = new TableColumn();
+    private TableColumn<Book,String> firstNameCol;
     @FXML
-    private TableColumn<Book,String> lastNameCol = new TableColumn();
+    private TableColumn<Book,String> lastNameCol ;
     @FXML
-    private TableColumn<Book,String> publisherCol = new TableColumn();
+    private TableColumn<Book,String> publisherCol;
     @FXML
-    private TableColumn<Book,String> placeCol = new TableColumn();
+    private TableColumn<Book,String> placeCol;
     @FXML
-    private TableColumn<Book,String>yearCol = new TableColumn();
+    private TableColumn<Book,String>yearCol;
     @FXML
-    private TableColumn<Book,String>pagesCol = new TableColumn();
+    private TableColumn<Book,String>pagesCol;
     private BookRepo bookRepo;
 
     @Autowired
@@ -51,10 +54,10 @@ public class ByTitle {
 
     @FXML
     private void search() throws Exception {
-        if(Validation.emptyValidation("Titel",title.getText().isEmpty())){
-            ObservableList<Book> bookList = observableArrayList(bookRepo.findByTitle(title.getText()));
+        if(Validation.emptyValidation("Uitgeverij",publisher.getText().isEmpty())){
+            ObservableList<Book> bookList = observableArrayList(bookRepo.findByPublisher(publisher.getText()));
             if(!(bookList.isEmpty())){
-                ChangeScene.init("/fxml/books/found/tableView.fxml", "Books by Title");
+                ChangeScene.init("/fxml/books/search/byPublisher.fxml", "Books by Publisher");
                 idCol.setCellValueFactory(new PropertyValueFactory("id"));
                 titleCol.setCellValueFactory(new PropertyValueFactory("title"));
                 topicCol.setCellValueFactory(new PropertyValueFactory("topic"));
@@ -66,9 +69,8 @@ public class ByTitle {
                 pagesCol.setCellValueFactory(new PropertyValueFactory("nrOfPages"));
                 table.setItems(bookList);
             }else{
-                Alert.alert("Book Not Found","The book '" + title.getText() + "' has not been found!");
+                Alert.alert("Book Not Found","Er werden geen boeken gevonden die werden uitgegeven door: '" + publisher.getText() + "'!");
             }
         }
     }
 }
-

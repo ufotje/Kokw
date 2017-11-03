@@ -17,7 +17,7 @@ import org.springframework.stereotype.Component;
  * Delete Book By TitleClass
  */
 @Component
-public class ByTitle {
+public class DeleteBookByTitle {
     @FXML
     private TextField title;
     private BookRepo bookRepo;

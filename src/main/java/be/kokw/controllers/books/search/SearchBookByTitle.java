@@ -17,16 +17,15 @@ import org.springframework.stereotype.Component;
 
 import static javafx.collections.FXCollections.observableArrayList;
 
-
 /**
- * Created by ufotje on 28/10/2017.
- * The search byAuthorsNameControllerClass
+ * Created by ufotje on 3/11/2017.
+ * The find by titleClass
  */
 
 @Component
-public class SearchBookByName {
+public class SearchBookByTitle {
     @FXML
-    private TextField firstName, lastName;
+    private TextField title;
     @FXML
     private TableView<Book> table;
     @FXML
@@ -38,7 +37,7 @@ public class SearchBookByName {
     @FXML
     private TableColumn<Book,String> firstNameCol;
     @FXML
-    private TableColumn<Book,String> lastNameCol;
+    private TableColumn<Book,String> lastNameCol ;
     @FXML
     private TableColumn<Book,String> publisherCol;
     @FXML
@@ -55,12 +54,11 @@ public class SearchBookByName {
     }
 
     @FXML
-    void search() throws Exception {
-        if (Validation.validate("Achternaam Auteur", lastName.getText(), "[a-zA-Z]+") &&
-                Validation.validate("Voornaam Auteur:", firstName.getText(), "[a-zA-Z]+")) {
-            ObservableList<Book> bookList = observableArrayList(bookRepo.findByAuthorFirstNameAndAuthorLastName(firstName.getText(), lastName.getText()));
-            if(!(bookList.isEmpty())) {
-                ChangeScene.init("/fxml/books/found/tableView.fxml", "Books by Author's name");
+    private void search() throws Exception {
+        if(Validation.emptyValidation("Titel",title.getText().isEmpty())){
+            ObservableList<Book> bookList = observableArrayList(bookRepo.findByTitle(title.getText()));
+            if(!(bookList.isEmpty())){
+                ChangeScene.init("/fxml/books/search/tableView.fxml", "Books by Title");
                 idCol.setCellValueFactory(new PropertyValueFactory("id"));
                 titleCol.setCellValueFactory(new PropertyValueFactory("title"));
                 topicCol.setCellValueFactory(new PropertyValueFactory("topic"));
@@ -71,9 +69,10 @@ public class SearchBookByName {
                 yearCol.setCellValueFactory(new PropertyValueFactory("yearPublished"));
                 pagesCol.setCellValueFactory(new PropertyValueFactory("nrOfPages"));
                 table.setItems(bookList);
-            }else {
-                Alert.alert("No Books found!","Er werden geen boeken gevonden geschreven door " + firstName + " " + lastName);
+            }else{
+                Alert.alert("Book Not Found","The book '" + title.getText() + "' has not been found!");
             }
         }
     }
 }
+

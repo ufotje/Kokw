@@ -1,6 +1,6 @@
 package be.kokw.controllers;
 
-import be.kokw.controllers.books.delete.ByTitle;
+import be.kokw.controllers.books.delete.DeleteBookByTitle;
 import be.kokw.utility.ChangeScene;
 import be.kokw.utility.NewStage;
 import javafx.fxml.FXML;
@@ -36,7 +36,9 @@ public class MenuController {
     }
 
     @FXML
-    private void findBookByPublisher() {
+    private void findBookByPublisher() throws Exception {
+        Stage window = NewStage.getStage("Vind Boeken op uitgeverij!","/fxml/books/search/dialogpaneByPublisher.fxml");
+        window.show();
     }
 
     //Update a book
@@ -47,7 +49,7 @@ public class MenuController {
     //Delete a Book
     @FXML
     private void deleteBookByTitle() throws Exception{
-        ByTitle b = new ByTitle();
+        DeleteBookByTitle b = new DeleteBookByTitle();
         b.init();
     }
 

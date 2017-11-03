@@ -16,6 +16,7 @@ import java.util.List;
 
 /**
  * Created by ufotje on 22/10/2017.
+ * The bookrepo implementation
  */
 @Repository("bookRepo")
 public class BookRepoImpl implements BookRepo {
@@ -45,8 +46,9 @@ public class BookRepoImpl implements BookRepo {
     }
 
     @Override
-    public List<Book> findByPublisher(String Publisher) {
-        return null;
+    public List<Book> findByPublisher(String publisher){
+        TypedQuery<Book> query = manager.createQuery("select b from Book b where b.publisher = :publisher",Book.class);
+        return query.setParameter("publisher", publisher).getResultList();
     }
 
     @Override
