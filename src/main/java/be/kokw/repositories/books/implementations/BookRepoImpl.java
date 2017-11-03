@@ -3,12 +3,9 @@ package be.kokw.repositories.books.implementations;
 import be.kokw.bean.Book;
 
 import be.kokw.repositories.BookRepo;
-import javafx.collections.ObservableList;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
-import org.springframework.data.jpa.repository.Query;
-import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;

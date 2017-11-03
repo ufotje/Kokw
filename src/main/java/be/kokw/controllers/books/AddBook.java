@@ -54,7 +54,7 @@ public class AddBook{
 
     private boolean validated() {
         boolean valid = false;
-        if (Validation.emptyValidation("Tittel", title.getText().isEmpty() &&
+        if (Validation.emptyValidation("Titel", title.getText().isEmpty() &&
                 Validation.emptyValidation("Topic", topic.getText().isEmpty()) &&
                 Validation.validate("Achternaam Auteur", lastName.getText(), "[a-zA-Z]+") &&
                 Validation.validate("Voornaam Auteur:", firstName.getText(), "[a-zA-Z]+")) &&

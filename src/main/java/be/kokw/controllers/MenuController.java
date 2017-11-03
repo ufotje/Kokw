@@ -1,5 +1,6 @@
 package be.kokw.controllers;
 
+import be.kokw.controllers.books.delete.ByTitle;
 import be.kokw.utility.ChangeScene;
 import be.kokw.utility.NewStage;
 import javafx.fxml.FXML;
@@ -51,7 +52,9 @@ public class MenuController {
 
     //Delete a Book
     @FXML
-    private void deleteBookByTitle() {
+    private void deleteBookByTitle() throws Exception{
+        ByTitle b = new ByTitle();
+        b.init();
     }
 
     @FXML
