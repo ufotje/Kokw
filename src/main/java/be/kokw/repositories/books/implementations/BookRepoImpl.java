@@ -57,14 +57,16 @@ public class BookRepoImpl implements BookRepo {
     }
 
     @Override
-    public List<Book> findByYearPublished(int year) {
-        return null;
-    }
-
-    @Override
     public int deleteByTitle(String title) {
         Query query = manager.createQuery("delete from Book AS b where b.title= :title");
         query.setParameter("title", title);
+        return query.executeUpdate();
+    }
+
+    @Override
+    public int update(String title, String topic, String firstName, String lastName, String publisher, String place, int year, int pages) {
+        Query query = manager.createQuery("update Book set title =:title, topic =:topic, authorFirstName=:firstName,authorLastName=:lastName,publisher=:publisher,place=:place,yearPublished=:year,nrOfPages=:pages where title=:title");
+        query.setParameter("title", title).setParameter("topic",topic).setParameter("firstName", firstName).setParameter("lastName",lastName).setParameter("publisher",publisher).setParameter("place",place).setParameter("year",year).setParameter("pages",pages);
         return query.executeUpdate();
     }
 

@@ -25,10 +25,8 @@
                     </Menu>
                     <Menu mnemonicParsing="false" text="Verwijder">
                         <MenuItem mnemonicParsing="false" text="Op Titel" onAction="#deleteBookByTitle"/>
-                        <MenuItem mnemonicParsing="false" text="Op Auteur" onAction="#deleteBookByAuthor"/>
-                        <MenuItem mnemonicParsing="false" text="Op Uitgever" onAction="#deleteBookByPublisher"/>
                     </Menu>
-                        <MenuItem mnemonicParsing="false" text="Updaten" onAction="#updateBookByTitle"/>
+                    <MenuItem mnemonicParsing="false" text="Updaten" onAction="#updateBookByTitle"/>
                 </Menu>
                 <Menu mnemonicParsing="false" text="Leden">
                     <MenuItem mnemonicParsing="false" text="Voeg toe" onAction="#addMember"/>

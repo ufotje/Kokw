@@ -1,10 +1,8 @@
-package be.kokw.controllers.books;
+package be.kokw.controllers.books.update;
 
-import be.kokw.bean.Book;
 import be.kokw.repositories.BookRepo;
-import be.kokw.utility.Alert;
-import be.kokw.utility.ChangeScene;
 import be.kokw.utility.Validation;
+import be.kokw.utility.Warning;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,41 +12,35 @@ import org.springframework.stereotype.Component;
 
 /**
  * Created by ufotje on 20/10/2017.
- * This class is used to save a book
+ * This class is used to update a book
  */
 
 @Component
-public class AddBook{
+public class UpdateBook {
     @FXML
     private TextField title, topic, firstName, lastName, publisher, place, year, pages;
     private BookRepo repo;
 
     @Autowired
-    private void SetBookRepo(@Qualifier("bookRepo")BookRepo repo){
+    private void SetBookRepo(@Qualifier("bookRepo") BookRepo repo) {
         this.repo = repo;
     }
 
-    public AddBook() {
+    public UpdateBook() {
 
     }
 
     @FXML
-    public void save() throws Exception {
+    public void update() throws Exception {
         if (validated()) {
-            Book book = new Book(title.getText(), topic.getText(), firstName.getText(), lastName.getText(), publisher.getText(), place.getText(), Integer.parseInt(year.getText()), Integer.parseInt(pages.getText()));
-            repo.save(book);
-            String alert = "The book with title: '" + title.getText() + "' has been successfully saved!";
-            Alert.alert("Book saved!", alert);
-            ChangeScene.init("/fxml/menu.fxml", "KOKW-AdminApp");
-        }
-    }
-
-    @FXML
-    public void addMore() {
-        if (validated()) {
-            Book book = new Book(title.getText(), topic.getText(), firstName.getText(), lastName.getText(), publisher.getText(), place.getText(), Integer.parseInt(year.getText()), Integer.parseInt(pages.getText()));
-            repo.save(book);
-            clearFields();
+            int result = repo.update(title.getText(), topic.getText(), firstName.getText(), lastName.getText(), publisher.getText(), place.getText(), Integer.parseInt(year.getText()), Integer.parseInt(pages.getText()));
+            if (result > 0) {
+                String alert = "The book with title: '" + title.getText() + "' has been successfully updated!";
+                Warning.alert("Book updated!", alert);
+                clear();
+            }else{
+                Warning.alert("Update failed", "Corresponderend boek niet gevonden!");
+            }
         }
     }
 
@@ -66,9 +58,8 @@ public class AddBook{
         }
         return valid;
     }
-
-    private void clearFields(){
-        title.setText(null);
+    private void clear(){
+        this.title.setText(null);
         title.setPromptText(title.getPromptText());
         topic.setText(null);
         topic.setPromptText(topic.getPromptText());

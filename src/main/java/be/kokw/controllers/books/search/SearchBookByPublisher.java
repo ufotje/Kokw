@@ -2,7 +2,7 @@ package be.kokw.controllers.books.search;
 
 import be.kokw.bean.Book;
 import be.kokw.repositories.BookRepo;
-import be.kokw.utility.Alert;
+import be.kokw.utility.Warning;
 import be.kokw.utility.ChangeScene;
 import be.kokw.utility.Validation;
 import javafx.collections.ObservableList;
@@ -69,7 +69,7 @@ public class SearchBookByPublisher {
                 pagesCol.setCellValueFactory(new PropertyValueFactory("nrOfPages"));
                 table.setItems(bookList);
             }else{
-                Alert.alert("Book Not Found","Er werden geen boeken gevonden die werden uitgegeven door: '" + publisher.getText() + "'!");
+                Warning.alert("Book Not Found","Er werden geen boeken gevonden die werden uitgegeven door: '" + publisher.getText() + "'!");
             }
         }
     }

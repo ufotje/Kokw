@@ -20,4 +20,6 @@ public interface MemberRepo extends JpaRepository<Member,Long> {
     List<Member> findByBDay(Date bDay);
     @Transactional
     List<Member> findByZip(int zip);
+    @Transactional
+    Member findByFirstNameAndLastName(String firstName, String lastName);
 }

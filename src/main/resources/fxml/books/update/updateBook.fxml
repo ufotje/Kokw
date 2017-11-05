@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.effect.InnerShadow?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<BorderPane prefHeight="600.0" prefWidth="800.0"
+            style="-fx-background-image: url('http://users.telenet.be/hbo5_java/pictures/kokw/logo.jpg'); -fx-background-position: center; -fx-background-repeat: no-repeat; -fx-background-size: cover;"
+            xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="be.kokw.controllers.books.update.UpdateBook">
+    <top>
+        <VBox BorderPane.alignment="CENTER">
+            <fx:include source="/fxml/menu.fxml"/>
+        </VBox>
+    </top>
+    <bottom>
+        <VBox alignment="CENTER" fillWidth="false" style="-fx-background-color: #A9CCE3; -fx-background-radius: 10;"
+              BorderPane.alignment="CENTER">
+            <fx:include source="/fxml/footer.fxml"/>
+        </VBox>
+    </bottom>
+    <center>
+        <VBox alignment="CENTER" BorderPane.alignment="CENTER">
+            <BorderPane.margin>
+                <Insets left="10.0"/>
+            </BorderPane.margin>
+            <HBox alignment="CENTER">
+                <Label alignment="BOTTOM_CENTER" text="Tittel:" textAlignment="CENTER" HBox.hgrow="ALWAYS">
+                    <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0"/>
+                    </padding>
+                    <font>
+                        <Font size="18.0"/>
+                    </font>
+                </Label>
+                <TextField fx:id="title" alignment="CENTER" prefHeight="23.0" prefWidth="319.0"
+                           promptText=" Tittel v/h Boek "
+                           style="-fx-border-width: 1px; -fx-border-color: #95A5A6; -fx-background-color: transparent; -fx-border-radius: 10;"
+                           HBox.hgrow="NEVER">
+                    <padding>
+                        <Insets left="10.0" right="10.0"/>
+                    </padding>
+                    <HBox.margin>
+                        <Insets left="100.0" right="20.0"/>
+                    </HBox.margin>
+                    <tooltip>
+                        <Tooltip text="Voer een tittel in"/>
+                    </tooltip>
+                </TextField>
+                <padding>
+                    <Insets left="10.0" right="10.0" top="20.0"/>
+                </padding>
+            </HBox>
+            <HBox alignment="CENTER" layoutX="35.0" layoutY="255.0">
+                <Label alignment="BOTTOM_CENTER" text="Onderwerp:" textAlignment="CENTER" HBox.hgrow="ALWAYS">
+                    <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0"/>
+                    </padding>
+                    <font>
+                        <Font size="18.0"/>
+                    </font>
+                </Label>
+                <TextField fx:id="topic" alignment="CENTER" prefHeight="23.0" prefWidth="317.0"
+                           promptText="onderwerp v/h Boek "
+                           style="-fx-border-width: 1px; -fx-border-color: #95A5A6; -fx-background-color: transparent; -fx-border-radius: 10;"
+                           HBox.hgrow="NEVER">
+                    <padding>
+                        <Insets left="10.0" right="10.0"/>
+                    </padding>
+                    <HBox.margin>
+                        <Insets left="50.0" right="20.0"/>
+                    </HBox.margin>
+                    <tooltip>
+                        <Tooltip text="Voer het onderwerp in"/>
+                    </tooltip>
+                </TextField>
+                <padding>
+                    <Insets left="10.0" right="10.0"/>
+                </padding>
+            </HBox>
+            <HBox alignment="CENTER" layoutX="35.0" layoutY="273.0">
+                <Label alignment="BOTTOM_CENTER" text="Achternaam:" textAlignment="CENTER" HBox.hgrow="ALWAYS">
+                    <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0"/>
+                    </padding>
+                    <font>
+                        <Font size="18.0"/>
+                    </font>
+                </Label>
+                <TextField fx:id="lastName" alignment="CENTER" prefHeight="23.0" prefWidth="313.0"
+                           promptText="achternaam van de auteur "
+                           style="-fx-border-width: 1px; -fx-border-color: #95A5A6; -fx-background-color: transparent; -fx-border-radius: 10;">
+                    <padding>
+                        <Insets left="10.0" right="10.0"/>
+                    </padding>
+                    <HBox.margin>
+                        <Insets left="45.0" right="20.0"/>
+                    </HBox.margin>
+                    <tooltip>
+                        <Tooltip text="Voer de achternaam van de auteur in"/>
+                    </tooltip>
+                </TextField>
+                <padding>
+                    <Insets left="10.0" right="10.0"/>
+                </padding>
+            </HBox>
+            <HBox alignment="CENTER" layoutX="35.0" layoutY="292.0">
+                <Label alignment="BOTTOM_CENTER" text="Voornaam:" textAlignment="CENTER" HBox.hgrow="ALWAYS">
+                    <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0"/>
+                    </padding>
+                    <font>
+                        <Font size="18.0"/>
+                    </font>
+                </Label>
+                <TextField fx:id="firstName" alignment="CENTER" prefHeight="23.0" prefWidth="312.0"
+                           promptText="Voer de voornaam van de auteur in"
+                           style="-fx-border-width: 1px; -fx-border-color: #95A5A6; -fx-background-color: transparent; -fx-border-radius: 10;">
+                    <padding>
+                        <Insets left="10.0" right="10.0"/>
+                    </padding>
+                    <HBox.margin>
+                        <Insets left="63.0" right="20.0"/>
+                    </HBox.margin>
+                    <tooltip>
+                        <Tooltip text="Voer de voornaam van de auteur in"/>
+                    </tooltip>
+                </TextField>
+                <padding>
+                    <Insets left="10.0" right="10.0"/>
+                </padding>
+            </HBox>
+            <HBox alignment="CENTER" layoutX="35.0" layoutY="141.0">
+                <Label alignment="BOTTOM_CENTER" text="Uitgeverij:" textAlignment="CENTER" HBox.hgrow="ALWAYS">
+                    <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0"/>
+                    </padding>
+                    <font>
+                        <Font size="18.0"/>
+                    </font>
+                </Label>
+                <TextField fx:id="publisher" alignment="CENTER" prefHeight="23.0" prefWidth="312.0"
+                           promptText="uitgeverij van het boek"
+                           style="-fx-border-width: 1px; -fx-border-color: #95A5A6; -fx-background-color: transparent; -fx-border-radius: 10;">
+                    <padding>
+                        <Insets left="10.0" right="10.0"/>
+                    </padding>
+                    <HBox.margin>
+                        <Insets left="65.0" right="20.0"/>
+                    </HBox.margin>
+                    <tooltip>
+                        <Tooltip text="Voer de uitgeverij van het boek in"/>
+                    </tooltip>
+                </TextField>
+                <padding>
+                    <Insets left="10.0" right="10.0"/>
+                </padding>
+            </HBox>
+            <HBox alignment="CENTER" layoutX="35.0" layoutY="178.0">
+                <Label alignment="BOTTOM_CENTER" text="Plaats:" textAlignment="CENTER" HBox.hgrow="ALWAYS">
+                    <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0"/>
+                    </padding>
+                    <font>
+                        <Font size="18.0"/>
+                    </font>
+                </Label>
+                <TextField fx:id="place" alignment="CENTER" prefHeight="23.0" prefWidth="310.0"
+                           promptText="plaats van de uitgeverij "
+                           style="-fx-border-width: 1px; -fx-border-color: #95A5A6; -fx-background-color: transparent; -fx-border-radius: 10;">
+                    <padding>
+                        <Insets left="10.0" right="10.0"/>
+                    </padding>
+                    <HBox.margin>
+                        <Insets left="95.0" right="20.0"/>
+                    </HBox.margin>
+                    <tooltip>
+                        <Tooltip text="Voer de plaats van de uitgeverij in"/>
+                    </tooltip>
+                </TextField>
+                <padding>
+                    <Insets left="10.0" right="10.0"/>
+                </padding>
+            </HBox>
+            <HBox alignment="CENTER" layoutX="35.0" layoutY="215.0">
+                <Label alignment="BOTTOM_CENTER" text="Jaar:" textAlignment="CENTER" HBox.hgrow="ALWAYS">
+                    <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0"/>
+                    </padding>
+                    <font>
+                        <Font size="18.0"/>
+                    </font>
+                </Label>
+                <TextField fx:id="year" alignment="CENTER" prefHeight="23.0" prefWidth="310.0"
+                           promptText="jaar van uitgave "
+                           style="-fx-border-width: 1px; -fx-border-color: #95A5A6; -fx-background-color: transparent; -fx-border-radius: 10;">
+                    <padding>
+                        <Insets left="10.0" right="10.0"/>
+                    </padding>
+                    <HBox.margin>
+                        <Insets left="110.0" right="20.0"/>
+                    </HBox.margin>
+                    <tooltip>
+                        <Tooltip text="Voer het jaar van publicatie in"/>
+                    </tooltip>
+                </TextField>
+                <padding>
+                    <Insets left="10.0" right="10.0"/>
+                </padding>
+            </HBox>
+            <HBox alignment="CENTER" layoutX="35.0" layoutY="252.0">
+                <Label alignment="BOTTOM_CENTER" text="Pagina's:" textAlignment="CENTER" HBox.hgrow="ALWAYS">
+                    <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0"/>
+                    </padding>
+                    <font>
+                        <Font size="18.0"/>
+                    </font>
+                </Label>
+                <TextField fx:id="pages" alignment="CENTER" prefHeight="23.0" prefWidth="310.0"
+                           promptText="Aantal Bladzijden"
+                           style="-fx-border-width: 1px; -fx-border-color: #95A5A6; -fx-background-color: transparent; -fx-border-radius: 10;">
+                    <padding>
+                        <Insets left="10.0" right="10.0"/>
+                    </padding>
+                    <HBox.margin>
+                        <Insets left="80.0" right="20.0"/>
+                    </HBox.margin>
+                    <tooltip>
+                        <Tooltip text="Voer het aantal pagina's in"/>
+                    </tooltip>
+                </TextField>
+                <padding>
+                    <Insets left="10.0" right="10.0"/>
+                </padding>
+            </HBox>
+            <HBox alignment="CENTER" layoutX="35.0" layoutY="289.0">
+                <padding>
+                    <Insets left="10.0" right="10.0"/>
+                </padding>
+                <Button mnemonicParsing="false" onAction="#update"
+                        style="-fx-background-color: transparent; -fx-border-radius: 10; -fx-border-color: #9cc9f6;"
+                        text="Update" textAlignment="CENTER">
+                    <tooltip>
+                        <Tooltip text="Het boek opslaan"/>
+                    </tooltip>
+                    <HBox.margin>
+                        <Insets top="50.0"/>
+                    </HBox.margin>
+                    <font>
+                        <Font size="18.0"/>
+                    </font>
+                    <cursor>
+                        <Cursor fx:constant="HAND"/>
+                    </cursor>
+                    <effect>
+                        <InnerShadow/>
+                    </effect>
+                </Button>
+            </HBox>
+            <padding>
+                <Insets left="25.0" right="25.0"/>
+            </padding>
+        </VBox>
+    </center>
+</BorderPane>

@@ -2,9 +2,9 @@ package be.kokw.controllers.books.search;
 
 import be.kokw.bean.Book;
 import be.kokw.repositories.BookRepo;
-import be.kokw.utility.Alert;
 import be.kokw.utility.ChangeScene;
 import be.kokw.utility.Validation;
+import be.kokw.utility.Warning;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
@@ -30,23 +30,23 @@ public class SearchBookByName {
     @FXML
     private TableView<Book> table;
     @FXML
-    private TableColumn<Book,Integer> idCol;
+    private TableColumn<Book, Integer> idCol;
     @FXML
-    private TableColumn<Book,String> titleCol;
+    private TableColumn<Book, String> titleCol;
     @FXML
-    private TableColumn<Book,String> topicCol;
+    private TableColumn<Book, String> topicCol;
     @FXML
-    private TableColumn<Book,String> firstNameCol;
+    private TableColumn<Book, String> firstNameCol;
     @FXML
-    private TableColumn<Book,String> lastNameCol;
+    private TableColumn<Book, String> lastNameCol;
     @FXML
-    private TableColumn<Book,String> publisherCol;
+    private TableColumn<Book, String> publisherCol;
     @FXML
-    private TableColumn<Book,String> placeCol;
+    private TableColumn<Book, String> placeCol;
     @FXML
-    private TableColumn<Book,String>yearCol;
+    private TableColumn<Book, String> yearCol;
     @FXML
-    private TableColumn<Book,String>pagesCol;
+    private TableColumn<Book, String> pagesCol;
     private BookRepo bookRepo;
 
     @Autowired
@@ -59,7 +59,9 @@ public class SearchBookByName {
         if (Validation.validate("Achternaam Auteur", lastName.getText(), "[a-zA-Z]+") &&
                 Validation.validate("Voornaam Auteur:", firstName.getText(), "[a-zA-Z]+")) {
             ObservableList<Book> bookList = observableArrayList(bookRepo.findByAuthorFirstNameAndAuthorLastName(firstName.getText(), lastName.getText()));
-            if(!(bookList.isEmpty())) {
+            if (bookList.isEmpty()) {
+                Warning.alert("No Books found!", "Er werden geen boeken gevonden geschreven door " + firstName.getText() + " " + lastName.getText());
+            } else {
                 ChangeScene.init("/fxml/books/found/tableView.fxml", "Books by Author's name");
                 idCol.setCellValueFactory(new PropertyValueFactory("id"));
                 titleCol.setCellValueFactory(new PropertyValueFactory("title"));
@@ -71,8 +73,6 @@ public class SearchBookByName {
                 yearCol.setCellValueFactory(new PropertyValueFactory("yearPublished"));
                 pagesCol.setCellValueFactory(new PropertyValueFactory("nrOfPages"));
                 table.setItems(bookList);
-            }else {
-                Alert.alert("No Books found!","Er werden geen boeken gevonden geschreven door " + firstName + " " + lastName);
             }
         }
     }

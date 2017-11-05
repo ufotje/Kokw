@@ -43,7 +43,8 @@ public class MenuController {
 
     //Update a book
     @FXML
-    private void updateBookByTitle() {
+    private void updateBookByTitle() throws Exception {
+        ChangeScene.init("/fxml/books/update/updateBook.fxml","Boek updaten!");
     }
 
     //Delete a Book
@@ -53,24 +54,17 @@ public class MenuController {
         b.init();
     }
 
-    @FXML
-    private void deleteBookByAuthor() {
-    }
-
-    @FXML
-    private void deleteBookByPublisher() {
-    }
-
     //MemberMethods
     //Add a Member
     @FXML
     private void addMember() throws Exception {
-        ChangeScene.init("/fxml/members/addMember.fxml", "addMember");
+        ChangeScene.init("/fxml/members/addMember.fxml", "Add Member");
     }
 
     //Find a Member
     @FXML
-    private void findMemberByName() {
+    private void findMemberByName() throws Exception {
+        ChangeScene.init("/fxml/members/search/byFullName.xml","Search by Name");
     }
 
     @FXML

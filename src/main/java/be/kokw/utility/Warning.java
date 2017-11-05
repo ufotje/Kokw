@@ -1,14 +1,15 @@
 package be.kokw.utility;
 
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 
 /**
  * Created by ufotje on 3/11/2017.
  */
-public interface Alert {
+public interface Warning {
     @FXML
     static void alert(String title, String content) {
-        javafx.scene.control.Alert alert = new javafx.scene.control.Alert(javafx.scene.control.Alert.AlertType.INFORMATION);
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle(title);
         alert.setHeaderText(null);
         alert.setContentText(content);

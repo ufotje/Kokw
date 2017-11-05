@@ -2,7 +2,7 @@ package be.kokw.controllers.books.delete;
 
 
 import be.kokw.repositories.BookRepo;
-import be.kokw.utility.Alert;
+import be.kokw.utility.Warning;
 import be.kokw.utility.NewStage;
 import be.kokw.utility.Validation;
 import javafx.fxml.FXML;
@@ -38,10 +38,10 @@ public class DeleteBookByTitle {
     private void delete(){
         if(Validation.emptyValidation("Titel",title.getText().isEmpty())){
             if(bookRepo.deleteByTitle(title.getText())>0) {
-                Alert.alert("Book Deleted", "The book " + title.getText() + "has been successful deleted");
-                window.close();
+                Warning.alert("Book Deleted", "The book " + title.getText() + "has been successful deleted");
+                window.getScene().getWindow().hide();
             }else{
-                Alert.alert("Book Not Found","The book '" + title.getText() + "' has not been found!");
+                Warning.alert("Book Not Found","The book '" + title.getText() + "' has not been found!");
             }
         }
     }

@@ -1,8 +1,8 @@
-package be.kokw.controllers.members;
+package be.kokw.controllers.members.create;
 
 import be.kokw.bean.Member;
 import be.kokw.repositories.MemberRepo;
-import be.kokw.utility.Alert;
+import be.kokw.utility.Warning;
 import be.kokw.utility.Validation;
 import javafx.fxml.FXML;
 import javafx.scene.control.DatePicker;
@@ -43,17 +43,17 @@ public class AddMember{
     @FXML
     private void save() {
         if (valid()){
-            Member member = new Member(firstName.getText(), lastName.getText(), street.getText(), Integer.parseInt(houseNr.getText()), Integer.parseInt(zip.getText()), city.getText(), email.getText(), bDay.getValue(), board.isSelected());
+            Member member = new Member(firstName.getText(), lastName.getText(), street.getText(), Integer.parseInt(houseNr.getText()), Integer.parseInt(zip.getText()), city.getText(), email.getText(), bDay.getValue(), board.isSelected(), false);
             repo.save(member);
             String name = "The member with name: '" + firstName.getText() + " " + lastName.getText() + "' has been successfully saved!";
-            Alert.alert("Member saved!", name);
+            Warning.alert("Member saved!", name);
         }
     }
 
     @FXML
     private void addMore() {
         if (valid()){
-            Member member = new Member(firstName.getText(), lastName.getText(), street.getText(), Integer.parseInt(houseNr.getText()), Integer.parseInt(zip.getText()), city.getText(), email.getText(), bDay.getValue(), board.isSelected());
+            Member member = new Member(firstName.getText(), lastName.getText(), street.getText(), Integer.parseInt(houseNr.getText()), Integer.parseInt(zip.getText()), city.getText(), email.getText(), bDay.getValue(), board.isSelected(), false);
             repo.save(member);
         }
         clearFields();

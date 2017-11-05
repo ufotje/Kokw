@@ -2,7 +2,7 @@ package be.kokw.controllers.books.search;
 
 import be.kokw.bean.Book;
 import be.kokw.repositories.BookRepo;
-import be.kokw.utility.Alert;
+import be.kokw.utility.Warning;
 import be.kokw.utility.ChangeScene;
 import be.kokw.utility.Validation;
 import javafx.collections.ObservableList;
@@ -70,7 +70,7 @@ public class SearchBookByTitle {
                 pagesCol.setCellValueFactory(new PropertyValueFactory("nrOfPages"));
                 table.setItems(bookList);
             }else{
-                Alert.alert("Book Not Found","The book '" + title.getText() + "' has not been found!");
+                Warning.alert("Book Not Found","The book '" + title.getText() + "' has not been found!");
             }
         }
     }

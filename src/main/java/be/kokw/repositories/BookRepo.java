@@ -30,8 +30,8 @@ public interface BookRepo extends JpaRepository<Book, Long> {
     List<Book> findByTopic(String topic);
 
     @Transactional
-    List<Book> findByYearPublished(int year);
+    int deleteByTitle(String title);
 
     @Transactional
-    int deleteByTitle(String title);
+    int update(String title, String topic, String firstName, String lastName, String publisher, String place, int year, int pages);
 }
