@@ -64,7 +64,7 @@ public class MenuController {
     //Find a Member
     @FXML
     private void findMemberByName() throws Exception {
-        ChangeScene.init("/fxml/members/search/byFullName.xml","Search by Name");
+        ChangeScene.init("/fxml/members/search/byFullName.fxml","Search by Name");
     }
 
     @FXML

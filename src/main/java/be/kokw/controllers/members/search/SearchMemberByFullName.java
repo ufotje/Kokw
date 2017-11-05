@@ -1,6 +1,5 @@
 package be.kokw.controllers.members.search;
 
-import be.kokw.bean.Book;
 import be.kokw.bean.Member;
 import be.kokw.repositories.MemberRepo;
 import be.kokw.utility.Validation;
@@ -13,6 +12,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Component;
 
 import java.time.LocalDate;
 
@@ -21,6 +21,8 @@ import static javafx.collections.FXCollections.observableArrayList;
 /**
  * Created by ufotje on 5/11/2017.
  */
+
+@Component
 public class SearchMemberByFullName {
     @FXML
     private TextField firstName, lastName;
@@ -29,32 +31,32 @@ public class SearchMemberByFullName {
     @FXML
     private TableColumn<Member, Integer> idCol;
     @FXML
-    private TableColumn<Member,String> firstNameCol;
+    private TableColumn<Member, String> firstNameCol;
     @FXML
-    private TableColumn<Member,String> lastNameCol;
+    private TableColumn<Member, String> lastNameCol;
     @FXML
-    private TableColumn<Member,String> streetCol;
+    private TableColumn<Member, String> streetCol;
     @FXML
-    private TableColumn<Member,Integer> nrCol;
+    private TableColumn<Member, Integer> nrCol;
     @FXML
-    private TableColumn<Member,Integer> zipCol;
+    private TableColumn<Member, Integer> zipCol;
     @FXML
-    private TableColumn<Member,String> cityCol;
+    private TableColumn<Member, String> cityCol;
     @FXML
-    private TableColumn<Member,LocalDate> bDayCol;
+    private TableColumn<Member, LocalDate> bDayCol;
     @FXML
-    private TableColumn<Member,String> mailCol;
+    private TableColumn<Member, String> mailCol;
     @FXML
-    private TableColumn<Member,Boolean> analCol;
+    private TableColumn<Member, Boolean> analCol;
     private MemberRepo repo;
 
     @Autowired
-    private void setRepo(@Qualifier("memberRepo") MemberRepo repo){
+    private void setRepo(@Qualifier("memberRepo") MemberRepo repo) {
         this.repo = repo;
     }
 
     @FXML
-    private void search(){
+    private void search() {
         if (Validation.validate("Achternaam", lastName.getText(), "[a-zA-Z]+") &&
                 Validation.validate("Voornaam", firstName.getText(), "[a-zA-Z]+")) {
             ObservableList<Member> memberList = observableArrayList(repo.findByFirstNameAndLastName(firstName.getText(), lastName.getText()));

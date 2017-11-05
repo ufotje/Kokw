@@ -37,6 +37,9 @@ public class Member implements Serializable{
     @Column(name="analen_Ontvangen")
     private boolean anal;
 
+    public Member() {
+    }
+
     public Member(String firstName, String lastName, String street, int houseNr, int zip, String city, String email, LocalDate bDay, boolean board, boolean anal) {
         this.firstName = firstName;
         this.lastName = lastName;
