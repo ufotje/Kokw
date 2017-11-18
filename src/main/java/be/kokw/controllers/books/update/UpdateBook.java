@@ -1,6 +1,9 @@
 package be.kokw.controllers.books.update;
 
+import be.kokw.bean.Book;
+import be.kokw.controllers.MenuController;
 import be.kokw.repositories.BookRepo;
+import be.kokw.utility.ChangeScene;
 import be.kokw.utility.Validation;
 import be.kokw.utility.Warning;
 import javafx.fxml.FXML;
@@ -26,8 +29,24 @@ public class UpdateBook {
         this.repo = repo;
     }
 
-    public UpdateBook() {
-
+    @FXML
+    public void search() throws Exception {
+        Book book = repo.findByTitle(title.getText());
+        if(book != null){
+            MenuController.window.close();
+            ChangeScene.init("/fxml/books/update/updateBook.fxml","Boek updaten!");
+            title.setText(book.getTitle());
+            topic.setText(book.getTopic());
+            firstName.setText(book.getAuthorFirstName());
+            lastName.setText(book.getAuthorLastName());
+            publisher.setText(book.getPublisher());
+            place.setText(book.getPlace());
+            year.setText("" + book.getYearPublished());
+            pages.setText("" + book.getNrOfPages());
+        }
+        else{
+            Warning.alert("No Book Found!", "Er werd geen boek met " + "'" + title.getText() + "'" + " als titel gevonden!");
+        }
     }
 
     @FXML
@@ -48,9 +67,9 @@ public class UpdateBook {
         boolean valid = false;
         if (Validation.emptyValidation("Titel", title.getText().isEmpty() &&
                 Validation.emptyValidation("Topic", topic.getText().isEmpty()) &&
-                Validation.validate("Achternaam Auteur", lastName.getText(), "[a-zA-Z]+") &&
+                Validation.validate("Achternaam Auteur", lastName.getText(), "[a-zA-Z -]+") &&
                 Validation.validate("Voornaam Auteur:", firstName.getText(), "[a-zA-Z]+")) &&
-                Validation.validate("Uitgeverij:", publisher.getText(), "[a-zA-Z]+") &&
+                Validation.validate("Uitgeverij:", publisher.getText(), "[a-zA-Z -]+") &&
                 Validation.emptyValidation("Plaats Uitgeverij", place.getText().isEmpty()) &&
                 Validation.validate("Jaar van publicatie:", year.getText(), "[0-9999]+") &&
                 Validation.validate("Aantal Bladzijden:", pages.getText(), "[0-9999]+")) {
@@ -59,7 +78,7 @@ public class UpdateBook {
         return valid;
     }
     private void clear(){
-        this.title.setText(null);
+        title.clear();
         title.setPromptText(title.getPromptText());
         topic.setText(null);
         topic.setPromptText(topic.getPromptText());

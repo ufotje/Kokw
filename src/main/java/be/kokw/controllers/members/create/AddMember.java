@@ -2,6 +2,7 @@ package be.kokw.controllers.members.create;
 
 import be.kokw.bean.Member;
 import be.kokw.repositories.MemberRepo;
+import be.kokw.utility.ChangeScene;
 import be.kokw.utility.Warning;
 import be.kokw.utility.Validation;
 import javafx.fxml.FXML;
@@ -31,22 +32,19 @@ public class AddMember{
     @FXML
     private DatePicker bDay;
 
-    public AddMember() throws Exception {
-
-    }
-
     @Autowired
     public void setMemberRepo(@Qualifier("memberRepo") MemberRepo memberRepo) {
         repo = memberRepo;
     }
 
     @FXML
-    private void save() {
+    private void save() throws Exception {
         if (valid()){
             Member member = new Member(firstName.getText(), lastName.getText(), street.getText(), Integer.parseInt(houseNr.getText()), Integer.parseInt(zip.getText()), city.getText(), email.getText(), bDay.getValue(), board.isSelected(), false);
             repo.save(member);
             String name = "The member with name: '" + firstName.getText() + " " + lastName.getText() + "' has been successfully saved!";
             Warning.alert("Member saved!", name);
+            ChangeScene.init("fxml/home.fxml", "KOKW - Het Verleden Draait Door!");
         }
     }
 
@@ -62,7 +60,7 @@ public class AddMember{
     private boolean valid(){
         boolean validated = false;
         if(Validation.validate("Voornaam:", firstName.getText(), "[a-zA-Z]+") &&
-                Validation.validate("Achternaam:", lastName.getText(), "[a-zA-Z]+")
+                Validation.validate("Achternaam:", lastName.getText(), "[a-zA-Z ]+")
                 && Validation.validate("Straatnaam:", street.getText(), "[a-zA-Z]+")
                 && Validation.validate("Huisnummer:", houseNr.getText(), "[0-9]+")
                 && Validation.validate("Postcode:", zip.getText(), "[0-9]+[0-9]+[0-9]+[0-9]")

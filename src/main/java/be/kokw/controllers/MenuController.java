@@ -14,7 +14,7 @@ import org.springframework.stereotype.Controller;
 
 @Controller
 public class MenuController {
-
+    public static Stage window;
     //BookMethods
     //Add a Book
     @FXML
@@ -25,26 +25,26 @@ public class MenuController {
     //Find a Book
     @FXML
     private void findBookByTitle() throws Exception {
-        Stage window = NewStage.getStage("Vind Boek op Titel!","/fxml/books/search/dialogpaneByTitle.fxml");
+        window = NewStage.getStage("Vind Boek op Titel!","/fxml/books/search/dialogpaneByTitle.fxml");
         window.show();
     }
 
     @FXML
     private void findBookByAuthor() throws Exception {
-        Stage window = NewStage.getStage("Vul de auteurs naam in!", "/fxml/books/search/byName.fxml");
+        window = NewStage.getStage("Vul de auteurs naam in!", "/fxml/books/search/byName.fxml");
         window.show();
     }
 
     @FXML
     private void findBookByPublisher() throws Exception {
-        Stage window = NewStage.getStage("Vind Boeken op uitgeverij!","/fxml/books/search/dialogpaneByPublisher.fxml");
+        window = NewStage.getStage("Vind Boeken op uitgeverij!","/fxml/books/search/dialogpaneByPublisher.fxml");
         window.show();
     }
 
     //Update a book
     @FXML
     private void updateBookByTitle() throws Exception {
-        ChangeScene.init("/fxml/books/update/updateBook.fxml","Boek updaten!");
+        window = NewStage.getStage("Update een Boek!", "fxml/books/update/updateDialog.fxml");
     }
 
     //Delete a Book
@@ -64,7 +64,8 @@ public class MenuController {
     //Find a Member
     @FXML
     private void findMemberByName() throws Exception {
-        ChangeScene.init("/fxml/members/search/byFullName.fxml","Search by Name");
+       window = NewStage.getStage("Search by Name","/fxml/members/search/byFullName.fxml");
+       window.show();
     }
 
     @FXML

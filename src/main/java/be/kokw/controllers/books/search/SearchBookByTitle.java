@@ -1,6 +1,7 @@
 package be.kokw.controllers.books.search;
 
 import be.kokw.bean.Book;
+import be.kokw.controllers.MenuController;
 import be.kokw.repositories.BookRepo;
 import be.kokw.utility.Warning;
 import be.kokw.utility.ChangeScene;
@@ -58,7 +59,9 @@ public class SearchBookByTitle {
         if(Validation.emptyValidation("Titel",title.getText().isEmpty())){
             ObservableList<Book> bookList = observableArrayList(bookRepo.findByTitle(title.getText()));
             if(!(bookList.isEmpty())){
+                MenuController.window.close();
                 ChangeScene.init("/fxml/books/search/tableView.fxml", "Books by Title");
+                table.setEditable(true);
                 idCol.setCellValueFactory(new PropertyValueFactory("id"));
                 titleCol.setCellValueFactory(new PropertyValueFactory("title"));
                 topicCol.setCellValueFactory(new PropertyValueFactory("topic"));

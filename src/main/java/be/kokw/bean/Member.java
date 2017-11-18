@@ -35,7 +35,7 @@ public class Member implements Serializable{
     private LocalDate bDay;
     private boolean board;
     @Column(name="analen_Ontvangen")
-    private boolean anal;
+    private boolean anal = false;
 
     public Member() {
     }

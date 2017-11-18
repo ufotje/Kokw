@@ -29,7 +29,7 @@ public class Main extends Application {
     @Override
     public void init() throws Exception {
         springContext = SpringApplication.run(Main.class);
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/menu.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/home.fxml"));
         loader.setControllerFactory(springContext::getBean);
         root = loader.load();
     }
@@ -40,7 +40,7 @@ public class Main extends Application {
         stage.setTitle("KOKW-AdminApp");
         Image icon = new Image(getClass().getResourceAsStream("/images/logoKOKW.jpg"));
         stage.getIcons().add(icon);
-        stage.setScene(new Scene(root, 800, 600));
+        stage.setScene(new Scene(root, 1200, 600));
         stage.show();
     }
 

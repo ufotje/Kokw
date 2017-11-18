@@ -1,6 +1,7 @@
 package be.kokw.controllers.books.search;
 
 import be.kokw.bean.Book;
+import be.kokw.controllers.MenuController;
 import be.kokw.repositories.BookRepo;
 import be.kokw.utility.ChangeScene;
 import be.kokw.utility.Validation;
@@ -62,7 +63,9 @@ public class SearchBookByName {
             if (bookList.isEmpty()) {
                 Warning.alert("No Books found!", "Er werden geen boeken gevonden geschreven door " + firstName.getText() + " " + lastName.getText());
             } else {
+                MenuController.window.close();
                 ChangeScene.init("/fxml/books/found/tableView.fxml", "Books by Author's name");
+                table.setEditable(true);
                 idCol.setCellValueFactory(new PropertyValueFactory("id"));
                 titleCol.setCellValueFactory(new PropertyValueFactory("title"));
                 topicCol.setCellValueFactory(new PropertyValueFactory("topic"));

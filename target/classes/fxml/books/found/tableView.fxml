@@ -21,10 +21,10 @@
         <TableView fx:id="table" BorderPane.alignment="CENTER">
             <columns>
                 <TableColumn fx:id="idCol" prefWidth="33.0" text="ID" />
-                <TableColumn fx:id="titleCol" prefWidth="97.0" text="Titel" />
+                <TableColumn fx:id="titleCol" prefWidth="195.0" text="Titel" />
                 <TableColumn fx:id="topicCol" prefWidth="93.0" text="Onderwerp" />
-                <TableColumn fx:id="firstNameCol" prefWidth="141.0" text="Voornaam Auteur" />
-                <TableColumn fx:id="lastNameCol" prefWidth="183.0" text="Achternaam Auteur" />
+                <TableColumn fx:id="firstNameCol" prefWidth="80.0" text="Voornaam" />
+                <TableColumn fx:id="lastNameCol" prefWidth="150.0" text="Achternaam Auteur" />
                 <TableColumn fx:id="publisherCol" text="Uitgeverij" />
                 <TableColumn fx:id="placeCol" prefWidth="73.0" text="Plaats" />
                 <TableColumn fx:id="yearCol" prefWidth="46.0" text="Jaar" />
