@@ -13,6 +13,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
+import java.util.ArrayList;
+import java.util.List;
+
 
 /**
  * Created by ufotje on 21/10/2017.
@@ -22,6 +25,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class AddMember{
     private MemberRepo repo;
+    private List<String> members = new ArrayList<>();
 
     @FXML
     private TextField firstName, lastName, street, houseNr, zip, city, email;
@@ -42,8 +46,14 @@ public class AddMember{
         if (valid()){
             Member member = new Member(firstName.getText(), lastName.getText(), street.getText(), Integer.parseInt(houseNr.getText()), Integer.parseInt(zip.getText()), city.getText(), email.getText(), bDay.getValue(), board.isSelected(), false);
             repo.save(member);
-            String name = "The member with name: '" + firstName.getText() + " " + lastName.getText() + "' has been successfully saved!";
-            Warning.alert("Member saved!", name);
+            members.add(firstName.getText() + " " + lastName.getText());
+            StringBuilder names = new StringBuilder("The member(s) with name: '");
+            for(String s : members){
+                names.append( s );
+                names.append("', '");
+            }
+            names.append(" has been successfully saved!");
+            Warning.alert("Member saved!", names.toString());
             ChangeScene.init("fxml/home.fxml", "KOKW - Het Verleden Draait Door!");
         }
     }
@@ -52,6 +62,7 @@ public class AddMember{
     private void addMore() {
         if (valid()){
             Member member = new Member(firstName.getText(), lastName.getText(), street.getText(), Integer.parseInt(houseNr.getText()), Integer.parseInt(zip.getText()), city.getText(), email.getText(), bDay.getValue(), board.isSelected(), false);
+            members.add(firstName.getText() + " " + lastName.getText());
             repo.save(member);
         }
         clearFields();
@@ -73,21 +84,13 @@ public class AddMember{
     }
 
     private void clearFields(){
-        firstName.setText(null);
-        firstName.setPromptText(firstName.getPromptText());
-        lastName.setText(null);
-        lastName.setPromptText(firstName.getPromptText());
-        street.setText(null);
-        street.setPromptText(street.getPromptText());
-        houseNr.setText(null);
-        houseNr.setPromptText(houseNr.getPromptText());
-        zip.setText(null);
-        zip.setPromptText(zip.getPromptText());
-        city.setText(null);
-        city.setPromptText(city.getPromptText());
-        email.setText(null);
-        email.setPromptText(email.getPromptText());
-        bDay.getEditor().setText(null);
-        bDay.getEditor().setPromptText(bDay.getPromptText());
+        firstName.clear();
+        lastName.clear();
+        street.clear();
+        houseNr.clear();
+        zip.clear();
+        city.clear();
+        email.clear();
+        bDay.getEditor().clear();
     }
 }

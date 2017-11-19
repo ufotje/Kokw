@@ -32,9 +32,9 @@ public class UpdateBook {
     @FXML
     public void search() throws Exception {
         Book book = repo.findByTitle(title.getText());
-        if(book != null){
+        if (book != null) {
             MenuController.window.close();
-            ChangeScene.init("/fxml/books/update/updateBook.fxml","Boek updaten!");
+            ChangeScene.init("/fxml/books/update/updateBook.fxml", "Boek updaten!");
             title.setText(book.getTitle());
             topic.setText(book.getTopic());
             firstName.setText(book.getAuthorFirstName());
@@ -43,8 +43,7 @@ public class UpdateBook {
             place.setText(book.getPlace());
             year.setText("" + book.getYearPublished());
             pages.setText("" + book.getNrOfPages());
-        }
-        else{
+        } else {
             Warning.alert("No Book Found!", "Er werd geen boek met " + "'" + title.getText() + "'" + " als titel gevonden!");
         }
     }
@@ -56,8 +55,8 @@ public class UpdateBook {
             if (result > 0) {
                 String alert = "The book with title: '" + title.getText() + "' has been successfully updated!";
                 Warning.alert("Book updated!", alert);
-                clear();
-            }else{
+                ChangeScene.init("/fxml/home.fxml", "KOKW - Het verleden draait door!");
+            } else {
                 Warning.alert("Update failed", "Corresponderend boek niet gevonden!");
             }
         }
@@ -76,23 +75,5 @@ public class UpdateBook {
             valid = true;
         }
         return valid;
-    }
-    private void clear(){
-        title.clear();
-        title.setPromptText(title.getPromptText());
-        topic.setText(null);
-        topic.setPromptText(topic.getPromptText());
-        firstName.setText(null);
-        firstName.setPromptText(firstName.getPromptText());
-        lastName.setText(null);
-        lastName.setPromptText(lastName.getPromptText());
-        publisher.setText(null);
-        publisher.setPromptText(publisher.getPromptText());
-        place.setText(null);
-        place.setPromptText(place.getPromptText());
-        year.setText(null);
-        year.setPromptText(year.getPromptText());
-        pages.setText(null);
-        pages.setText(pages.getPromptText());
     }
 }

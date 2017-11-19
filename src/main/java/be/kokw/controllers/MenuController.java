@@ -15,6 +15,7 @@ import org.springframework.stereotype.Controller;
 @Controller
 public class MenuController {
     public static Stage window;
+
     //BookMethods
     //Add a Book
     @FXML
@@ -25,7 +26,7 @@ public class MenuController {
     //Find a Book
     @FXML
     private void findBookByTitle() throws Exception {
-        window = NewStage.getStage("Vind Boek op Titel!","/fxml/books/search/dialogpaneByTitle.fxml");
+        window = NewStage.getStage("Vind Boek op Titel!", "/fxml/books/search/dialogpaneByTitle.fxml");
         window.show();
     }
 
@@ -37,21 +38,22 @@ public class MenuController {
 
     @FXML
     private void findBookByPublisher() throws Exception {
-        window = NewStage.getStage("Vind Boeken op uitgeverij!","/fxml/books/search/dialogpaneByPublisher.fxml");
+        window = NewStage.getStage("Vind Boeken op uitgeverij!", "/fxml/books/search/dialogpaneByPublisher.fxml");
         window.show();
     }
 
     //Update a book
     @FXML
     private void updateBookByTitle() throws Exception {
-        window = NewStage.getStage("Update een Boek!", "fxml/books/update/updateDialog.fxml");
+        window = NewStage.getStage("Update een Boek!", "/fxml/books/update/updateDialog.fxml");
+        window.show();
     }
 
     //Delete a Book
     @FXML
-    private void deleteBookByTitle() throws Exception{
-        DeleteBookByTitle b = new DeleteBookByTitle();
-        b.init();
+    private void deleteBookByTitle() throws Exception {
+        window = NewStage.getStage("Verwijder Boek op Titel!", "/fxml/books/delete/dialogpaneByTitle.fxml");
+        window.show();
     }
 
     //MemberMethods
@@ -64,12 +66,14 @@ public class MenuController {
     //Find a Member
     @FXML
     private void findMemberByName() throws Exception {
-       window = NewStage.getStage("Search by Name","/fxml/members/search/byFullName.fxml");
-       window.show();
+        window = NewStage.getStage("Search by Name", "/fxml/members/search/byFullName.fxml");
+        window.show();
     }
 
     @FXML
-    private void findMemberByCity() {
+    private void findMemberByCity() throws Exception {
+        window = NewStage.getStage("Search by City", "/fxml/members/search/byCityDialog.fxml");
+        window.show();
     }
 
     @FXML

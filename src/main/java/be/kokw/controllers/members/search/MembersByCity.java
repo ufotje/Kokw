@@ -20,15 +20,10 @@ import java.time.LocalDate;
 
 import static javafx.collections.FXCollections.observableArrayList;
 
-/**
- * Created by ufotje on 5/11/2017.
- * View for Searchquery ByFullName
- */
-
 @Component
-public class SearchMemberByFullName {
+public class MembersByCity {
     @FXML
-    private TextField firstName, lastName;
+    private TextField city;
     @FXML
     private TableView<Member> table;
     @FXML
@@ -60,14 +55,13 @@ public class SearchMemberByFullName {
 
     @FXML
     private void search() throws Exception {
-        if (Validation.validate("Achternaam", lastName.getText(), "[a-zA-Z ]+") &&
-                Validation.validate("Voornaam", firstName.getText(), "[a-zA-Z]+")) {
-            ObservableList<Member> memberList = observableArrayList(repo.findByFirstNameAndLastName(firstName.getText(), lastName.getText()));
-            if (memberList.get(0) == null) {
-                Warning.alert("No Members found!", "Het lid " + firstName.getText() + " " + lastName.getText() + " werd niet gevonden!");
+        if (Validation.validate("Stad", city.getText(), "[a-zA-Z -]+")) {
+            ObservableList<Member> memberList = observableArrayList(repo.findByCity(city.getText()));
+            if (memberList.isEmpty()) {
+                Warning.alert("No Members found!", "Er werden geen leden in " + city.getText() + " gevonden!");
                 MenuController.window.close();
             } else {
-                ChangeScene.init("/fxml/members/search/tableviewByFullName.fxml", "Zoeken op volledige naam");
+                ChangeScene.init("/fxml/members/search/tableviewByCity.fxml", "Zoeken op Stad");
                 MenuController.window.close();
                 table.setEditable(true);
                 idCol.setCellValueFactory(new PropertyValueFactory("id"));
@@ -85,3 +79,4 @@ public class SearchMemberByFullName {
         }
     }
 }
+

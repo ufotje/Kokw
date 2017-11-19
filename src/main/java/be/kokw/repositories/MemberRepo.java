@@ -18,8 +18,13 @@ public interface MemberRepo extends JpaRepository<Member,Long> {
 
     @Transactional
     List<Member> findByBDay(Date bDay);
+
     @Transactional
     List<Member> findByZip(int zip);
+
     @Transactional
     Member findByFirstNameAndLastName(String firstName, String lastName);
+
+    @Transactional
+    List<Member> findByCity(String city);
 }

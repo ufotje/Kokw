@@ -11,6 +11,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
+import java.util.ArrayList;
+import java.util.List;
+
 
 /**
  * Created by ufotje on 20/10/2017.
@@ -22,6 +25,7 @@ public class AddBook{
     @FXML
     private TextField title, topic, firstName, lastName, publisher, place, year, pages;
     private BookRepo repo;
+    private List <String> bookList = new ArrayList();
 
     @Autowired
     private void SetBookRepo(@Qualifier("bookRepo")BookRepo repo){
@@ -37,7 +41,13 @@ public class AddBook{
         if (validated()) {
             Book book = new Book(title.getText(), topic.getText(), firstName.getText(), lastName.getText(), publisher.getText(), place.getText(), Integer.parseInt(year.getText()), Integer.parseInt(pages.getText()));
             repo.save(book);
-            String alert = "The book with title: '" + title.getText() + "' has been successfully saved!";
+            bookList.add(book.getTitle());
+            String alert = "The book(s) with title: " ;
+            for(String s : bookList){
+                alert += "'" +
+                        s + "', ";
+            }
+            alert += " has been successfully saved!";
             Warning.alert("Book saved!", alert);
             ChangeScene.init("/fxml/menu.fxml", "KOKW-AdminApp");
         }
@@ -48,6 +58,7 @@ public class AddBook{
         if (validated()) {
             Book book = new Book(title.getText(), topic.getText(), firstName.getText(), lastName.getText(), publisher.getText(), place.getText(), Integer.parseInt(year.getText()), Integer.parseInt(pages.getText()));
             repo.save(book);
+            bookList.add(book.getTitle());
             clearFields();
         }
     }
@@ -68,21 +79,13 @@ public class AddBook{
     }
 
     private void clearFields(){
-        title.setText(null);
-        title.setPromptText(title.getPromptText());
-        topic.setText(null);
-        topic.setPromptText(topic.getPromptText());
-        firstName.setText(null);
-        firstName.setPromptText(firstName.getPromptText());
-        lastName.setText(null);
-        lastName.setPromptText(lastName.getPromptText());
-        publisher.setText(null);
-        publisher.setPromptText(publisher.getPromptText());
-        place.setText(null);
-        place.setPromptText(place.getPromptText());
-        year.setText(null);
-        year.setPromptText(year.getPromptText());
-        pages.setText(null);
-        pages.setText(pages.getPromptText());
+        title.clear();
+        topic.clear();
+        firstName.clear();
+        lastName.clear();
+        publisher.clear();
+        place.clear();
+        year.clear();
+        pages.clear();
     }
 }

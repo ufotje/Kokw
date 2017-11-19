@@ -1,6 +1,7 @@
 package be.kokw.controllers.books.delete;
 
 
+import be.kokw.controllers.MenuController;
 import be.kokw.repositories.BookRepo;
 import be.kokw.utility.Warning;
 import be.kokw.utility.NewStage;
@@ -21,7 +22,6 @@ public class DeleteBookByTitle {
     @FXML
     private TextField title;
     private BookRepo bookRepo;
-    private Stage window;
 
     @Autowired
     private void SetBookRepo(@Qualifier("bookRepo") BookRepo repo) {
@@ -29,17 +29,11 @@ public class DeleteBookByTitle {
     }
 
     @FXML
-    public void init()throws Exception{
-        window = NewStage.getStage("Verwijder Boek op Titel!","/fxml/books/delete/dialogpaneByTitle.fxml");
-        window.show();
-    }
-
-    @FXML
     private void delete(){
         if(Validation.emptyValidation("Titel",title.getText().isEmpty())){
             if(bookRepo.deleteByTitle(title.getText())>0) {
                 Warning.alert("Book Deleted", "The book " + title.getText() + "has been successful deleted");
-                window.getScene().getWindow().hide();
+                MenuController.window.close();
             }else{
                 Warning.alert("Book Not Found","The book '" + title.getText() + "' has not been found!");
             }
