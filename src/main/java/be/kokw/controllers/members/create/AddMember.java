@@ -31,7 +31,7 @@ public class AddMember{
     private TextField firstName, lastName, street, houseNr, zip, city, email;
 
     @FXML
-    private RadioButton board;
+    private RadioButton board, anal, payed;
 
     @FXML
     private DatePicker bDay;
@@ -44,7 +44,7 @@ public class AddMember{
     @FXML
     private void save() throws Exception {
         if (valid()){
-            Member member = new Member(firstName.getText(), lastName.getText(), street.getText(), Integer.parseInt(houseNr.getText()), Integer.parseInt(zip.getText()), city.getText(), email.getText(), bDay.getValue(), board.isSelected(), false);
+            Member member = new Member(firstName.getText(), lastName.getText(), street.getText(), Integer.parseInt(houseNr.getText()), Integer.parseInt(zip.getText()), city.getText(), email.getText(), bDay.getValue(), board.isSelected(), payed.isSelected(), anal.isSelected());
             repo.save(member);
             members.add(firstName.getText() + " " + lastName.getText());
             StringBuilder names = new StringBuilder("The member(s) with name: '");
@@ -54,14 +54,14 @@ public class AddMember{
             }
             names.append(" has been successfully saved!");
             Warning.alert("Member saved!", names.toString());
-            ChangeScene.init("fxml/home.fxml", "KOKW - Het Verleden Draait Door!");
+            ChangeScene.init("/fxml/home.fxml", "KOKW - Het Verleden Draait Door!");
         }
     }
 
     @FXML
     private void addMore() {
         if (valid()){
-            Member member = new Member(firstName.getText(), lastName.getText(), street.getText(), Integer.parseInt(houseNr.getText()), Integer.parseInt(zip.getText()), city.getText(), email.getText(), bDay.getValue(), board.isSelected(), false);
+            Member member = new Member(firstName.getText(), lastName.getText(), street.getText(), Integer.parseInt(houseNr.getText()), Integer.parseInt(zip.getText()), city.getText(), email.getText(), bDay.getValue(), board.isSelected(), payed.isSelected(), anal.isSelected());
             members.add(firstName.getText() + " " + lastName.getText());
             repo.save(member);
         }
@@ -92,5 +92,8 @@ public class AddMember{
         city.clear();
         email.clear();
         bDay.getEditor().clear();
+        board.setSelected(false);
+        payed.setSelected(false);
+        anal.setSelected(false);
     }
 }

@@ -8,9 +8,9 @@ import be.kokw.utility.Validation;
 import be.kokw.utility.Warning;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -21,9 +21,9 @@ import java.time.LocalDate;
 import static javafx.collections.FXCollections.observableArrayList;
 
 @Component
-public class MembersByCity {
+public class MembersByBDay {
     @FXML
-    private TextField city;
+    private DatePicker bDay;
     @FXML
     private TableView<Member> table;
     @FXML
@@ -57,28 +57,26 @@ public class MembersByCity {
 
     @FXML
     private void search() throws Exception {
-        if (Validation.validate("Stad", city.getText(), "[a-zA-Z -]+")) {
-            ObservableList<Member> memberList = observableArrayList(repo.findByCity(city.getText()));
-            if (memberList.isEmpty()) {
-                Warning.alert("No Members found!", "Er werden geen leden in " + city.getText() + " gevonden!");
-                MenuController.window.close();
-            } else {
-                ChangeScene.init("/fxml/members/search/tableviewByCity.fxml", "Zoeken op Stad");
-                MenuController.window.close();
-                table.setEditable(true);
-                idCol.setCellValueFactory(new PropertyValueFactory("id"));
-                firstNameCol.setCellValueFactory(new PropertyValueFactory("firstName"));
-                lastNameCol.setCellValueFactory(new PropertyValueFactory("lastName"));
-                streetCol.setCellValueFactory(new PropertyValueFactory("street"));
-                nrCol.setCellValueFactory(new PropertyValueFactory("houseNr"));
-                zipCol.setCellValueFactory(new PropertyValueFactory("zip"));
-                cityCol.setCellValueFactory(new PropertyValueFactory("city"));
-                mailCol.setCellValueFactory(new PropertyValueFactory("email"));
-                bDayCol.setCellValueFactory(new PropertyValueFactory("bDay"));
-                payedCol.setCellValueFactory(new PropertyValueFactory("payed"));
-                analCol.setCellValueFactory(new PropertyValueFactory("anal"));
-                table.setItems(memberList);
-            }
+        ObservableList<Member> memberList = observableArrayList(repo.findByBDay(bDay.getValue()));
+        if (memberList.isEmpty()) {
+            Warning.alert("No Members found!", "Er werden geen leden geboren op " + bDay.getValue() + " gevonden!");
+            MenuController.window.close();
+        } else {
+            ChangeScene.init("/fxml/members/search/tableviewByBDay.fxml", "Zoeken op GeboorteDatum");
+            MenuController.window.close();
+            table.setEditable(true);
+            idCol.setCellValueFactory(new PropertyValueFactory("id"));
+            firstNameCol.setCellValueFactory(new PropertyValueFactory("firstName"));
+            lastNameCol.setCellValueFactory(new PropertyValueFactory("lastName"));
+            streetCol.setCellValueFactory(new PropertyValueFactory("street"));
+            nrCol.setCellValueFactory(new PropertyValueFactory("houseNr"));
+            zipCol.setCellValueFactory(new PropertyValueFactory("zip"));
+            cityCol.setCellValueFactory(new PropertyValueFactory("city"));
+            mailCol.setCellValueFactory(new PropertyValueFactory("email"));
+            bDayCol.setCellValueFactory(new PropertyValueFactory("bDay"));
+            payedCol.setCellValueFactory(new PropertyValueFactory("payed"));
+            analCol.setCellValueFactory(new PropertyValueFactory("anal"));
+            table.setItems(memberList);
         }
     }
 }

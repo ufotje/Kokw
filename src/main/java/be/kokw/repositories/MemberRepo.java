@@ -5,7 +5,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import javax.transaction.Transactional;
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.List;
 
 /**
@@ -14,10 +14,10 @@ import java.util.List;
  */
 
 @Repository("memberRepo")
-public interface MemberRepo extends JpaRepository<Member,Long> {
+public interface MemberRepo extends JpaRepository<Member, Long> {
 
     @Transactional
-    List<Member> findByBDay(Date bDay);
+    List<Member> findByBDay(LocalDate bDay);
 
     @Transactional
     List<Member> findByZip(int zip);

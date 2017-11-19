@@ -1,6 +1,5 @@
 package be.kokw.controllers;
 
-import be.kokw.controllers.books.delete.DeleteBookByTitle;
 import be.kokw.utility.ChangeScene;
 import be.kokw.utility.NewStage;
 import javafx.fxml.FXML;
@@ -77,7 +76,9 @@ public class MenuController {
     }
 
     @FXML
-    private void findMemberByDayOfBirth() {
+    private void findMemberByDayOfBirth() throws Exception {
+        window = NewStage.getStage("Search by Day of Birth", "/fxml/members/search/byBDayDialog.fxml");
+        window.show();
     }
 
     @FXML

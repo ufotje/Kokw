@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="1200" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="be.kokw.controllers.members.search.SearchMemberByFullName">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="1200" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="be.kokw.controllers.members.search.MembersByBDay">
     <top>
         <VBox BorderPane.alignment="CENTER">
             <fx:include source="/fxml/menu.fxml" />
@@ -26,7 +26,7 @@
                 <TableColumn fx:id="streetCol" prefWidth="142.0" text="Straatnaam" />
                 <TableColumn fx:id="nrCol" prefWidth="72.0" text="Huisnr" />
                 <TableColumn fx:id="zipCol" prefWidth="72.0" text="Zip" />
-                <TableColumn fx:id="cityCol" prefWidth="202.0" text="Stad" />
+                <TableColumn fx:id="cityCol" prefWidth="170.0" text="Stad" />
                 <TableColumn fx:id="bDayCol" prefWidth="106.0" text="Geboren" />
                 <TableColumn fx:id="mailCol" prefWidth="240.0" text="E-Mail" />
                 <TableColumn fx:id= "payedCol" prefWidth="50.0" text="Lidgeld" />
@@ -38,3 +38,4 @@
         </TableView>
     </center>
 </BorderPane>
+

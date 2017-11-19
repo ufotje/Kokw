@@ -50,6 +50,8 @@ public class SearchMemberByFullName {
     @FXML
     private TableColumn<Member, String> mailCol;
     @FXML
+    private TableColumn<Member, Boolean> payedCol;
+    @FXML
     private TableColumn<Member, Boolean> analCol;
     private MemberRepo repo;
 
@@ -79,6 +81,7 @@ public class SearchMemberByFullName {
                 cityCol.setCellValueFactory(new PropertyValueFactory("city"));
                 mailCol.setCellValueFactory(new PropertyValueFactory("email"));
                 bDayCol.setCellValueFactory(new PropertyValueFactory("bDay"));
+                payedCol.setCellValueFactory(new PropertyValueFactory("payed"));
                 analCol.setCellValueFactory(new PropertyValueFactory("anal"));
                 table.setItems(memberList);
             }

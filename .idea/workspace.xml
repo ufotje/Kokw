@@ -2,33 +2,33 @@
 <project version="4">
   <component name="BookmarkManager">
     <bookmark url="file://$PROJECT_DIR$/src/main/java/be/kokw/controllers/books/search/SearchBookByName.java" line="61" />
-    <bookmark url="file://$PROJECT_DIR$/src/main/java/be/kokw/controllers/MenuController.java" line="47" />
+    <bookmark url="file://$PROJECT_DIR$/src/main/java/be/kokw/controllers/MenuController.java" line="46" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f706f8ad-5c5e-4c8c-9123-98f4956da70d" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/be/kokw/controllers/members/search/MembersByCity.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/fxml/members/search/byCityDialog.fxml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/fxml/members/search/tableviewByCity.fxml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/resources/fxml/members/updateDialog.fxml" afterPath="$PROJECT_DIR$/src/main/resources/fxml/members/update/updateDialog.fxml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/be/kokw/controllers/members/search/MembersByBDay.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/be/kokw/controllers/members/update/UpdateMember.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/fxml/members/search/byBDayDialog.fxml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/fxml/members/search/tableviewByBDay.fxml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/be/kokw/bean/Member.class" afterPath="$PROJECT_DIR$/target/classes/be/kokw/bean/Member.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/be/kokw/controllers/MenuController.class" afterPath="$PROJECT_DIR$/target/classes/be/kokw/controllers/MenuController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/be/kokw/controllers/books/create/AddBook.class" afterPath="$PROJECT_DIR$/target/classes/be/kokw/controllers/books/create/AddBook.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/be/kokw/controllers/books/delete/DeleteBookByTitle.class" afterPath="$PROJECT_DIR$/target/classes/be/kokw/controllers/books/delete/DeleteBookByTitle.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/be/kokw/controllers/books/search/SearchBookByTitle.class" afterPath="$PROJECT_DIR$/target/classes/be/kokw/controllers/books/search/SearchBookByTitle.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/be/kokw/controllers/books/update/UpdateBook.class" afterPath="$PROJECT_DIR$/target/classes/be/kokw/controllers/books/update/UpdateBook.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/be/kokw/controllers/members/create/AddMember.class" afterPath="$PROJECT_DIR$/target/classes/be/kokw/controllers/members/create/AddMember.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/be/kokw/controllers/members/search/MembersByCity.class" afterPath="$PROJECT_DIR$/target/classes/be/kokw/controllers/members/search/MembersByCity.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/be/kokw/controllers/members/search/SearchMemberByFullName.class" afterPath="$PROJECT_DIR$/target/classes/be/kokw/controllers/members/search/SearchMemberByFullName.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/be/kokw/repositories/MemberRepo.class" afterPath="$PROJECT_DIR$/target/classes/be/kokw/repositories/MemberRepo.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/be/kokw/bean/Member.java" afterPath="$PROJECT_DIR$/src/main/java/be/kokw/bean/Member.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/be/kokw/controllers/MenuController.java" afterPath="$PROJECT_DIR$/src/main/java/be/kokw/controllers/MenuController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/be/kokw/controllers/books/create/AddBook.java" afterPath="$PROJECT_DIR$/src/main/java/be/kokw/controllers/books/create/AddBook.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/be/kokw/controllers/books/delete/DeleteBookByTitle.java" afterPath="$PROJECT_DIR$/src/main/java/be/kokw/controllers/books/delete/DeleteBookByTitle.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/be/kokw/controllers/books/search/SearchBookByTitle.java" afterPath="$PROJECT_DIR$/src/main/java/be/kokw/controllers/books/search/SearchBookByTitle.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/be/kokw/controllers/books/update/UpdateBook.java" afterPath="$PROJECT_DIR$/src/main/java/be/kokw/controllers/books/update/UpdateBook.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/be/kokw/controllers/members/create/AddMember.java" afterPath="$PROJECT_DIR$/src/main/java/be/kokw/controllers/members/create/AddMember.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/be/kokw/controllers/members/search/MembersByCity.java" afterPath="$PROJECT_DIR$/src/main/java/be/kokw/controllers/members/search/MembersByCity.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/be/kokw/controllers/members/search/SearchMemberByFullName.java" afterPath="$PROJECT_DIR$/src/main/java/be/kokw/controllers/members/search/SearchMemberByFullName.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/be/kokw/repositories/MemberRepo.java" afterPath="$PROJECT_DIR$/src/main/java/be/kokw/repositories/MemberRepo.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/fxml/books/found/tableView.fxml" afterPath="$PROJECT_DIR$/src/main/resources/fxml/books/found/tableView.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/fxml/books/update/updateBook.fxml" afterPath="$PROJECT_DIR$/src/main/resources/fxml/books/update/updateBook.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/fxml/books/found/tableView.fxml" afterPath="$PROJECT_DIR$/target/classes/fxml/books/found/tableView.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/fxml/books/update/updateBook.fxml" afterPath="$PROJECT_DIR$/target/classes/fxml/books/update/updateBook.fxml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/fxml/members/addMember.fxml" afterPath="$PROJECT_DIR$/src/main/resources/fxml/members/addMember.fxml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/fxml/members/search/tableviewByCity.fxml" afterPath="$PROJECT_DIR$/src/main/resources/fxml/members/search/tableviewByCity.fxml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/fxml/members/search/tableviewByFullName.fxml" afterPath="$PROJECT_DIR$/src/main/resources/fxml/members/search/tableviewByFullName.fxml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/fxml/members/addMember.fxml" afterPath="$PROJECT_DIR$/target/classes/fxml/members/addMember.fxml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/fxml/members/search/tableviewByCity.fxml" afterPath="$PROJECT_DIR$/target/classes/fxml/members/search/tableviewByCity.fxml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/fxml/members/search/tableviewByFullName.fxml" afterPath="$PROJECT_DIR$/target/classes/fxml/members/search/tableviewByFullName.fxml" />
     </list>
     <ignored path="C:/KOKW-AdminFX/out/" />
     <ignored path="C:/KOKW-AdminFX/target/" />
@@ -45,34 +45,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="MenuController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/be/kokw/controllers/MenuController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="350">
-              <caret line="74" column="50" lean-forward="false" selection-start-line="74" selection-start-column="50" selection-end-line="74" selection-end-column="50" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="menu.fxml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/fxml/menu.fxml">
-          <provider editor-type-id="JavaFX-Scene-Builder">
-            <state />
-          </provider>
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-125">
-              <caret line="19" column="47" lean-forward="true" selection-start-line="19" selection-start-column="47" selection-end-line="19" selection-end-column="47" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SearchMemberByFullName.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="SearchMemberByFullName.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/be/kokw/controllers/members/search/SearchMemberByFullName.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="411">
-              <caret line="67" column="46" lean-forward="true" selection-start-line="67" selection-start-column="46" selection-end-line="67" selection-end-column="46" />
+            <state relative-caret-position="611">
+              <caret line="82" column="78" lean-forward="true" selection-start-line="82" selection-start-column="78" selection-end-line="83" selection-end-column="80" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -80,14 +57,43 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="byCityDialog.fxml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/fxml/members/search/byCityDialog.fxml">
-          <provider editor-type-id="JavaFX-Scene-Builder">
-            <state />
-          </provider>
+      <file leaf-file-name="SearchBookByPublisher.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/be/kokw/controllers/books/search/SearchBookByPublisher.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="6" column="11" lean-forward="false" selection-start-line="6" selection-start-column="11" selection-end-line="6" selection-end-column="11" />
+            <state relative-caret-position="475">
+              <caret line="60" column="46" lean-forward="false" selection-start-line="60" selection-start-column="46" selection-end-line="60" selection-end-column="46" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MenuController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/be/kokw/controllers/MenuController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-714">
+              <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UpdateBook.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/be/kokw/controllers/books/update/UpdateBook.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="836">
+              <caret line="77" column="5" lean-forward="false" selection-start-line="77" selection-start-column="5" selection-end-line="77" selection-end-column="5" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AddBook.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/be/kokw/controllers/books/create/AddBook.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-350">
+              <caret line="47" column="24" lean-forward="false" selection-start-line="47" selection-start-column="24" selection-end-line="47" selection-end-column="24" />
               <folding />
             </state>
           </provider>
@@ -96,8 +102,8 @@
       <file leaf-file-name="MembersByCity.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/be/kokw/controllers/members/search/MembersByCity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="227">
-              <caret line="61" column="46" lean-forward="true" selection-start-line="61" selection-start-column="46" selection-end-line="61" selection-end-column="46" />
+            <state relative-caret-position="186">
+              <caret line="63" column="46" lean-forward="true" selection-start-line="63" selection-start-column="46" selection-end-line="63" selection-end-column="46" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -105,27 +111,37 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="tableviewByCity.fxml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/fxml/members/search/tableviewByCity.fxml">
-          <provider editor-type-id="JavaFX-Scene-Builder">
-            <state />
-          </provider>
+      <file leaf-file-name="MembersByBDay.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/be/kokw/controllers/members/search/MembersByBDay.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="194">
-              <caret line="8" column="233" lean-forward="false" selection-start-line="8" selection-start-column="233" selection-end-line="8" selection-end-column="233" />
+            <state relative-caret-position="786">
+              <caret line="82" column="0" lean-forward="true" selection-start-line="82" selection-start-column="0" selection-end-line="82" selection-end-column="0" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UpdateMember.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/be/kokw/controllers/members/update/UpdateMember.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="100">
+              <caret line="4" column="10" lean-forward="false" selection-start-line="4" selection-start-column="10" selection-end-line="4" selection-end-column="10" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="BookRepoImpl.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/be/kokw/repositories/books/implementations/BookRepoImpl.java">
+      <file leaf-file-name="tableviewByBDay.fxml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/fxml/members/search/tableviewByBDay.fxml">
+          <provider editor-type-id="JavaFX-Scene-Builder">
+            <state />
+          </provider>
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="95">
-              <caret line="67" column="130" lean-forward="false" selection-start-line="67" selection-start-column="130" selection-end-line="67" selection-end-column="130" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="200">
+              <caret line="8" column="233" lean-forward="false" selection-start-line="8" selection-start-column="233" selection-end-line="8" selection-end-column="233" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -133,34 +149,8 @@
       <file leaf-file-name="MemberRepo.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/be/kokw/repositories/MemberRepo.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="12" column="48" lean-forward="true" selection-start-line="12" selection-start-column="48" selection-end-line="12" selection-end-column="48" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="tableviewByFullName.fxml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/fxml/members/search/tableviewByFullName.fxml">
-          <provider editor-type-id="JavaFX-Scene-Builder">
-            <state />
-          </provider>
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="369">
-              <caret line="36" column="13" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="dialogpaneByTitle.fxml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/fxml/books/delete/dialogpaneByTitle.fxml">
-          <provider editor-type-id="JavaFX-Scene-Builder">
-            <state />
-          </provider>
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="175">
-              <caret line="7" column="15" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="30" selection-end-column="21" />
+            <state relative-caret-position="32">
+              <caret line="7" column="27" lean-forward="false" selection-start-line="7" selection-start-column="27" selection-end-line="7" selection-end-column="27" />
               <folding />
             </state>
           </provider>
@@ -172,8 +162,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
-        <option value="Class" />
         <option value="FxmlFile" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -188,10 +178,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="C:/KOKW-AdminFX/src/main/java/be/kokw/controllers/members/AddMember.java" />
-        <option value="C:/KOKW-AdminFX/src/main/resources/fxml/members/addMember.fxml" />
-        <option value="C:/KOKW-AdminFX/src/main/resources/fxml/books/addBook.fxml" />
-        <option value="C:/KOKW-AdminFX/src/main/resources/fxml/footer.fxml" />
         <option value="C:/KOKW-AdminFX/src/main/resources/fxml/menu.fxml" />
         <option value="C:/KOKW-AdminFX/src/main/java/be/kokw/utility/ChangeScene.java" />
         <option value="$PROJECT_DIR$/src/main/resources/fxml/books/found/byName.fxml" />
@@ -215,8 +201,6 @@
         <option value="$PROJECT_DIR$/src/main/resources/fxml/members/search/byFullName.fxml" />
         <option value="$PROJECT_DIR$/src/main/java/be/kokw/utility/DateConverter.java" />
         <option value="$PROJECT_DIR$/src/main/resources/fxml/books/search/dialogpaneByPublisher.fxml" />
-        <option value="$PROJECT_DIR$/src/main/java/be/kokw/bean/Member.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/fxml/members/search/tableviewByFullName.fxml" />
         <option value="$PROJECT_DIR$/src/main/java/be/kokw/controllers/books/search/SearchBookByPublisher.java" />
         <option value="$PROJECT_DIR$/src/main/java/be/kokw/controllers/books/search/SearchBookByName.java" />
         <option value="$PROJECT_DIR$/src/main/resources/fxml/footer.fxml" />
@@ -224,21 +208,27 @@
         <option value="$PROJECT_DIR$/src/main/resources/fxml/menu.fxml" />
         <option value="$PROJECT_DIR$/src/main/resources/fxml/home.fxml" />
         <option value="$PROJECT_DIR$/src/main/resources/fxml/books/addBook.fxml" />
-        <option value="$PROJECT_DIR$/src/main/resources/fxml/members/addMember.fxml" />
         <option value="$PROJECT_DIR$/src/main/resources/fxml/books/update/updateDialog.fxml" />
         <option value="$PROJECT_DIR$/src/main/java/be/kokw/controllers/books/delete/DeleteBookByTitle.java" />
         <option value="$PROJECT_DIR$/src/main/resources/fxml/books/found/tableView.fxml" />
         <option value="$PROJECT_DIR$/src/main/java/be/kokw/controllers/books/update/UpdateBook.java" />
         <option value="$PROJECT_DIR$/src/main/java/be/kokw/controllers/books/create/AddBook.java" />
         <option value="$PROJECT_DIR$/src/main/java/be/kokw/controllers/books/search/SearchBookByTitle.java" />
-        <option value="$PROJECT_DIR$/src/main/java/be/kokw/controllers/members/create/AddMember.java" />
         <option value="$PROJECT_DIR$/src/main/resources/fxml/books/update/updateBook.fxml" />
-        <option value="$PROJECT_DIR$/src/main/java/be/kokw/repositories/MemberRepo.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/fxml/members/search/tableviewByCity.fxml" />
         <option value="$PROJECT_DIR$/src/main/resources/fxml/members/search/byCityDialog.fxml" />
-        <option value="$PROJECT_DIR$/src/main/java/be/kokw/controllers/MenuController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/be/kokw/controllers/members/search/MembersByCity.java" />
+        <option value="$PROJECT_DIR$/src/main/java/be/kokw/bean/Member.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/fxml/members/addMember.fxml" />
+        <option value="$PROJECT_DIR$/src/main/java/be/kokw/controllers/members/create/AddMember.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/fxml/members/search/tableviewByCity.fxml" />
+        <option value="$PROJECT_DIR$/src/main/resources/fxml/members/search/tableviewByFullName.fxml" />
         <option value="$PROJECT_DIR$/src/main/java/be/kokw/controllers/members/search/SearchMemberByFullName.java" />
+        <option value="$PROJECT_DIR$/src/main/java/be/kokw/controllers/members/search/MembersByCity.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/fxml/members/search/byBDayDialog.fxml" />
+        <option value="$PROJECT_DIR$/src/main/java/be/kokw/repositories/MemberRepo.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/fxml/members/search/tableviewByBDay.fxml" />
+        <option value="$PROJECT_DIR$/src/main/java/be/kokw/controllers/MenuController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/be/kokw/controllers/members/update/UpdateMember.java" />
+        <option value="$PROJECT_DIR$/src/main/java/be/kokw/controllers/members/search/MembersByBDay.java" />
       </list>
     </option>
   </component>
@@ -331,60 +321,6 @@
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="kokw" type="462c0819:PsiDirectoryNode" />
               <item name="controllers" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="KOKWAdminFX" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Kokw" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="kokw" type="462c0819:PsiDirectoryNode" />
-              <item name="controllers" type="462c0819:PsiDirectoryNode" />
-              <item name="books" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="KOKWAdminFX" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Kokw" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="kokw" type="462c0819:PsiDirectoryNode" />
-              <item name="controllers" type="462c0819:PsiDirectoryNode" />
-              <item name="books" type="462c0819:PsiDirectoryNode" />
-              <item name="create" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="KOKWAdminFX" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Kokw" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="kokw" type="462c0819:PsiDirectoryNode" />
-              <item name="controllers" type="462c0819:PsiDirectoryNode" />
-              <item name="books" type="462c0819:PsiDirectoryNode" />
-              <item name="delete" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="KOKWAdminFX" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Kokw" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="kokw" type="462c0819:PsiDirectoryNode" />
-              <item name="controllers" type="462c0819:PsiDirectoryNode" />
-              <item name="books" type="462c0819:PsiDirectoryNode" />
-              <item name="search" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="KOKWAdminFX" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Kokw" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="kokw" type="462c0819:PsiDirectoryNode" />
-              <item name="controllers" type="462c0819:PsiDirectoryNode" />
-              <item name="books" type="462c0819:PsiDirectoryNode" />
-              <item name="update" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="KOKWAdminFX" type="b2602c69:ProjectViewProjectNode" />
@@ -563,11 +499,11 @@
       <recent name="be.kokw" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Kokw\src\main\resources\fxml\members\search" />
       <recent name="C:\Kokw\src\main\resources\fxml\books\update" />
       <recent name="C:\Kokw\src\main\resources\fxml\books\search" />
       <recent name="C:\KOKW-AdminFX\src\main\java\be\kokw\repositories\books\interfaces" />
       <recent name="C:\KOKW-AdminFX\src\main\java\be\kokw" />
-      <recent name="C:\KOKW-AdminFX\src\main\resources" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="be.kokw.controllers.books.update" />
@@ -1087,12 +1023,12 @@
       <workItem from="1509624917039" duration="9341000" />
       <workItem from="1509695914186" duration="803000" />
       <workItem from="1509709334892" duration="5195000" />
-      <workItem from="1510911570928" duration="46191000" />
+      <workItem from="1510911570928" duration="53500000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="222715000" />
+    <option name="totallyTimeSpent" value="230024000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="40" y="31" width="1781" height="984" extended-state="0" />
@@ -1151,24 +1087,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/be/kokw/utility/repositories/RepoInit.java" />
-    <entry file="file://$PROJECT_DIR$/KOKWAdminFX.iml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/fxml/books/found/byName.fxml" />
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/boot/spring-boot-autoconfigure/1.3.8.RELEASE/spring-boot-autoconfigure-1.3.8.RELEASE.jar!/org/springframework/boot/autoconfigure/orm/jpa/JpaBaseConfiguration.class" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/be/kokw/utility/Validation.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="65">
-          <caret line="11" column="13" lean-forward="false" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/be/kokw/utility/SaveAlert.java" />
     <entry file="file://$PROJECT_DIR$/src/main/resources/fxml/books/delete/byTitle.fxml" />
     <entry file="file://$PROJECT_DIR$/src/main/java/be/kokw/utility/Warning.java">
@@ -1228,14 +1146,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/be/kokw/utility/DateConverter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-49">
-          <caret line="9" column="27" lean-forward="false" selection-start-line="9" selection-start-column="27" selection-end-line="9" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/fxml/books/search/byPublisher.fxml">
       <provider editor-type-id="JavaFX-Scene-Builder">
         <state />
@@ -1262,14 +1172,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="250">
           <caret line="14" column="0" lean-forward="false" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/be/kokw/bean/Member.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="151">
-          <caret line="29" column="41" lean-forward="false" selection-start-line="29" selection-start-column="41" selection-end-line="29" selection-end-column="41" />
           <folding />
         </state>
       </provider>
@@ -1322,28 +1224,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-2949">
           <caret line="33" column="60" lean-forward="false" selection-start-line="33" selection-start-column="60" selection-end-line="33" selection-end-column="60" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/fxml/members/addMember.fxml">
-      <provider selected="true" editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="125">
-          <caret line="44" column="81" lean-forward="false" selection-start-line="44" selection-start-column="81" selection-end-line="44" selection-end-column="81" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/fxml/members/search/byFullName.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="8" column="17" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="41" selection-end-column="13" />
           <folding />
         </state>
       </provider>
@@ -1414,26 +1294,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/be/kokw/controllers/members/create/AddMember.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="77">
-          <caret line="52" column="37" lean-forward="false" selection-start-line="52" selection-start-column="37" selection-end-line="52" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/be/kokw/controllers/books/delete/DeleteBookByTitle.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-25">
           <caret line="23" column="30" lean-forward="false" selection-start-line="23" selection-start-column="30" selection-end-line="23" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/be/kokw/controllers/books/create/AddBook.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-621">
-          <caret line="47" column="24" lean-forward="false" selection-start-line="47" selection-start-column="24" selection-end-line="47" selection-end-column="24" />
           <folding />
         </state>
       </provider>
@@ -1446,29 +1310,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/be/kokw/controllers/books/search/SearchBookByPublisher.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="23">
-          <caret line="60" column="46" lean-forward="false" selection-start-line="60" selection-start-column="46" selection-end-line="60" selection-end-column="46" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/be/kokw/controllers/books/search/SearchBookByTitle.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-164">
           <caret line="60" column="38" lean-forward="false" selection-start-line="60" selection-start-column="38" selection-end-line="60" selection-end-column="38" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/be/kokw/controllers/books/update/UpdateBook.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="911">
-          <caret line="77" column="5" lean-forward="false" selection-start-line="77" selection-start-column="5" selection-end-line="77" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1515,21 +1361,89 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/be/kokw/repositories/MemberRepo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="12" column="48" lean-forward="true" selection-start-line="12" selection-start-column="48" selection-end-line="12" selection-end-column="48" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/fxml/members/search/tableviewByFullName.fxml">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/fxml/members/search/byFullName.fxml">
       <provider editor-type-id="JavaFX-Scene-Builder">
         <state />
       </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="369">
-          <caret line="36" column="13" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
+        <state relative-caret-position="1025">
+          <caret line="41" column="13" lean-forward="true" selection-start-line="41" selection-start-column="13" selection-end-line="41" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/be/kokw/utility/DateConverter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="250">
+          <caret line="13" column="14" lean-forward="true" selection-start-line="12" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/fxml/members/addMember.fxml">
+      <provider selected="true" editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="125">
+          <caret line="44" column="81" lean-forward="false" selection-start-line="44" selection-start-column="81" selection-end-line="44" selection-end-column="81" />
+          <folding>
+            <marker date="1511098276779" expanded="true" signature="3386:3467" ph="..." />
+            <marker date="1511098276779" expanded="true" signature="3712:4007" ph="..." />
+            <marker date="1511098276779" expanded="true" signature="3746:3846" ph="..." />
+            <marker date="1511098276779" expanded="true" signature="3884:3974" ph="..." />
+            <marker date="1511098276779" expanded="true" signature="4200:4496" ph="..." />
+            <marker date="1511098276779" expanded="true" signature="4234:4335" ph="..." />
+            <marker date="1511098276779" expanded="true" signature="4373:4463" ph="..." />
+            <marker date="1511098276779" expanded="true" signature="4526:4601" ph="..." />
+            <marker date="1511098276779" expanded="true" signature="4690:5904" ph="..." />
+            <marker date="1511098276779" expanded="true" signature="4895:5192" ph="..." />
+            <marker date="1511098276779" expanded="true" signature="4929:5031" ph="..." />
+            <marker date="1511098276779" expanded="true" signature="5069:5159" ph="..." />
+            <marker date="1511098276779" expanded="true" signature="5402:5695" ph="..." />
+            <marker date="1511098276779" expanded="true" signature="5436:5534" ph="..." />
+            <marker date="1511098276779" expanded="true" signature="5572:5662" ph="..." />
+            <marker date="1511098276779" expanded="true" signature="5725:5787" ph="..." />
+            <marker date="1511098276779" expanded="true" signature="5813:5884" ph="..." />
+            <marker date="1511098276779" expanded="true" signature="6009:6880" ph="..." />
+            <marker date="1511098276779" expanded="true" signature="6075:6357" ph="..." />
+            <marker date="1511098276779" expanded="true" signature="6106:6187" ph="..." />
+            <marker date="1511098276779" expanded="true" signature="6225:6328" ph="..." />
+            <marker date="1511098276779" expanded="true" signature="6581:6755" ph="..." />
+            <marker date="1511098276779" expanded="true" signature="6619:6722" ph="..." />
+            <marker date="1511098276779" expanded="true" signature="6785:6860" ph="..." />
+            <marker date="1511098276779" expanded="true" signature="6985:7692" ph="..." />
+            <marker date="1511098276779" expanded="true" signature="7053:7335" ph="..." />
+            <marker date="1511098276779" expanded="true" signature="7084:7165" ph="..." />
+            <marker date="1511098276779" expanded="true" signature="7203:7306" ph="..." />
+            <marker date="1511098276779" expanded="true" signature="7597:7672" ph="..." />
+            <marker date="1511098276779" expanded="true" signature="9198:10062" ph="..." />
+            <marker date="1511098276779" expanded="true" signature="9377:9620" ph="..." />
+            <marker date="1511098276779" expanded="true" signature="9408:9489" ph="..." />
+            <marker date="1511098276779" expanded="true" signature="9518:9590" ph="..." />
+            <marker date="1511098276779" expanded="true" signature="9772:10042" ph="..." />
+            <marker date="1511098276779" expanded="true" signature="9803:9884" ph="..." />
+            <marker date="1511098276779" expanded="true" signature="9922:10012" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/be/kokw/bean/Member.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1636">
+          <caret line="139" column="30" lean-forward="false" selection-start-line="139" selection-start-column="30" selection-end-line="139" selection-end-column="30" />
+          <folding>
+            <element signature="e#3038#3039#0" expanded="true" />
+            <element signature="e#3081#3082#0" expanded="true" />
+            <element signature="e#3115#3116#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/be/kokw/controllers/members/create/AddMember.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-189">
+          <caret line="56" column="31" lean-forward="false" selection-start-line="56" selection-start-column="31" selection-end-line="56" selection-end-column="31" />
           <folding />
         </state>
       </provider>
@@ -1539,8 +1453,19 @@
         <state />
       </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="194">
-          <caret line="8" column="233" lean-forward="false" selection-start-line="8" selection-start-column="233" selection-end-line="8" selection-end-column="233" />
+        <state relative-caret-position="298">
+          <caret line="30" column="79" lean-forward="true" selection-start-line="30" selection-start-column="79" selection-end-line="31" selection-end-column="81" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/fxml/members/search/tableviewByFullName.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="469">
+          <caret line="37" column="20" lean-forward="true" selection-start-line="37" selection-start-column="20" selection-end-line="37" selection-end-column="20" />
           <folding />
         </state>
       </provider>
@@ -1551,23 +1476,34 @@
       </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
-          <caret line="6" column="11" lean-forward="false" selection-start-line="6" selection-start-column="11" selection-end-line="6" selection-end-column="11" />
+          <caret line="6" column="19" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="33" selection-end-column="13" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/be/kokw/controllers/MenuController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/fxml/members/search/byBDayDialog.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="350">
-          <caret line="74" column="50" lean-forward="false" selection-start-line="74" selection-start-column="50" selection-end-line="74" selection-end-column="50" />
+        <state relative-caret-position="-6">
+          <caret line="8" column="49" lean-forward="false" selection-start-line="8" selection-start-column="49" selection-end-line="8" selection-end-column="49" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/be/kokw/utility/Validation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-10">
+          <caret line="11" column="13" lean-forward="false" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/be/kokw/controllers/members/search/MembersByCity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="227">
-          <caret line="61" column="46" lean-forward="true" selection-start-line="61" selection-start-column="46" selection-end-line="61" selection-end-column="46" />
+        <state relative-caret-position="186">
+          <caret line="63" column="46" lean-forward="true" selection-start-line="63" selection-start-column="46" selection-end-line="63" selection-end-column="46" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1576,8 +1512,79 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/be/kokw/controllers/members/search/SearchMemberByFullName.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="411">
-          <caret line="67" column="46" lean-forward="true" selection-start-line="67" selection-start-column="46" selection-end-line="67" selection-end-column="46" />
+        <state relative-caret-position="611">
+          <caret line="82" column="78" lean-forward="true" selection-start-line="82" selection-start-column="78" selection-end-line="83" selection-end-column="80" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/be/kokw/controllers/books/search/SearchBookByPublisher.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="475">
+          <caret line="60" column="46" lean-forward="false" selection-start-line="60" selection-start-column="46" selection-end-line="60" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/be/kokw/controllers/books/create/AddBook.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-350">
+          <caret line="47" column="24" lean-forward="false" selection-start-line="47" selection-start-column="24" selection-end-line="47" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/be/kokw/repositories/MemberRepo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="32">
+          <caret line="7" column="27" lean-forward="false" selection-start-line="7" selection-start-column="27" selection-end-line="7" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/fxml/members/search/tableviewByBDay.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="8" column="233" lean-forward="false" selection-start-line="8" selection-start-column="233" selection-end-line="8" selection-end-column="233" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/be/kokw/controllers/MenuController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-714">
+          <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/be/kokw/controllers/members/update/UpdateMember.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="100">
+          <caret line="4" column="10" lean-forward="false" selection-start-line="4" selection-start-column="10" selection-end-line="4" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/be/kokw/controllers/books/update/UpdateBook.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="836">
+          <caret line="77" column="5" lean-forward="false" selection-start-line="77" selection-start-column="5" selection-end-line="77" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/be/kokw/controllers/members/search/MembersByBDay.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="786">
+          <caret line="82" column="0" lean-forward="true" selection-start-line="82" selection-start-column="0" selection-end-line="82" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
