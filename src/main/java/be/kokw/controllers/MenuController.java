@@ -1,5 +1,6 @@
 package be.kokw.controllers;
 
+import be.kokw.controllers.members.search.MembersByNotPayed;
 import be.kokw.utility.ChangeScene;
 import be.kokw.utility.NewStage;
 import javafx.fxml.FXML;
@@ -82,7 +83,9 @@ public class MenuController {
     }
 
     @FXML
-    private void findMemberByPayed() {
+    private void findMemberByPayed() throws Exception {
+        MembersByNotPayed member = new MembersByNotPayed();
+        member.search();
     }
 
     @FXML
@@ -91,7 +94,9 @@ public class MenuController {
 
     //Update Member
     @FXML
-    private void updateMember() {
+    private void updateMember() throws Exception {
+        window = NewStage.getStage("Update Member!", "/fxml/members/update/updateDialog.fxml");
+        window.show();
     }
 
     //Delete Member

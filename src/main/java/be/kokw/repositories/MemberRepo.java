@@ -27,4 +27,7 @@ public interface MemberRepo extends JpaRepository<Member, Long> {
 
     @Transactional
     List<Member> findByCity(String city);
+
+    @Transactional
+    List<Member> findByPayedFalse();
 }

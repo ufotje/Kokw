@@ -1,13 +1,11 @@
 package be.kokw.controllers.members.search;
 
 import be.kokw.bean.Member;
-import be.kokw.controllers.MenuController;
 import be.kokw.repositories.MemberRepo;
 import be.kokw.utility.ChangeScene;
 import be.kokw.utility.Warning;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.scene.control.DatePicker;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -15,14 +13,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
+
 import java.time.LocalDate;
 
 import static javafx.collections.FXCollections.observableArrayList;
 
 @Component
-public class MembersByBDay {
-    @FXML
-    private DatePicker bDay;
+public class MembersByNotPayed {
     @FXML
     private TableView<Member> table;
     @FXML
@@ -55,14 +52,16 @@ public class MembersByBDay {
     }
 
     @FXML
-    private void search() throws Exception {
-        ObservableList<Member> memberList = observableArrayList(repo.findByBDay(bDay.getValue()));
+    public void search() throws Exception {
+        System.out.println(repo.toString());
+        ObservableList<Member> memberList = observableArrayList(repo.findByPayedFalse());
+        for(Member m : memberList){
+            System.out.println(m.getFirstName());
+        }
         if (memberList.isEmpty()) {
-            Warning.alert("No Members found!", "Er werden geen leden geboren op " + bDay.getValue() + " gevonden!");
-            MenuController.window.close();
+            Warning.alert("No Members found!", "Er werden geen leden gevonden van wie het lidgeld niet betaal werd!");
         } else {
-            ChangeScene.init("/fxml/members/search/tableviewByBDay.fxml", "Zoeken op GeboorteDatum");
-            MenuController.window.close();
+            ChangeScene.init("/fxml/members/search/tableviewNotPayed.fxml", "Zoeken op Lidgeld niet betaald");
             table.setEditable(true);
             idCol.setCellValueFactory(new PropertyValueFactory("id"));
             firstNameCol.setCellValueFactory(new PropertyValueFactory("firstName"));

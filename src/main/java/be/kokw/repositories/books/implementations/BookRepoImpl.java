@@ -64,9 +64,9 @@ public class BookRepoImpl implements BookRepo {
     }
 
     @Override
-    public int update(String title, String topic, String firstName, String lastName, String publisher, String place, int year, int pages) {
-        Query query = manager.createQuery("update Book set title =:title, topic =:topic, authorFirstName=:firstName,authorLastName=:lastName,publisher=:publisher,place=:place,yearPublished=:year,nrOfPages=:pages where title=:title");
-        query.setParameter("title", title).setParameter("topic",topic).setParameter("firstName", firstName).setParameter("lastName",lastName).setParameter("publisher",publisher).setParameter("place",place).setParameter("year",year).setParameter("pages",pages);
+    public int update(int id, String title, String topic, String firstName, String lastName, String publisher, String place, int year, int pages) {
+        Query query = manager.createQuery("update Book set title =:title, topic =:topic, authorFirstName=:firstName,authorLastName=:lastName,publisher=:publisher,place=:place,yearPublished=:year,nrOfPages=:pages where id=:id");
+        query.setParameter("id", id).setParameter("title", title).setParameter("topic",topic).setParameter("firstName", firstName).setParameter("lastName",lastName).setParameter("publisher",publisher).setParameter("place",place).setParameter("year",year).setParameter("pages",pages);
         return query.executeUpdate();
     }
 

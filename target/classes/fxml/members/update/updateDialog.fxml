@@ -5,8 +5,8 @@
 <?import javafx.scene.layout.*?>
 <AnchorPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
-            fx:controller="be.kokw.controllers.members.search.SearchMemberByFullName">
-    <DialogPane headerText="Zoek lid op Naam" layoutX="50.0" layoutY="50.0" maxHeight="-Infinity" maxWidth="-Infinity"
+            fx:controller="be.kokw.controllers.members.update.UpdateMember">
+    <DialogPane headerText="Update lid op Naam" layoutX="50.0" layoutY="50.0" maxHeight="-Infinity" maxWidth="-Infinity"
                 minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="480.0">
         <header>
             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="185.0" prefWidth="505.0">
@@ -32,7 +32,7 @@
         </header>
         <content>
             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="320.0">
-                <Button layoutX="215.0" layoutY="-1.0" mnemonicParsing="false" onAction="#search" text="Search"/>
+                <Button layoutX="215.0" layoutY="-1.0" mnemonicParsing="false" onAction="#search" text="Update"/>
             </AnchorPane>
         </content>
         <expandableContent>

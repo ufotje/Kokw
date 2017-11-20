@@ -23,6 +23,7 @@ public class UpdateBook {
     @FXML
     private TextField title, topic, firstName, lastName, publisher, place, year, pages;
     private BookRepo repo;
+    private Book book;
 
     @Autowired
     private void SetBookRepo(@Qualifier("bookRepo") BookRepo repo) {
@@ -31,7 +32,7 @@ public class UpdateBook {
 
     @FXML
     public void search() throws Exception {
-        Book book = repo.findByTitle(title.getText());
+        book = repo.findByTitle(title.getText());
         if (book != null) {
             MenuController.window.close();
             ChangeScene.init("/fxml/books/update/updateBook.fxml", "Boek updaten!");
@@ -51,7 +52,7 @@ public class UpdateBook {
     @FXML
     public void update() throws Exception {
         if (validated()) {
-            int result = repo.update(title.getText(), topic.getText(), firstName.getText(), lastName.getText(), publisher.getText(), place.getText(), Integer.parseInt(year.getText()), Integer.parseInt(pages.getText()));
+            int result = repo.update(book.getId(), title.getText(), topic.getText(), firstName.getText(), lastName.getText(), publisher.getText(), place.getText(), Integer.parseInt(year.getText()), Integer.parseInt(pages.getText()));
             if (result > 0) {
                 String alert = "The book with title: '" + title.getText() + "' has been successfully updated!";
                 Warning.alert("Book updated!", alert);

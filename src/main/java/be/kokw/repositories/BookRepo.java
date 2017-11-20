@@ -33,5 +33,5 @@ public interface BookRepo extends JpaRepository<Book, Long> {
     int deleteByTitle(String title);
 
     @Transactional
-    int update(String title, String topic, String firstName, String lastName, String publisher, String place, int year, int pages);
+    int update(int id, String title, String topic, String firstName, String lastName, String publisher, String place, int year, int pages);
 }
