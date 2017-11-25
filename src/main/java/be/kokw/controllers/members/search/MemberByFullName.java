@@ -61,7 +61,7 @@ public class MemberByFullName {
     }
 
     @FXML
-    private void search() throws Exception {
+    public void search() throws Exception {
         if (Validation.validate("Achternaam", lastName.getText(), "[a-zA-Z ]+") &&
                 Validation.validate("Voornaam", firstName.getText(), "[a-zA-Z]+")) {
             ObservableList<Member> memberList = observableArrayList(repo.findByFirstNameAndLastName(firstName.getText(), lastName.getText()));
@@ -72,17 +72,17 @@ public class MemberByFullName {
                 ChangeScene.init("/fxml/members/search/tableviewByFullName.fxml", "Zoeken op volledige naam");
                 MenuController.window.close();
                 table.setEditable(true);
-                idCol.setCellValueFactory(new PropertyValueFactory("id"));
-                firstNameCol.setCellValueFactory(new PropertyValueFactory("firstName"));
-                lastNameCol.setCellValueFactory(new PropertyValueFactory("lastName"));
-                streetCol.setCellValueFactory(new PropertyValueFactory("street"));
-                nrCol.setCellValueFactory(new PropertyValueFactory("houseNr"));
-                zipCol.setCellValueFactory(new PropertyValueFactory("zip"));
-                cityCol.setCellValueFactory(new PropertyValueFactory("city"));
-                mailCol.setCellValueFactory(new PropertyValueFactory("email"));
-                bDayCol.setCellValueFactory(new PropertyValueFactory("bDay"));
-                payedCol.setCellValueFactory(new PropertyValueFactory("payed"));
-                analCol.setCellValueFactory(new PropertyValueFactory("anal"));
+                idCol.setCellValueFactory(new PropertyValueFactory<>("id"));
+                firstNameCol.setCellValueFactory(new PropertyValueFactory<>("firstName"));
+                lastNameCol.setCellValueFactory(new PropertyValueFactory<>("lastName"));
+                streetCol.setCellValueFactory(new PropertyValueFactory<>("street"));
+                nrCol.setCellValueFactory(new PropertyValueFactory<>("houseNr"));
+                zipCol.setCellValueFactory(new PropertyValueFactory<>("zip"));
+                cityCol.setCellValueFactory(new PropertyValueFactory<>("city"));
+                mailCol.setCellValueFactory(new PropertyValueFactory<>("email"));
+                bDayCol.setCellValueFactory(new PropertyValueFactory<>("bDay"));
+                payedCol.setCellValueFactory(new PropertyValueFactory<>("payed"));
+                analCol.setCellValueFactory(new PropertyValueFactory<>("anal"));
                 table.setItems(memberList);
             }
         }

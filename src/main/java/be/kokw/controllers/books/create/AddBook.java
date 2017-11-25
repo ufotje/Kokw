@@ -25,7 +25,7 @@ public class AddBook{
     @FXML
     private TextField title, topic, firstName, lastName, publisher, place, year, pages;
     private BookRepo repo;
-    private List <String> bookList = new ArrayList();
+    private List <String> bookList = new ArrayList<>();
 
     @Autowired
     private void SetBookRepo(@Qualifier("bookRepo")BookRepo repo){
@@ -42,13 +42,14 @@ public class AddBook{
             Book book = new Book(title.getText(), topic.getText(), firstName.getText(), lastName.getText(), publisher.getText(), place.getText(), Integer.parseInt(year.getText()), Integer.parseInt(pages.getText()));
             repo.save(book);
             bookList.add(book.getTitle());
-            String alert = "The book(s) with title: " ;
+            StringBuilder alert = new StringBuilder("The book(s) with title: ") ;
             for(String s : bookList){
-                alert += "'" +
-                        s + "', ";
+                alert.append( "'" );
+                alert.append(s);
+                alert.append("', '");
             }
-            alert += " has been successfully saved!";
-            Warning.alert("Book saved!", alert);
+            alert.append(" has been successfully saved!");
+            Warning.alert("Book saved!", alert.toString());
             ChangeScene.init("/fxml/menu.fxml", "KOKW-AdminApp");
         }
     }

@@ -1,4 +1,4 @@
-package be.kokw.repositories.books.implementations;
+package be.kokw.repositories.implementations;
 
 import be.kokw.bean.Book;
 
@@ -29,7 +29,7 @@ public class BookRepoImpl implements BookRepo {
     }
 
     @Override
-    public Book findById() {
+    public Book findById(int id) {
         return null;
     }
 

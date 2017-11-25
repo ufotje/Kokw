@@ -32,7 +32,7 @@ public class UpdateMember {
     }
 
     @FXML
-    private void search() throws Exception {
+    public void search() throws Exception {
         member = repo.findByFirstNameAndLastName(firstName.getText(), lastName.getText());
         if (member != null) {
             MenuController.window.close();

@@ -1,6 +1,7 @@
 package be.kokw.controllers.members.search;
 
 import be.kokw.bean.Member;
+import be.kokw.controllers.MenuController;
 import be.kokw.repositories.MemberRepo;
 import be.kokw.utility.ChangeScene;
 import be.kokw.utility.Warning;
@@ -59,19 +60,20 @@ public class MembersByAnal {
         if (memberList.isEmpty()) {
             Warning.alert("No Members found!", "Er werden geen leden gevonden die hun Analen nog niet ontvangen hebben!");
         } else {
+            MenuController.window.close();
             ChangeScene.init("/fxml/members/search/tableviewAnal.fxml", "Zoeken op Analen niet ontvangen");
             table.setEditable(true);
-            idCol.setCellValueFactory(new PropertyValueFactory("id"));
-            firstNameCol.setCellValueFactory(new PropertyValueFactory("firstName"));
-            lastNameCol.setCellValueFactory(new PropertyValueFactory("lastName"));
-            streetCol.setCellValueFactory(new PropertyValueFactory("street"));
-            nrCol.setCellValueFactory(new PropertyValueFactory("houseNr"));
-            zipCol.setCellValueFactory(new PropertyValueFactory("zip"));
-            cityCol.setCellValueFactory(new PropertyValueFactory("city"));
-            mailCol.setCellValueFactory(new PropertyValueFactory("email"));
-            bDayCol.setCellValueFactory(new PropertyValueFactory("bDay"));
-            payedCol.setCellValueFactory(new PropertyValueFactory("payed"));
-            analCol.setCellValueFactory(new PropertyValueFactory("anal"));
+            idCol.setCellValueFactory(new PropertyValueFactory<>("id"));
+            firstNameCol.setCellValueFactory(new PropertyValueFactory<>("firstName"));
+            lastNameCol.setCellValueFactory(new PropertyValueFactory<>("lastName"));
+            streetCol.setCellValueFactory(new PropertyValueFactory<>("street"));
+            nrCol.setCellValueFactory(new PropertyValueFactory<>("houseNr"));
+            zipCol.setCellValueFactory(new PropertyValueFactory<>("zip"));
+            cityCol.setCellValueFactory(new PropertyValueFactory<>("city"));
+            mailCol.setCellValueFactory(new PropertyValueFactory<>("email"));
+            bDayCol.setCellValueFactory(new PropertyValueFactory<>("bDay"));
+            payedCol.setCellValueFactory(new PropertyValueFactory<>("payed"));
+            analCol.setCellValueFactory(new PropertyValueFactory<>("anal"));
             table.setItems(memberList);
         }
     }

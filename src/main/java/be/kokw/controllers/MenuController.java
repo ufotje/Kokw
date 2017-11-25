@@ -1,6 +1,5 @@
 package be.kokw.controllers;
 
-import be.kokw.controllers.members.search.MembersByAnal;
 import be.kokw.controllers.members.search.MembersByNotPayed;
 import be.kokw.utility.ChangeScene;
 import be.kokw.utility.NewStage;
@@ -63,6 +62,19 @@ public class MenuController {
         window.show();
     }
 
+    //checkOut Methods
+    @FXML
+    private void checkOut() throws Exception {
+        window = NewStage.getStage("Check-Out Book!","/fxml/checkOut/checkOutDialog.fxml");
+        window.show();
+    }
+
+    @FXML
+    private void returnBook(){}
+
+    @FXML
+    private void prolonge(){}
+
     //MemberMethods
     //Add a Member
     @FXML
@@ -97,8 +109,8 @@ public class MenuController {
 
     @FXML
     private void findMemberByAnalen() throws Exception {
-        MembersByAnal member = new MembersByAnal();
-        member.search();
+        window = NewStage.getStage("Zoek op Analen niet ontvangen", "/fxml/members/search/byAnalenDialog.fxml");
+        window.show();
     }
 
     //Update Member

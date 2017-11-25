@@ -1,9 +1,7 @@
 package be.kokw.repositories;
 
 import be.kokw.bean.Book;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.stereotype.Repository;
 
 import javax.transaction.Transactional;
 import java.util.List;
@@ -15,7 +13,7 @@ import java.util.List;
 
 public interface BookRepo extends JpaRepository<Book, Long> {
     @Transactional
-    Book findById();
+    Book findById(int id);
 
     @Transactional
     Book findByTitle(String title);

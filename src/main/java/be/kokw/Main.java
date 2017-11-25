@@ -1,7 +1,5 @@
 package be.kokw;
 
-import be.kokw.repositories.BookRepo;
-import be.kokw.repositories.MemberRepo;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
