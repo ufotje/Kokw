@@ -12,14 +12,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+
 @Component
 public class UpdateMember {
     @FXML
     private TextField firstName, lastName, street, houseNr, zip, city, email;
-
     @FXML
     private RadioButton board, anal, payed;
-
     @FXML
     private DatePicker bDay;
     private MemberRepo repo;
@@ -43,7 +44,10 @@ public class UpdateMember {
             zip.setText("" + member.getZip());
             city.setText(member.getCity());
             email.setText(member.getEmail());
-            bDay.getEditor().setText(member.getbDay().toString());
+            LocalDate date = member.getbDay();
+            String text = date.format(DateTimeFormatter.ofPattern("dd/MM/yyyy"));
+            bDay.getEditor().setText(text);
+
             board.setSelected(member.isBoard());
             anal.setSelected(member.isAnal());
             payed.setSelected(member.isPayed());

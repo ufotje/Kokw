@@ -3,27 +3,28 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.VBox?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="be.kokw.controllers.books.search.SearchBookByName">
+<?import javafx.scene.layout.VBox?>
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="be.kokw.controllers.books.search.SearchBookByTopic">
     <top>
         <VBox BorderPane.alignment="CENTER">
-            <fx:include source="/fxml/menu.fxml" />
+            <fx:include source="/fxml/menu.fxml"/>
         </VBox>
     </top>
     <bottom>
-        <VBox alignment="CENTER" fillWidth="false" style="-fx-background-color: #A9CCE3; -fx-background-radius: 10;" BorderPane.alignment="CENTER">
-            <fx:include source="/fxml/footer.fxml" />
+        <VBox alignment="CENTER" fillWidth="false" style="-fx-background-color: #A9CCE3; -fx-background-radius: 10;"
+              BorderPane.alignment="CENTER">
+            <fx:include source="/fxml/footer.fxml"/>
         </VBox>
     </bottom>
     <center>
-        <TableView fx:id="table" minHeight="-Infinity" minWidth="-Infinity" BorderPane.alignment="CENTER">
+        <TableView fx:id="table" BorderPane.alignment="CENTER">
             <columns>
                 <TableColumn fx:id="idCol" prefWidth="40.0" text="ID" />
                 <TableColumn fx:id="titleCol" prefWidth="250.0" text="Titel" />
                 <TableColumn fx:id="topicCol" prefWidth="100.0" text="Onderwerp" />
                 <TableColumn fx:id="firstNameCol" prefWidth="150.0" text="Voornaam Auteur" />
-                <TableColumn fx:id="lastNameCol" prefWidth="190.0" text="Achternaam Auteur" />
+                <TableColumn fx:id="lastNameCol" prefWidth="200.0" text="Achternaam Auteur" />
                 <TableColumn fx:id="publisherCol" text="Uitgeverij" />
                 <TableColumn fx:id="placeCol" prefWidth="80.0" text="Plaats" />
                 <TableColumn fx:id="yearCol" prefWidth="50.0" text="Jaar" />

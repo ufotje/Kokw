@@ -52,8 +52,9 @@ public class BookRepoImpl implements BookRepo {
     }
 
     @Override
-    public List<Book> findByTopic(String topic) {
-        return null;
+    public List<Book> findByTopic(String topic){
+        TypedQuery<Book> query = manager.createQuery("select b from Book b where b.topic = :topic",Book.class);
+        return query.setParameter("topic", topic).getResultList();
     }
 
     @Override

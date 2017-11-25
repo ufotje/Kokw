@@ -29,5 +29,8 @@ public interface MemberRepo extends JpaRepository<Member, Long> {
     List<Member> findByCity(String city);
 
     @Transactional
-    List<Member> findByPayedFalse();
+    List<Member> findByPayedIsFalse();
+
+    @Transactional
+    List<Member> findByAnalIsFalse();
 }

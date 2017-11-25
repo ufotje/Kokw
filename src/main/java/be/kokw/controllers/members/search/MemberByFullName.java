@@ -26,7 +26,7 @@ import static javafx.collections.FXCollections.observableArrayList;
  */
 
 @Component
-public class SearchMemberByFullName {
+public class MemberByFullName {
     @FXML
     private TextField firstName, lastName;
     @FXML

@@ -3,9 +3,9 @@ package be.kokw.controllers.books.search;
 import be.kokw.bean.Book;
 import be.kokw.controllers.MenuController;
 import be.kokw.repositories.BookRepo;
-import be.kokw.utility.Warning;
 import be.kokw.utility.ChangeScene;
 import be.kokw.utility.Validation;
+import be.kokw.utility.Warning;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
@@ -18,15 +18,10 @@ import org.springframework.stereotype.Component;
 
 import static javafx.collections.FXCollections.observableArrayList;
 
-/**
- * Created by ufotje on 3/11/2017.
- * The find by titleClass
- */
-
 @Component
-public class SearchBookByTitle {
+public class SearchBookByTopic {
     @FXML
-    private TextField title;
+    private TextField topic;
     @FXML
     private TableView<Book> table;
     @FXML
@@ -56,11 +51,11 @@ public class SearchBookByTitle {
 
     @FXML
     private void search() throws Exception {
-        if(Validation.emptyValidation("Titel",title.getText().isEmpty())){
-            ObservableList<Book> bookList = observableArrayList(bookRepo.findByTitle(title.getText()));
+        if(Validation.emptyValidation("Topic",topic.getText().isEmpty())){
+            ObservableList<Book> bookList = observableArrayList(bookRepo.findByTopic(topic.getText()));
             if(bookList.get(0) != null){
                 MenuController.window.close();
-                ChangeScene.init("/fxml/books/found/tableViewByTitle.fxml", "Books by Title");
+                ChangeScene.init("/fxml/books/found/tableViewTopic.fxml", "Books by Topic");
                 table.setEditable(true);
                 idCol.setCellValueFactory(new PropertyValueFactory("id"));
                 titleCol.setCellValueFactory(new PropertyValueFactory("title"));
@@ -73,9 +68,8 @@ public class SearchBookByTitle {
                 pagesCol.setCellValueFactory(new PropertyValueFactory("nrOfPages"));
                 table.setItems(bookList);
             }else{
-                Warning.alert("Book Not Found","The book '" + title.getText() + "' has not been found!");
+                Warning.alert("No Books Found","Er werden geen boeken met '" + topic.getText() + "' als onderwerp gevonden!");
             }
         }
     }
 }
-

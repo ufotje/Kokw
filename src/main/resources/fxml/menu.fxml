@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.VBox?>
 <BorderPane
         xmlns:fx="http://javafx.com/fxml/1"
-        style="-fx-background-image: url('http://users.telenet.be/hbo5_java/pictures/kokw/logo.jpg'); -fx-background-position: center; -fx-background-repeat: no-repeat; -fx-background-size: 90%;"
+        style="-fx-background-image: url('/images/achtergrond.jpg'); -fx-background-position: center; -fx-background-repeat: no-repeat; -fx-background-size: 90%;"
         xmlns="http://javafx.com/javafx/8.0.111"
         fx:controller="be.kokw.controllers.MenuController">
     <top>
@@ -22,6 +22,7 @@
                         <MenuItem mnemonicParsing="false" text="Op Titel" onAction="#findBookByTitle"/>
                         <MenuItem mnemonicParsing="false" text="Op Auteur" onAction="#findBookByAuthor"/>
                         <MenuItem mnemonicParsing="false" text="Op Uitgever" onAction="#findBookByPublisher"/>
+                        <MenuItem mnemonicParsing="false" text="Op Onderwerp" onAction="#findBookByTopic"/>
                     </Menu>
                     <Menu mnemonicParsing="false" text="Verwijder">
                         <MenuItem mnemonicParsing="false" text="Op Titel" onAction="#deleteBookByTitle"/>

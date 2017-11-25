@@ -7,7 +7,8 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 <BorderPane prefHeight="600.0" prefWidth="800.0"
-            style="-fx-background-image: url('http://users.telenet.be/hbo5_java/pictures/kokw/logo.jpg'); -fx-background-position: center; -fx-background-repeat: no-repeat; -fx-background-size: cover;"
+            style="-fx-background-image: url('/images/achtergrond.jpg');
+            -fx-background-position: center; -fx-background-repeat: no-repeat; -fx-background-size: cover;"
             xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="be.kokw.controllers.books.update.UpdateBook">
     <top>

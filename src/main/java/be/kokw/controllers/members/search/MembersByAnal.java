@@ -13,13 +13,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
-
 import java.time.LocalDate;
 
 import static javafx.collections.FXCollections.observableArrayList;
 
 @Component
-public class MembersByNotPayed {
+public class MembersByAnal {
     @FXML
     private TableView<Member> table;
     @FXML
@@ -53,14 +52,14 @@ public class MembersByNotPayed {
 
     @FXML
     public void search() throws Exception {
-        ObservableList<Member> memberList = observableArrayList(repo.findByPayedIsFalse());
+        ObservableList<Member> memberList = observableArrayList(repo.findByAnalIsFalse());
         for(Member m : memberList){
             System.out.println(m.getFirstName());
         }
         if (memberList.isEmpty()) {
-            Warning.alert("No Members found!", "Er werden geen leden gevonden van wie het lidgeld niet betaal werd!");
+            Warning.alert("No Members found!", "Er werden geen leden gevonden die hun Analen nog niet ontvangen hebben!");
         } else {
-            ChangeScene.init("/fxml/members/search/tableviewNotPayed.fxml", "Zoeken op Lidgeld niet betaald");
+            ChangeScene.init("/fxml/members/search/tableviewAnal.fxml", "Zoeken op Analen niet ontvangen");
             table.setEditable(true);
             idCol.setCellValueFactory(new PropertyValueFactory("id"));
             firstNameCol.setCellValueFactory(new PropertyValueFactory("firstName"));
@@ -77,4 +76,3 @@ public class MembersByNotPayed {
         }
     }
 }
-

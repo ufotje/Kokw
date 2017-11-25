@@ -12,7 +12,8 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane prefHeight="600.0" prefWidth="1200.0" style="-fx-background-image: url('http://users.telenet.be/hbo5_java/pictures/kokw/logo.jpg'); -fx-background-position: center; -fx-background-repeat: no-repeat; -fx-background-size: 100%;" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="be.kokw.controllers.members.update.UpdateMember">
+<BorderPane prefHeight="600.0" prefWidth="1200.0" style="-fx-background-image: url('/images/achtergrond.jpg');
+-fx-background-position: center; -fx-background-repeat: no-repeat; -fx-background-size: 100%;" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="be.kokw.controllers.members.update.UpdateMember">
     <top>
         <VBox BorderPane.alignment="CENTER">
             <fx:include source="/fxml/menu.fxml" />

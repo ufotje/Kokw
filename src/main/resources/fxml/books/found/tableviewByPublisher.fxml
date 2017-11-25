@@ -20,15 +20,15 @@
     <center>
         <TableView fx:id="table" BorderPane.alignment="CENTER">
             <columns>
-                <TableColumn fx:id="idCol" prefWidth="33.0" text="ID" />
-                <TableColumn fx:id="titleCol" prefWidth="97.0" text="Titel" />
-                <TableColumn fx:id="topicCol" prefWidth="93.0" text="Onderwerp" />
-                <TableColumn fx:id="firstNameCol" prefWidth="141.0" text="Voornaam Auteur" />
-                <TableColumn fx:id="lastNameCol" prefWidth="183.0" text="Achternaam Auteur" />
+                <TableColumn fx:id="idCol" prefWidth="40.0" text="ID" />
+                <TableColumn fx:id="titleCol" prefWidth="250.0" text="Titel" />
+                <TableColumn fx:id="topicCol" prefWidth="100.0" text="Onderwerp" />
+                <TableColumn fx:id="firstNameCol" prefWidth="150.0" text="Voornaam Auteur" />
+                <TableColumn fx:id="lastNameCol" prefWidth="190.0" text="Achternaam Auteur" />
                 <TableColumn fx:id="publisherCol" text="Uitgeverij" />
-                <TableColumn fx:id="placeCol" prefWidth="73.0" text="Plaats" />
-                <TableColumn fx:id="yearCol" prefWidth="46.0" text="Jaar" />
-                <TableColumn fx:id="pagesCol" prefWidth="53.0" text="Pages" />
+                <TableColumn fx:id="placeCol" prefWidth="80.0" text="Plaats" />
+                <TableColumn fx:id="yearCol" prefWidth="50.0" text="Jaar" />
+                <TableColumn fx:id="pagesCol" prefWidth="60.0" text="Pages" />
             </columns>
         </TableView>
     </center>

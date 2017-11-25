@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.*?>
 <AnchorPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
-            fx:controller="be.kokw.controllers.members.search.SearchMemberByFullName">
+            fx:controller="be.kokw.controllers.members.search.MemberByFullName">
     <DialogPane headerText="Zoek lid op Naam" layoutX="50.0" layoutY="50.0" maxHeight="-Infinity" maxWidth="-Infinity"
                 minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="480.0">
         <header>
