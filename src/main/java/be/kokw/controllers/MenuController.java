@@ -70,10 +70,16 @@ public class MenuController {
     }
 
     @FXML
-    private void returnBook(){}
+    private void returnBook()throws Exception {
+        window = NewStage.getStage("Return Book!", "/fxml/checkOut/returnDialog.fxml");
+        window.show();
+    }
 
     @FXML
-    private void prolonge(){}
+    private void prolong() throws Exception {
+        window = NewStage.getStage("Prolong Checked-Out Book!", "/fxml/checkOut/prolongDialog.fxml");
+        window.show();
+    }
 
     //MemberMethods
     //Add a Member

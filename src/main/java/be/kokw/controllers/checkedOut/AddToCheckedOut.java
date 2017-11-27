@@ -51,7 +51,8 @@ public class AddToCheckedOut {
             if(book != null){
                 CheckedOut checkOut = checkOutRepo.save(book, member);
                 if(checkOut != null){
-                    Warning.alert("Book checked out!", "Het boek '" + title.getText() + "' werd succesvol uitgeleend aan '" + firstName.getText() + " " + lastName.getText() + "'!");
+                    StringBuilder sb = new StringBuilder(checkOut.getReturnDate().toString());
+                    Warning.alert("Book checked out!", "Het boek '" + title.getText() + "' werd succesvol uitgeleend aan '" + firstName.getText() + " " + lastName.getText() + "'!\nDe retourdatum is " + sb.reverse().toString());
                 }else {
                     Warning.alert("Check out failed", "Er is iets fout gegaan!");
                 }

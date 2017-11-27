@@ -43,7 +43,7 @@
                 </Menu>
                 <Menu  mnemonicParsing="false" text="Uitlenen">
                     <MenuItem  mnemonicParsing="false" text="Uitlenen" onAction="#checkOut" />
-                    <MenuItem  mnemonicParsing="false" text="Verlengen" onAction="#prolonge" />
+                    <MenuItem  mnemonicParsing="false" text="Verlengen" onAction="#prolong" />
                     <MenuItem  mnemonicParsing="false" text="Terugbrengen" onAction="#returnBook" />
                 </Menu>
                 <opaqueInsets>

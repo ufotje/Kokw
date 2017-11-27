@@ -5,6 +5,7 @@ import java.io.Serializable;
 import java.time.LocalDate;
 
 @Entity
+@Table(name = "checked_out")
 public class CheckedOut implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -16,15 +17,24 @@ public class CheckedOut implements Serializable {
     @JoinColumn(name = "id_members", referencedColumnName = "id", nullable = false)
     @ManyToOne(optional = false, fetch = FetchType.LAZY)
     private Member member;
+    private String title;
+    private String address;
+    private String fullName;
     private LocalDate checkOutDate;
     private LocalDate returnDate;
     private boolean returned;
+
+    public CheckedOut() {
+    }
 
     public CheckedOut(Book book, Member member) {
         this.book = book;
         this.member = member;
         checkOutDate = LocalDate.now();
         returnDate = checkOutDate.plusWeeks(3);
+        title = book.getTitle();
+        address = member.getStreet() + " " + member.getHouseNr() + " " + member.getZip() + " " + member.getCity();
+        fullName = member.getFirstName() + " " + member.getLastName();
     }
 
     public int getId() {
@@ -74,6 +84,30 @@ public class CheckedOut implements Serializable {
 
     public void setReturned(boolean returned) {
         this.returned = returned;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getFullName() {
+        return fullName;
+    }
+
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
     }
 }
 

@@ -11,6 +11,9 @@ import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
+import javax.persistence.Query;
+import javax.persistence.TypedQuery;
+import java.time.LocalDate;
 import java.util.List;
 
 @Repository("checkOutRepo")
@@ -18,15 +21,36 @@ public class CheckOutRepoImpl implements CheckOutRepo {
     private EntityManager manager;
 
     @Autowired
-    private void setManager(EntityManager manager){
+    private void setManager(EntityManager manager) {
         this.manager = manager;
     }
 
     @Override
     public CheckedOut save(Book b, Member m) {
-        CheckedOut checkOut = new CheckedOut(b,m);
+        CheckedOut checkOut = new CheckedOut(b, m);
         manager.persist(checkOut);
         return checkOut;
+    }
+
+    @Override
+    public int prolong(String title, String fullName, LocalDate returnDate) {
+        Query query = manager.createQuery("update CheckedOut set returnDate =:returnDate where title=:title and fullName=:fullName");
+        query.setParameter("returnDate", returnDate).setParameter("title", title).setParameter("fullName", fullName);
+        return query.executeUpdate();
+    }
+
+    @Override
+    public int returnBook(String title, String fullName) {
+        boolean returned = true;
+        Query query = manager.createQuery("update CheckedOut set returned =:returned where title=:title and fullName=:fullName");
+        query.setParameter("title", title).setParameter("fullName", fullName).setParameter("returned", returned);
+        return query.executeUpdate();
+    }
+
+    @Override
+    public CheckedOut getOne(String title, String fullName) {
+        TypedQuery <CheckedOut> query = manager.createQuery("select c from CheckedOut c where c.title=:title and c.fullName =:fullName",CheckedOut.class);
+        return query.setParameter("title", title).setParameter("fullName", fullName).getSingleResult();
     }
 
     @Override
