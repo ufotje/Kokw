@@ -62,15 +62,15 @@ public class SearchBookByTitle {
                 MenuController.window.close();
                 ChangeScene.init("/fxml/books/found/tableViewByTitle.fxml", "Books by Title");
                 table.setEditable(true);
-                idCol.setCellValueFactory(new PropertyValueFactory("id"));
-                titleCol.setCellValueFactory(new PropertyValueFactory("title"));
-                topicCol.setCellValueFactory(new PropertyValueFactory("topic"));
-                firstNameCol.setCellValueFactory(new PropertyValueFactory("authorFirstName"));
-                lastNameCol.setCellValueFactory(new PropertyValueFactory("authorLastName"));
-                publisherCol.setCellValueFactory(new PropertyValueFactory("publisher"));
-                placeCol.setCellValueFactory(new PropertyValueFactory("place"));
-                yearCol.setCellValueFactory(new PropertyValueFactory("yearPublished"));
-                pagesCol.setCellValueFactory(new PropertyValueFactory("nrOfPages"));
+                idCol.setCellValueFactory(new PropertyValueFactory<>("id"));
+                titleCol.setCellValueFactory(new PropertyValueFactory<>("title"));
+                topicCol.setCellValueFactory(new PropertyValueFactory<>("topic"));
+                firstNameCol.setCellValueFactory(new PropertyValueFactory<>("authorFirstName"));
+                lastNameCol.setCellValueFactory(new PropertyValueFactory<>("authorLastName"));
+                publisherCol.setCellValueFactory(new PropertyValueFactory<>("publisher"));
+                placeCol.setCellValueFactory(new PropertyValueFactory<>("place"));
+                yearCol.setCellValueFactory(new PropertyValueFactory<>("yearPublished"));
+                pagesCol.setCellValueFactory(new PropertyValueFactory<>("nrOfPages"));
                 table.setItems(bookList);
             }else{
                 Warning.alert("Book Not Found","The book '" + title.getText() + "' has not been found!");

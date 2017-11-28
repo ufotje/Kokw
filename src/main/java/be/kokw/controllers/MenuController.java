@@ -65,19 +65,25 @@ public class MenuController {
     //checkOut Methods
     @FXML
     private void checkOut() throws Exception {
-        window = NewStage.getStage("Check-Out Book!","/fxml/checkOut/checkOutDialog.fxml");
+        window = NewStage.getStage("Check-Out Book!", "/fxml/checkOut/books/checkOutDialog.fxml");
         window.show();
     }
 
     @FXML
     private void returnBook()throws Exception {
-        window = NewStage.getStage("Return Book!", "/fxml/checkOut/returnDialog.fxml");
+        window = NewStage.getStage("Return Book!", "/fxml/checkOut/books/returnDialog.fxml");
         window.show();
     }
 
     @FXML
     private void prolong() throws Exception {
-        window = NewStage.getStage("Prolong Checked-Out Book!", "/fxml/checkOut/prolongDialog.fxml");
+        window = NewStage.getStage("Prolong Checked-Out Book!", "/fxml/checkOut/books/prolongDialog.fxml");
+        window.show();
+    }
+
+    @FXML
+    private void datesBetween() throws Exception{
+        window = NewStage.getStage("Checked-Out Between", "/fxml/checkOut/books/betweenDialog.fxml");
         window.show();
     }
 

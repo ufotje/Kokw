@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Region?>
 
-<AnchorPane xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="be.kokw.controllers.checkedOut.AddToCheckedOut">
+<AnchorPane xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="be.kokw.controllers.checkedOut.books.Prolong">
     <DialogPane headerText="Leen Boek uit" layoutX="50.0" layoutY="50.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="350.0" prefWidth="480.0">
         <header>
             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="185.0" prefWidth="505.0">
@@ -42,7 +42,7 @@
         </header>
         <content>
             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="150.0" prefWidth="320.0">
-                <Button layoutX="200.0" layoutY="100.0" mnemonicParsing="false" onAction="#save" text="Check-Out" />
+                <Button layoutX="200.0" layoutY="100.0" mnemonicParsing="false" onAction="#prolong" text="Check-Out" />
             </AnchorPane>
         </content>
     </DialogPane>

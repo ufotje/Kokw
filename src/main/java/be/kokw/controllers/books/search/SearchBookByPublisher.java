@@ -61,15 +61,15 @@ public class SearchBookByPublisher {
                 MenuController.window.close();
                 ChangeScene.init("/fxml/books/found/tableviewByPublisher.fxml", "Books by Publisher");
                 table.setEditable(true);
-                idCol.setCellValueFactory(new PropertyValueFactory("id"));
-                titleCol.setCellValueFactory(new PropertyValueFactory("title"));
-                topicCol.setCellValueFactory(new PropertyValueFactory("topic"));
-                firstNameCol.setCellValueFactory(new PropertyValueFactory("authorFirstName"));
-                lastNameCol.setCellValueFactory(new PropertyValueFactory("authorLastName"));
-                publisherCol.setCellValueFactory(new PropertyValueFactory("publisher"));
-                placeCol.setCellValueFactory(new PropertyValueFactory("place"));
-                yearCol.setCellValueFactory(new PropertyValueFactory("yearPublished"));
-                pagesCol.setCellValueFactory(new PropertyValueFactory("nrOfPages"));
+                idCol.setCellValueFactory(new PropertyValueFactory<>("id"));
+                titleCol.setCellValueFactory(new PropertyValueFactory<>("title"));
+                topicCol.setCellValueFactory(new PropertyValueFactory<>("topic"));
+                firstNameCol.setCellValueFactory(new PropertyValueFactory<>("authorFirstName"));
+                lastNameCol.setCellValueFactory(new PropertyValueFactory<>("authorLastName"));
+                publisherCol.setCellValueFactory(new PropertyValueFactory<>("publisher"));
+                placeCol.setCellValueFactory(new PropertyValueFactory<>("place"));
+                yearCol.setCellValueFactory(new PropertyValueFactory<>("yearPublished"));
+                pagesCol.setCellValueFactory(new PropertyValueFactory<>("nrOfPages"));
                 table.setItems(bookList);
             }else{
                 Warning.alert("Book Not Found","Er werden geen boeken gevonden die werden uitgegeven door: '" + publisher.getText() + "'!");

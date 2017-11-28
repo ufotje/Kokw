@@ -1,4 +1,4 @@
-package be.kokw.controllers.checkedOut;
+package be.kokw.controllers.checkedOut.books;
 
 import be.kokw.bean.Book;
 import be.kokw.bean.CheckedOut;

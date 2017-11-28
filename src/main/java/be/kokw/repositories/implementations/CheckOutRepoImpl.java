@@ -54,6 +54,17 @@ public class CheckOutRepoImpl implements CheckOutRepo {
     }
 
     @Override
+    public List<CheckedOut> findByReturnedIsFalse() {
+        return null;
+    }
+
+    @Override
+    public List<CheckedOut> findByCheckOutDateBetween(LocalDate startDate, LocalDate endDate) {
+        TypedQuery<CheckedOut> query = manager.createQuery("Select c from CheckedOut c where c.checkOutDate >= :startDate and c.checkOutDate <= :endDate",CheckedOut.class);
+        return query.setParameter("startDate", startDate).setParameter("endDate", endDate).getResultList();
+    }
+
+    @Override
     public <S extends CheckedOut> S save(S s) {
         return null;
     }

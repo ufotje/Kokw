@@ -57,15 +57,15 @@ public class SearchBookByTopic {
                 MenuController.window.close();
                 ChangeScene.init("/fxml/books/found/tableViewTopic.fxml", "Books by Topic");
                 table.setEditable(true);
-                idCol.setCellValueFactory(new PropertyValueFactory("id"));
-                titleCol.setCellValueFactory(new PropertyValueFactory("title"));
-                topicCol.setCellValueFactory(new PropertyValueFactory("topic"));
-                firstNameCol.setCellValueFactory(new PropertyValueFactory("authorFirstName"));
-                lastNameCol.setCellValueFactory(new PropertyValueFactory("authorLastName"));
-                publisherCol.setCellValueFactory(new PropertyValueFactory("publisher"));
-                placeCol.setCellValueFactory(new PropertyValueFactory("place"));
-                yearCol.setCellValueFactory(new PropertyValueFactory("yearPublished"));
-                pagesCol.setCellValueFactory(new PropertyValueFactory("nrOfPages"));
+                idCol.setCellValueFactory(new PropertyValueFactory<>("id"));
+                titleCol.setCellValueFactory(new PropertyValueFactory<>("title"));
+                topicCol.setCellValueFactory(new PropertyValueFactory<>("topic"));
+                firstNameCol.setCellValueFactory(new PropertyValueFactory<>("authorFirstName"));
+                lastNameCol.setCellValueFactory(new PropertyValueFactory<>("authorLastName"));
+                publisherCol.setCellValueFactory(new PropertyValueFactory<>("publisher"));
+                placeCol.setCellValueFactory(new PropertyValueFactory<>("place"));
+                yearCol.setCellValueFactory(new PropertyValueFactory<>("yearPublished"));
+                pagesCol.setCellValueFactory(new PropertyValueFactory<>("nrOfPages"));
                 table.setItems(bookList);
             }else{
                 Warning.alert("No Books Found","Er werden geen boeken met '" + topic.getText() + "' als onderwerp gevonden!");

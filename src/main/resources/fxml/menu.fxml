@@ -45,6 +45,7 @@
                     <MenuItem  mnemonicParsing="false" text="Uitlenen" onAction="#checkOut" />
                     <MenuItem  mnemonicParsing="false" text="Verlengen" onAction="#prolong" />
                     <MenuItem  mnemonicParsing="false" text="Terugbrengen" onAction="#returnBook" />
+                    <MenuItem  mnemonicParsing="false" text="Tussen" onAction="#datesBetween" />
                 </Menu>
                 <opaqueInsets>
                     <Insets bottom="6.0" left="6.0" right="6.0" top="6.0"/>

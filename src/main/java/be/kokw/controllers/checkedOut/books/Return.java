@@ -1,4 +1,4 @@
-package be.kokw.controllers.checkedOut;
+package be.kokw.controllers.checkedOut.books;
 
 import be.kokw.bean.CheckedOut;
 import be.kokw.controllers.MenuController;
@@ -37,7 +37,8 @@ public class Return {
                     Warning.alert("Book Returned!", "Het boek '" + title.getText() + "' werd succesvol terug gebracht door '" + fullName.getText() + "'!");
                     CheckedOut record = repo.getOne(title.getText(), fullName.getText());
                     LocalDate returnDate = record.getReturnDate();
-                    LocalDate today = LocalDate.now();
+                    LocalDate today =
+                            LocalDate.now();
                     if (returnDate.isBefore(today)){
                         Long daysOverdue = DAYS.between(returnDate,today);
                         Double fine = daysOverdue *0.25;

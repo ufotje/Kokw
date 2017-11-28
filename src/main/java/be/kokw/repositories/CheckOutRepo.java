@@ -7,6 +7,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import javax.transaction.Transactional;
 import java.time.LocalDate;
+import java.util.List;
 
 
 public interface CheckOutRepo extends JpaRepository<CheckedOut,Long>{
@@ -21,4 +22,10 @@ public interface CheckOutRepo extends JpaRepository<CheckedOut,Long>{
 
     @Transactional
     CheckedOut getOne(String title, String fullName);
+
+    @Transactional
+    List<CheckedOut> findByReturnedIsFalse();
+
+    @Transactional
+    List<CheckedOut> findByCheckOutDateBetween(LocalDate startDate, LocalDate endDate);
 }
