@@ -3,6 +3,8 @@ package be.kokw.bean;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.time.LocalDate;
+import java.util.List;
 
 /**
  * Created by ufotje on 4/10/2017.
@@ -16,35 +18,95 @@ public class Book implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private int id;
+    @Column(name = "isbn")
+    private String isbn;
+    @Column(name = "Depot")
+    private String depot;
     @Column(name = "Title")
     private String title;
-    @Column(name = "Topic")
-    private String topic;
-    @Column(name = "FirstName_Author")
-    private String authorFirstName;
-    @Column(name = "LastName_Author")
-    private String authorLastName;
+    @Column(name = "subtitle")
+    private SubTitles subTitle;
+    @Column(name = "Edition")
+    private int edition;
+    @Column(name = "Copies")
+    private int copies;
+    @Column(name = "Volume")
+    private Integer volume;
+    @Column(name = "Authors")
+    private Authors authors;
     @Column(name = "Publisher")
     private String publisher;
-    @Column(name = "Place")
-    private String place;
     @Column(name = "Year_Published")
     private int yearPublished;
     @Column(name = "Nr_of_Pages")
     private int nrOfPages;
+    @Column(name = "Topics")
+    private Topics topics;
+    @Column(name = "Bought_On")
+    private LocalDate boughtOn;
+    @Column(name = "Gifted_By")
+    private Gifted giftedBy;
+    @Column(name = "Gifted_For")
+    private GiftedFor giftedFor;
+    @Column(name = "Derated")
+    private LocalDate derated;
+    @Column(name = "Destination")
+    private String destination;
+    @Column(name = "Illustrated")
+    private boolean illustrated;
 
     public Book() {
     }
 
-    public Book(String title, String topic, String authorFirstName, String authorLastName, String publisher, String place, int yearPublished, int nrOfPages) {
+    public Book(String isbn, String depot, String title, SubTitles subTitle, int edition, int copies, Integer volume, Authors authors, String publisher, int yearPublished, int nrOfPages, Topics topics,LocalDate boughtOn, boolean illustrated) {
+        this.isbn = isbn;
+        this.depot = depot;
         this.title = title;
-        this.topic = topic;
-        this.authorFirstName = authorFirstName;
-        this.authorLastName = authorLastName;
+        this.subTitle = subTitle;
+        this.edition = edition;
+        this.copies = copies;
+        this.volume = volume;
+        this.authors = authors;
         this.publisher = publisher;
-        this.place = place;
         this.yearPublished = yearPublished;
         this.nrOfPages = nrOfPages;
+        this.topics = topics;
+        this.boughtOn = boughtOn;
+        this.illustrated = illustrated;
+    }
+
+    public Book(String isbn, String depot, String title, SubTitles subTitle, int edition, int copies, Integer volume, Authors authors, String publisher, int yearPublished, int nrOfPages, Topics topics, Gifted giftedBy, boolean illustrated) {
+        this.isbn = isbn;
+        this.depot = depot;
+        this.title = title;
+        this.subTitle = subTitle;
+        this.edition = edition;
+        this.copies = copies;
+        this.volume = volume;
+        this.authors = authors;
+        this.publisher = publisher;
+        this.yearPublished = yearPublished;
+        this.nrOfPages = nrOfPages;
+        this.topics = topics;
+        this.giftedBy = giftedBy;
+        this.illustrated = illustrated;
+    }
+
+    public Book(String isbn, String depot, String title, SubTitles subTitle, int edition, int copies, Integer volume, Authors authors, String publisher, int yearPublished, int nrOfPages, Topics topics, GiftedFor giftedFor, boolean illustrated) {
+        this.isbn = isbn;
+        this.depot = depot;
+        this.title = title;
+        this.subTitle = subTitle;
+        this.edition = edition;
+        this.copies = copies;
+        this.volume = volume;
+        this.authors = authors;
+        this.publisher = publisher;
+        this.yearPublished = yearPublished;
+        this.nrOfPages = nrOfPages;
+        this.topics = topics;
+        this.giftedFor = giftedFor;
+        this.illustrated = illustrated;
     }
 
     public int getId() {
@@ -55,6 +117,22 @@ public class Book implements Serializable {
         this.id = id;
     }
 
+    public String getIsbn() {
+        return isbn;
+    }
+
+    public void setIsbn(String isbn) {
+        this.isbn = isbn;
+    }
+
+    public String getDepot() {
+        return depot;
+    }
+
+    public void setDepot(String depot) {
+        this.depot = depot;
+    }
+
     public String getTitle() {
         return title;
     }
@@ -63,28 +141,44 @@ public class Book implements Serializable {
         this.title = title;
     }
 
-    public String getTopic() {
-        return topic;
+    public SubTitles getSubTitle() {
+        return subTitle;
     }
 
-    public void setTopic(String topic) {
-        this.topic = topic;
+    public void setSubTitle(SubTitles subTitle) {
+        this.subTitle = subTitle;
     }
 
-    public String getAuthorFirstName() {
-        return authorFirstName;
+    public int getEdition() {
+        return edition;
     }
 
-    public void setAuthorFirstName(String authorFirstName) {
-        this.authorFirstName = authorFirstName;
+    public void setEdition(int edition) {
+        this.edition = edition;
     }
 
-    public String getAuthorLastName() {
-        return authorLastName;
+    public int getCopies() {
+        return copies;
     }
 
-    public void setAuthorLastName(String authorLastName) {
-        this.authorLastName = authorLastName;
+    public void setCopies(int copies) {
+        this.copies = copies;
+    }
+
+    public int getVolume() {
+        return volume;
+    }
+
+    public void setVolume(Integer volume) {
+        this.volume = volume;
+    }
+
+    public Authors getAuthors() {
+        return authors;
+    }
+
+    public void setAuthors(Authors authors) {
+        this.authors = authors;
     }
 
     public String getPublisher() {
@@ -93,14 +187,6 @@ public class Book implements Serializable {
 
     public void setPublisher(String publisher) {
         this.publisher = publisher;
-    }
-
-    public String getPlace() {
-        return place;
-    }
-
-    public void setPlace(String place) {
-        this.place = place;
     }
 
     public int getYearPublished() {
@@ -119,17 +205,59 @@ public class Book implements Serializable {
         this.nrOfPages = nrOfPages;
     }
 
-    @Override
-    public String toString() {
-        return "Book{" +
-                "id=" + id +
-                ", title='" + title + '\'' +
-                ", topic='" + topic + '\'' +
-                ", authorFirstName='" + authorFirstName + '\'' +
-                ", authorLastName='" + authorLastName + '\'' +
-                ", publisher='" + publisher + '\'' +
-                ", yearPublished=" + yearPublished +
-                ", nrOfPages=" + nrOfPages +
-                '}';
+    public Topics getTopics() {
+        return topics;
+    }
+
+    public void setTopics(Topics topics) {
+        this.topics = topics;
+    }
+
+    public LocalDate getBoughtOn() {
+        return boughtOn;
+    }
+
+    public void setBoughtOn(LocalDate boughtOn) {
+        this.boughtOn = boughtOn;
+    }
+
+    public Gifted getGiftedBy() {
+        return giftedBy;
+    }
+
+    public void setGiftedBy(Gifted giftedBy) {
+        this.giftedBy = giftedBy;
+    }
+
+    public GiftedFor getGiftedFor() {
+        return giftedFor;
+    }
+
+    public void setGiftedFor(GiftedFor giftedFor) {
+        this.giftedFor = giftedFor;
+    }
+
+    public LocalDate getDerated() {
+        return derated;
+    }
+
+    public void setDerated(LocalDate derated) {
+        this.derated = derated;
+    }
+
+    public String getDestination() {
+        return destination;
+    }
+
+    public void setDestination(String destination) {
+        this.destination = destination;
+    }
+
+    public boolean isIllustrated() {
+        return illustrated;
+    }
+
+    public void setIllustrated(boolean illustrated) {
+        this.illustrated = illustrated;
     }
 }

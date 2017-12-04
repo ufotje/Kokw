@@ -32,7 +32,7 @@ public class UpdateBook {
 
     @FXML
     public void search() throws Exception {
-        book = repo.findByTitle(title.getText());
+     /*   book = repo.findByTitle(title.getText());
         if (book != null) {
             MenuController.window.close();
             ChangeScene.init("/fxml/books/update/updateBook.fxml", "Boek updaten!");
@@ -46,7 +46,7 @@ public class UpdateBook {
             pages.setText("" + book.getNrOfPages());
         } else {
             Warning.alert("No Book Found!", "Er werd geen boek met " + "'" + title.getText() + "'" + " als titel gevonden!");
-        }
+        }*/
     }
 
     @FXML

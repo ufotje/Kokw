@@ -20,7 +20,7 @@ public class MenuController {
     //Add a Book
     @FXML
     private void addBook() throws Exception {
-        ChangeScene.init("/fxml/books/addBook.fxml", "addBook");
+        ChangeScene.init("/fxml/books/create/addBook.fxml", "addBook");
     }
 
     //Find a Book
