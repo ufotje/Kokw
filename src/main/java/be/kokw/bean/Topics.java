@@ -6,14 +6,16 @@ import java.util.List;
 
 
 @Entity
-@Table
+@Table(name = "topics")
 public class Topics {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private int id;
-    private List<String> topics = new ArrayList<>();
-    @ManyToOne(optional = false, cascade = CascadeType.ALL)
+    @ElementCollection(targetClass = String.class)
+    private List<String> topics;
+    @OneToOne(targetEntity = Book.class, mappedBy = "topics",fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinColumn(name = "book_id", referencedColumnName = "id", nullable = false)
     private Book book;
 
     public Topics() {

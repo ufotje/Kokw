@@ -10,8 +10,10 @@ public class Authors {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private int id;
-    @ManyToOne(optional = false, cascade = CascadeType.ALL)
+    @OneToOne(targetEntity = Book.class, mappedBy = "authors",fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinColumn(name = "book_id", referencedColumnName = "id", nullable = false)
     private Book book;
+    @ElementCollection(targetClass = String.class)
     private List<String> authors;
 
     public Authors() {

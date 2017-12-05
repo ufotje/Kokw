@@ -11,9 +11,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="be.kokw.controllers.books.create.AddBook">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="be.kokw.controllers.books.create.AddBook">
     <center>
-        <VBox alignment="CENTER_LEFT" style="-fx-background-image: url('/images/achtergrond.jpg'); -fx-background-position: center; -fx-background-size: cover; -fx-background-repeat: no-repeat;" BorderPane.alignment="CENTER">
+        <VBox alignment="TOP_CENTER" style="-fx-background-image: url('/images/achtergrond.jpg'); -fx-background-position: center; -fx-background-size: cover; -fx-background-repeat: no-repeat;" BorderPane.alignment="CENTER">
             <children>
                 <HBox alignment="CENTER_LEFT" prefWidth="200.0">
                     <children>
@@ -42,7 +42,7 @@
                         </TextField>
                     </children>
                     <VBox.margin>
-                        <Insets left="40.0" top="10.0" />
+                        <Insets left="250.0" top="10.0" />
                     </VBox.margin>
                 </HBox>
                 <HBox alignment="CENTER_LEFT" prefWidth="200.0">
@@ -64,9 +64,9 @@
                             </HBox.margin>
                         </TextField>
                     </children>
-                    <padding>
-                        <Insets left="40.0" />
-                    </padding>
+               <VBox.margin>
+                  <Insets left="250.0" />
+               </VBox.margin>
                 </HBox>
                 <HBox alignment="CENTER_LEFT" prefWidth="200.0">
                     <children>
@@ -86,7 +86,7 @@
                         </Button>
                     </children>
                     <VBox.margin>
-                        <Insets left="40.0" />
+                        <Insets left="250.0" />
                     </VBox.margin>
                 </HBox>
                 <HBox prefWidth="200.0">
@@ -96,7 +96,7 @@
                                 <Font size="14.0" />
                             </font>
                             <HBox.margin>
-                                <Insets left="40.0" right="40.0" />
+                                <Insets right="40.0" />
                             </HBox.margin>
                         </Label>
                         <ChoiceBox fx:id="volume" prefHeight="25.0" prefWidth="42.0">
@@ -131,14 +131,14 @@
                         </ChoiceBox>
                     </children>
                     <VBox.margin>
-                        <Insets top="10.0" />
+                        <Insets left="250.0" top="10.0" />
                     </VBox.margin>
                 </HBox>
                 <HBox prefWidth="200.0">
                     <children>
                         <Label text="Auteurs:">
                             <HBox.margin>
-                                <Insets left="40.0" />
+                                <Insets />
                             </HBox.margin>
                             <font>
                                 <Font size="14.0" />
@@ -159,7 +159,7 @@
                         <Insets top="10.0" />
                     </opaqueInsets>
                     <VBox.margin>
-                        <Insets top="10.0" />
+                        <Insets left="250.0" top="10.0" />
                     </VBox.margin>
                 </HBox>
                 <HBox prefWidth="200.0">
@@ -169,7 +169,7 @@
                                 <Font size="14.0" />
                             </font>
                             <HBox.margin>
-                                <Insets left="40.0" />
+                                <Insets />
                             </HBox.margin>
                         </Label>
                         <TextField fx:id="publisher" alignment="CENTER" prefHeight="25.0" prefWidth="207.0" promptText="Vul de naam van de uitgeverij in">
@@ -192,18 +192,18 @@
                         </TextField>
                     </children>
                     <VBox.margin>
-                        <Insets top="10.0" />
+                        <Insets left="250.0" top="10.0" />
                     </VBox.margin>
                 </HBox>
                 <HBox prefWidth="200.0">
                     <VBox.margin>
-                        <Insets top="10.0" />
+                        <Insets left="250.0" top="10.0" />
                     </VBox.margin>
                     <children>
 
                         <Label text="Druk:">
                             <HBox.margin>
-                                <Insets left="40.0" />
+                                <Insets />
                             </HBox.margin>
                             <font>
                                 <Font size="14.0" />
@@ -231,7 +231,7 @@
                 </HBox>
                 <HBox>
                     <VBox.margin>
-                        <Insets left="40.0" top="10.0" />
+                        <Insets left="250.0" top="10.0" />
                     </VBox.margin>
                     <children>
                         <CheckBox fx:id="illustrated" mnemonicParsing="false" text="Geïllustreerd">
@@ -239,7 +239,7 @@
                                 <Font size="14.0" />
                             </font>
                         </CheckBox>
-                        <CheckBox fx:id="bought" mnemonicParsing="false" onAction="#bought" text="Aangekocht">
+                        <CheckBox fx:id="bought" mnemonicParsing="false" text="Aangekocht">
                             <HBox.margin>
                                 <Insets left="14.0" />
                             </HBox.margin>
@@ -247,7 +247,7 @@
                                 <Font size="14.0" />
                             </font>
                         </CheckBox>
-                        <CheckBox fx:id="gifted" mnemonicParsing="false" onAction="#gifted" text="Geschonken">
+                        <CheckBox fx:id="gifted" mnemonicParsing="false" text="Geschonken">
                             <HBox.margin>
                                 <Insets left="14.0" />
                             </HBox.margin>
@@ -255,7 +255,7 @@
                                 <Font size="14.0" />
                             </font>
                         </CheckBox>
-                        <CheckBox fx:id="giftedFor" mnemonicParsing="false" onAction="#giftedFor" text="Geschonken Tegen">
+                        <CheckBox fx:id="giftedFor" mnemonicParsing="false" text="Geschonken Tegen">
                             <font>
                                 <Font size="14.0" />
                             </font>
@@ -267,7 +267,7 @@
                 </HBox>
                 <HBox alignment="CENTER" prefWidth="200.0">
                     <children>
-                        <Button fx:id="save" mnemonicParsing="false" onAction="#save" style="-fx-background-color: #5fbb4e; -fx-background-radius: 10;" text="Save">
+                        <Button mnemonicParsing="false" onAction="#save" style="-fx-background-color: #5fbb4e; -fx-background-radius: 10;" text="Save">
                             <HBox.margin>
                                 <Insets right="30.0" />
                             </HBox.margin>
@@ -289,6 +289,15 @@
                     </VBox.margin>
                 </HBox>
             </children>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+         <BorderPane.margin>
+            <Insets />
+         </BorderPane.margin>
+         <padding>
+            <Insets left="120.0" top="150.0" />
+         </padding>
         </VBox>
     </center>
 </BorderPane>

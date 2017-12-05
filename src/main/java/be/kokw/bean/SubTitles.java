@@ -5,21 +5,23 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Table
+@Table(name = "subTitles")
 public class SubTitles {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private int id;
-    private List<String> subTitles = new ArrayList<>();
-    @ManyToOne(optional = false, cascade = CascadeType.ALL)
+    @ElementCollection(targetClass = String.class)
+    private List<String> subTitle;
+    @OneToOne(targetEntity = Book.class, mappedBy = "subTitle",fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinColumn(name = "book_id", referencedColumnName = "id", nullable = false)
     private Book book;
 
     public SubTitles() {
     }
 
     public SubTitles(List<String> subTitles) {
-        this.subTitles = subTitles;
+        this.subTitle = subTitles;
     }
 
     public int getId() {
@@ -31,11 +33,11 @@ public class SubTitles {
     }
 
     public List<String> getSubTitles() {
-        return subTitles;
+        return subTitle;
     }
 
     public void setSubTitles(List<String> subTitles) {
-        this.subTitles = subTitles;
+        this.subTitle = subTitles;
     }
 
     public Book getBook() {

@@ -24,7 +24,7 @@ public class Book implements Serializable {
     private String depot;
     @Column(name = "Title")
     private String title;
-    @Column(name = "subtitle")
+    @OneToOne
     private SubTitles subTitle;
     @Column(name = "Edition")
     private int edition;
@@ -32,7 +32,7 @@ public class Book implements Serializable {
     private int copies;
     @Column(name = "Volume")
     private Integer volume;
-    @Column(name = "Authors")
+    @OneToOne
     private Authors authors;
     @Column(name = "Publisher")
     private String publisher;
@@ -40,13 +40,13 @@ public class Book implements Serializable {
     private int yearPublished;
     @Column(name = "Nr_of_Pages")
     private int nrOfPages;
-    @Column(name = "Topics")
+    @OneToOne
     private Topics topics;
     @Column(name = "Bought_On")
     private LocalDate boughtOn;
-    @Column(name = "Gifted_By")
+    @OneToOne
     private Gifted giftedBy;
-    @Column(name = "Gifted_For")
+    @OneToOne
     private GiftedFor giftedFor;
     @Column(name = "Derated")
     private LocalDate derated;

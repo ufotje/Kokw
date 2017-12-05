@@ -13,7 +13,8 @@ public class Gifted {
     private String firstName;
     private String lastName;
     private LocalDate giftedOn;
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne(targetEntity = Book.class, mappedBy = "giftedBy",fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinColumn(name = "book_id", referencedColumnName = "id", nullable = false)
     private Book book;
 
     public Gifted() {

@@ -1,5 +1,6 @@
 package be.kokw.controllers;
 
+import be.kokw.controllers.books.create.AddBook;
 import be.kokw.controllers.members.search.MembersByNotPayed;
 import be.kokw.utility.ChangeScene;
 import be.kokw.utility.NewStage;
