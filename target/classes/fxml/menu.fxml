@@ -47,6 +47,12 @@
                     <MenuItem  mnemonicParsing="false" text="Terugbrengen" onAction="#returnBook" />
                     <MenuItem  mnemonicParsing="false" text="Tussen" onAction="#datesBetween" />
                 </Menu>
+                <Menu  mnemonicParsing="false" text="Mailings">
+                    <MenuItem  mnemonicParsing="false" text="Raad van Bestuur" onAction="#mailBoard" />
+                    <MenuItem  mnemonicParsing="false" text="Jarigen" onAction="#mailBDay" />
+                    <MenuItem  mnemonicParsing="false" text="2 daagse waarschuwing" onAction="#mailTwoDaysNotice" />
+                    <MenuItem  mnemonicParsing="false" text="Te laat teruggebracht" onAction="#mailOverDue" />
+                </Menu>
                 <opaqueInsets>
                     <Insets bottom="6.0" left="6.0" right="6.0" top="6.0"/>
                 </opaqueInsets>

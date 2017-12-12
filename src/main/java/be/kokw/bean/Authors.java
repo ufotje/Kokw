@@ -13,14 +13,15 @@ public class Authors {
     @OneToOne(targetEntity = Book.class, mappedBy = "authors",fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "book_id", referencedColumnName = "id", nullable = false)
     private Book book;
-    @ElementCollection(targetClass = String.class)
-    private List<String> authors;
+    private String firstName;
+    private String lastName;
 
     public Authors() {
     }
 
-    public Authors(List<String> authors) {
-        this.authors = authors;
+    public Authors(String firstName, String lastName) {
+        this.firstName = firstName;
+        this.lastName = lastName;
     }
 
     public Book getBook() {
@@ -31,11 +32,19 @@ public class Authors {
         this.book = book;
     }
 
-    public List<String> getAuthors() {
-        return authors;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public void setAuthors(List<String> authors) {
-        this.authors = authors;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 }

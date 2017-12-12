@@ -4,7 +4,6 @@ package be.kokw.bean;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDate;
-import java.util.List;
 
 /**
  * Created by ufotje on 4/10/2017.
@@ -24,7 +23,7 @@ public class Book implements Serializable {
     private String depot;
     @Column(name = "Title")
     private String title;
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     private SubTitles subTitle;
     @Column(name = "Edition")
     private int edition;
@@ -32,7 +31,7 @@ public class Book implements Serializable {
     private int copies;
     @Column(name = "Volume")
     private Integer volume;
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     private Authors authors;
     @Column(name = "Publisher")
     private String publisher;
@@ -40,13 +39,13 @@ public class Book implements Serializable {
     private int yearPublished;
     @Column(name = "Nr_of_Pages")
     private int nrOfPages;
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     private Topics topics;
     @Column(name = "Bought_On")
     private LocalDate boughtOn;
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     private Gifted giftedBy;
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     private GiftedFor giftedFor;
     @Column(name = "Derated")
     private LocalDate derated;

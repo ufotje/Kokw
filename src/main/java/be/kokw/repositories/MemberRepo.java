@@ -17,6 +17,9 @@ import java.util.List;
 public interface MemberRepo extends JpaRepository<Member, Long> {
 
     @Transactional
+    List<Member> findByBoardIsTrue();
+
+    @Transactional
     List<Member> findByBDay(LocalDate bDay);
 
     @Transactional

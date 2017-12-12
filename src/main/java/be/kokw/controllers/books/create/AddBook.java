@@ -2,6 +2,7 @@ package be.kokw.controllers.books.create;
 
 import be.kokw.bean.*;
 import be.kokw.repositories.BookRepo;
+import be.kokw.repositories.books.*;
 import be.kokw.utility.NewStage;
 import be.kokw.utility.Warning;
 import be.kokw.utility.ChangeScene;
@@ -35,7 +36,7 @@ import java.util.logging.Logger;
 @Component
 public class AddBook {
     @FXML
-    private TextField fullName, contractNr, firstName, lastName, title, author, publisher, subTitle, year, pages, isbn, depot, edition, copies;
+    private TextField fullName, contractNr, firstName, lastName, title, firstNameAuthor, lastNameAuthor, publisher, subTitle, year, pages, isbn, depot, edition, copies;
     @FXML
     private DatePicker date, boughtOn;
     @FXML
@@ -46,19 +47,49 @@ public class AddBook {
     private ChoiceBox<Integer> volume;
     private Stage window;
     private BookRepo repo;
+    private GiftedForRepo giftedForRepo;
+    private GiftedRepo giftedRepo;
+    private AuthorsRepo authorsRepo;
+    private SubTitlesRepo subTitlesRepo;
+    private TopicsRepo topicsRepo;
     private List<String> bookList = new ArrayList<>();
     private List<String> topicList = new ArrayList<>();
-    private List<String> authorList = new ArrayList<>();
+    private List<Authors> authorList = new ArrayList<>();
     private List<String> subTitlesList = new ArrayList<>();
     private File file;
-    private SubTitles subTitles = new SubTitles(subTitlesList);
+    private SubTitles subTitles;
     private Book book;
-    private Authors authors = new Authors(authorList);
+    private Authors authors;
     private Topics topics = new Topics(topicList);
 
     @Autowired
-    private void SetBookRepo(@Qualifier("bookRepo") BookRepo repo) {
+    private void setBookRepo(@Qualifier("bookRepo") BookRepo repo) {
         this.repo = repo;
+    }
+
+    @Autowired
+    private void setGiftedForRepo(@Qualifier("giftedForRepo") GiftedForRepo giftedForRepo) {
+        this.giftedForRepo = giftedForRepo;
+    }
+
+    @Autowired
+    private void setGiftedRepo(@Qualifier("giftedRepo") GiftedRepo giftedRepo) {
+        this.giftedRepo = giftedRepo;
+    }
+
+    @Autowired
+    private void setAuthorsRepo(@Qualifier("authorRepo") AuthorsRepo authorsRepo) {
+        this.authorsRepo = authorsRepo;
+    }
+
+    @Autowired
+    private void setSubTitlesRepo(@Qualifier("subRepo") SubTitlesRepo subTitlesRepo) {
+        this.subTitlesRepo = subTitlesRepo;
+    }
+
+    @Autowired
+    private void setTopicsRepo(@Qualifier("topicsRepo") TopicsRepo topicsRepo) {
+        this.topicsRepo = topicsRepo;
     }
 
     public void initialize() {
@@ -70,10 +101,7 @@ public class AddBook {
 
     @FXML
     public void save() throws Exception {
-        System.out.println("Oan is een slet");
         if (validated()) {
-
-            System.out.println("Een teef ook");
             if (gifted.isSelected() && bought.isSelected()) {
                 Warning.alert("Multiple Values", "U dient 1 iets te kiezen.\nEen boek kan niet zowel geschonken als aangekocht zijn. ");
             }
@@ -110,15 +138,18 @@ public class AddBook {
 
     @FXML
     public void addAuthor() {
-        authorList.add(author.getText());
-        author.clear();
+        authors = new Authors(firstNameAuthor.getText(), lastNameAuthor.getText());
+        authorList.add(authors);
+        firstNameAuthor.clear();
+        lastNameAuthor.clear();
     }
 
     @FXML
     public void giftedBy() throws Exception {
         Gifted gift = new Gifted(firstName.getText(), lastName.getText(), date.getValue());
-        book = new Book(isbn.getText(), depot.getText(), title.getText(), subTitles, Integer.parseInt(edition.getText()), Integer.parseInt(copies.getText()), volume.getValue(), authors, publisher.getText(), Integer.parseInt(year.getText()), Integer.parseInt(pages.getText()), topics, gift, illustrated.isSelected());
+        book = new Book(isbn.getText(), depot.getText(), title.getText(), subTitles, Integer.parseInt(edition.getText()), Integer.parseInt(copies.getText()), volume.getSelectionModel().getSelectedItem(), authors, publisher.getText(), Integer.parseInt(year.getText()), Integer.parseInt(pages.getText()), topics, gift, illustrated.isSelected());
         gift.setBook(book);
+        giftedRepo.save(gift);
         window.close();
         saveBook(book);
     }
@@ -127,6 +158,8 @@ public class AddBook {
     public void giftedFor() throws Exception {
         GiftedFor giftFor = new GiftedFor(fullName.getText(), contractNr.getText(), file);
         book = new Book(isbn.getText(), depot.getText(), title.getText(), subTitles, Integer.parseInt(edition.getText()), Integer.parseInt(copies.getText()), volume.getValue(), authors, publisher.getText(), Integer.parseInt(year.getText()), Integer.parseInt(pages.getText()), topics, giftFor, illustrated.isSelected());
+        giftFor.setBook(book);
+        giftedForRepo.save(giftFor);
         window.close();
         saveBook(book);
     }
@@ -174,15 +207,17 @@ public class AddBook {
                 Validation.validate("Jaar van publicatie:", year.getText(), "[0-9999]+") &&
                 Validation.validate("Aantal Bladzijden:", pages.getText(), "[0-9999]+")) &&
                 Validation.validate("isbn", isbn.getText(), "[a-zA-Z0-9999 -]+") && Validation.validate("depot", depot.getText(), "[a-zA-Z0-9999 -]+") && Validation.validate("edition", edition.getText(), "[0-999]+") && Validation.validate("copies", copies.getText(), "[0-999]+")) {
-            for (String a : authorList) {
-                if (Validation.validate("author", a, "[a-zA-Z ]+")) {
-                    //  for(String t : topicList){
-                    //    if(Validation.emptyValidation("topic", t.isEmpty())){
-                    for (String s : subTitlesList) {
-                        if (Validation.emptyValidation("subTitle", s.isEmpty())) {
-                            valid = true;
-                        } else {
-                            Warning.alert("Wrong input", "Verkeerde invoer!\nControleer uw velden aub.");
+            for (Authors a : authorList) {
+                if (Validation.validate("author", a.getFirstName(), "[a-zA-Z ]+")) {
+                    if (Validation.validate("author", a.getLastName(), "[a-zA-Z ]+")) {
+                        //  for(String t : topicList){
+                        //    if(Validation.emptyValidation("topic", t.isEmpty())){
+                        for (String s : subTitlesList) {
+                            if (Validation.emptyValidation("subTitle", s.isEmpty())) {
+                                valid = true;
+                            } else {
+                                Warning.alert("Wrong input", "Verkeerde invoer!\nControleer uw velden aub.");
+                            }
                         }
                     }
                         /*}else {
@@ -201,7 +236,8 @@ public class AddBook {
 
     private void clearFields() {
         title.clear();
-        author.clear();
+        firstNameAuthor.clear();
+        lastNameAuthor.clear();
         isbn.clear();
         depot.clear();
         subTitle.clear();
@@ -219,9 +255,16 @@ public class AddBook {
     }
 
     private void saveBook(Book book) throws Exception {
-        subTitlesList = null;
-        authorList = null;
-        topicList = null;
+        subTitles = new SubTitles(subTitlesList);
+        for(Authors a : authorList) {
+            a.setBook(book);
+            authorsRepo.save(a);
+            System.out.println(a.getFirstName());
+        }
+        topics.setBook(book);
+        topicsRepo.save(topics);
+        subTitles.setBook(book);
+        subTitlesRepo.save(subTitles);
         repo.save(book);
         bookList.add(book.getTitle());
         StringBuilder alert = new StringBuilder("The book(s) with title: ");
