@@ -4,7 +4,7 @@ import be.kokw.bean.Book;
 import be.kokw.bean.CheckedOut;
 import be.kokw.bean.Member;
 import be.kokw.controllers.MenuController;
-import be.kokw.repositories.BookRepo;
+import be.kokw.repositories.books.BookRepo;
 import be.kokw.repositories.CheckOutRepo;
 import be.kokw.repositories.MemberRepo;
 import be.kokw.utility.Warning;

@@ -55,7 +55,20 @@ public class CheckOutRepoImpl implements CheckOutRepo {
 
     @Override
     public List<CheckedOut> findByReturnedIsFalse() {
-        return null;
+        Query query = manager.createQuery("select c from CheckedOut c where returned = false");
+        return query.getResultList();
+    }
+
+    @Override
+    public List<CheckedOut> findByReturnDateAndReturnedIsFalse(LocalDate returnDate) {
+        TypedQuery<CheckedOut> query = manager.createQuery("select c from CheckedOut c where c.returnDate =:returnDate or c.returnDate =:returnDate-1 or c.returnDate=:returnDate-2 and c.returned = false", CheckedOut.class);
+        return query.setParameter("returnDate",returnDate).getResultList();
+    }
+
+    @Override
+    public List<CheckedOut> findByReturnDateBeforeAndReturnedIsFalse(LocalDate now) {
+        TypedQuery<CheckedOut> query = manager.createQuery("select c from CheckedOut c where c.returnDate <:returnDate and c.returned = false", CheckedOut.class);
+        return query.setParameter("returnDate",now).getResultList();
     }
 
     @Override

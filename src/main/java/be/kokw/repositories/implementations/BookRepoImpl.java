@@ -2,7 +2,7 @@ package be.kokw.repositories.implementations;
 
 import be.kokw.bean.Book;
 
-import be.kokw.repositories.BookRepo;
+import be.kokw.repositories.books.BookRepo;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
@@ -12,6 +12,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 import javax.persistence.TypedQuery;
+import java.time.LocalDate;
 import java.util.List;
 
 /**
@@ -43,6 +44,46 @@ public class BookRepoImpl implements BookRepo {
     public List<Book> findByAuthorFirstNameAndAuthorLastName(String firstName, String lastName) {
         TypedQuery<Book> query = manager.createQuery("select b from Book b where b.authorFirstName = :firstname and b.authorLastName = :lastname",Book.class);
         return query.setParameter("firstname", firstName).setParameter("lastname",lastName).getResultList();
+    }
+
+    @Override
+    public Book findByISBN(String ISBN) {
+        return null;
+    }
+
+    @Override
+    public Book findByDepot(String Depot) {
+        return null;
+    }
+
+    @Override
+    public List<Book> findByBoughtOn(LocalDate date) {
+        return null;
+    }
+
+    @Override
+    public List<Book> findByGiftedOn(LocalDate date) {
+        return null;
+    }
+
+    @Override
+    public List<Book> findByGiftedFor(String name) {
+        return null;
+    }
+
+    @Override
+    public List<Book> findByGiftedFor(LocalDate date) {
+        return null;
+    }
+
+    @Override
+    public List<Book> findByGiftedFor(String name, LocalDate date) {
+        return null;
+    }
+
+    @Override
+    public Book findBySubTitle(String SubTitle) {
+        return null;
     }
 
     @Override

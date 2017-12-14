@@ -2,13 +2,11 @@ package be.kokw.controllers.books.delete;
 
 
 import be.kokw.controllers.MenuController;
-import be.kokw.repositories.BookRepo;
+import be.kokw.repositories.books.BookRepo;
 import be.kokw.utility.Warning;
-import be.kokw.utility.NewStage;
 import be.kokw.utility.Validation;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
-import javafx.stage.Stage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;

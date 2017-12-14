@@ -2,7 +2,7 @@ package be.kokw.controllers.books.search;
 
 import be.kokw.bean.Book;
 import be.kokw.controllers.MenuController;
-import be.kokw.repositories.BookRepo;
+import be.kokw.repositories.books.BookRepo;
 import be.kokw.utility.Warning;
 import be.kokw.utility.ChangeScene;
 import be.kokw.utility.Validation;

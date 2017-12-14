@@ -18,7 +18,7 @@ public class CheckedOut implements Serializable {
     @ManyToOne(optional = false, fetch = FetchType.LAZY)
     private Member member;
     private String title;
-    private String address;
+    private String email;
     private String fullName;
     private LocalDate checkOutDate;
     private LocalDate returnDate;
@@ -33,7 +33,7 @@ public class CheckedOut implements Serializable {
         checkOutDate = LocalDate.now();
         returnDate = checkOutDate.plusWeeks(3);
         title = book.getTitle();
-        address = member.getStreet() + " " + member.getHouseNr() + " " + member.getZip() + " " + member.getCity();
+        email = member.getEmail();
         fullName = member.getFirstName() + " " + member.getLastName();
     }
 
@@ -62,7 +62,6 @@ public class CheckedOut implements Serializable {
     }
 
     public LocalDate getCheckOutDate() {
-
         return checkOutDate;
     }
 
@@ -94,12 +93,12 @@ public class CheckedOut implements Serializable {
         this.title = title;
     }
 
-    public String getAddress() {
-        return address;
+    public String getEmail() {
+        return email;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getFullName() {

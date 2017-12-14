@@ -1,6 +1,6 @@
 package be.kokw.controllers.members.create;
 
-import be.belgium.eid.*;
+
 import be.kokw.bean.Member;
 import be.kokw.repositories.MemberRepo;
 import be.kokw.utility.ChangeScene;
@@ -86,7 +86,7 @@ public class AddMember {
 
     @FXML
     private void eId(){
-        if (System.getProperty("os.name").equalsIgnoreCase("Windows")) {
+     /*   if (System.getProperty("os.name").equalsIgnoreCase("Windows")) {
             System.out.println("[Info]  Windows   system!!");
             System.loadLibrary("beid35libJava_Wrapper");
         } else {
@@ -138,7 +138,7 @@ public class AddMember {
         BEID_ReaderSet.releaseSDK();
         } catch (Exception e) {
             e.printStackTrace();
-        }
+        }*/
     }
 
     private void clearFields() {

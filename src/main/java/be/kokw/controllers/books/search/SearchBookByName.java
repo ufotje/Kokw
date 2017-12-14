@@ -2,7 +2,7 @@ package be.kokw.controllers.books.search;
 
 import be.kokw.bean.Book;
 import be.kokw.controllers.MenuController;
-import be.kokw.repositories.BookRepo;
+import be.kokw.repositories.books.BookRepo;
 import be.kokw.utility.ChangeScene;
 import be.kokw.utility.Validation;
 import be.kokw.utility.Warning;
@@ -56,7 +56,7 @@ public class SearchBookByName {
     }
 
     @FXML
-    void search() throws Exception {
+    public void search() throws Exception {
         if (Validation.validate("Achternaam Auteur", lastName.getText(), "[a-zA-Z]+") &&
                 Validation.validate("Voornaam Auteur:", firstName.getText(), "[a-zA-Z]+")) {
             ObservableList<Book> bookList = observableArrayList(bookRepo.findByAuthorFirstNameAndAuthorLastName(firstName.getText(), lastName.getText()));

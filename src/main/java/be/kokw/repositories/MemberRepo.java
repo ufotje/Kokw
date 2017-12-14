@@ -23,6 +23,9 @@ public interface MemberRepo extends JpaRepository<Member, Long> {
     List<Member> findByBDay(LocalDate bDay);
 
     @Transactional
+    List<Member> findByBDayBetween(LocalDate last, LocalDate now);
+
+    @Transactional
     List<Member> findByZip(int zip);
 
     @Transactional

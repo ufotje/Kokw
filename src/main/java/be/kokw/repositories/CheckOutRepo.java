@@ -9,7 +9,6 @@ import javax.transaction.Transactional;
 import java.time.LocalDate;
 import java.util.List;
 
-
 public interface CheckOutRepo extends JpaRepository<CheckedOut,Long>{
     @Transactional
     CheckedOut save(Book b, Member m);
@@ -25,6 +24,12 @@ public interface CheckOutRepo extends JpaRepository<CheckedOut,Long>{
 
     @Transactional
     List<CheckedOut> findByReturnedIsFalse();
+
+    @Transactional
+    List<CheckedOut> findByReturnDateAndReturnedIsFalse(LocalDate returnDate);
+
+    @Transactional
+    List<CheckedOut> findByReturnDateBeforeAndReturnedIsFalse(LocalDate now);
 
     @Transactional
     List<CheckedOut> findByCheckOutDateBetween(LocalDate startDate, LocalDate endDate);

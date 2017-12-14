@@ -1,9 +1,14 @@
 package be.kokw.controllers;
 
+import be.kokw.bean.CheckedOut;
 import be.kokw.bean.Member;
+import be.kokw.bean.TimeStamp;
 import be.kokw.controllers.members.search.MembersByNotPayed;
+import be.kokw.repositories.CheckOutRepo;
 import be.kokw.repositories.MemberRepo;
+import be.kokw.repositories.TimeStampRepo;
 import be.kokw.utility.ChangeScene;
+import be.kokw.utility.Mail;
 import be.kokw.utility.NewStage;
 import be.kokw.utility.Warning;
 import javafx.fxml.FXML;
@@ -12,11 +17,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 
-import javax.mail.*;
-import javax.mail.internet.InternetAddress;
-import javax.mail.internet.MimeMessage;
+import java.time.LocalDate;
+import java.time.ZoneId;
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
-import java.util.Properties;
 
 /**
  * Created by ufotje on 20/10/2017.
@@ -26,11 +31,24 @@ import java.util.Properties;
 @Controller
 public class MenuController {
     public static Stage window;
-    private MemberRepo repo;
+    private CheckOutRepo checkOutRepo;
+    private TimeStampRepo timeStampRepo;
+    private MemberRepo memberRepo;
+
 
     @Autowired
-    private void setRepo(@Qualifier("memberRepo") MemberRepo repo){
-        this.repo = repo;
+    private void setCheckOutRepo(@Qualifier("checkOutRepo") CheckOutRepo checkOutRepo) {
+        this.checkOutRepo = checkOutRepo;
+    }
+
+    @Autowired
+    private void setTimeStampRepo(@Qualifier("timeStampRepo") TimeStampRepo timeStampRepo) {
+        this.timeStampRepo = timeStampRepo;
+    }
+
+    @Autowired
+    private void setMemberRepo(@Qualifier("memberRepo") MemberRepo memberRepo) {
+        this.memberRepo = memberRepo;
     }
 
     //BookMethods
@@ -62,6 +80,42 @@ public class MenuController {
     @FXML
     private void findBookByTopic() throws Exception {
         window = NewStage.getStage("Vind Boeken op onderwerp!", "/fxml/books/search/byTopicDialog.fxml");
+        window.show();
+    }
+
+    @FXML
+    private void findBookByISBN() throws Exception {
+        window = NewStage.getStage("Vind boeken op ISBN", "/fxml/books/search/byISBNDialog.fxml");
+        window.show();
+    }
+
+    @FXML
+    private void findBookByDepot() throws Exception {
+        window = NewStage.getStage("Vind boeken op depotnr", "/fxml/books/search/byDepotDialog.fxml");
+        window.show();
+    }
+
+    @FXML
+    private void findByGiftedOn() throws Exception {
+        window = NewStage.getStage("Vind boeken gedonneerd op datum", "/fxml/books/search/byGiftedOnDialog.fxml");
+        window.show();
+    }
+
+    @FXML
+    private void findByGiftedForOn() throws Exception {
+        window = NewStage.getStage("Vind Boeken tegenprestatie op datum", "/fxml/books/search/byGiftedForOnDateDialog.fxml");
+        window.show();
+    }
+
+    @FXML
+    private void findByGiftedForOnName() throws Exception {
+        window = NewStage.getStage("Vind boeken tegenprestatie op naam", "/fxml/books/search/byGiftedForOnName.fxml");
+        window.show();
+    }
+
+    @FXML
+    private void findByGiftedForOnNameAndDate() throws Exception {
+        window = NewStage.getStage("Vind boek tegenprestatie op naam en datum", "/fxml/books/search/byGiftedForOnNameAndDate.fxml");
         window.show();
     }
 
@@ -157,69 +211,61 @@ public class MenuController {
     //Mailings
     @FXML
     private void mailOverDue() {
+        List<CheckedOut>list = checkOutRepo.findByReturnDateAndReturnedIsFalse(LocalDate.now());
 
     }
 
     @FXML
     private void mailBDay() {
+       // long count = timeStampRepo.count();
+       // TimeStamp stamp = timeStampRepo.findOne(count);
+        LocalDate latest = LocalDate.now().minusDays(5);//stamp.getLast();
+        LocalDate now = LocalDate.now().plusDays(7);
+        List<Member> list = memberRepo.findByBDayBetween(latest, now);
+        String topic = "Happy Birthday";
+        String wens = "\n \nWij, van de KOKW, willen u laten weten dat ook bij ons uw verjaardag niet ongemerkt is gebleven en willen je van harte feliciteren op deze speciale dag.";
+        String text;
+        if (list.isEmpty()) {
+            Warning.alert("No Members Found", "Er werden geen leden gevonden die jarig zijn!");
+        } else {
+            for (Member m : list) {
+                LocalDate bDay = m.getbDay();
+                if (bDay.equals(now)) {
+                    text = "Beste " + m.getFirstName() + wens + "\n \nMet Vriendelijke Groeten\n \n \nHet KOKW-Team";
+                    Mail.sendMail(list, topic, text);
+                }else{
+                    Date d1 = Date.from(bDay.atStartOfDay().atZone(ZoneId.systemDefault()).toInstant());
+                    Date d2 =  Date.from(now.atStartOfDay().atZone(ZoneId.systemDefault()).toInstant());
+                    long difference = d2.getTime() - d1.getTime();
+                    text = "Beste " + m.getFirstName() + wens + "\nOok al zijn we " + difference + " dag(en) te hopen wij dat je toch genoten hebt van je verjaardag en wensen we je nog vele jaren. \n \nMet Vriendelijke Groeten\n \n \nHet KOKW-Team";
+                    Mail.sendMail(list,topic,text);
+                }
+            }
+        }
 
     }
 
     @FXML
     private void mailTwoDaysNotice() {
-
+        LocalDate returnDate = LocalDate.now().plusDays(2);
+        List<CheckedOut> list = checkOutRepo.findByReturnDateAndReturnedIsFalse(returnDate);
+        if (list.isEmpty()) {
+            Warning.alert("No Items Found", "Er werden geen boeken gevonden die binnen de 2 dagen dienen worden terug gebracht!");
+        } else {
+            for (CheckedOut c : list) {
+                String name = c.getFullName();
+                String title = c.getTitle();
+                List<Member> memberList = new ArrayList<>();
+                String topic = "Uw uitleenbeurt vervalt binnen 2 dagen...";
+                String text = "Geachte " + name + "\n \nUw uitleenbeurt voor het boek '" + title + "' vervalt binnen 2 dagen!\nVergeet niet tijdig het boek binnen te brengen.\n \nMet vriendelijke groeten\n \n \n \nHet KOKW-Team";
+                Mail.sendMail(memberList, topic, text);
+            }
+        }
     }
 
     @FXML
-    private void mailBoard() {
-        List<Member> memberList = repo.findByBoardIsTrue();
-        String from = "d.demesmaecker@gmail.com";
-        String host = "localhost";
-        Member m = memberList.get(0);
-        String to = m.getEmail();
-        Properties props = System.getProperties();
-        props.setProperty("mail.smtp.host", host);
-        props.setProperty("mail.smtp.port", "8080");
-        Session session = Session.getDefaultInstance(props);
-        try{
-            MimeMessage message = new MimeMessage(session);
-            message.setFrom(new InternetAddress(from));
-            message.addRecipient(Message.RecipientType.TO, new InternetAddress(to));
-            message.setSubject("Dit is een testmail");
-            message.setText("Nico\nJe bent een slet!");
-            Transport.send(message);
-            Warning.alert("Messaging succes", "De mail werd succesvol verzonden");
-        }catch(MessagingException mex){
-            Warning.alert("Messaging Error", "Er ging iets fout");
-            mex.printStackTrace();
-        }
-        /*Properties props = new Properties();
-        props.put("mail.smtp.host", "smtp.gmail.com");
-        props.put("mail.smtp.socketFactory.port", "8080");
-        props.put("mail.smtp.socketFactory.class",
-                "javax.net.ssl.SSLSocketFactory");
-        props.put("mail.smtp.auth", "true");
-        props.put("mail.smtp.port", "8080");
-        Session session = Session.getDefaultInstance(props,
-                new javax.mail.Authenticator() {
-                    protected PasswordAuthentication getPasswordAuthentication() {
-                        return new PasswordAuthentication("d.demesmaecker@gmail.com","SoetkinIsEen8erlijkeTrut");
-                    }
-                });
-
-        try {
-            Message message = new MimeMessage(session);
-            message.setFrom(new InternetAddress(from));
-            for(Member m : memberList) {
-                message.addRecipient(Message.RecipientType.TO, new InternetAddress(m.getEmail()));
-            }
-                message.setSubject("Sletten");
-                message.setText("Sletten en Tetten.\n Dit is een test message uit mijn javaFX programma.");
-                Transport.send(message);
-                Warning.alert("Message sent succesfully", "De boodschap werdt met succes verzonden.");
-        }catch(MessagingException mex){
-            Warning.alert("Messaging Error", "Er ging iets fout tijdens het versturen van de mail!");
-            mex.printStackTrace();
-        }*/
+    private void mailBoard() throws Exception {
+        window = NewStage.getStage("Mail naar Raad van Bestuur", "/fxml/maillings/toBoard.fxml");
+        window.show();
     }
 }

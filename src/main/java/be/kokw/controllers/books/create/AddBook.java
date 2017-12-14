@@ -1,7 +1,7 @@
 package be.kokw.controllers.books.create;
 
 import be.kokw.bean.*;
-import be.kokw.repositories.BookRepo;
+import be.kokw.repositories.books.BookRepo;
 import be.kokw.repositories.books.*;
 import be.kokw.utility.NewStage;
 import be.kokw.utility.Warning;
