@@ -11,6 +11,7 @@ import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 import javax.persistence.TypedQuery;
 import java.time.LocalDate;
@@ -20,7 +21,7 @@ import java.util.List;
 public class CheckOutRepoImpl implements CheckOutRepo {
     private EntityManager manager;
 
-    @Autowired
+    @PersistenceContext
     private void setManager(EntityManager manager) {
         this.manager = manager;
     }

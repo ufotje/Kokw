@@ -13,8 +13,8 @@ public class SubTitles {
     private int id;
     @ElementCollection(targetClass = String.class)
     private List<String> subTitle;
-    @OneToOne(targetEntity = Book.class, mappedBy = "subTitle",fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinColumn(name = "book_id", referencedColumnName = "id", nullable = false)
+    @JoinColumn(name = "id_books", referencedColumnName = "id", nullable = false)
+    @ManyToOne(optional = false, fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private Book book;
 
     public SubTitles() {

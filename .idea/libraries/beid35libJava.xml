@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="beid35libJava">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/Documents/Belgium Identity Card SDK/beidlib/Java/bin/beid35libJava.jar!/" />
+      <root url="jar://$USER_HOME$/Documents/Belgium Identity Card SDK/beidlib/Java/bin/BEID_Applet.jar!/" />
+      <root url="jar://$USER_HOME$/Documents/Belgium Identity Card SDK/beidlib/Java/bin/applet-launcher.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

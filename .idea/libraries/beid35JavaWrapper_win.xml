@@ -1,0 +1,21 @@
+<component name="libraryTable">
+  <library name="beid35JavaWrapper-win">
+    <ANNOTATIONS>
+      <root url="jar://$USER_HOME$/Documents/Belgium Identity Card SDK/beidlib/Java/bin/beid35JavaWrapper-win.jar!/" />
+    </ANNOTATIONS>
+    <CLASSES>
+      <root url="jar://$USER_HOME$/Documents/Belgium Identity Card SDK/beidlib/Java/bin/beid35JavaWrapper-win.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/Documents/Belgium Identity Card SDK/beidlib/Java/bin/beid35JavaWrapper-win.jar!/" />
+    </JAVADOC>
+    <NATIVE>
+      <root url="jar://$USER_HOME$/Documents/Belgium Identity Card SDK/beidlib/Java/bin/beid35JavaWrapper-win.jar!/" />
+    </NATIVE>
+    <SOURCES>
+      <root url="jar://$USER_HOME$/Documents/Belgium Identity Card SDK/beidlib/Java/bin/beid35JavaWrapper-win.jar!/" />
+    </SOURCES>
+    <jarDirectory url="jar://$USER_HOME$/Documents/Belgium Identity Card SDK/beidlib/Java/bin/beid35JavaWrapper-win.jar!/" recursive="false" />
+    <jarDirectory url="jar://$USER_HOME$/Documents/Belgium Identity Card SDK/beidlib/Java/bin/beid35JavaWrapper-win.jar!/" recursive="false" type="SOURCES" />
+  </library>
+</component>

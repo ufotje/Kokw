@@ -259,7 +259,6 @@ public class AddBook {
         for(Authors a : authorList) {
             a.setBook(book);
             authorsRepo.save(a);
-            System.out.println(a.getFirstName());
         }
         topics.setBook(book);
         topicsRepo.save(topics);

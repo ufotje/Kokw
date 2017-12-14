@@ -14,8 +14,8 @@ public class GiftedFor {
     private String contractNr;
     @Column(name = "Name")
     private String name;
-    @OneToOne(targetEntity = Book.class, mappedBy = "giftedFor",fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinColumn(name = "book_id", referencedColumnName = "id", nullable = false)
+    @JoinColumn(name = "id_books", referencedColumnName = "id", nullable = false)
+    @OneToOne(optional = false, fetch = FetchType.LAZY,cascade = CascadeType.ALL)
     private Book book;
     @Column(name = "Contract")
     private File contract;

@@ -10,8 +10,8 @@ public class Authors {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private int id;
-    @OneToOne(targetEntity = Book.class, mappedBy = "authors",fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinColumn(name = "book_id", referencedColumnName = "id", nullable = false)
+    @JoinColumn(name = "id_books", referencedColumnName = "id", nullable = false)
+    @ManyToOne(optional = false, fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private Book book;
     private String firstName;
     private String lastName;

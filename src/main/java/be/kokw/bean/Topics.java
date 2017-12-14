@@ -14,8 +14,8 @@ public class Topics {
     private int id;
     @ElementCollection(targetClass = String.class)
     private List<String> topics;
-    @OneToOne(targetEntity = Book.class, mappedBy = "topics",fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinColumn(name = "book_id", referencedColumnName = "id", nullable = false)
+    @JoinColumn(name = "id_books", referencedColumnName = "id", nullable = false)
+    @ManyToOne(optional = false, fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private Book book;
 
     public Topics() {
