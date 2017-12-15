@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Properties;
 
 public interface Mail {
-    static void sendMail(List<Member> memberList, String subject, String text) {
+    static void sendMail(String email, String subject, String text) {
         String from = "d.demesmaecker@gmail.com";
         Properties props = new Properties();
         props.put("mail.smtp.auth", "true");
@@ -26,9 +26,7 @@ public interface Mail {
         try {
             Message message = new MimeMessage(session);
             message.setFrom(new InternetAddress(from));
-            for (Member m : memberList) {
-                message.addRecipient(Message.RecipientType.TO, new InternetAddress(m.getEmail()));
-            }
+                message.addRecipient(Message.RecipientType.TO, new InternetAddress(email));
             message.setSubject(subject);
             message.setText(text);
             Transport.send(message);

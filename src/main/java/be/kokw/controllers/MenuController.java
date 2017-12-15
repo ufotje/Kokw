@@ -1,17 +1,15 @@
 package be.kokw.controllers;
 
-import be.kokw.bean.CheckedOut;
-import be.kokw.bean.Member;
-import be.kokw.bean.TimeStamp;
-import be.kokw.controllers.members.search.MembersByNotPayed;
+import be.kokw.bean.*;
 import be.kokw.repositories.CheckOutRepo;
 import be.kokw.repositories.MemberRepo;
 import be.kokw.repositories.TimeStampRepo;
-import be.kokw.utility.ChangeScene;
-import be.kokw.utility.Mail;
-import be.kokw.utility.NewStage;
-import be.kokw.utility.Warning;
+import be.kokw.utility.*;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -19,9 +17,10 @@ import org.springframework.stereotype.Controller;
 
 import java.time.LocalDate;
 import java.time.ZoneId;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+
+import static javafx.collections.FXCollections.observableArrayList;
 
 /**
  * Created by ufotje on 20/10/2017.
@@ -34,6 +33,16 @@ public class MenuController {
     private CheckOutRepo checkOutRepo;
     private TimeStampRepo timeStampRepo;
     private MemberRepo memberRepo;
+    @FXML
+    private TableView<Member> table;
+    @FXML
+    private TableColumn<Member, Integer> idCol, nrCol, zipCol;
+    @FXML
+    private TableColumn<Member, String> firstNameCol, lastNameCol, streetCol, cityCol, mailCol;
+    @FXML
+    private TableColumn<Member, LocalDate> bDayCol;
+    @FXML
+    private TableColumn<Member, Boolean> payedCol, analCol;
 
 
     @Autowired
@@ -186,14 +195,42 @@ public class MenuController {
 
     @FXML
     private void findMemberByPayed() throws Exception {
-        MembersByNotPayed member = new MembersByNotPayed();
-        member.search();
+        ObservableList<Member> memberList = observableArrayList(memberRepo.findByPayedIsFalse());
+        if (memberList.isEmpty()) {
+            Warning.alert("No Members found!", "Er werden geen leden gevonden van wie het lidgeld niet betaal werd!");
+        } else {
+            String title = "Zoeken op Lidgeld niet betaald";
+            initTable(title, memberList);
+        }
     }
 
     @FXML
     private void findMemberByAnalen() throws Exception {
-        window = NewStage.getStage("Zoek op Analen niet ontvangen", "/fxml/members/search/byAnalenDialog.fxml");
-        window.show();
+        ObservableList<Member> memberList = observableArrayList(memberRepo.findByAnalIsFalse());
+        if (memberList.isEmpty()) {
+            Warning.alert("No Members found!", "Er werden geen leden gevonden die hun Analen nog niet ontvangen hebben!");
+        } else {
+            String title = "Zoeken op Analen niet ontvangen";
+            initTable(title, memberList);
+
+        }
+    }
+
+    private void initTable(String title, ObservableList<Member> memberList) throws Exception {
+        ChangeScene.init("/fxml/members/search/tableviewAnal.fxml", title);
+        table.setEditable(true);
+        idCol.setCellValueFactory(new PropertyValueFactory<>("id"));
+        firstNameCol.setCellValueFactory(new PropertyValueFactory<>("firstName"));
+        lastNameCol.setCellValueFactory(new PropertyValueFactory<>("lastName"));
+        streetCol.setCellValueFactory(new PropertyValueFactory<>("street"));
+        nrCol.setCellValueFactory(new PropertyValueFactory<>("houseNr"));
+        zipCol.setCellValueFactory(new PropertyValueFactory<>("zip"));
+        cityCol.setCellValueFactory(new PropertyValueFactory<>("city"));
+        mailCol.setCellValueFactory(new PropertyValueFactory<>("email"));
+        bDayCol.setCellValueFactory(new PropertyValueFactory<>("bDay"));
+        payedCol.setCellValueFactory(new PropertyValueFactory<>("payed"));
+        analCol.setCellValueFactory(new PropertyValueFactory<>("anal"));
+        table.setItems(memberList);
     }
 
     //Update Member
@@ -211,16 +248,25 @@ public class MenuController {
     //Mailings
     @FXML
     private void mailOverDue() {
-        List<CheckedOut>list = checkOutRepo.findByReturnDateAndReturnedIsFalse(LocalDate.now());
+        List<CheckedOut> list = checkOutRepo.findByReturnDateBeforeAndReturnedIsFalse(LocalDate.now());
+        for (CheckedOut c : list) {
+            Member m = c.getMember();
+            Book b = c.getBook();
+            String name = m.getFirstName();
+            String title = b.getTitle();
+            Authors author = b.getAuthors();
+            String text = "Geachte " + name + "\n \nHet boek: '" + title + "' geschreven door '" + author + "' werd te laat terug gebracht.\nGelieve zo spoedig mogelijk het boek in te leveren.\n \nMet vriendelijke groeten \n \n \nHet KOKW-Team";
+            Mail.sendMail(m.getEmail(), "Boek Te Laat!", text);
+        }
 
     }
 
     @FXML
     private void mailBDay() {
-       // long count = timeStampRepo.count();
-       // TimeStamp stamp = timeStampRepo.findOne(count);
-        LocalDate latest = LocalDate.now().minusDays(5);//stamp.getLast();
-        LocalDate now = LocalDate.now().plusDays(7);
+        long count = timeStampRepo.count();
+        TimeStamp stamp = timeStampRepo.findOne(count);
+        LocalDate latest = stamp.getLast();
+        LocalDate now = LocalDate.now();
         List<Member> list = memberRepo.findByBDayBetween(latest, now);
         String topic = "Happy Birthday";
         String wens = "\n \nWij, van de KOKW, willen u laten weten dat ook bij ons uw verjaardag niet ongemerkt is gebleven en willen je van harte feliciteren op deze speciale dag.";
@@ -232,13 +278,13 @@ public class MenuController {
                 LocalDate bDay = m.getbDay();
                 if (bDay.equals(now)) {
                     text = "Beste " + m.getFirstName() + wens + "\n \nMet Vriendelijke Groeten\n \n \nHet KOKW-Team";
-                    Mail.sendMail(list, topic, text);
-                }else{
+                    Mail.sendMail(m.getEmail(), topic, text);
+                } else {
                     Date d1 = Date.from(bDay.atStartOfDay().atZone(ZoneId.systemDefault()).toInstant());
-                    Date d2 =  Date.from(now.atStartOfDay().atZone(ZoneId.systemDefault()).toInstant());
+                    Date d2 = Date.from(now.atStartOfDay().atZone(ZoneId.systemDefault()).toInstant());
                     long difference = d2.getTime() - d1.getTime();
                     text = "Beste " + m.getFirstName() + wens + "\nOok al zijn we " + difference + " dag(en) te hopen wij dat je toch genoten hebt van je verjaardag en wensen we je nog vele jaren. \n \nMet Vriendelijke Groeten\n \n \nHet KOKW-Team";
-                    Mail.sendMail(list,topic,text);
+                    Mail.sendMail(m.getEmail(), topic, text);
                 }
             }
         }
@@ -255,10 +301,10 @@ public class MenuController {
             for (CheckedOut c : list) {
                 String name = c.getFullName();
                 String title = c.getTitle();
-                List<Member> memberList = new ArrayList<>();
+                Member m = c.getMember();
                 String topic = "Uw uitleenbeurt vervalt binnen 2 dagen...";
                 String text = "Geachte " + name + "\n \nUw uitleenbeurt voor het boek '" + title + "' vervalt binnen 2 dagen!\nVergeet niet tijdig het boek binnen te brengen.\n \nMet vriendelijke groeten\n \n \n \nHet KOKW-Team";
-                Mail.sendMail(memberList, topic, text);
+                Mail.sendMail(m.getEmail(), topic, text);
             }
         }
     }

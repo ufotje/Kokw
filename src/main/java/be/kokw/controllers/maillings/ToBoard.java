@@ -29,7 +29,9 @@ public class ToBoard {
    @FXML
     private void sendMessage(){
        List<Member> memberList = repo.findByBoardIsTrue();
-       Mail.sendMail(memberList, subject.getText(), text.getText());
+       for(Member m : memberList) {
+           Mail.sendMail(m.getEmail(), subject.getText(), text.getText());
+       }
        MenuController.window.close();
    }
 }

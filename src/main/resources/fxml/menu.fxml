@@ -19,10 +19,20 @@
                     <MenuItem mnemonicParsing="false" onAction="#addBook"
                               text="Voeg Toe"/>
                     <Menu mnemonicParsing="false" text="Zoeken">
+                        <MenuItem mnemonicParsing="false" text="Op ISBN" onAction="#findBookByISBN"/>
+                        <MenuItem mnemonicParsing="false" text="Op Depotnummer" onAction="#findBookByDepot"/>
                         <MenuItem mnemonicParsing="false" text="Op Titel" onAction="#findBookByTitle"/>
                         <MenuItem mnemonicParsing="false" text="Op Auteur" onAction="#findBookByAuthor"/>
                         <MenuItem mnemonicParsing="false" text="Op Uitgever" onAction="#findBookByPublisher"/>
                         <MenuItem mnemonicParsing="false" text="Op Onderwerp" onAction="#findBookByTopic"/>
+                        <Menu mnemonicParsing="false" text="Geschonken">
+                            <MenuItem mnemonicParsing="false" text="Op Datum" onAction="#findByGiftedOn"/>
+                            <Menu mnemonicParsing="false" text="Geschonken tegenprestatie">
+                                <MenuItem mnemonicParsing="false" text="Op Datum" onAction="#findByGiftedForOn"/>
+                                <MenuItem mnemonicParsing="false" text="Op Naam" onAction="#findByGiftedForOnName"/>
+                                <MenuItem mnemonicParsing="false" text="Op Naam en Datum" onAction="#findByGiftedForOnNameAndDate"/>
+                            </Menu>
+                        </Menu>
                     </Menu>
                     <Menu mnemonicParsing="false" text="Verwijder">
                         <MenuItem mnemonicParsing="false" text="Op Titel" onAction="#deleteBookByTitle"/>
