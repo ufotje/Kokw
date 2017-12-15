@@ -1,11 +1,9 @@
 package be.kokw.utility;
 
-import be.kokw.bean.Member;
 
 import javax.mail.*;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
-import java.util.List;
 import java.util.Properties;
 
 public interface Mail {
@@ -33,7 +31,7 @@ public interface Mail {
             Warning.alert("Message sent succesfully", "De boodschap werd met succes verzonden.");
         } catch (MessagingException mex) {
             mex.printStackTrace();
-            Warning.alert("Messaging Error", "Er ging iets fout tijdens het versturen van de mail!");
+            Warning.alert("Messaging Error", mex.getMessage() + "\n \nEr ging iets fout tijdens het versturen van de mail!" );
 
         }
     }

@@ -42,7 +42,7 @@
                             <Insets left="10.0" />
                         </HBox.margin>
                     </TextField>
-                    <TextField fx:id="lastName" alignment="CENTER" prefHeight="41.0" prefWidth="175.0" promptText="achternaam " style="-fx-background-color: transparent; -fx-border-color: gray; -fx-border-radius: 10;">
+                    <TextField fx:id="lastName" alignment="CENTER" prefWidth="175.0" promptText="achternaam " style="-fx-background-color: transparent; -fx-border-color: gray; -fx-border-radius: 10;">
                         <tooltip>
                             <Tooltip text="Voeg de achternaam in" />
                         </tooltip>

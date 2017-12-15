@@ -37,9 +37,9 @@ public class SearchBookByName {
     @FXML
     private TableColumn<Book, String> topicCol;
     @FXML
-    private TableColumn<Book, String> firstNameCol;
+    private TableColumn<Book, String> authorCol;
     @FXML
-    private TableColumn<Book, String> lastNameCol;
+    private TableColumn<Book, String> subTitleCol;
     @FXML
     private TableColumn<Book, String> publisherCol;
     @FXML
@@ -69,8 +69,8 @@ public class SearchBookByName {
                 idCol.setCellValueFactory(new PropertyValueFactory<>("id"));
                 titleCol.setCellValueFactory(new PropertyValueFactory<>("title"));
                 topicCol.setCellValueFactory(new PropertyValueFactory<>("topic"));
-                firstNameCol.setCellValueFactory(new PropertyValueFactory<>("authorFirstName"));
-                lastNameCol.setCellValueFactory(new PropertyValueFactory<>("authorLastName"));
+                authorCol.setCellValueFactory(new PropertyValueFactory<>("authors"));
+                subTitleCol.setCellValueFactory(new PropertyValueFactory<>("subTitles"));
                 publisherCol.setCellValueFactory(new PropertyValueFactory<>("publisher"));
                 placeCol.setCellValueFactory(new PropertyValueFactory<>("place"));
                 yearCol.setCellValueFactory(new PropertyValueFactory<>("yearPublished"));

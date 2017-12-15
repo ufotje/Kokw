@@ -1,68 +1,29 @@
 <component name="libraryTable">
   <library name="Maven: be.fedict.commons-eid:commons-eid-jca:unknown">
     <ANNOTATIONS>
-      <root url="file://$MAVEN_REPOSITORY$/be/fedict/commons-eid/commons-eid-client" />
       <root url="file://$MAVEN_REPOSITORY$/be/fedict/commons-eid/commons-eid-jca" />
       <root url="file://$MAVEN_REPOSITORY$/be/fedict/commons-eid/commons-eid-bom" />
-      <root url="file://$MAVEN_REPOSITORY$/be/fedict/commons-eid/commons-eid-consumer" />
-      <root url="file://$MAVEN_REPOSITORY$/be/fedict/commons-eid/commons-eid-dialogs" />
-      <root url="file://$MAVEN_REPOSITORY$/be/fedict/commons-eid/commons-eid-tests" />
     </ANNOTATIONS>
     <CLASSES>
-      <root url="file://$MAVEN_REPOSITORY$/be/fedict/commons-eid/commons-eid-client" />
-      <root url="file://$MAVEN_REPOSITORY$/be/fedict/commons-eid/commons-eid-client" />
-      <root url="file://$MAVEN_REPOSITORY$/be/fedict/commons-eid/commons-eid-jca" />
-      <root url="file://$MAVEN_REPOSITORY$/be/fedict/commons-eid/commons-eid-jca" />
-      <root url="file://$MAVEN_REPOSITORY$/be/fedict/commons-eid/commons-eid-bom" />
-      <root url="file://$MAVEN_REPOSITORY$/be/fedict/commons-eid/commons-eid-bom" />
-      <root url="file://$MAVEN_REPOSITORY$/be/fedict/commons-eid/commons-eid-consumer" />
-      <root url="file://$MAVEN_REPOSITORY$/be/fedict/commons-eid/commons-eid-consumer" />
-      <root url="file://$MAVEN_REPOSITORY$/be/fedict/commons-eid/commons-eid-dialogs" />
-      <root url="file://$MAVEN_REPOSITORY$/be/fedict/commons-eid/commons-eid-dialogs" />
-      <root url="file://$MAVEN_REPOSITORY$/be/fedict/commons-eid/commons-eid-tests" />
-      <root url="file://$MAVEN_REPOSITORY$/be/fedict/commons-eid/commons-eid-tests" />
+      <root url="jar://$MAVEN_REPOSITORY$/be/fedict/commons-eid/commons-eid-jca/unknown/commons-eid-jca-unknown.jar!/" />
     </CLASSES>
     <JAVADOC>
-      <root url="file://$MAVEN_REPOSITORY$/be/fedict/commons-eid/commons-eid-client" />
       <root url="file://$MAVEN_REPOSITORY$/be/fedict/commons-eid/commons-eid-jca" />
       <root url="file://$MAVEN_REPOSITORY$/be/fedict/commons-eid/commons-eid-bom" />
-      <root url="file://$MAVEN_REPOSITORY$/be/fedict/commons-eid/commons-eid-consumer" />
-      <root url="file://$MAVEN_REPOSITORY$/be/fedict/commons-eid/commons-eid-dialogs" />
-      <root url="file://$MAVEN_REPOSITORY$/be/fedict/commons-eid/commons-eid-tests" />
+      <root url="jar://$MAVEN_REPOSITORY$/be/fedict/commons-eid/commons-eid-jca/unknown/commons-eid-jca-unknown-javadoc.jar!/" />
     </JAVADOC>
     <NATIVE>
-      <root url="file://$MAVEN_REPOSITORY$/be/fedict/commons-eid/commons-eid-client" />
       <root url="file://$MAVEN_REPOSITORY$/be/fedict/commons-eid/commons-eid-jca" />
       <root url="file://$MAVEN_REPOSITORY$/be/fedict/commons-eid/commons-eid-bom" />
-      <root url="file://$MAVEN_REPOSITORY$/be/fedict/commons-eid/commons-eid-consumer" />
-      <root url="file://$MAVEN_REPOSITORY$/be/fedict/commons-eid/commons-eid-dialogs" />
-      <root url="file://$MAVEN_REPOSITORY$/be/fedict/commons-eid/commons-eid-tests" />
     </NATIVE>
     <SOURCES>
-      <root url="file://$MAVEN_REPOSITORY$/be/fedict/commons-eid/commons-eid-client" />
-      <root url="file://$MAVEN_REPOSITORY$/be/fedict/commons-eid/commons-eid-client" />
       <root url="file://$MAVEN_REPOSITORY$/be/fedict/commons-eid/commons-eid-jca" />
       <root url="file://$MAVEN_REPOSITORY$/be/fedict/commons-eid/commons-eid-jca" />
       <root url="file://$MAVEN_REPOSITORY$/be/fedict/commons-eid/commons-eid-bom" />
       <root url="file://$MAVEN_REPOSITORY$/be/fedict/commons-eid/commons-eid-bom" />
-      <root url="file://$MAVEN_REPOSITORY$/be/fedict/commons-eid/commons-eid-consumer" />
-      <root url="file://$MAVEN_REPOSITORY$/be/fedict/commons-eid/commons-eid-consumer" />
-      <root url="file://$MAVEN_REPOSITORY$/be/fedict/commons-eid/commons-eid-dialogs" />
-      <root url="file://$MAVEN_REPOSITORY$/be/fedict/commons-eid/commons-eid-dialogs" />
-      <root url="file://$MAVEN_REPOSITORY$/be/fedict/commons-eid/commons-eid-tests" />
-      <root url="file://$MAVEN_REPOSITORY$/be/fedict/commons-eid/commons-eid-tests" />
+      <root url="jar://$MAVEN_REPOSITORY$/be/fedict/commons-eid/commons-eid-jca/unknown/commons-eid-jca-unknown-sources.jar!/" />
     </SOURCES>
-    <jarDirectory url="file://$MAVEN_REPOSITORY$/be/fedict/commons-eid/commons-eid-bom" recursive="false" />
-    <jarDirectory url="file://$MAVEN_REPOSITORY$/be/fedict/commons-eid/commons-eid-client" recursive="false" />
-    <jarDirectory url="file://$MAVEN_REPOSITORY$/be/fedict/commons-eid/commons-eid-consumer" recursive="false" />
-    <jarDirectory url="file://$MAVEN_REPOSITORY$/be/fedict/commons-eid/commons-eid-dialogs" recursive="false" />
-    <jarDirectory url="file://$MAVEN_REPOSITORY$/be/fedict/commons-eid/commons-eid-jca" recursive="false" />
-    <jarDirectory url="file://$MAVEN_REPOSITORY$/be/fedict/commons-eid/commons-eid-tests" recursive="false" />
     <jarDirectory url="file://$MAVEN_REPOSITORY$/be/fedict/commons-eid/commons-eid-bom" recursive="false" type="SOURCES" />
-    <jarDirectory url="file://$MAVEN_REPOSITORY$/be/fedict/commons-eid/commons-eid-client" recursive="false" type="SOURCES" />
-    <jarDirectory url="file://$MAVEN_REPOSITORY$/be/fedict/commons-eid/commons-eid-consumer" recursive="false" type="SOURCES" />
-    <jarDirectory url="file://$MAVEN_REPOSITORY$/be/fedict/commons-eid/commons-eid-dialogs" recursive="false" type="SOURCES" />
     <jarDirectory url="file://$MAVEN_REPOSITORY$/be/fedict/commons-eid/commons-eid-jca" recursive="false" type="SOURCES" />
-    <jarDirectory url="file://$MAVEN_REPOSITORY$/be/fedict/commons-eid/commons-eid-tests" recursive="false" type="SOURCES" />
   </library>
 </component>
