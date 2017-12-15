@@ -1,11 +1,9 @@
 package be.kokw.controllers.members.create;
 
 
-//import be.belgium.eid.*;
+import be.belgium.eid.*;
 import be.kokw.bean.Member;
-import be.kokw.bean.TimeStamp;
 import be.kokw.repositories.MemberRepo;
-import be.kokw.repositories.TimeStampRepo;
 import be.kokw.utility.ChangeScene;
 import be.kokw.utility.Warning;
 import be.kokw.utility.Validation;
@@ -17,7 +15,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -89,12 +86,7 @@ public class AddMember {
 
     @FXML
     private void eId(){
-  /*      if (System.getProperty("os.name").equalsIgnoreCase("Windows")) {
-            System.out.println("[Info]  Windows   system!!");
             System.loadLibrary("beid35libJava_Wrapper");
-        } else {
-            System.loadLibrary("beidlibJava_Wrapper");
-        }
         try {
             BEID_ReaderSet.initSDK();
 
@@ -142,7 +134,7 @@ public class AddMember {
         } catch (Exception e) {
             e.printStackTrace();
         }
-    */}
+    }
 
     private void clearFields() {
         firstName.clear();

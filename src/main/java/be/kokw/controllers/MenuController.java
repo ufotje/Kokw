@@ -311,7 +311,7 @@ public class MenuController {
 
     @FXML
     private void mailBoard() throws Exception {
-        window = NewStage.getStage("Mail naar Raad van Bestuur", "/fxml/maillings/toBoard.fxml");
+        window = NewStage.getStage("Mail naar Raad van Bestuur", "/fxml/mailings/toBoard.fxml");
         window.show();
     }
 }
