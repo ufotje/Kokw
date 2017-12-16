@@ -1,15 +1,16 @@
 package be.kokw.bean;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.time.LocalDate;
 
 @Table(name = "Gifted")
 @Entity
-public class Gifted {
+public class Gifted implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private int id;
+    private long id;
     private String firstName;
     private String lastName;
     private LocalDate giftedOn;
@@ -20,10 +21,19 @@ public class Gifted {
     public Gifted() {
     }
 
-    public Gifted(String firstName, String lastName, LocalDate giftedOn) {
+    public Gifted(String firstName, String lastName, LocalDate giftedOn, Book book ) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.giftedOn = giftedOn;
+        this.book = book;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
 
     public String getFirstName() {

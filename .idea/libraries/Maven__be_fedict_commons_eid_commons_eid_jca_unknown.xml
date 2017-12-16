@@ -18,8 +18,6 @@
     </NATIVE>
     <SOURCES>
       <root url="file://$MAVEN_REPOSITORY$/be/fedict/commons-eid/commons-eid-jca" />
-      <root url="file://$MAVEN_REPOSITORY$/be/fedict/commons-eid/commons-eid-jca" />
-      <root url="file://$MAVEN_REPOSITORY$/be/fedict/commons-eid/commons-eid-bom" />
       <root url="file://$MAVEN_REPOSITORY$/be/fedict/commons-eid/commons-eid-bom" />
       <root url="jar://$MAVEN_REPOSITORY$/be/fedict/commons-eid/commons-eid-jca/unknown/commons-eid-jca-unknown-sources.jar!/" />
     </SOURCES>

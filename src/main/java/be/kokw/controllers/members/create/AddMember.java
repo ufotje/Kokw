@@ -1,12 +1,17 @@
 package be.kokw.controllers.members.create;
 
-
-import be.belgium.eid.*;
+import be.fedict.commons.eid.client.BeIDCard;
+import be.fedict.commons.eid.client.BeIDCards;
+import be.fedict.commons.eid.client.CancelledException;
+import be.fedict.commons.eid.client.FileType;
+import be.fedict.commons.eid.consumer.Identity;
+import be.fedict.commons.eid.consumer.tlv.TlvParser;
+import be.fedict.commons.eid.consumer.Address;
 import be.kokw.bean.Member;
 import be.kokw.repositories.MemberRepo;
 import be.kokw.utility.ChangeScene;
-import be.kokw.utility.Warning;
 import be.kokw.utility.Validation;
+import be.kokw.utility.Warning;
 import javafx.fxml.FXML;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.RadioButton;
@@ -15,9 +20,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
+import javax.smartcardio.CardException;
+import java.io.IOException;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
-
+import java.util.Set;
 
 /**
  * Created by ufotje on 21/10/2017.
@@ -28,6 +36,7 @@ import java.util.List;
 public class AddMember {
     private MemberRepo repo;
     private List<String> members = new ArrayList<>();
+
     @FXML
     private TextField firstName, lastName, street, houseNr, zip, city, email;
 
@@ -71,7 +80,7 @@ public class AddMember {
 
     private boolean valid() {
         boolean validated = false;
-        if (Validation.validate("Voornaam:", firstName.getText(), "[a-zA-Z]+") &&
+        if (Validation.validate("Voornaam:", firstName.getText(), "[a-zA-Z ]+") &&
                 Validation.validate("Achternaam:", lastName.getText(), "[a-zA-Z ]+")
                 && Validation.validate("Straatnaam:", street.getText(), "[a-zA-Z]+")
                 && Validation.validate("Huisnummer:", houseNr.getText(), "[0-9]+")
@@ -85,56 +94,45 @@ public class AddMember {
     }
 
     @FXML
-    private void eId(){
-            System.loadLibrary("beid35libJava_Wrapper");
-        try {
-            BEID_ReaderSet.initSDK();
-
-        long nrReaders = BEID_ReaderSet.instance().readerCount();
-        String[] readerList = BEID_ReaderSet.instance().readerList();
-        for (int readerIdx = 0; readerIdx < nrReaders; readerIdx++) {
-            BEID_ReaderContext readerContext =
-                    BEID_ReaderSet.instance().getReaderByName(readerList[readerIdx]);
-            boolean bCardPresent = readerContext.isCardPresent();
-            BEID_CardType cardType = readerContext.getCardType();
-            if (cardType == BEID_CardType.BEID_CARDTYPE_EID) {
-                BEID_EIDCard card = readerContext.getEIDCard();
-
-            } else if (cardType == BEID_CardType.BEID_CARDTYPE_KIDS) {
-                BEID_KidsCard card = readerContext.getKidsCard();
-            } else if (cardType == BEID_CardType.BEID_CARDTYPE_FOREIGNER) {
-                BEID_ForeignerCard card = readerContext.getForeignerCard();
-
-            } else if (cardType == BEID_CardType.BEID_CARDTYPE_SIS) {
-                BEID_SISCard card = readerContext.getSISCard();
-            } else {
-                BEID_EIDCard card = readerContext.getEIDCard();
-                BEID_EId eid = card.getID();
-                System.out.println("\tFirstName          : " + eid.getFirstName());
-                System.out.println("\tSurname            : " + eid.getSurname());
-                System.out.println("\tGender             : " + eid.getGender()
-                );
-                System.out.println("\tDateOfBirth        : " + eid.getDateOfBirth());
-                System.out.println("\tLocationOfBirth    : " + eid.getLocationOfBirth());
-                System.out.println("\tNationality        : " + eid.getNationality()
-                );
-                System.out.println("\tNationalNumber     : " + eid.getNationalNumber())
-                ;
-                System.out.println("\tSpecialOrganization: " + eid.getSpecialOrganization());
-                System.out.println("\tMemberOfFamily: " + eid.getMemberOfFamily());
-                System.out.println(" \tAddressVersion: " + eid.getAddressVersion());
-                System.out.println("\tStreet: " + eid.getStreet());
-                System.out.println("\tZipCode: " + eid.getZipCode());
-                System.out.println("\tMunicipality: " + eid.getMunicipality());
-                System.out.println("\tCountry: " + eid.getCountry());
-                System.out.println("\tSpecialStatus: " + eid.getSpecialStatus());
+    private void eId() throws InterruptedException, IOException {
+        final BeIDCards beIDCards = new BeIDCards();
+        final Set<BeIDCard> cards = beIDCards.getAllBeIDCards();
+        if (cards.size() > 0) {
+            try {
+                final BeIDCard card = beIDCards.getOneBeIDCard();
+                try {
+                    final byte[] idData = card.readFile(FileType.Identity);
+                    final byte[] addressFile = card.readFile(FileType.Address);
+                    final Identity id = TlvParser.parse(idData, Identity.class);
+                    final Address address = TlvParser.parse(addressFile, Address.class);
+                    String streetAndNr = address.getStreetAndNumber();
+                    String[] splitted = streetAndNr.split(" ");
+                    StringBuilder sb = new StringBuilder();
+                    for (int i = 0; i < splitted.length - 1; i++) {
+                        sb.append(splitted[i]);
+                        sb.append(" ");
+                    }
+                    street.setText(sb.toString());
+                    int i = splitted.length - 1;
+                    houseNr.setText(splitted[i]);
+                    zip.setText(address.getZip());
+                    city.setText(address.getMunicipality());
+                    String[] nameSplit = id.firstName.split(" ");
+                    firstName.setText(nameSplit[0]);
+                    lastName.setText(id.name);
+                    LocalDate date = id.dateOfBirth.toZonedDateTime().toLocalDate();
+                    bDay.setValue(date);
+                } catch (final CardException cex) {
+                    cex.printStackTrace();
+                }
+            } catch (final CancelledException cex) {
+                System.out.println("Cancelled By User");
             }
-        }
-        BEID_ReaderSet.releaseSDK();
-        } catch (Exception e) {
-            e.printStackTrace();
+        } else {
+            Warning.alert("No E-ID Detected!", "Er werd geen geldige identiteitskaart gevonden.\nSteek de e-id in de kaartlezer en probeer opnieuw.");
         }
     }
+
 
     private void clearFields() {
         firstName.clear();

@@ -1,27 +1,37 @@
 package be.kokw.bean;
 
+
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.List;
 
 @Entity
 @Table
-public class Authors {
+public class Authors implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private int id;
+    private long id;
     @JoinColumn(name = "id_books", referencedColumnName = "id", nullable = false)
-    @ManyToOne(optional = false, fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @ManyToOne(optional = false, fetch = FetchType.LAZY, cascade = CascadeType.MERGE)
     private Book book;
-    private String firstName;
-    private String lastName;
+    @ElementCollection(targetClass = String.class)
+    private List<String> authors;
 
     public Authors() {
     }
 
-    public Authors(String firstName, String lastName) {
-        this.firstName = firstName;
-        this.lastName = lastName;
+    public Authors(Book book, List<String> authors) {
+        this.book = book;
+        this.authors = authors;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
 
     public Book getBook() {
@@ -32,19 +42,11 @@ public class Authors {
         this.book = book;
     }
 
-    public String getFirstName() {
-        return firstName;
+    public List<String> getAuthors() {
+        return authors;
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
+    public void setAuthors(List<String> authors) {
+        this.authors = authors;
     }
 }

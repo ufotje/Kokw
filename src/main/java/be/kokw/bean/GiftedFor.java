@@ -2,14 +2,15 @@ package be.kokw.bean;
 
 import javax.persistence.*;
 import java.io.File;
+import java.io.Serializable;
 
 @Entity
 @Table(name = "Gifted_for")
-public class GiftedFor {
+public class GiftedFor implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private int id;
+    private long id;
     @Column(name = "Contract_Number")
     private String contractNr;
     @Column(name = "Name")
@@ -23,17 +24,24 @@ public class GiftedFor {
     public GiftedFor() {
     }
 
-    public GiftedFor(String name, String contractNr, File contract) {
+    public GiftedFor(String contractNr, String name, Book book) {
+        this.contractNr = contractNr;
+        this.name = name;
+        this.book = book;
+    }
+
+    public GiftedFor(String name, String contractNr, File contract, Book book) {
         this.contractNr = contractNr;
         this.name = name;
         this.contract = contract;
+        this.book = book;
     }
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 

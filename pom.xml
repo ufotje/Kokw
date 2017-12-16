@@ -41,8 +41,15 @@
         </dependency>
         <dependency>
             <groupId>be.fedict.commons-eid</groupId>
-            <artifactId>commons-eid-jca</artifactId>
+            <artifactId>commons-eid-client</artifactId>
+            <version>0.7.1</version>
         </dependency>
+        <dependency>
+            <groupId>be.fedict.commons-eid</groupId>
+            <artifactId>commons-eid-consumer</artifactId>
+            <version>0.7.1</version>
+        </dependency>
+
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-aop</artifactId>

@@ -1,17 +1,17 @@
 package be.kokw.bean;
 
 import javax.persistence.*;
-import java.util.ArrayList;
+import java.io.Serializable;
 import java.util.List;
 
 
 @Entity
 @Table(name = "topics")
-public class Topics {
+public class Topics implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private int id;
+    private long id;
     @ElementCollection(targetClass = String.class)
     private List<String> topics;
     @JoinColumn(name = "id_books", referencedColumnName = "id", nullable = false)
@@ -21,15 +21,16 @@ public class Topics {
     public Topics() {
     }
 
-    public Topics(List<String> topics) {
+    public Topics(List<String> topics, Book book) {
         this.topics = topics;
+        this.book = book;
     }
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 

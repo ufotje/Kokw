@@ -10,7 +10,7 @@ public class CheckedOut implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private int id;
+    private long id;
     @JoinColumn(name = "id_books", referencedColumnName = "id", nullable = false)
     @ManyToOne(optional = false, fetch = FetchType.LAZY)
     private Book book;
@@ -37,11 +37,11 @@ public class CheckedOut implements Serializable {
         fullName = member.getFirstName() + " " + member.getLastName();
     }
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 

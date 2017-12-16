@@ -1,18 +1,18 @@
 package be.kokw.bean;
 
 import javax.persistence.*;
-import java.util.ArrayList;
+import java.io.Serializable;
 import java.util.List;
 
 @Entity
 @Table(name = "subTitles")
-public class SubTitles {
+public class SubTitles implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private int id;
+    private long id;
     @ElementCollection(targetClass = String.class)
-    private List<String> subTitle;
+    private List<String> subTitles;
     @JoinColumn(name = "id_books", referencedColumnName = "id", nullable = false)
     @ManyToOne(optional = false, fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private Book book;
@@ -20,24 +20,25 @@ public class SubTitles {
     public SubTitles() {
     }
 
-    public SubTitles(List<String> subTitles) {
-        this.subTitle = subTitles;
+    public SubTitles(List<String> subTitles, Book book) {
+        this.book = book;
+        this.subTitles = subTitles;
     }
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 
     public List<String> getSubTitles() {
-        return subTitle;
+        return subTitles;
     }
 
     public void setSubTitles(List<String> subTitles) {
-        this.subTitle = subTitles;
+        this.subTitles = subTitles;
     }
 
     public Book getBook() {

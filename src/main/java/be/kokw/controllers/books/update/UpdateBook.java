@@ -31,7 +31,7 @@ public class UpdateBook {
     }
 
     @FXML
-    public void search() throws Exception {
+    public void search() {
      /*   book = repo.findByTitle(title.getText());
         if (book != null) {
             MenuController.window.close();

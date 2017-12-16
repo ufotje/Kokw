@@ -254,8 +254,7 @@ public class MenuController {
             Book b = c.getBook();
             String name = m.getFirstName();
             String title = b.getTitle();
-            Authors author = b.getAuthors();
-            String text = "Geachte " + name + "\n \nHet boek: '" + title + "' geschreven door '" + author + "' werd te laat terug gebracht.\nGelieve zo spoedig mogelijk het boek in te leveren.\n \nMet vriendelijke groeten \n \n \nHet KOKW-Team";
+            String text = "Geachte " + name + "\n \nHet boek: '" + title + "' geschreven door '"  + "' werd te laat terug gebracht.\nGelieve zo spoedig mogelijk het boek in te leveren.\n \nMet vriendelijke groeten \n \n \nHet KOKW-Team";
             Mail.sendMail(m.getEmail(), "Boek Te Laat!", text);
         }
 
