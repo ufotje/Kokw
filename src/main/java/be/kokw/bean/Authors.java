@@ -13,7 +13,7 @@ public class Authors implements Serializable{
     @Column(name = "id")
     private long id;
     @JoinColumn(name = "id_books", referencedColumnName = "id", nullable = false)
-    @ManyToOne(optional = false, fetch = FetchType.LAZY, cascade = CascadeType.MERGE)
+    @ManyToOne(optional = false, fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private Book book;
     @ElementCollection(targetClass = String.class)
     private List<String> authors;
