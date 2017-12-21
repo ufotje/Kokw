@@ -55,7 +55,7 @@ public class SearchBookByTitle {
     }
 
     @FXML
-    private void search() throws Exception {
+    public void search() throws Exception {
         if(Validation.emptyValidation("Titel",title.getText().isEmpty())){
             ObservableList<Book> bookList = observableArrayList(bookRepo.findByTitle(title.getText()));
             if(bookList.get(0) != null){

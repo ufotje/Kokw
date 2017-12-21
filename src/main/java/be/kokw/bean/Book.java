@@ -4,6 +4,7 @@ package be.kokw.bean;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.List;
 
 /**
  * Created by ufotje on 4/10/2017.
@@ -23,6 +24,8 @@ public class Book implements Serializable {
     private String depot;
     @Column(name = "Title")
     private String title;
+    @Column(name = "subtitles")
+    private String subtitles;
     @Column(name = "Edition")
     private int edition;
     @Column(name = "Copies")
@@ -43,14 +46,18 @@ public class Book implements Serializable {
     private String destination;
     @Column(name = "Illustrated")
     private boolean illustrated;
+    @Column(name = "authors")
+    private String authors;
+    private String topics;
 
     public Book() {
     }
 
-    public Book(String isbn, String depot, String title, int edition, int copies, Integer volume, String publisher, int yearPublished, int nrOfPages, boolean illustrated) {
+    public Book(String isbn, String depot, String title, String subtitles, int edition, int copies, Integer volume, String publisher, int yearPublished, int nrOfPages, boolean illustrated, String authors, String topics) {
         this.isbn = isbn;
         this.depot = depot;
         this.title = title;
+        this.subtitles = subtitles;
         this.edition = edition;
         this.copies = copies;
         this.volume = volume;
@@ -58,12 +65,15 @@ public class Book implements Serializable {
         this.yearPublished = yearPublished;
         this.nrOfPages = nrOfPages;
         this.illustrated = illustrated;
+        this.authors = authors;
+        this.topics = topics;
     }
 
-    public Book(String isbn, String depot, String title, int edition, int copies, Integer volume, String publisher, int yearPublished, int nrOfPages, LocalDate boughtOn, boolean illustrated) {
+    public Book(String isbn, String depot, String title, String subtitles, int edition, int copies, Integer volume, String publisher, int yearPublished, int nrOfPages, LocalDate boughtOn, boolean illustrated, String authors, String topics) {
         this.isbn = isbn;
         this.depot = depot;
         this.title = title;
+        this.subtitles = subtitles;
         this.edition = edition;
         this.copies = copies;
         this.volume = volume;
@@ -72,6 +82,8 @@ public class Book implements Serializable {
         this.nrOfPages = nrOfPages;
         this.boughtOn = boughtOn;
         this.illustrated = illustrated;
+        this.authors = authors;
+        this.topics = topics;
     }
 
     public int getId() {
@@ -104,6 +116,14 @@ public class Book implements Serializable {
 
     public void setTitle(String title) {
         this.title = title;
+    }
+
+    public String getSubtitles() {
+        return subtitles;
+    }
+
+    public void setSubtitles(String subtitles) {
+        this.subtitles = subtitles;
     }
 
     public int getEdition() {
@@ -184,5 +204,21 @@ public class Book implements Serializable {
 
     public void setIllustrated(boolean illustrated) {
         this.illustrated = illustrated;
+    }
+
+    public String getAuthors() {
+        return authors;
+    }
+
+    public void setAuthors(String authors) {
+        this.authors = authors;
+    }
+
+    public String getTopics() {
+        return topics;
+    }
+
+    public void setTopics(String topics) {
+        this.topics = topics;
     }
 }

@@ -5,10 +5,10 @@ import java.io.Serializable;
 import java.util.List;
 
 
-@Entity
-@Table(name = "topics")
+//@Entity
+//@Table(name = "topics")
 public class Topics implements Serializable{
-    @Id
+  /*  @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private long id;
@@ -48,5 +48,5 @@ public class Topics implements Serializable{
 
     public void setBook(Book book) {
         this.book = book;
-    }
+    }*/
 }

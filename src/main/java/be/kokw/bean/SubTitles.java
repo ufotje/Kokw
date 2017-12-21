@@ -4,10 +4,10 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.util.List;
 
-@Entity
-@Table(name = "subTitles")
+//@Entity
+//@Table(name = "subTitles")
 public class SubTitles implements Serializable{
-    @Id
+  /*  @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private long id;
@@ -47,5 +47,5 @@ public class SubTitles implements Serializable{
 
     public void setBook(Book book) {
         this.book = book;
-    }
+    }*/
 }

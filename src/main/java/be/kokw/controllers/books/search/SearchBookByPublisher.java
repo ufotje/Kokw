@@ -54,7 +54,7 @@ public class SearchBookByPublisher {
     }
 
     @FXML
-    private void search() throws Exception {
+    public void search() throws Exception {
         if(Validation.emptyValidation("Uitgeverij",publisher.getText().isEmpty())){
             ObservableList<Book> bookList = observableArrayList(bookRepo.findByPublisher(publisher.getText()));
             if(!(bookList.isEmpty())){

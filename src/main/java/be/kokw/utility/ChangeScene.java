@@ -11,7 +11,7 @@ import javafx.stage.Stage;
 public interface ChangeScene {
     @FXML
     static void init(String resource, String title) throws Exception {
-        Parent root = GetControllerBean.getBean(resource);
+        Parent root = ControllerBean.getBean(resource);
         Stage window = Main.stage;
         window.setTitle(title);
         window.getScene().setRoot(root);

@@ -30,7 +30,7 @@ public class Prolong {
     }
 
     @FXML
-    public void prolong() {
+    private void prolong() {
         if (Validation.validate("Voornaam", firstName.getText(), "[A-Za-z]+")) {
             if (Validation.validate("Achternaam", lastName.getText(), "[A-Za-z]+")) {
                 if (!title.getText().isEmpty() && title.getText() != null) {

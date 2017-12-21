@@ -19,10 +19,13 @@ public interface BookRepo extends JpaRepository<Book, Long> {
     Book findByTitle(String title);
 
     @Transactional
-    List<Book> findByAuthorFirstNameAndAuthorLastName(String authorFirstName, String authorLastName);
+    List<Book> findBookByTopicsContains(String topics);
 
     @Transactional
-    Book findByISBN(String ISBN);
+    List<Book> findByAuthorsContains(String author);
+
+    @Transactional
+    Book findByIsbn(String ISBN);
 
     @Transactional
     Book findByDepot(String Depot);
@@ -31,25 +34,10 @@ public interface BookRepo extends JpaRepository<Book, Long> {
     List<Book> findByBoughtOn(LocalDate date);
 
     @Transactional
-    List<Book> findByGiftedOn(LocalDate date);
-
-    @Transactional
-    List<Book> findByGiftedFor(String name);
-
-    @Transactional
-    List<Book> findByGiftedFor(LocalDate date);
-
-    @Transactional
-    List<Book> findByGiftedFor(String name, LocalDate date);
-
-    @Transactional
-    Book findBySubTitle(String SubTitle);
+    Book findBySubtitlesContains(String SubTitle);
 
     @Transactional
     List<Book> findByPublisher(String Publisher);
-
-    @Transactional
-    List<Book> findByTopic(String topic);
 
     @Transactional
     int deleteByTitle(String title);

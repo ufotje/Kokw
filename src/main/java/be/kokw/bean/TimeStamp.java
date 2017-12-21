@@ -7,9 +7,8 @@ import java.time.LocalDate;
 @Table
 public class TimeStamp {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private long id;
+    private final int ID = 1;
     private LocalDate last;
 
     public TimeStamp() {
@@ -26,5 +25,4 @@ public class TimeStamp {
     public void setLast(LocalDate last) {
         this.last = last;
     }
-
 }

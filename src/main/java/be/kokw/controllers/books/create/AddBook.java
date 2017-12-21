@@ -50,12 +50,9 @@ public class AddBook {
     private BookRepo repo;
     private GiftedForRepo giftedForRepo;
     private GiftedRepo giftedRepo;
-    private AuthorsRepo authorsRepo;
-    private SubTitlesRepo subTitlesRepo;
-    private TopicsRepo topicsRepo;
+    private StringBuilder authors = new StringBuilder();
     private List<String> bookList = new ArrayList<>();
-    private List<String> authorList = new ArrayList<>();
-    private List<String> subTitlesList = new ArrayList<>();
+    private StringBuilder subTitles = new StringBuilder();
     private File file;
     private Book book;
 
@@ -74,21 +71,6 @@ public class AddBook {
         this.giftedRepo = giftedRepo;
     }
 
-    @Autowired
-    private void setAuthorsRepo(@Qualifier("authorRepo") AuthorsRepo authorsRepo) {
-        this.authorsRepo = authorsRepo;
-    }
-
-    @Autowired
-    private void setSubTitlesRepo(@Qualifier("subRepo") SubTitlesRepo subTitlesRepo) {
-        this.subTitlesRepo = subTitlesRepo;
-    }
-
-    @Autowired
-    private void setTopicsRepo(@Qualifier("topicsRepo") TopicsRepo topicsRepo) {
-        this.topicsRepo = topicsRepo;
-    }
-
     public void initialize() {
         ObservableList<String> topics = FXCollections.observableArrayList("Wereld Oorlog 1", "Wereld Ooorlog 2", "MiddelEeuwen", "Gulden Sporenslag", "Brugse Metten");
         topic.setItems(topics);
@@ -98,8 +80,8 @@ public class AddBook {
 
     @FXML
     public void save() throws Exception {
+        book = new Book(isbn.getText(), depot.getText(), title.getText(), subTitles.toString(), Integer.parseInt(edition.getText()), Integer.parseInt(copies.getText()), volume.getValue(), publisher.getText(), Integer.parseInt(year.getText()), Integer.parseInt(pages.getText()), illustrated.isSelected(), authors.toString(), topic.getValue());
         if (validated()) {
-            book = new Book(isbn.getText(), depot.getText(), title.getText(), Integer.parseInt(edition.getText()), Integer.parseInt(copies.getText()), volume.getValue(), publisher.getText(), Integer.parseInt(year.getText()), Integer.parseInt(pages.getText()), illustrated.isSelected());
             if (gifted.isSelected() && bought.isSelected()) {
                 Warning.alert("Multiple Values", "U dient 1 iets te kiezen.\nEen boek kan niet zowel geschonken als aangekocht zijn. ");
             }
@@ -129,21 +111,24 @@ public class AddBook {
     }
 
     @FXML
-    public void addSubTitle() {
-        subTitlesList.add(subTitle.getText());
+    private void addSubTitle() {
+        subTitles.append(subTitle.getText());
+        subTitles.append("\n");
         subTitle.clear();
     }
 
     @FXML
-    public void addAuthor() {
-        String author = firstNameAuthor.getText() + " " + lastNameAuthor.getText();
-        authorList.add(author);
+    private void addAuthor() {
+        authors.append(firstNameAuthor.getText());
+        authors.append(" ");
+        authors.append( lastNameAuthor.getText());
+        authors.append("\n");
         firstNameAuthor.clear();
         lastNameAuthor.clear();
     }
 
     @FXML
-    public void giftedBy() throws Exception {
+    private void giftedBy() throws Exception {
         Gifted gift = new Gifted(firstName.getText(), lastName.getText(), date.getValue(), book);
         giftedRepo.save(gift);
         window.close();
@@ -151,7 +136,7 @@ public class AddBook {
     }
 
     @FXML
-    public void giftedFor() throws Exception {
+    private void giftedFor() throws Exception {
         GiftedFor giftFor = new GiftedFor(fullName.getText(), contractNr.getText(), file, book);
         giftedForRepo.save(giftFor);
         window.close();
@@ -159,7 +144,7 @@ public class AddBook {
     }
 
     @FXML
-    public void bought() throws Exception {
+    private void bought() throws Exception {
         LocalDate boughtDate = boughtOn.getValue();
         book.setBoughtOn(boughtDate);
         window.close();
@@ -201,24 +186,18 @@ public class AddBook {
                 Validation.validate("Jaar van publicatie:", year.getText(), "[0-9999]+") &&
                 Validation.validate("Aantal Bladzijden:", pages.getText(), "[0-9999]+")) &&
                 Validation.validate("isbn", isbn.getText(), "[a-zA-Z0-9999 -]+") && Validation.validate("depot", depot.getText(), "[a-zA-Z0-9999 -]+") && Validation.validate("edition", edition.getText(), "[0-999]+") && Validation.validate("copies", copies.getText(), "[0-999]+")) {
-            for (String a : authorList) {
-                if (Validation.validate("author", a, "[a-zA-Z ]+")) {
-                    //  for(String t : topicList){
-                    //    if(Validation.emptyValidation("topic", t.isEmpty())){
-                    for (String s : subTitlesList) {
-                        if (Validation.emptyValidation("subTitle", s.isEmpty())) {
-                            valid = true;
-                        } else {
-                            Warning.alert("Wrong input", "Verkeerde invoer!\nControleer uw velden aub.");
-                        }
-                    }
+            if (Validation.validate("author", authors.toString(), "[a-zA-Z ]+")) {
+
+                //    if(Validation.emptyValidation("topic", topics.to.isEmpty())){
+                if (Validation.emptyValidation("subTitle", subTitles.toString().isEmpty())) {
+                    valid = true;
+                } else {
+                    Warning.alert("Wrong input", "Verkeerde invoer!\nControleer uw onderitels aub.");
                 }
-                        /*}else {
-                            Warning.alert("Wrong input", "Verkeerde invoer!\nControleer uw velden aub.");
-                        }
-                    }*/
+            } else {
+                Warning.alert("Wrong input", "Verkeerde invoer!\nControleer uw auteurs aub.");
             }
-        } else  {
+        } else {
             Warning.alert("Wrong input", "Verkeerde invoer!\nControleer uw velden aub.");
         }
         return valid;
@@ -245,14 +224,7 @@ public class AddBook {
     }
 
     private void saveBook(Book book) throws Exception {
-        SubTitles subTitles = new SubTitles(subTitlesList, book);
-        Authors authors = new Authors(book, authorList);
-        authorsRepo.save(authors);
-        List<String> topicList = new ArrayList<>();
-        topicList.add(topic.getValue());
-        Topics topics = new Topics(topicList,book);
-        topicsRepo.save(topics);
-        subTitlesRepo.save(subTitles);
+        repo.save(book);
         bookList.add(book.getTitle());
         StringBuilder alert = new StringBuilder("The book(s) with title: ");
         for (String s : bookList) {

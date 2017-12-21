@@ -52,7 +52,7 @@ public class SearchBookByTopic {
     @FXML
     private void search() throws Exception {
         if(Validation.emptyValidation("Topic",topic.getText().isEmpty())){
-            ObservableList<Book> bookList = observableArrayList(bookRepo.findByTopic(topic.getText()));
+            ObservableList<Book> bookList = observableArrayList(bookRepo.findBookByTopicsContains(topic.getText()));
             if(bookList.get(0) != null){
                 MenuController.window.close();
                 ChangeScene.init("/fxml/books/found/tableViewTopic.fxml", "Books by Topic");

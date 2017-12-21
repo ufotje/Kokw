@@ -11,7 +11,7 @@ import javafx.stage.Stage;
 public interface NewStage {
     static Stage getStage(String title, String resource) throws Exception {
         Stage window = new Stage();
-        Parent root = GetControllerBean.getBean(resource);
+        Parent root = ControllerBean.getBean(resource);
         window.setScene(new Scene(root));
         window.setTitle(title);
         window.initModality(Modality.APPLICATION_MODAL);

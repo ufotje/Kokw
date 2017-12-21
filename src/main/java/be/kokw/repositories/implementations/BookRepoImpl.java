@@ -41,13 +41,14 @@ public class BookRepoImpl implements BookRepo {
     }
 
     @Override
-    public List<Book> findByAuthorFirstNameAndAuthorLastName(String firstName, String lastName) {
-        TypedQuery<Book> query = manager.createQuery("select b from Book b where b.authorFirstName = :firstname and b.authorLastName = :lastname",Book.class);
-        return query.setParameter("firstname", firstName).setParameter("lastname",lastName).getResultList();
+    public List<Book> findByAuthorsContains(String name) {
+        String author = "%" + name + "%";
+        TypedQuery<Book> query = manager.createQuery("select b from Book b where b.authors like :name",Book.class);
+        return query.setParameter("name", author).getResultList();
     }
 
     @Override
-    public Book findByISBN(String ISBN) {
+    public Book findByIsbn(String isbn) {
         return null;
     }
 
@@ -62,27 +63,7 @@ public class BookRepoImpl implements BookRepo {
     }
 
     @Override
-    public List<Book> findByGiftedOn(LocalDate date) {
-        return null;
-    }
-
-    @Override
-    public List<Book> findByGiftedFor(String name) {
-        return null;
-    }
-
-    @Override
-    public List<Book> findByGiftedFor(LocalDate date) {
-        return null;
-    }
-
-    @Override
-    public List<Book> findByGiftedFor(String name, LocalDate date) {
-        return null;
-    }
-
-    @Override
-    public Book findBySubTitle(String SubTitle) {
+    public Book findBySubtitlesContains(String SubTitle) {
         return null;
     }
 
@@ -93,8 +74,9 @@ public class BookRepoImpl implements BookRepo {
     }
 
     @Override
-    public List<Book> findByTopic(String topic){
-        TypedQuery<Book> query = manager.createQuery("select b from Book b where b.topic = :topic",Book.class);
+    public List<Book> findBookByTopicsContains(String topics){
+        String topic = "%" + topics + "%";
+        TypedQuery<Book> query = manager.createQuery("select b from Book b where b.topics like :topic",Book.class);
         return query.setParameter("topic", topic).getResultList();
     }
 

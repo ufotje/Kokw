@@ -2,8 +2,9 @@ package be.kokw.repositories;
 
 import be.kokw.bean.TimeStamp;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
-
-public interface TimeStampRepo extends JpaRepository<TimeStamp,Long> {
+@Repository("stampRepo")
+public interface TimeStampRepo extends JpaRepository<TimeStamp,Integer> {
 
 }

@@ -51,7 +51,7 @@ public class MenuController {
     }
 
     @Autowired
-    private void setTimeStampRepo(@Qualifier("timeStampRepo") TimeStampRepo timeStampRepo) {
+    private void setTimeStampRepo(@Qualifier("stampRepo") TimeStampRepo timeStampRepo) {
         this.timeStampRepo = timeStampRepo;
     }
 
@@ -262,8 +262,7 @@ public class MenuController {
 
     @FXML
     private void mailBDay() {
-        long count = timeStampRepo.count();
-        TimeStamp stamp = timeStampRepo.findOne(count);
+        TimeStamp stamp = timeStampRepo.findOne(1);
         LocalDate latest = stamp.getLast();
         LocalDate now = LocalDate.now();
         List<Member> list = memberRepo.findByBDayBetween(latest, now);
