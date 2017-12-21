@@ -11,10 +11,15 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
+import org.springframework.scheduling.annotation.EnableScheduling;
+
+import java.sql.*;
+import java.time.LocalDate;
 
 
 @SpringBootApplication
 @EnableJpaRepositories(basePackages = "be.kokw.repositories")
+@EnableScheduling
 public class Main extends Application {
     public static Stage stage;
     public static ConfigurableApplicationContext springContext;
@@ -34,7 +39,7 @@ public class Main extends Application {
     }
 
     @Override
-    public void start(Stage primaryStage){
+    public void start(Stage primaryStage) {
         stage = primaryStage;
         stage.setTitle("KOKW-AdminApp");
         Image icon = new Image(getClass().getResourceAsStream("/images/logoKOKW.jpg"));
@@ -44,7 +49,32 @@ public class Main extends Application {
     }
 
     @Override
-    public void stop(){
+    public void stop() {
+        final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
+        final String DB_URL = "jdbc:mysql://db4free.net:3306/kokwapp?verifyServerCertificate=false&useSSL=true";
+        final String USER = "kokwapp";
+        final String PASS = "W817Matthew";
+        Connection conn;
+        try {
+            Class.forName(JDBC_DRIVER);
+        } catch (ClassNotFoundException ex) {
+            ex.printStackTrace();
+        }
+        try {
+            conn = DriverManager.getConnection(DB_URL, USER, PASS);
+            Date date = Date.valueOf(LocalDate.now());
+            String sql = "UPDATE time_stamp SET last = ?, WHERE id = ?";
+            PreparedStatement statement = conn.prepareStatement(sql);
+            statement.setDate(1,date);
+            statement.setInt(2,1);
+            int result = statement.executeUpdate();
+            if(result > 0){
+                System.out.println("Timestamp succes");
+            }
+            conn.close();
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
         springContext.close();
     }
 }

@@ -248,7 +248,7 @@ public class MenuController {
     //Mailings
     @FXML
     private void mailOverDue() {
-        List<CheckedOut> list = checkOutRepo.findByReturnDateBeforeAndReturnedIsFalse(LocalDate.now());
+       /* List<CheckedOut> list = checkOutRepo.findByReturnDateBeforeAndReturnedIsFalse(LocalDate.now());
         for (CheckedOut c : list) {
             Member m = c.getMember();
             Book b = c.getBook();
@@ -256,13 +256,13 @@ public class MenuController {
             String title = b.getTitle();
             String text = "Geachte " + name + "\n \nHet boek: '" + title + "' geschreven door '"  + "' werd te laat terug gebracht.\nGelieve zo spoedig mogelijk het boek in te leveren.\n \nMet vriendelijke groeten \n \n \nHet KOKW-Team";
             Mail.sendMail(m.getEmail(), "Boek Te Laat!", text);
-        }
+        }*/
 
     }
 
     @FXML
     private void mailBDay() {
-        TimeStamp stamp = timeStampRepo.findOne(1);
+      /*  TimeStamp stamp = timeStampRepo.findOne(1);
         LocalDate latest = stamp.getLast();
         LocalDate now = LocalDate.now();
         List<Member> list = memberRepo.findByBDayBetween(latest, now);
@@ -285,13 +285,13 @@ public class MenuController {
                     Mail.sendMail(m.getEmail(), topic, text);
                 }
             }
-        }
+        }*/
 
     }
 
     @FXML
     private void mailTwoDaysNotice() {
-        LocalDate returnDate = LocalDate.now().plusDays(2);
+      /*  LocalDate returnDate = LocalDate.now().plusDays(2);
         List<CheckedOut> list = checkOutRepo.findByReturnDateAndReturnedIsFalse(returnDate);
         if (list.isEmpty()) {
             Warning.alert("No Items Found", "Er werden geen boeken gevonden die binnen de 2 dagen dienen worden terug gebracht!");
@@ -304,7 +304,7 @@ public class MenuController {
                 String text = "Geachte " + name + "\n \nUw uitleenbeurt voor het boek '" + title + "' vervalt binnen 2 dagen!\nVergeet niet tijdig het boek binnen te brengen.\n \nMet vriendelijke groeten\n \n \n \nHet KOKW-Team";
                 Mail.sendMail(m.getEmail(), topic, text);
             }
-        }
+        }*/
     }
 
     @FXML
