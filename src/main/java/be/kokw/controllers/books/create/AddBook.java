@@ -48,27 +48,16 @@ public class AddBook {
     private ChoiceBox<Integer> volume;
     private Stage window;
     private BookRepo repo;
-    private GiftedForRepo giftedForRepo;
-    private GiftedRepo giftedRepo;
     private StringBuilder authors = new StringBuilder();
     private List<String> bookList = new ArrayList<>();
     private StringBuilder subTitles = new StringBuilder();
+    private StringBuilder topics = new StringBuilder();
     private File file;
     private Book book;
 
     @Autowired
     private void setBookRepo(@Qualifier("bookRepo") BookRepo repo) {
         this.repo = repo;
-    }
-
-    @Autowired
-    private void setGiftedForRepo(@Qualifier("giftedForRepo") GiftedForRepo giftedForRepo) {
-        this.giftedForRepo = giftedForRepo;
-    }
-
-    @Autowired
-    private void setGiftedRepo(@Qualifier("giftedRepo") GiftedRepo giftedRepo) {
-        this.giftedRepo = giftedRepo;
     }
 
     public void initialize() {
@@ -80,8 +69,8 @@ public class AddBook {
 
     @FXML
     public void save() throws Exception {
-        book = new Book(isbn.getText(), depot.getText(), title.getText(), subTitles.toString(), Integer.parseInt(edition.getText()), Integer.parseInt(copies.getText()), volume.getValue(), publisher.getText(), Integer.parseInt(year.getText()), Integer.parseInt(pages.getText()), illustrated.isSelected(), authors.toString(), topic.getValue());
         if (validated()) {
+            book = new Book(isbn.getText(), depot.getText(), title.getText(), subTitles.toString(), Integer.parseInt(edition.getText()), Integer.parseInt(copies.getText()), volume.getValue(), publisher.getText(), Integer.parseInt(year.getText()), Integer.parseInt(pages.getText()), illustrated.isSelected(), authors.toString(), topics.toString());
             if (gifted.isSelected() && bought.isSelected()) {
                 Warning.alert("Multiple Values", "U dient 1 iets te kiezen.\nEen boek kan niet zowel geschonken als aangekocht zijn. ");
             }
@@ -105,42 +94,82 @@ public class AddBook {
             if (giftedFor.isSelected()) {
                 window = NewStage.getStage("Gifted for", "/fxml/books/create/gifted/giftedFor.fxml");
                 window.showAndWait();
-
+            }
+            if (!gifted.isSelected() && !bought.isSelected() && !giftedFor.isSelected()) {
+                Warning.alert("No Value", "Gelieve iets te selecteren.\nEen boek dient aangekocht, gedoneerd of gedoneerd voor een tegenprestatie te zijn.");
             }
         }
     }
 
     @FXML
     private void addSubTitle() {
-        subTitles.append(subTitle.getText());
-        subTitles.append("\n");
-        subTitle.clear();
+        if (Validation.emptyValidation("subTitle", subTitle.getText().isEmpty())) {
+            subTitles.append(subTitle.getText());
+            subTitles.append("\n");
+            subTitle.clear();
+        } else {
+            Warning.alert("Wrong input", "Verkeerde invoer!\nControleer uw velden aub.");
+        }
     }
 
     @FXML
     private void addAuthor() {
-        authors.append(firstNameAuthor.getText());
-        authors.append(" ");
-        authors.append( lastNameAuthor.getText());
-        authors.append("\n");
-        firstNameAuthor.clear();
-        lastNameAuthor.clear();
+        if (Validation.validate("author", firstNameAuthor.getText(), "[a-zA-Z -]+")) {
+            if (Validation.validate("author", lastNameAuthor.getText(), "[a-zA-Z -]+")) {
+                authors.append(firstNameAuthor.getText());
+                authors.append(" ");
+                authors.append(lastNameAuthor.getText());
+                authors.append("\n");
+                firstNameAuthor.clear();
+                lastNameAuthor.clear();
+            } else {
+                Warning.alert("Wrong Input!", "Verkeerde invoer voor achternaam Auteur.");
+            }
+        } else {
+            Warning.alert("Wrong Input!", "Verkeerde invoer voor voornaam Auteur.");
+        }
+    }
+
+    @FXML
+    private void addTopic() {
+        if (topic.getValue() != null) {
+            topics.append(topic.getValue());
+            topics.append("\n");
+        }
     }
 
     @FXML
     private void giftedBy() throws Exception {
-        Gifted gift = new Gifted(firstName.getText(), lastName.getText(), date.getValue(), book);
-        giftedRepo.save(gift);
-        window.close();
-        saveBook(book);
+        if (Validation.validate("firstName", firstName.getText(), "[a-zA-Z -]+")) {
+            if (Validation.validate("lastName", lastName.getText(), "[a-zA-Z -]+")) {
+                if (Validation.validate("date", date.getValue().toString(), "[0-9-]+")) {
+                    book.setNameGifter(firstName.getText() + " " + lastName.getText());
+                    book.setGiftedOn(date.getValue());
+                    saveBook(book);
+                    window.close();
+                } else {
+                    Warning.alert("Date Error", "Geef aub een geldige datum in.");
+                }
+            } else {
+                Warning.alert("Lastname Error", "Geef een geldige achternaam in.\nEnkel letters, spaties of - zijn toegestaan.");
+            }
+        } else {
+            Warning.alert("Firstname Error", "Geef een geldige voornaam in.\nEnkel letters, spaties of - zijn toegestaan.");
+        }
     }
 
     @FXML
     private void giftedFor() throws Exception {
-        GiftedFor giftFor = new GiftedFor(fullName.getText(), contractNr.getText(), file, book);
-        giftedForRepo.save(giftFor);
-        window.close();
-        saveBook(book);
+        if(Validation.validate("fullName", fullName.getText(), "[a-zA-Z -]+")) {
+            book.setContractNr(contractNr.getText());
+            book.setContract(file);
+            book.setContractor(fullName.getText());
+            window.close();
+            saveBook(book);
+        }else{
+            Warning.alert("Wrong value", "De contractant is verkeerd ingevuld.");
+        }
+
     }
 
     @FXML
@@ -186,20 +215,12 @@ public class AddBook {
                 Validation.validate("Jaar van publicatie:", year.getText(), "[0-9999]+") &&
                 Validation.validate("Aantal Bladzijden:", pages.getText(), "[0-9999]+")) &&
                 Validation.validate("isbn", isbn.getText(), "[a-zA-Z0-9999 -]+") && Validation.validate("depot", depot.getText(), "[a-zA-Z0-9999 -]+") && Validation.validate("edition", edition.getText(), "[0-999]+") && Validation.validate("copies", copies.getText(), "[0-999]+")) {
-            if (Validation.validate("author", authors.toString(), "[a-zA-Z ]+")) {
-
-                //    if(Validation.emptyValidation("topic", topics.to.isEmpty())){
-                if (Validation.emptyValidation("subTitle", subTitles.toString().isEmpty())) {
-                    valid = true;
-                } else {
-                    Warning.alert("Wrong input", "Verkeerde invoer!\nControleer uw onderitels aub.");
-                }
-            } else {
-                Warning.alert("Wrong input", "Verkeerde invoer!\nControleer uw auteurs aub.");
-            }
+            //    if(Validation.emptyValidation("topic", topics.to.isEmpty())){
+            valid = true;
         } else {
             Warning.alert("Wrong input", "Verkeerde invoer!\nControleer uw velden aub.");
         }
+
         return valid;
     }
 

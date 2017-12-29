@@ -4,28 +4,21 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDate;
 
-@Table(name = "Gifted")
-@Entity
+//@Table(name = "Gifted")
+//@Entity
 public class Gifted implements Serializable{
-    @Id
+  /*  @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private long id;
-    private String firstName;
-    private String lastName;
+    private String name;
     private LocalDate giftedOn;
-    @JoinColumn(name = "id_books", referencedColumnName = "id", nullable = false)
-    @OneToOne(optional = false, fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    private Book book;
-
     public Gifted() {
     }
 
-    public Gifted(String firstName, String lastName, LocalDate giftedOn, Book book ) {
-        this.firstName = firstName;
-        this.lastName = lastName;
+    public Gifted(String name, LocalDate giftedOn ) {
+        this.name = name;
         this.giftedOn = giftedOn;
-        this.book = book;
     }
 
     public long getId() {
@@ -36,35 +29,18 @@ public class Gifted implements Serializable{
         this.id = id;
     }
 
-    public String getFirstName() {
-        return firstName;
+    public String getName() {
+        return name;
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
+    public void setName(String name) {
+        this.name = name;
     }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
     public LocalDate getGiftedOn() {
         return giftedOn;
     }
 
     public void setGiftedOn(LocalDate giftedOn) {
         this.giftedOn = giftedOn;
-    }
-
-    public Book getBook() {
-        return book;
-    }
-
-    public void setBook(Book book) {
-        this.book = book;
-    }
+    }*/
 }

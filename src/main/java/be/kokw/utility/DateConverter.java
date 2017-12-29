@@ -4,6 +4,7 @@ import javax.persistence.AttributeConverter;
 import javax.persistence.Converter;
 import java.sql.Date;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 /**
  * Created by ufotje on 26/10/2017.
@@ -20,6 +21,13 @@ public class DateConverter implements AttributeConverter<LocalDate, Date> {
 
     @Override
     public LocalDate convertToEntityAttribute(Date sqlDate) {
-        return (sqlDate == null ? null : sqlDate.toLocalDate());
+        LocalDate date = null;
+        if (sqlDate != null) {
+            LocalDate d = sqlDate.toLocalDate();
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd MM yyyy");
+            String text = d.format(formatter);
+            date = LocalDate.parse(text, formatter);
+        }
+        return date;
     }
 }

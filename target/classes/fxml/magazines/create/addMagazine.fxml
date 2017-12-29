@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0"
+            prefWidth="1200.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="be.kokw.controllers.magazines.create.AddMagazine">
+    <top>
+        <VBox BorderPane.alignment="CENTER">
+            <fx:include source="/fxml/menu.fxml" />
+        </VBox>
+    </top>
+    <bottom>
+        <VBox alignment="CENTER" style="-fx-background-color: #A9CCE3; -fx-background-radius: 10;" BorderPane.alignment="CENTER">
+            <fx:include source="/fxml/footer.fxml" />
+        </VBox>
+    </bottom>
+    <center>
+        <VBox alignment="CENTER" style="-fx-background-image: url('/images/achtergrond.jpg'); -fx-background-position: center; -fx-background-size: cover; -fx-background-repeat: no-repeat;" BorderPane.alignment="CENTER">     <HBox prefWidth="200.0">
+                <Label text="Naam:">
+                    <HBox.margin>
+                        <Insets left="30.0" right="50.0"/>
+                    </HBox.margin>
+                </Label>
+                <TextField fx:id="name" prefWidth="382.0"/>
+            </HBox>
+            <HBox layoutX="10.0" layoutY="160.0" prefWidth="200.0">
+                <Label text="ISSN:">
+                    <HBox.margin>
+                        <Insets left="30.0" right="50.0"/>
+                    </HBox.margin>
+                </Label>
+                <TextField fx:id="issn" prefHeight="25.0" prefWidth="98.0">
+                    <HBox.margin>
+                        <Insets left="5.0"/>
+                    </HBox.margin>
+                </TextField>
+                <Label layoutX="40.0" layoutY="10.0" text="Aantal:">
+                    <HBox.margin>
+                        <Insets left="20.0" right="30.0"/>
+                    </HBox.margin>
+                </Label>
+                <TextField fx:id="copies" layoutX="118.0" layoutY="10.0" prefHeight="25.0" prefWidth="32.0"/>
+                <Label layoutX="236.0" layoutY="10.0" text="Blz:">
+                    <HBox.margin>
+                        <Insets left="30.0" right="20.0"/>
+                    </HBox.margin>
+                </Label>
+                <TextField fx:id="pages" layoutX="290.0" layoutY="10.0" prefHeight="25.0" prefWidth="98.0">
+                    <HBox.margin>
+                        <Insets/>
+                    </HBox.margin>
+                </TextField>
+                <VBox.margin>
+                    <Insets top="20.0"/>
+                </VBox.margin>
+            </HBox>
+            <HBox layoutX="10.0" layoutY="175.0" prefWidth="200.0">
+                <Label text="Uitgever:">
+                    <HBox.margin>
+                        <Insets left="30.0" right="35.0"/>
+                    </HBox.margin>
+                </Label>
+                <TextField fx:id="publisher" prefWidth="382.0"/>
+                <VBox.margin>
+                    <Insets top="20.0"/>
+                </VBox.margin>
+            </HBox>
+            <HBox layoutX="10.0" layoutY="198.0" prefWidth="200.0">
+                <Label text="Periode:">
+                    <HBox.margin>
+                        <Insets left="30.0" right="33.0"/>
+                    </HBox.margin>
+                </Label>
+                <TextField fx:id="period" prefHeight="25.0" prefWidth="98.0">
+                    <HBox.margin>
+                        <Insets left="5.0"/>
+                    </HBox.margin>
+                </TextField>
+                <Label layoutX="40.0" layoutY="10.0" text="Jaar:">
+                    <HBox.margin>
+                        <Insets left="20.0" right="30.0"/>
+                    </HBox.margin>
+                </Label>
+                <TextField fx:id="year" layoutX="118.0" layoutY="10.0" prefHeight="25.0" prefWidth="49.0"/>
+                <Label layoutX="236.0" layoutY="10.0" text="Nummer:">
+                    <HBox.margin>
+                        <Insets left="30.0" right="20.0"/>
+                    </HBox.margin>
+                </Label>
+                <TextField fx:id="nr" layoutX="290.0" layoutY="10.0" prefHeight="25.0" prefWidth="62.0">
+                    <HBox.margin>
+                        <Insets/>
+                    </HBox.margin>
+                </TextField>
+                <VBox.margin>
+                    <Insets top="20.0"/>
+                </VBox.margin>
+            </HBox>
+            <HBox layoutX="10.0" layoutY="220.0" prefWidth="200.0">
+                <Label text="Thema:">
+                    <HBox.margin>
+                        <Insets left="30.0" right="42.0"/>
+                    </HBox.margin>
+                </Label>
+                <TextField fx:id="theme" prefWidth="382.0"/>
+                <VBox.margin>
+                    <Insets top="20.0"/>
+                </VBox.margin>
+            </HBox>
+            <HBox alignment="CENTER" prefWidth="200.0">
+                <RadioButton fx:id="illustrated" mnemonicParsing="false" text="Geïllustreerd">
+                    <HBox.margin>
+                        <Insets right="20.0"/>
+                    </HBox.margin>
+                </RadioButton>
+                <RadioButton fx:id="subscription" layoutX="10.0" layoutY="10.0" mnemonicParsing="false"
+                             text="Abonnement">
+                    <HBox.margin>
+                        <Insets right="20.0"/>
+                    </HBox.margin>
+                </RadioButton>
+                <RadioButton fx:id="traded" contentDisplay="CENTER" layoutX="10.0" layoutY="10.0"
+                             mnemonicParsing="false" text="RuilAbonnement"/>
+                <VBox.margin>
+                    <Insets top="20.0"/>
+                </VBox.margin>
+            </HBox>
+            <HBox alignment="CENTER">
+                <VBox.margin>
+                    <Insets top="20.0"/>
+                </VBox.margin>
+                <Button mnemonicParsing="false" onAction="#save" style="-fx-background-radius: 10;" text="Save">
+                    <font>
+                        <Font size="14.0"/>
+                    </font>
+                </Button>
+                <Button layoutX="276.0" layoutY="10.0" mnemonicParsing="false" onAction="#more"
+                        style="-fx-background-radius: 10;" text="More">
+                    <font>
+                        <Font size="14.0"/>
+                    </font>
+                    <HBox.margin>
+                        <Insets left="20.0"/>
+                    </HBox.margin>
+                </Button>
+            </HBox>
+        </VBox>
+    </center>
+</BorderPane>

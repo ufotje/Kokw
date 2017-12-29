@@ -4,10 +4,10 @@ import javax.persistence.*;
 import java.io.File;
 import java.io.Serializable;
 
-@Entity
-@Table(name = "Gifted_for")
+//@Entity
+//@Table(name = "Gifted_for")
 public class GiftedFor implements Serializable{
-    @Id
+  /*  @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private long id;
@@ -15,26 +15,21 @@ public class GiftedFor implements Serializable{
     private String contractNr;
     @Column(name = "Name")
     private String name;
-    @JoinColumn(name = "id_books", referencedColumnName = "id", nullable = false)
-    @OneToOne(optional = false, fetch = FetchType.LAZY,cascade = CascadeType.ALL)
-    private Book book;
     @Column(name = "Contract")
     private File contract;
 
     public GiftedFor() {
     }
 
-    public GiftedFor(String contractNr, String name, Book book) {
+    public GiftedFor(String contractNr, String name) {
         this.contractNr = contractNr;
         this.name = name;
-        this.book = book;
     }
 
-    public GiftedFor(String name, String contractNr, File contract, Book book) {
+    public GiftedFor(String name, String contractNr, File contract) {
         this.contractNr = contractNr;
         this.name = name;
         this.contract = contract;
-        this.book = book;
     }
 
     public long getId() {
@@ -61,19 +56,11 @@ public class GiftedFor implements Serializable{
         this.name = name;
     }
 
-    public Book getBook() {
-        return book;
-    }
-
-    public void setBook(Book book) {
-        this.book = book;
-    }
-
     public File getContract() {
         return contract;
     }
 
     public void setContract(File contract) {
         this.contract = contract;
-    }
+    }*/
 }

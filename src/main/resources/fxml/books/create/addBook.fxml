@@ -6,328 +6,317 @@
 <?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.Glow?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0"
-            prefWidth="1200.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="be.kokw.controllers.books.create.AddBook">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="be.kokw.controllers.books.create.AddBook">
     <top>
         <VBox BorderPane.alignment="CENTER">
-            <fx:include source="/fxml/menu.fxml"/>
+            <fx:include source="/fxml/menu.fxml" />
         </VBox>
     </top>
     <bottom>
-        <VBox alignment="CENTER" fillWidth="false" style="-fx-background-color: #A9CCE3; -fx-background-radius: 10;"
-              BorderPane.alignment="CENTER">
-            <fx:include source="/fxml/footer.fxml"/>
+        <VBox alignment="CENTER" fillWidth="false" style="-fx-background-color: #A9CCE3; -fx-background-radius: 10;" BorderPane.alignment="CENTER">
+            <fx:include source="/fxml/footer.fxml" />
         </VBox>
     </bottom>
     <center>
-        <VBox alignment="TOP_CENTER"
-              style="-fx-background-image: url('/images/achtergrond.jpg'); -fx-background-position: center; -fx-background-size: cover; -fx-background-repeat: no-repeat;"
-              BorderPane.alignment="CENTER">
+        <VBox alignment="TOP_CENTER" style="-fx-background-image: url('/images/achtergrond.jpg'); -fx-background-position: center; -fx-background-size: cover; -fx-background-repeat: no-repeat;" BorderPane.alignment="CENTER">
             <children>
                 <HBox alignment="CENTER_LEFT" prefWidth="200.0">
                     <children>
                         <Label text="ISBN:">
                             <font>
-                                <Font size="14.0"/>
+                                <Font size="14.0" />
                             </font>
                         </Label>
                         <TextField fx:id="isbn" promptText="Vul het ISBN-nummer in">
                             <HBox.margin>
-                                <Insets left="40.0"/>
+                                <Insets left="40.0" />
                             </HBox.margin>
                         </TextField>
                         <Label text="DepotNr:">
                             <font>
-                                <Font size="14.0"/>
+                                <Font size="14.0" />
                             </font>
                             <HBox.margin>
-                                <Insets left="43.0"/>
+                                <Insets left="43.0" />
                             </HBox.margin>
                         </Label>
                         <TextField fx:id="depot" promptText="Vul het Depotnummer in">
                             <HBox.margin>
-                                <Insets left="20.0"/>
+                                <Insets left="20.0" />
                             </HBox.margin>
                         </TextField>
                     </children>
                     <VBox.margin>
-                        <Insets left="250.0" top="10.0"/>
+                        <Insets left="250.0" top="10.0" />
                     </VBox.margin>
                 </HBox>
                 <HBox alignment="CENTER_LEFT" prefWidth="200.0">
                     <children>
                         <Label contentDisplay="TOP" text="Titel:">
                             <opaqueInsets>
-                                <Insets/>
+                                <Insets />
                             </opaqueInsets>
                             <HBox.margin>
-                                <Insets right="20.0"/>
+                                <Insets right="20.0" />
                             </HBox.margin>
                             <font>
-                                <Font size="14.0"/>
+                                <Font size="14.0" />
                             </font>
                         </Label>
-                        <TextField fx:id="title" alignment="CENTER" prefHeight="25.0" prefWidth="417.0"
-                                   promptText="Voeg de titel in">
+                        <TextField fx:id="title" alignment="CENTER" prefHeight="25.0" prefWidth="417.0" promptText="Voeg de titel in">
                             <HBox.margin>
-                                <Insets bottom="10.0" left="24.0" top="10.0"/>
+                                <Insets bottom="10.0" left="24.0" top="10.0" />
                             </HBox.margin>
                         </TextField>
                     </children>
                     <VBox.margin>
-                        <Insets left="250.0"/>
+                        <Insets left="250.0" />
                     </VBox.margin>
                 </HBox>
                 <HBox alignment="CENTER_LEFT" prefWidth="200.0">
                     <children>
                         <Label text="SubTitle:">
                             <font>
-                                <Font size="14.0"/>
+                                <Font size="14.0" />
                             </font>
                             <HBox.margin>
-                                <Insets right="20.0"/>
+                                <Insets right="20.0" />
                             </HBox.margin>
                         </Label>
-                        <TextField fx:id="subTitle" alignment="CENTER" prefHeight="25.0" prefWidth="357.0"
-                                   promptText="Voeg OnderTitel in"/>
-                        <Button fx:id="nogButton" mnemonicParsing="false" onAction="#addSubTitle" prefHeight="25.0"
-                                prefWidth="49.0" style="-fx-background-radius: 10;" text="Nog">
+                        <TextField fx:id="subTitle" alignment="CENTER" prefHeight="25.0" prefWidth="357.0" promptText="Voeg OnderTitel in" />
+                        <Button fx:id="nogButton" mnemonicParsing="false" onAction="#addSubTitle" prefHeight="25.0" prefWidth="49.0" style="-fx-background-radius: 10;" text="Nog">
                             <HBox.margin>
-                                <Insets left="10.0"/>
+                                <Insets left="10.0" />
                             </HBox.margin>
                         </Button>
                     </children>
                     <VBox.margin>
-                        <Insets left="250.0"/>
+                        <Insets left="250.0" />
                     </VBox.margin>
                 </HBox>
                 <HBox prefWidth="200.0">
                     <children>
                         <Label text="Deel:">
                             <font>
-                                <Font size="14.0"/>
+                                <Font size="14.0" />
                             </font>
                             <HBox.margin>
-                                <Insets right="40.0"/>
+                                <Insets right="40.0" />
                             </HBox.margin>
                         </Label>
                         <ChoiceBox fx:id="volume" prefHeight="25.0" prefWidth="42.0">
                             <HBox.margin>
-                                <Insets left="2.0"/>
+                                <Insets left="2.0" />
                             </HBox.margin>
                         </ChoiceBox>
                         <Label text="Aantal:">
                             <font>
-                                <Font size="14.0"/>
+                                <Font size="14.0" />
                             </font>
                             <HBox.margin>
-                                <Insets left="30.0"/>
+                                <Insets left="30.0" />
                             </HBox.margin>
                         </Label>
                         <TextField fx:id="copies" prefHeight="25.0" prefWidth="30.0">
                             <HBox.margin>
-                                <Insets left="10.0"/>
+                                <Insets left="10.0" />
                             </HBox.margin>
                         </TextField>
                         <Label text="Onderwerp:">
                             <font>
-                                <Font size="14.0"/>
+                                <Font size="14.0" />
                             </font>
                             <HBox.margin>
-                                <Insets left="30.0"/>
+                                <Insets left="30.0" />
                             </HBox.margin>
                         </Label>
-                        <ChoiceBox fx:id="topic" prefWidth="150.0">
+                        <ChoiceBox fx:id="topic" onMouseClicked="#addTopic" prefWidth="150.0">
                             <HBox.margin>
-                                <Insets left="10.0"/>
+                                <Insets left="10.0" />
                             </HBox.margin>
+                     <effect>
+                        <Glow level="0.5" />
+                     </effect>
                         </ChoiceBox>
                     </children>
                     <VBox.margin>
-                        <Insets left="250.0" top="10.0"/>
+                        <Insets left="250.0" top="10.0" />
                     </VBox.margin>
                 </HBox>
                 <HBox prefWidth="200.0">
                     <children>
                         <Label text="Auteurs:">
                             <HBox.margin>
-                                <Insets/>
+                                <Insets />
                             </HBox.margin>
                             <font>
-                                <Font size="14.0"/>
+                                <Font size="14.0" />
                             </font>
                         </Label>
-                        <TextField fx:id="firstNameAuthor" alignment="CENTER" prefHeight="25.0" prefWidth="82.0"
-                                   promptText="voornaam">
+                        <TextField fx:id="firstNameAuthor" alignment="CENTER" prefHeight="25.0" prefWidth="82.0" promptText="voornaam">
                             <HBox.margin>
-                                <Insets left="21.0"/>
+                                <Insets left="21.0" />
                             </HBox.margin>
                         </TextField>
-                        <TextField fx:id="lastNameAuthor" alignment="CENTER" prefHeight="25.0" prefWidth="257.0"
-                                   promptText="achternaam">
+                        <TextField fx:id="lastNameAuthor" alignment="CENTER" prefHeight="25.0" prefWidth="257.0" promptText="achternaam">
                             <HBox.margin>
-                                <Insets left="20.0"/>
+                                <Insets left="20.0" />
                             </HBox.margin>
                         </TextField>
-                        <Button fx:id="authorButton" mnemonicParsing="false" onAction="#addAuthor" prefHeight="25.0"
-                                prefWidth="50.0" style="-fx-background-radius: 10;" text="Nog">
+                        <Button fx:id="authorButton" mnemonicParsing="false" onAction="#addAuthor" prefHeight="25.0" prefWidth="50.0" style="-fx-background-radius: 10;" text="Nog">
                             <HBox.margin>
-                                <Insets left="10.0"/>
+                                <Insets left="10.0" />
                             </HBox.margin>
                         </Button>
                     </children>
                     <opaqueInsets>
-                        <Insets top="10.0"/>
+                        <Insets top="10.0" />
                     </opaqueInsets>
                     <VBox.margin>
-                        <Insets left="250.0" top="10.0"/>
+                        <Insets left="250.0" top="10.0" />
                     </VBox.margin>
                 </HBox>
                 <HBox prefWidth="200.0">
                     <children>
                         <Label text="Uitgeverij:">
                             <font>
-                                <Font size="14.0"/>
+                                <Font size="14.0" />
                             </font>
                             <HBox.margin>
-                                <Insets/>
+                                <Insets />
                             </HBox.margin>
                         </Label>
-                        <TextField fx:id="publisher" alignment="CENTER" prefHeight="25.0" prefWidth="207.0"
-                                   promptText="Vul de naam van de uitgeverij in">
+                        <TextField fx:id="publisher" alignment="CENTER" prefHeight="25.0" prefWidth="207.0" promptText="Vul de naam van de uitgeverij in">
                             <HBox.margin>
-                                <Insets left="10.0"/>
+                                <Insets left="10.0" />
                             </HBox.margin>
                         </TextField>
                         <Label text="Jaar:">
                             <font>
-                                <Font size="14.0"/>
+                                <Font size="14.0" />
                             </font>
                             <HBox.margin>
-                                <Insets left="50.0"/>
+                                <Insets left="50.0" />
                             </HBox.margin>
                         </Label>
-                        <TextField fx:id="year" alignment="CENTER" prefHeight="25.0" prefWidth="102.0"
-                                   promptText="uitgave jaar">
+                        <TextField fx:id="year" alignment="CENTER" prefHeight="25.0" prefWidth="102.0" promptText="uitgave jaar">
                             <HBox.margin>
-                                <Insets left="30.0"/>
+                                <Insets left="30.0" />
                             </HBox.margin>
                         </TextField>
                     </children>
                     <VBox.margin>
-                        <Insets left="250.0" top="10.0"/>
+                        <Insets left="250.0" top="10.0" />
                     </VBox.margin>
                 </HBox>
                 <HBox prefWidth="200.0">
                     <VBox.margin>
-                        <Insets left="250.0" top="10.0"/>
+                        <Insets left="250.0" top="10.0" />
                     </VBox.margin>
                     <children>
 
                         <Label text="Druk:">
                             <HBox.margin>
-                                <Insets/>
+                                <Insets />
                             </HBox.margin>
                             <font>
-                                <Font size="14.0"/>
+                                <Font size="14.0" />
                             </font>
                         </Label>
                         <TextField fx:id="edition" promptText="Hoeveelste Druk?">
                             <HBox.margin>
-                                <Insets left="40.0"/>
+                                <Insets left="40.0" />
                             </HBox.margin>
                         </TextField>
                         <Label text="Aantal pagina's:">
                             <font>
-                                <Font size="14.0"/>
+                                <Font size="14.0" />
                             </font>
                             <HBox.margin>
-                                <Insets left="50.0"/>
+                                <Insets left="50.0" />
                             </HBox.margin>
                         </Label>
                         <TextField fx:id="pages" prefHeight="25.0" prefWidth="100.0" promptText="Vul het aantal in">
                             <HBox.margin>
-                                <Insets left="20.0"/>
+                                <Insets left="20.0" />
                             </HBox.margin>
                         </TextField>
                     </children>
                 </HBox>
                 <HBox>
                     <VBox.margin>
-                        <Insets left="250.0" top="10.0"/>
+                        <Insets left="250.0" top="10.0" />
                     </VBox.margin>
                     <children>
                         <CheckBox fx:id="illustrated" mnemonicParsing="false" text="Geïllustreerd">
                             <font>
-                                <Font size="14.0"/>
+                                <Font size="14.0" />
                             </font>
                         </CheckBox>
                         <CheckBox fx:id="bought" mnemonicParsing="false" text="Aangekocht">
                             <HBox.margin>
-                                <Insets left="14.0"/>
+                                <Insets left="14.0" />
                             </HBox.margin>
                             <font>
-                                <Font size="14.0"/>
+                                <Font size="14.0" />
                             </font>
                         </CheckBox>
                         <CheckBox fx:id="gifted" mnemonicParsing="false" text="Geschonken">
                             <HBox.margin>
-                                <Insets left="14.0"/>
+                                <Insets left="14.0" />
                             </HBox.margin>
                             <font>
-                                <Font size="14.0"/>
+                                <Font size="14.0" />
                             </font>
                         </CheckBox>
                         <CheckBox fx:id="giftedFor" mnemonicParsing="false" text="Geschonken Tegen">
                             <font>
-                                <Font size="14.0"/>
+                                <Font size="14.0" />
                             </font>
                             <HBox.margin>
-                                <Insets left="14.0"/>
+                                <Insets left="14.0" />
                             </HBox.margin>
                         </CheckBox>
                     </children>
                 </HBox>
                 <HBox alignment="CENTER" prefWidth="200.0">
                     <children>
-                        <Button mnemonicParsing="false" onAction="#save"
-                                style="-fx-background-color: #5fbb4e; -fx-background-radius: 10;" text="Save">
+                        <Button mnemonicParsing="false" onAction="#save" style="-fx-background-color: #5fbb4e; -fx-background-radius: 10;" text="Save">
                             <HBox.margin>
-                                <Insets right="30.0"/>
+                                <Insets right="30.0" />
                             </HBox.margin>
                             <font>
-                                <Font size="18.0"/>
+                                <Font size="18.0" />
                             </font>
                         </Button>
-                        <Button fx:id="more" mnemonicParsing="false" onAction="#more"
-                                style="-fx-background-color: #ef7135; -fx-background-radius: 10;" text="More">
+                        <Button fx:id="more" mnemonicParsing="false" onAction="#more" style="-fx-background-color: #ef7135; -fx-background-radius: 10;" text="More">
                             <HBox.margin>
-                                <Insets/>
+                                <Insets />
                             </HBox.margin>
                             <font>
-                                <Font size="18.0"/>
+                                <Font size="18.0" />
                             </font>
                         </Button>
                     </children>
                     <VBox.margin>
-                        <Insets top="40.0"/>
+                        <Insets top="40.0" />
                     </VBox.margin>
                 </HBox>
             </children>
             <opaqueInsets>
-                <Insets/>
+                <Insets />
             </opaqueInsets>
             <BorderPane.margin>
-                <Insets/>
+                <Insets />
             </BorderPane.margin>
             <padding>
-                <Insets left="120.0" top="150.0"/>
+                <Insets left="120.0" top="150.0" />
             </padding>
         </VBox>
     </center>

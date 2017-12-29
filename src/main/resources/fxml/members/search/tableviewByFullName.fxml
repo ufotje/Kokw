@@ -30,7 +30,7 @@
                 <TableColumn fx:id="bDayCol" prefWidth="106.0" text="Geboren" />
                 <TableColumn fx:id="mailCol" prefWidth="240.0" text="E-Mail" />
                 <TableColumn fx:id= "payedCol" prefWidth="50.0" text="Lidgeld" />
-                <TableColumn fx:id="analCol" minWidth="0.0" prefWidth="66.0" text="Analen" />
+                <TableColumn fx:id="analCol" minWidth="0.0" prefWidth="66.0" text="Annalen" />
             </columns>
             <BorderPane.margin>
                 <Insets top="20.0" />

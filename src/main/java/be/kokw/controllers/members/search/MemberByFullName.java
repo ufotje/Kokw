@@ -80,7 +80,7 @@ public class MemberByFullName {
                 zipCol.setCellValueFactory(new PropertyValueFactory<>("zip"));
                 cityCol.setCellValueFactory(new PropertyValueFactory<>("city"));
                 mailCol.setCellValueFactory(new PropertyValueFactory<>("email"));
-                bDayCol.setCellValueFactory(new PropertyValueFactory<>("bDay"));
+                bDayCol.setCellValueFactory(new PropertyValueFactory<>("birthday"));
                 payedCol.setCellValueFactory(new PropertyValueFactory<>("payed"));
                 analCol.setCellValueFactory(new PropertyValueFactory<>("anal"));
                 table.setItems(memberList);

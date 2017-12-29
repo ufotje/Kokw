@@ -1,6 +1,7 @@
-package be.kokw.controllers.books.search;
+ package be.kokw.controllers.books.search;
 
 import be.kokw.bean.Book;
+import be.kokw.bean.Gifted;
 import be.kokw.controllers.MenuController;
 import be.kokw.repositories.books.BookRepo;
 import be.kokw.utility.ChangeScene;
@@ -15,6 +16,8 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
+
+import java.time.LocalDate;
 
 import static javafx.collections.FXCollections.observableArrayList;
 
@@ -33,6 +36,30 @@ public class SearchBookByName {
     @FXML
     private TableColumn<Book, Integer> idCol;
     @FXML
+    private TableColumn<Book, String> isbnCol;
+    @FXML
+    private TableColumn<Book, String> depotCol;
+    @FXML
+    private TableColumn<Book, Integer> editionCol;
+    @FXML
+    private TableColumn<Book, Integer> volumeCol;
+    @FXML
+    private TableColumn<Book, Boolean> illusCol;
+    @FXML
+    private TableColumn<Book, LocalDate> boughtCol;
+    @FXML
+    private TableColumn<Book, Integer> copiesCol;
+    @FXML
+    private TableColumn<Book, Boolean> deratedCol;
+    @FXML
+    private TableColumn<Book, String> destinationCol;
+    @FXML
+    private TableView<Gifted> gifted;
+    @FXML
+    private TableColumn<Gifted, String> giftedByCol;
+    @FXML
+    private TableColumn<Gifted, LocalDate> giftedOnCol;
+    @FXML
     private TableColumn<Book, String> titleCol;
     @FXML
     private TableColumn<Book, String> topicCol;
@@ -43,15 +70,13 @@ public class SearchBookByName {
     @FXML
     private TableColumn<Book, String> publisherCol;
     @FXML
-    private TableColumn<Book, String> placeCol;
-    @FXML
     private TableColumn<Book, String> yearCol;
     @FXML
     private TableColumn<Book, String> pagesCol;
     private BookRepo bookRepo;
 
     @Autowired
-    private void SetBookRepo(@Qualifier("bookRepo") BookRepo repo) {
+    private void setBookRepo(@Qualifier("bookRepo") BookRepo repo) {
         bookRepo = repo;
     }
 
@@ -63,18 +88,30 @@ public class SearchBookByName {
             if (bookList.isEmpty()) {
                 Warning.alert("No Books found!", "Er werden geen boeken gevonden geschreven door " + firstName.getText() + " " + lastName.getText());
             } else {
+
                 MenuController.window.close();
                 ChangeScene.init("/fxml/books/found/tableView.fxml", "Books by Author's name");
                 table.setEditable(true);
+                gifted.setEditable(true);
                 idCol.setCellValueFactory(new PropertyValueFactory<>("id"));
+                isbnCol.setCellValueFactory(new PropertyValueFactory<>("isbn"));
+                depotCol.setCellValueFactory(new PropertyValueFactory<>("depot"));
                 titleCol.setCellValueFactory(new PropertyValueFactory<>("title"));
-                topicCol.setCellValueFactory(new PropertyValueFactory<>("topic"));
+                editionCol.setCellValueFactory(new PropertyValueFactory<>("edition"));
+                volumeCol.setCellValueFactory(new PropertyValueFactory<>("volume"));
+                topicCol.setCellValueFactory(new PropertyValueFactory<>("topics"));
                 authorCol.setCellValueFactory(new PropertyValueFactory<>("authors"));
-                subTitleCol.setCellValueFactory(new PropertyValueFactory<>("subTitles"));
+                subTitleCol.setCellValueFactory(new PropertyValueFactory<>("subtitles"));
                 publisherCol.setCellValueFactory(new PropertyValueFactory<>("publisher"));
-                placeCol.setCellValueFactory(new PropertyValueFactory<>("place"));
                 yearCol.setCellValueFactory(new PropertyValueFactory<>("yearPublished"));
                 pagesCol.setCellValueFactory(new PropertyValueFactory<>("nrOfPages"));
+                illusCol.setCellValueFactory(new PropertyValueFactory<>("illustrated"));
+                copiesCol.setCellValueFactory(new PropertyValueFactory<>("copies"));
+                boughtCol.setCellValueFactory(new PropertyValueFactory<>("boughtOn"));
+                giftedByCol.setCellValueFactory(new PropertyValueFactory<>("name"));
+                giftedOnCol.setCellValueFactory(new PropertyValueFactory<>("giftedOn"));
+                deratedCol.setCellValueFactory(new PropertyValueFactory<>("derated"));
+                destinationCol.setCellValueFactory(new PropertyValueFactory<>("destination"));
                 table.setItems(bookList);
             }
         }

@@ -1,9 +1,7 @@
 package be.kokw.controllers;
 
 import be.kokw.bean.*;
-import be.kokw.repositories.CheckOutRepo;
 import be.kokw.repositories.MemberRepo;
-import be.kokw.repositories.TimeStampRepo;
 import be.kokw.utility.*;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -16,9 +14,6 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 
 import java.time.LocalDate;
-import java.time.ZoneId;
-import java.util.Date;
-import java.util.List;
 
 import static javafx.collections.FXCollections.observableArrayList;
 
@@ -30,8 +25,6 @@ import static javafx.collections.FXCollections.observableArrayList;
 @Controller
 public class MenuController {
     public static Stage window;
-    private CheckOutRepo checkOutRepo;
-    private TimeStampRepo timeStampRepo;
     private MemberRepo memberRepo;
     @FXML
     private TableView<Member> table;
@@ -44,17 +37,6 @@ public class MenuController {
     @FXML
     private TableColumn<Member, Boolean> payedCol, analCol;
 
-
-    @Autowired
-    private void setCheckOutRepo(@Qualifier("checkOutRepo") CheckOutRepo checkOutRepo) {
-        this.checkOutRepo = checkOutRepo;
-    }
-
-    @Autowired
-    private void setTimeStampRepo(@Qualifier("stampRepo") TimeStampRepo timeStampRepo) {
-        this.timeStampRepo = timeStampRepo;
-    }
-
     @Autowired
     private void setMemberRepo(@Qualifier("memberRepo") MemberRepo memberRepo) {
         this.memberRepo = memberRepo;
@@ -63,75 +45,123 @@ public class MenuController {
     //BookMethods
     //Add a Book
     @FXML
-    private void addBook() throws Exception {
-        ChangeScene.init("/fxml/books/create/addBook.fxml", "addBook");
+    private void addBook() {
+        try {
+            ChangeScene.init("/fxml/books/create/addBook.fxml", "addBook");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     //Find a Book
     @FXML
-    private void findBookByTitle() throws Exception {
-        window = NewStage.getStage("Vind Boek op Titel!", "/fxml/books/search/dialogpaneByTitle.fxml");
+    private void findBookByTitle() {
+        try {
+            window = NewStage.getStage("Vind Boek op Titel!", "/fxml/books/search/dialogpaneByTitle.fxml");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         window.show();
     }
 
     @FXML
-    private void findBookByAuthor() throws Exception {
-        window = NewStage.getStage("Vul de auteurs naam in!", "/fxml/books/search/byName.fxml");
+    private void findBookByAuthor() {
+        try {
+            window = NewStage.getStage("Vul de auteurs naam in!", "/fxml/books/search/byName.fxml");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         window.show();
     }
 
     @FXML
-    private void findBookByPublisher() throws Exception {
-        window = NewStage.getStage("Vind Boeken op uitgeverij!", "/fxml/books/search/dialogpaneByPublisher.fxml");
+    private void findBookByPublisher() {
+        try {
+            window = NewStage.getStage("Vind Boeken op uitgeverij!", "/fxml/books/search/dialogpaneByPublisher.fxml");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         window.show();
     }
 
     @FXML
-    private void findBookByTopic() throws Exception {
-        window = NewStage.getStage("Vind Boeken op onderwerp!", "/fxml/books/search/byTopicDialog.fxml");
+    private void findBookByTopic() {
+        try {
+            window = NewStage.getStage("Vind Boeken op onderwerp!", "/fxml/books/search/byTopicDialog.fxml");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         window.show();
     }
 
     @FXML
-    private void findBookByISBN() throws Exception {
-        window = NewStage.getStage("Vind boeken op ISBN", "/fxml/books/search/byISBNDialog.fxml");
+    private void findBookByISBN() {
+        try {
+            window = NewStage.getStage("Vind boeken op ISBN", "/fxml/books/search/byISBNDialog.fxml");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         window.show();
     }
 
     @FXML
-    private void findBookByDepot() throws Exception {
-        window = NewStage.getStage("Vind boeken op depotnr", "/fxml/books/search/byDepotDialog.fxml");
+    private void findBookByDepot() {
+        try {
+            window = NewStage.getStage("Vind boeken op depotnr", "/fxml/books/search/byDepotDialog.fxml");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         window.show();
     }
 
     @FXML
-    private void findByGiftedOn() throws Exception {
-        window = NewStage.getStage("Vind boeken gedonneerd op datum", "/fxml/books/search/byGiftedOnDialog.fxml");
+    private void findByGiftedOn() {
+        try {
+            window = NewStage.getStage("Vind boeken gedonneerd op datum", "/fxml/books/search/byGiftedOnDialog.fxml");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         window.show();
     }
 
     @FXML
-    private void findByGiftedForOn() throws Exception {
-        window = NewStage.getStage("Vind Boeken tegenprestatie op datum", "/fxml/books/search/byGiftedForOnDateDialog.fxml");
+    private void findByGiftedForOn() {
+        try {
+            window = NewStage.getStage("Vind Boeken tegenprestatie op datum", "/fxml/books/search/byGiftedForOnDateDialog.fxml");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         window.show();
     }
 
     @FXML
-    private void findByGiftedForOnName() throws Exception {
-        window = NewStage.getStage("Vind boeken tegenprestatie op naam", "/fxml/books/search/byGiftedForOnName.fxml");
+    private void findByGiftedForOnName() {
+        try {
+            window = NewStage.getStage("Vind boeken tegenprestatie op naam", "/fxml/books/search/byGiftedForOnName.fxml");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         window.show();
     }
 
     @FXML
-    private void findByGiftedForOnNameAndDate() throws Exception {
-        window = NewStage.getStage("Vind boek tegenprestatie op naam en datum", "/fxml/books/search/byGiftedForOnNameAndDate.fxml");
+    private void findByGiftedForOnNameAndDate() {
+        try {
+            window = NewStage.getStage("Vind boek tegenprestatie op naam en datum", "/fxml/books/search/byGiftedForOnNameAndDate.fxml");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         window.show();
     }
 
     //Update a book
     @FXML
-    private void updateBookByTitle() throws Exception {
-        window = NewStage.getStage("Update een Boek!", "/fxml/books/update/updateDialog.fxml");
+    private void updateBookByTitle() {
+        try {
+            window = NewStage.getStage("Update een Boek!", "/fxml/books/update/updateDialog.fxml");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         window.show();
     }
 
@@ -144,57 +174,143 @@ public class MenuController {
 
     //checkOut Methods
     @FXML
-    private void checkOut() throws Exception {
-        window = NewStage.getStage("Check-Out Book!", "/fxml/checkOut/books/checkOutDialog.fxml");
+    private void checkOut() {
+        try {
+            window = NewStage.getStage("Check-Out Book!", "/fxml/checkOut/books/checkOutDialog.fxml");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         window.show();
     }
 
     @FXML
-    private void returnBook() throws Exception {
-        window = NewStage.getStage("Return Book!", "/fxml/checkOut/books/returnDialog.fxml");
+    private void returnBook() {
+        try {
+            window = NewStage.getStage("Return Book!", "/fxml/checkOut/books/returnDialog.fxml");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         window.show();
     }
 
     @FXML
-    private void prolong() throws Exception {
-        window = NewStage.getStage("Prolong Checked-Out Book!", "/fxml/checkOut/books/prolongDialog.fxml");
+    private void prolong() {
+        try {
+            window = NewStage.getStage("Prolong Checked-Out Book!", "/fxml/checkOut/books/prolongDialog.fxml");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         window.show();
     }
 
     @FXML
-    private void datesBetween() throws Exception {
-        window = NewStage.getStage("Checked-Out Between", "/fxml/checkOut/books/betweenDialog.fxml");
+    private void datesBetween() {
+        try {
+            window = NewStage.getStage("Checked-Out Between", "/fxml/checkOut/books/betweenDialog.fxml");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         window.show();
     }
+
+    //MagazineMethods
+    //Add a Magazine
+    @FXML
+    private void addMag() {
+        try {
+            ChangeScene.init("/fxml/magazines/create/addMagazine.fxml", "Add a Magazine" );
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    //Delete a Magazine
+    @FXML
+    private void deleteMag() {
+    }
+
+    //Search for Magazines
+    @FXML
+    private void magByIssn() {
+    }
+
+    @FXML
+    private void magByName() {
+    }
+
+    @FXML
+    private void magByPublisher() {
+    }
+
+    @FXML
+    private void magByTraded() {
+    }
+
+    @FXML
+    private void magBySubscription() {
+    }
+
+    @FXML
+    private void magByTopic() {
+    }
+
+    //DigitalMethods
+    //Add a Digital
+    @FXML
+    private void addDigi() {
+    }
+
+    //Delete a Digital
+    @FXML
+    private void deleteDigi() {
+    }
+
+    //Search for Digitals
 
     //MemberMethods
     //Add a Member
     @FXML
-    private void addMember() throws Exception {
-        ChangeScene.init("/fxml/members/addMember.fxml", "Add Member");
+    private void addMember() {
+        try {
+            ChangeScene.init("/fxml/members/addMember.fxml", "Add Member");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     //Find a Member
     @FXML
-    private void findMemberByName() throws Exception {
-        window = NewStage.getStage("Search by Name", "/fxml/members/search/byFullName.fxml");
+    private void findMemberByName() {
+        try {
+            window = NewStage.getStage("Search by Name", "/fxml/members/search/byFullName.fxml");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         window.show();
     }
 
     @FXML
-    private void findMemberByCity() throws Exception {
-        window = NewStage.getStage("Search by City", "/fxml/members/search/byCityDialog.fxml");
+    private void findMemberByCity() {
+        try {
+            window = NewStage.getStage("Search by City", "/fxml/members/search/byCityDialog.fxml");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         window.show();
     }
 
     @FXML
-    private void findMemberByDayOfBirth() throws Exception {
-        window = NewStage.getStage("Search by Day of Birth", "/fxml/members/search/byBDayDialog.fxml");
+    private void findMemberByDayOfBirth() {
+        try {
+            window = NewStage.getStage("Search by Day of Birth", "/fxml/members/search/byBDayDialog.fxml");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         window.show();
     }
 
     @FXML
-    private void findMemberByPayed() throws Exception {
+    private void findMemberByPayed() {
         ObservableList<Member> memberList = observableArrayList(memberRepo.findByPayedIsFalse());
         if (memberList.isEmpty()) {
             Warning.alert("No Members found!", "Er werden geen leden gevonden van wie het lidgeld niet betaal werd!");
@@ -205,7 +321,7 @@ public class MenuController {
     }
 
     @FXML
-    private void findMemberByAnalen() throws Exception {
+    private void findMemberByAnalen() {
         ObservableList<Member> memberList = observableArrayList(memberRepo.findByAnalIsFalse());
         if (memberList.isEmpty()) {
             Warning.alert("No Members found!", "Er werden geen leden gevonden die hun Analen nog niet ontvangen hebben!");
@@ -216,8 +332,12 @@ public class MenuController {
         }
     }
 
-    private void initTable(String title, ObservableList<Member> memberList) throws Exception {
-        ChangeScene.init("/fxml/members/search/tableviewAnal.fxml", title);
+    private void initTable(String title, ObservableList<Member> memberList) {
+        try {
+            ChangeScene.init("/fxml/members/search/tableviewAnal.fxml", title);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         table.setEditable(true);
         idCol.setCellValueFactory(new PropertyValueFactory<>("id"));
         firstNameCol.setCellValueFactory(new PropertyValueFactory<>("firstName"));
@@ -235,8 +355,12 @@ public class MenuController {
 
     //Update Member
     @FXML
-    private void updateMember() throws Exception {
-        window = NewStage.getStage("Update Member!", "/fxml/members/update/updateDialog.fxml");
+    private void updateMember() {
+        try {
+            window = NewStage.getStage("Update Member!", "/fxml/members/update/updateDialog.fxml");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         window.show();
     }
 
@@ -247,69 +371,44 @@ public class MenuController {
 
     //Mailings
     @FXML
-    private void mailOverDue() {
-       /* List<CheckedOut> list = checkOutRepo.findByReturnDateBeforeAndReturnedIsFalse(LocalDate.now());
-        for (CheckedOut c : list) {
-            Member m = c.getMember();
-            Book b = c.getBook();
-            String name = m.getFirstName();
-            String title = b.getTitle();
-            String text = "Geachte " + name + "\n \nHet boek: '" + title + "' geschreven door '"  + "' werd te laat terug gebracht.\nGelieve zo spoedig mogelijk het boek in te leveren.\n \nMet vriendelijke groeten \n \n \nHet KOKW-Team";
-            Mail.sendMail(m.getEmail(), "Boek Te Laat!", text);
-        }*/
+    private void mailMen() {
+        try {
+            window = NewStage.getStage("Mail naar alle manelijke leden", "/fxml/mailings/toBoard.fxml");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        window.show();
 
     }
 
     @FXML
-    private void mailBDay() {
-      /*  TimeStamp stamp = timeStampRepo.findOne(1);
-        LocalDate latest = stamp.getLast();
-        LocalDate now = LocalDate.now();
-        List<Member> list = memberRepo.findByBDayBetween(latest, now);
-        String topic = "Happy Birthday";
-        String wens = "\n \nWij, van de KOKW, willen u laten weten dat ook bij ons uw verjaardag niet ongemerkt is gebleven en willen je van harte feliciteren op deze speciale dag.";
-        String text;
-        if (list.isEmpty()) {
-            Warning.alert("No Members Found", "Er werden geen leden gevonden die jarig zijn!");
-        } else {
-            for (Member m : list) {
-                LocalDate bDay = m.getbDay();
-                if (bDay.equals(now)) {
-                    text = "Beste " + m.getFirstName() + wens + "\n \nMet Vriendelijke Groeten\n \n \nHet KOKW-Team";
-                    Mail.sendMail(m.getEmail(), topic, text);
-                } else {
-                    Date d1 = Date.from(bDay.atStartOfDay().atZone(ZoneId.systemDefault()).toInstant());
-                    Date d2 = Date.from(now.atStartOfDay().atZone(ZoneId.systemDefault()).toInstant());
-                    long difference = d2.getTime() - d1.getTime();
-                    text = "Beste " + m.getFirstName() + wens + "\nOok al zijn we " + difference + " dag(en) te hopen wij dat je toch genoten hebt van je verjaardag en wensen we je nog vele jaren. \n \nMet Vriendelijke Groeten\n \n \nHet KOKW-Team";
-                    Mail.sendMail(m.getEmail(), topic, text);
-                }
-            }
-        }*/
+    private void mailWomen() {
+        try {
+            window = NewStage.getStage("Mail naar alle vrouwelijke leden", "/fxml/mailings/toBoard.fxml");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        window.show();
 
     }
 
     @FXML
-    private void mailTwoDaysNotice() {
-      /*  LocalDate returnDate = LocalDate.now().plusDays(2);
-        List<CheckedOut> list = checkOutRepo.findByReturnDateAndReturnedIsFalse(returnDate);
-        if (list.isEmpty()) {
-            Warning.alert("No Items Found", "Er werden geen boeken gevonden die binnen de 2 dagen dienen worden terug gebracht!");
-        } else {
-            for (CheckedOut c : list) {
-                String name = c.getFullName();
-                String title = c.getTitle();
-                Member m = c.getMember();
-                String topic = "Uw uitleenbeurt vervalt binnen 2 dagen...";
-                String text = "Geachte " + name + "\n \nUw uitleenbeurt voor het boek '" + title + "' vervalt binnen 2 dagen!\nVergeet niet tijdig het boek binnen te brengen.\n \nMet vriendelijke groeten\n \n \n \nHet KOKW-Team";
-                Mail.sendMail(m.getEmail(), topic, text);
-            }
-        }*/
+    private void mailMembers() {
+        try {
+            window = NewStage.getStage("Mail naar alle Leden", "/fxml/mailings/toBoard.fxml");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        window.show();
     }
 
     @FXML
-    private void mailBoard() throws Exception {
-        window = NewStage.getStage("Mail naar Raad van Bestuur", "/fxml/mailings/toBoard.fxml");
+    private void mailBoard() {
+        try {
+            window = NewStage.getStage("Mail naar Raad van Bestuur", "/fxml/mailings/toBoard.fxml");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         window.show();
     }
 }

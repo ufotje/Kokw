@@ -1,45 +1,58 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="be.kokw.controllers.books.search.SearchBookByName">
+<?import javafx.scene.layout.HBox?>
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0"
+            prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="be.kokw.controllers.books.search.SearchBookByName">
     <top>
         <VBox BorderPane.alignment="CENTER">
-            <fx:include source="/fxml/menu.fxml" />
+            <fx:include source="/fxml/menu.fxml"/>
         </VBox>
     </top>
     <bottom>
-        <VBox alignment="CENTER" fillWidth="false" style="-fx-background-color: #A9CCE3; -fx-background-radius: 10;" BorderPane.alignment="CENTER">
-            <fx:include source="/fxml/footer.fxml" />
+        <VBox alignment="CENTER" fillWidth="false" style="-fx-background-color: #A9CCE3; -fx-background-radius: 10;"
+              BorderPane.alignment="CENTER">
+            <fx:include source="/fxml/footer.fxml"/>
         </VBox>
     </bottom>
     <center>
-        <TableView fx:id="table" minHeight="-Infinity" minWidth="-Infinity" BorderPane.alignment="CENTER">
-            <columns>
-                <TableColumn fx:id="idCol" prefWidth="40.0" text="ID" />
-                <TableColumn fx:id="isbnCol" prefWidth="40.0" text="ISBN" />
-                <TableColumn fx:id="depotCol" prefWidth="40.0" text="Depot" />
-                <TableColumn fx:id="titleCol" prefWidth="250.0" text="Titel" />
-                <TableColumn fx:id="subTitleCol" prefWidth="200" text="Ondertitel" />
-                <TableColumn fx:id="editionCol" prefWidth="40.0" text="Druk" />
-                <TableColumn fx:id="volumeCol" prefWidth="40.0" text="Deel" />
-                <TableColumn fx:id="topicCol" prefWidth="100.0" text="Onderwerp" />
-                <TableColumn fx:id="authorCol" prefWidth="250.0" text="Voornaam Auteur" />
-                <TableColumn fx:id="publisherCol" text="Uitgeverij" />
-                <TableColumn fx:id="placeCol" prefWidth="80.0" text="Plaats" />
-                <TableColumn fx:id="yearCol" prefWidth="50.0" text="Jaar" />
-                <TableColumn fx:id="pagesCol" prefWidth="60.0" text="Pages" />
-                <TableColumn fx:id="illusCol" prefWidth="40.0" text="Geïllustreerd" />
-                <TableColumn fx:id="boughtCol" prefWidth="100.0" text="Gekocht Op" />
-                <TableColumn fx:id="giftedByCol" prefWidth="150.0" text="Gedoneerd door" />
-                <TableColumn fx:id="giftedForCol" prefWidth="150.0" text="Gedoneerd tegen" />
-                <TableColumn fx:id="copiesCol" prefWidth="40" text="Aantal" />
-                <TableColumn fx:id="deratedCol" prefWidth="100.0" text="Geklassseerd" />
-                <TableColumn fx:id="destinationCol" prefWidth="100.0" text="Bestemming" />
-            </columns>
-        </TableView>
+        <ScrollPane fitToHeight="true" fitToWidth="true" BorderPane.alignment="CENTER">
+            <HBox>
+                <TableView fx:id="table" editable="true">
+                    <columns>
+                        <TableColumn fx:id="idCol" prefWidth="40.0" text="ID"/>
+                        <TableColumn fx:id="isbnCol" prefWidth="60.0" text="ISBN"/>
+                        <TableColumn fx:id="depotCol" prefWidth="70.0" text="Depot"/>
+                        <TableColumn fx:id="titleCol" prefWidth="250.0" text="Titel"/>
+                        <TableColumn fx:id="subTitleCol" prefWidth="200" text="Ondertitel"/>
+                        <TableColumn fx:id="editionCol" prefWidth="40.0" text="Druk"/>
+                        <TableColumn fx:id="volumeCol" prefWidth="40.0" text="Deel"/>
+                        <TableColumn fx:id="topicCol" prefWidth="100.0" text="Onderwerp"/>
+                        <TableColumn fx:id="authorCol" prefWidth="175.0" text="Voornaam Auteur"/>
+                        <TableColumn fx:id="publisherCol" text="Uitgeverij"/>
+                        <TableColumn fx:id="yearCol" prefWidth="50.0" text="Jaar"/>
+                        <TableColumn fx:id="pagesCol" prefWidth="60.0" text="Pages"/>
+                        <TableColumn fx:id="illusCol" text="Geïllustreerd"/>
+                        <TableColumn fx:id="boughtCol" prefWidth="100.0" text="Gekocht Op"/>
+                        <TableColumn fx:id="giftedForCol" prefWidth="150.0" text="Gedoneerd tegen"/>
+                        <TableColumn fx:id="copiesCol" prefWidth="60" text="Aantal"/>
+                        <TableColumn fx:id="deratedCol" prefWidth="100.0" text="Geklassseerd"/>
+                        <TableColumn fx:id="destinationCol" prefWidth="100.0" text="Bestemming"/>
+                    </columns>
+                </TableView>
+                <TableView fx:id="gifted" BorderPane.alignment="CENTER">
+                    <columns>
+                        <TableColumn fx:id="giftedByCol" prefWidth="150.0" text="Gedoneerd door"/>
+                        <TableColumn fx:id="giftedOnCol" prefWidth="100.0" text="Donatiedatum"/>
+                    </columns>
+                </TableView>
+            </HBox>
+        </ScrollPane>
     </center>
 </BorderPane>

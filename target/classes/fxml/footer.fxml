@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.effect.Glow?>
@@ -8,7 +9,7 @@
 
 <BorderPane xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1">
     <bottom>
-        <VBox minWidth="1000" alignment="CENTER" style="-fx-background-color: #A9CCE3; -fx-background-radius: 10;" BorderPane.alignment="CENTER">
+        <VBox alignment="CENTER" minWidth="1000" style="-fx-background-color: #A9CCE3; -fx-background-radius: 10;" BorderPane.alignment="CENTER">
             <effect>
                 <Glow />
             </effect>
@@ -21,6 +22,9 @@
                     <Label />
                 </graphic>
             </Label>
+         <padding>
+            <Insets bottom="5.0" top="5.0" />
+         </padding>
         </VBox>
     </bottom>
 </BorderPane>
