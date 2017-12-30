@@ -49,17 +49,62 @@ public class BookRepoImpl implements BookRepo {
 
     @Override
     public Book findByIsbn(String isbn) {
-        return null;
+        TypedQuery<Book> query = manager.createQuery("select b from Book b where b.isbn =:isbn", Book.class);
+        return query.setParameter("isbn", isbn).getSingleResult();
     }
 
     @Override
-    public Book findByDepot(String Depot) {
-        return null;
+    public Book findByDepot(String depot) {
+        TypedQuery<Book> query = manager.createQuery("select b from Book b where b.depot =:depot", Book.class);
+        return query.setParameter("depot", depot).getSingleResult();
     }
 
     @Override
     public List<Book> findByBoughtOn(LocalDate date) {
-        return null;
+        TypedQuery<Book> query = manager.createQuery("select b from Book b where b.boughtOn =:date", Book.class);
+        return query.setParameter("date", date).getResultList();
+    }
+
+    @Override
+    public List<Book> findByBoughtOnBetween(LocalDate start, LocalDate end) {
+        TypedQuery<Book> query = manager.createQuery("select b from Book b where b.boughtOn between :start and :endDate", Book.class);
+        return query.setParameter("start", start).setParameter("endDate", end).getResultList();
+    }
+
+    @Override
+    public List<Book> findByGiftedOn(LocalDate date) {
+        TypedQuery<Book> query = manager.createQuery("select b from Book b where b.giftedOn =:date", Book.class);
+        return query.setParameter("date", date).getResultList();
+    }
+
+    @Override
+    public List<Book> findByGiftedOnBetween(LocalDate start, LocalDate end) {
+        TypedQuery<Book> query = manager.createQuery("select b from Book b where b.giftedOn between :start and :endDate", Book.class);
+        return query.setParameter("start", start).setParameter("endDate", end).getResultList();
+    }
+
+    @Override
+    public List<Book> findByContractDate(LocalDate date) {
+        TypedQuery<Book> query = manager.createQuery("select b from Book b where b.contractDate =:date", Book.class);
+        return query.setParameter("date", date).getResultList();
+    }
+
+    @Override
+    public List<Book> findByContractor(String name) {
+        TypedQuery<Book> query = manager.createQuery("select b from Book b where b.contractor =:name", Book.class);
+        return query.setParameter("name", name).getResultList();
+    }
+
+    @Override
+    public List<Book> findByContractDateAndContractor(LocalDate date, String name) {
+        TypedQuery<Book> query = manager.createQuery("select b from Book b where b.contractDate =:date and b.contractor =:name", Book.class);
+        return query.setParameter("date", date).setParameter("name", name).getResultList();
+    }
+
+    @Override
+    public List<Book> findByContractDateBetween(LocalDate start, LocalDate end) {
+        TypedQuery<Book> query = manager.createQuery("select b from Book b where b.contractDate between :start and :endDate", Book.class);
+        return query.setParameter("start", start).setParameter("endDate", end).getResultList();
     }
 
     @Override

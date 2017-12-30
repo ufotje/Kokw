@@ -6,6 +6,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.control.TextField?>
 <AnchorPane xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="be.kokw.controllers.books.search.SearchBookByGiftedForOnNameAndDate">
     <DialogPane headerText="Zoek op Onderwerp" layoutX="50.0" layoutY="50.0" maxHeight="-Infinity" maxWidth="-Infinity"
@@ -22,7 +23,7 @@
                 </HBox>
                 <HBox alignment="CENTER" layoutY="169.0" prefHeight="30.0" prefWidth="480.0">
                     <Label text="Datum van donatie:"/>
-                    <DatePicker fx:id="date" alignment="CENTER" prefHeight="31.0" prefWidth="318.0">
+                    <DatePicker fx:id="date"  prefHeight="31.0" prefWidth="318.0">
                         <HBox.margin>
                             <Insets left="30.0"/>
                         </HBox.margin>

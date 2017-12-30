@@ -115,6 +115,26 @@ public class MenuController {
     }
 
     @FXML
+    private void findByBoughtOn() {
+        try {
+            window = NewStage.getStage("Vind boeken aangekocht op datum", "/fxml/books/search/byBoughtOnDialog.fxml");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        window.show();
+    }
+
+    @FXML
+    private void findByBoughtOnBetween() {
+        try {
+            window = NewStage.getStage("Vind boeken aangekocht tussen", "/fxml/books/search/byBoughtOnBetweenDialog.fxml");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        window.show();
+    }
+
+    @FXML
     private void findByGiftedOn() {
         try {
             window = NewStage.getStage("Vind boeken gedonneerd op datum", "/fxml/books/search/byGiftedOnDialog.fxml");
@@ -125,9 +145,29 @@ public class MenuController {
     }
 
     @FXML
+    private void findByGiftedOnBetween() {
+        try {
+            window = NewStage.getStage("Vind boeken gedonneerd tussen", "/fxml/books/search/byGiftedOnBetweenDialog.fxml");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        window.show();
+    }
+
+    @FXML
     private void findByGiftedForOn() {
         try {
             window = NewStage.getStage("Vind Boeken tegenprestatie op datum", "/fxml/books/search/byGiftedForOnDateDialog.fxml");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        window.show();
+    }
+
+    @FXML
+    private void findByGiftedForOnBetween() {
+        try {
+            window = NewStage.getStage("Vind boeken gedonneerd met tegenprestatie tussen", "/fxml/books/search/byGiftedForOnBetweenDialog.fxml");
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -218,7 +258,7 @@ public class MenuController {
     @FXML
     private void addMag() {
         try {
-            ChangeScene.init("/fxml/magazines/create/addMagazine.fxml", "Add a Magazine" );
+            ChangeScene.init("/fxml/magazines/create/addMagazine.fxml", "Add a Magazine");
         } catch (Exception e) {
             e.printStackTrace();
         }

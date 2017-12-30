@@ -64,6 +64,7 @@ public class Book implements Serializable {
     private String contractor;
     @Column(name = "Contract")
     private File contract;
+    private LocalDate contractDate;
 
     public Book() {
     }
@@ -291,5 +292,13 @@ public class Book implements Serializable {
 
     public void setContract(File contract) {
         this.contract = contract;
+    }
+
+    public LocalDate getContractDate() {
+        return contractDate;
+    }
+
+    public void setContractDate(LocalDate contractDate) {
+        this.contractDate = contractDate;
     }
 }

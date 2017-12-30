@@ -34,6 +34,27 @@ public interface BookRepo extends JpaRepository<Book, Long> {
     List<Book> findByBoughtOn(LocalDate date);
 
     @Transactional
+    List<Book> findByBoughtOnBetween(LocalDate start, LocalDate end);
+
+    @Transactional
+    List<Book> findByGiftedOn(LocalDate date);
+
+    @Transactional
+    List<Book> findByGiftedOnBetween(LocalDate start, LocalDate end);
+
+    @Transactional
+    List<Book> findByContractDateBetween(LocalDate start, LocalDate end);
+
+    @Transactional
+    List<Book> findByContractDate(LocalDate date);
+
+    @Transactional
+    List<Book> findByContractor(String name);
+
+    @Transactional
+    List<Book> findByContractDateAndContractor(LocalDate date, String name);
+
+    @Transactional
     Book findBySubtitlesContains(String SubTitle);
 
     @Transactional

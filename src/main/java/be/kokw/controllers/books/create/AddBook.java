@@ -19,14 +19,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
-import java.awt.*;
 import java.io.File;
-import java.io.IOException;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 
 /**
@@ -65,12 +61,13 @@ public class AddBook {
         topic.setItems(topics);
         ObservableList<Integer> volumes = FXCollections.observableArrayList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
         volume.setItems(volumes);
+        volume.setValue(1);
     }
 
     @FXML
     public void save() throws Exception {
         if (validated()) {
-            book = new Book(isbn.getText(), depot.getText(), title.getText(), subTitles.toString(), Integer.parseInt(edition.getText()), Integer.parseInt(copies.getText()), volume.getValue(), publisher.getText(), Integer.parseInt(year.getText()), Integer.parseInt(pages.getText()), illustrated.isSelected(), authors.toString(), topics.toString());
+            book = new Book(isbn.getText(), depot.getText(), title.getText(), subTitles.toString(), Integer.parseInt(edition.getText()), Integer.parseInt(copies.getText()), volume.getValue(), publisher.getText(), Integer.parseInt(year.getText()), Integer.parseInt(pages.getText()), illustrated.isSelected(), authors.toString(), topics.append(topic.getValue()).toString());
             if (gifted.isSelected() && bought.isSelected()) {
                 Warning.alert("Multiple Values", "U dient 1 iets te kiezen.\nEen boek kan niet zowel geschonken als aangekocht zijn. ");
             }
@@ -114,8 +111,8 @@ public class AddBook {
 
     @FXML
     private void addAuthor() {
-        if (Validation.validate("author", firstNameAuthor.getText(), "[a-zA-Z -]+")) {
-            if (Validation.validate("author", lastNameAuthor.getText(), "[a-zA-Z -]+")) {
+        if (Validation.validate("author", firstNameAuthor.getText(), "[a-zA-Z \\-]+")) {
+            if (Validation.validate("author", lastNameAuthor.getText(), "[a-zA-Z \\-]+")) {
                 authors.append(firstNameAuthor.getText());
                 authors.append(" ");
                 authors.append(lastNameAuthor.getText());
@@ -140,9 +137,9 @@ public class AddBook {
 
     @FXML
     private void giftedBy() throws Exception {
-        if (Validation.validate("firstName", firstName.getText(), "[a-zA-Z -]+")) {
-            if (Validation.validate("lastName", lastName.getText(), "[a-zA-Z -]+")) {
-                if (Validation.validate("date", date.getValue().toString(), "[0-9-]+")) {
+        if (Validation.validate("firstName", firstName.getText(), "[a-zA-Z \\-]+")) {
+            if (Validation.validate("lastName", lastName.getText(), "[a-zA-Z \\-]+")) {
+                if (Validation.validate("date", date.getValue().toString(), "[0-9\\-]+")) {
                     book.setNameGifter(firstName.getText() + " " + lastName.getText());
                     book.setGiftedOn(date.getValue());
                     saveBook(book);
@@ -160,13 +157,13 @@ public class AddBook {
 
     @FXML
     private void giftedFor() throws Exception {
-        if(Validation.validate("fullName", fullName.getText(), "[a-zA-Z -]+")) {
+        if (Validation.validate("fullName", fullName.getText(), "[a-zA-Z \\-]+")) {
             book.setContractNr(contractNr.getText());
             book.setContract(file);
             book.setContractor(fullName.getText());
             window.close();
             saveBook(book);
-        }else{
+        } else {
             Warning.alert("Wrong value", "De contractant is verkeerd ingevuld.");
         }
 
@@ -182,24 +179,11 @@ public class AddBook {
 
     @FXML
     public void chooseFile() {
-        Desktop desktop = Desktop.getDesktop();
         Stage stage = new Stage();
         stage.setTitle("Kies het Contract");
         FileChooser fileChooser = new FileChooser();
         fileChooser.setInitialDirectory(new File(System.getProperty("user.home")));
         file = fileChooser.showOpenDialog(stage);
-        if (file != null) {
-            try {
-                desktop.open(file);
-            } catch (IOException ex) {
-                Logger.getLogger(
-                        AddBook.class.getName()).log(
-                        Level.SEVERE, null, ex
-                );
-            }
-        } else {
-            Warning.alert("No file Selected", "U hebt geen contract geselecteerd!");
-        }
     }
 
     @FXML
@@ -214,7 +198,7 @@ public class AddBook {
                 Validation.validate("Uitgeverij:", publisher.getText(), "[a-zA-Z]+") &&
                 Validation.validate("Jaar van publicatie:", year.getText(), "[0-9999]+") &&
                 Validation.validate("Aantal Bladzijden:", pages.getText(), "[0-9999]+")) &&
-                Validation.validate("isbn", isbn.getText(), "[a-zA-Z0-9999 -]+") && Validation.validate("depot", depot.getText(), "[a-zA-Z0-9999 -]+") && Validation.validate("edition", edition.getText(), "[0-999]+") && Validation.validate("copies", copies.getText(), "[0-999]+")) {
+                Validation.validate("isbn", isbn.getText(), "[a-zA-Z0-9999 \\-]+") && Validation.validate("depot", depot.getText(), "[a-zA-Z0-9999 -]+") && Validation.validate("edition", edition.getText(), "[0-999]+") && Validation.validate("copies", copies.getText(), "[0-999]+")) {
             //    if(Validation.emptyValidation("topic", topics.to.isEmpty())){
             valid = true;
         } else {

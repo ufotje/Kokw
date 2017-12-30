@@ -17,6 +17,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
+import java.io.File;
 import java.time.LocalDate;
 
 import static javafx.collections.FXCollections.observableArrayList;
@@ -53,13 +54,13 @@ public class SearchBookByTitle {
     @FXML
     private TableColumn<Book, String> destinationCol;
     @FXML
-    private TableView<Gifted> gifted;
-    @FXML
     private TableColumn<Gifted, String> giftedByCol;
     @FXML
     private TableColumn<Gifted, LocalDate> giftedOnCol;
     @FXML
     private TableColumn<Book, String> titleCol;
+    @FXML
+    private TableColumn<Book, LocalDate> conDateCol;
     @FXML
     private TableColumn<Book, String> topicCol;
     @FXML
@@ -72,6 +73,12 @@ public class SearchBookByTitle {
     private TableColumn<Book, String> yearCol;
     @FXML
     private TableColumn<Book, String> pagesCol;
+    @FXML
+    private TableColumn<Book, String> conNameCol;
+    @FXML
+    private TableColumn<Book,File> conCol;
+    @FXML
+    private TableColumn<Book,String>conNrCol;
     private BookRepo bookRepo;
 
     @Autowired
@@ -88,7 +95,6 @@ public class SearchBookByTitle {
                 MenuController.window.close();
                 ChangeScene.init("/fxml/books/found/tableViewByTitle.fxml", "Books by Title");
                 table.setEditable(true);
-                gifted.setEditable(true);
                 idCol.setCellValueFactory(new PropertyValueFactory<>("id"));
                 isbnCol.setCellValueFactory(new PropertyValueFactory<>("isbn"));
                 depotCol.setCellValueFactory(new PropertyValueFactory<>("depot"));
@@ -106,6 +112,10 @@ public class SearchBookByTitle {
                 boughtCol.setCellValueFactory(new PropertyValueFactory<>("boughtOn"));
                 giftedByCol.setCellValueFactory(new PropertyValueFactory<>("name"));
                 giftedOnCol.setCellValueFactory(new PropertyValueFactory<>("giftedOn"));
+                conNrCol.setCellValueFactory(new PropertyValueFactory<>("contract_number"));
+                conDateCol.setCellValueFactory(new PropertyValueFactory<>("contract_date"));
+                conNameCol.setCellValueFactory(new PropertyValueFactory<>("contractor"));
+                conCol.setCellValueFactory(new PropertyValueFactory<>("contract"));
                 deratedCol.setCellValueFactory(new PropertyValueFactory<>("derated"));
                 destinationCol.setCellValueFactory(new PropertyValueFactory<>("destination"));
                 table.setItems(bookList);
