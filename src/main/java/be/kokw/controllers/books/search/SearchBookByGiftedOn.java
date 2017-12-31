@@ -73,6 +73,7 @@ public class SearchBookByGiftedOn {
         ObservableList<Book> bookList = observableArrayList(bookRepo.findByGiftedOn(date.getValue()));
         if (bookList.isEmpty()) {
             Warning.alert("No Books found!", "Er werden geen boeken gevonden die op " + date.getValue() + " werden gedoneerd.");
+            MenuController.window.close();
         } else {
             MenuController.window.close();
             ChangeScene.init("/fxml/books/found/tableviewByGiftedOn.fxml", "Books by Donated on");
@@ -91,7 +92,7 @@ public class SearchBookByGiftedOn {
             pagesCol.setCellValueFactory(new PropertyValueFactory<>("nrOfPages"));
             illusCol.setCellValueFactory(new PropertyValueFactory<>("illustrated"));
             copiesCol.setCellValueFactory(new PropertyValueFactory<>("copies"));
-            giftedByCol.setCellValueFactory(new PropertyValueFactory<>("name"));
+            giftedByCol.setCellValueFactory(new PropertyValueFactory<>("name_gifter"));
             giftedOnCol.setCellValueFactory(new PropertyValueFactory<>("giftedOn"));
             deratedCol.setCellValueFactory(new PropertyValueFactory<>("derated"));
             destinationCol.setCellValueFactory(new PropertyValueFactory<>("destination"));

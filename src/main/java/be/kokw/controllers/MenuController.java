@@ -157,7 +157,7 @@ public class MenuController {
     @FXML
     private void findByGiftedForOn() {
         try {
-            window = NewStage.getStage("Vind Boeken tegenprestatie op datum", "/fxml/books/search/byGiftedForOnDateDialog.fxml");
+            window = NewStage.getStage("Vind Boeken tegenprestatie op datum", "/fxml/books/search/byGiftedForOnDialog.fxml");
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -187,7 +187,7 @@ public class MenuController {
     @FXML
     private void findByGiftedForOnNameAndDate() {
         try {
-            window = NewStage.getStage("Vind boek tegenprestatie op naam en datum", "/fxml/books/search/byGiftedForOnNameAndDate.fxml");
+            window = NewStage.getStage("Vind boek tegenprestatie op naam en datum", "/fxml/books/search/byGiftedForOnNameAndDateDialog.fxml");
         } catch (Exception e) {
             e.printStackTrace();
         }

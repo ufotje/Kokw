@@ -2,67 +2,41 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f706f8ad-5c5e-4c8c-9123-98f4956da70d" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/be/kokw/controllers/books/delete/DerateBook.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/be/kokw/controllers/books/search/SearchBookByBoughtOn.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/be/kokw/controllers/books/search/SearchBookByBoughtOnBetween.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/be/kokw/controllers/books/search/SearchBookByDepot.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/be/kokw/controllers/books/search/SearchBookByGiftedForOn.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/be/kokw/controllers/books/search/SearchBookByGiftedForOnBetween.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/be/kokw/controllers/books/search/SearchBookByGiftedForOnName.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/be/kokw/controllers/books/search/SearchBookByGiftedForOnNameAndDate.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/be/kokw/controllers/books/search/SearchBookByGiftedOn.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/be/kokw/controllers/books/search/SearchBookByGiftedOnBetween.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/be/kokw/controllers/books/search/SearchBookByIssbn.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/fxml/books/found/tableviewByBoughtOn.fxml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/fxml/books/found/tableviewByBoughtOnBetween.fxml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/fxml/books/found/tableviewByDepot.fxml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/fxml/books/found/tableviewByGiftedOn.fxml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/fxml/books/found/tableviewByIssn.fxml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/fxml/books/found/tableviewGiftedForOn.fxml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/fxml/books/found/tableviewGiftedForOnBetween.fxml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/fxml/books/found/tableviewGiftedForOnName.fxml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/fxml/books/found/tableviewGiftedForOnNameAndDate.fxml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/fxml/books/found/tableviewGiftedOnBetween.fxml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/fxml/books/search/byBoughtOnBetweenDialog.fxml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/fxml/books/search/byBoughtOnDialog.fxml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/fxml/books/search/byGiftedForOnBetweenDialog.fxml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/fxml/books/search/byGiftedOnBetweenDialog.fxml" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/be/kokw/bean/Book.java" afterPath="$PROJECT_DIR$/src/main/java/be/kokw/bean/Book.java" />
       <change beforePath="$PROJECT_DIR$/src/main/java/be/kokw/controllers/MenuController.java" afterPath="$PROJECT_DIR$/src/main/java/be/kokw/controllers/MenuController.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/be/kokw/controllers/books/create/AddBook.java" afterPath="$PROJECT_DIR$/src/main/java/be/kokw/controllers/books/create/AddBook.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/be/kokw/controllers/books/search/SearchBookByBoughtOn.java" afterPath="$PROJECT_DIR$/src/main/java/be/kokw/controllers/books/search/SearchBookByBoughtOn.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/be/kokw/controllers/books/search/SearchBookByBoughtOnBetween.java" afterPath="$PROJECT_DIR$/src/main/java/be/kokw/controllers/books/search/SearchBookByBoughtOnBetween.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/be/kokw/controllers/books/search/SearchBookByDepot.java" afterPath="$PROJECT_DIR$/src/main/java/be/kokw/controllers/books/search/SearchBookByDepot.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/be/kokw/controllers/books/search/SearchBookByGiftedForOn.java" afterPath="$PROJECT_DIR$/src/main/java/be/kokw/controllers/books/search/SearchBookByGiftedForOn.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/be/kokw/controllers/books/search/SearchBookByGiftedForOnBetween.java" afterPath="$PROJECT_DIR$/src/main/java/be/kokw/controllers/books/search/SearchBookByGiftedForOnBetween.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/be/kokw/controllers/books/search/SearchBookByGiftedForOnName.java" afterPath="$PROJECT_DIR$/src/main/java/be/kokw/controllers/books/search/SearchBookByGiftedForOnName.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/be/kokw/controllers/books/search/SearchBookByGiftedForOnNameAndDate.java" afterPath="$PROJECT_DIR$/src/main/java/be/kokw/controllers/books/search/SearchBookByGiftedForOnNameAndDate.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/be/kokw/controllers/books/search/SearchBookByGiftedOn.java" afterPath="$PROJECT_DIR$/src/main/java/be/kokw/controllers/books/search/SearchBookByGiftedOn.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/be/kokw/controllers/books/search/SearchBookByGiftedOnBetween.java" afterPath="$PROJECT_DIR$/src/main/java/be/kokw/controllers/books/search/SearchBookByGiftedOnBetween.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/be/kokw/controllers/books/search/SearchBookByIssbn.java" afterPath="$PROJECT_DIR$/src/main/java/be/kokw/controllers/books/search/SearchBookByIssbn.java" />
       <change beforePath="$PROJECT_DIR$/src/main/java/be/kokw/controllers/books/search/SearchBookByName.java" afterPath="$PROJECT_DIR$/src/main/java/be/kokw/controllers/books/search/SearchBookByName.java" />
       <change beforePath="$PROJECT_DIR$/src/main/java/be/kokw/controllers/books/search/SearchBookByPublisher.java" afterPath="$PROJECT_DIR$/src/main/java/be/kokw/controllers/books/search/SearchBookByPublisher.java" />
       <change beforePath="$PROJECT_DIR$/src/main/java/be/kokw/controllers/books/search/SearchBookByTitle.java" afterPath="$PROJECT_DIR$/src/main/java/be/kokw/controllers/books/search/SearchBookByTitle.java" />
       <change beforePath="$PROJECT_DIR$/src/main/java/be/kokw/controllers/books/search/SearchBookByTopic.java" afterPath="$PROJECT_DIR$/src/main/java/be/kokw/controllers/books/search/SearchBookByTopic.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/be/kokw/controllers/magazines/create/AddMagazine.java" afterPath="$PROJECT_DIR$/src/main/java/be/kokw/controllers/magazines/create/AddMagazine.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/be/kokw/repositories/books/BookRepo.java" afterPath="$PROJECT_DIR$/src/main/java/be/kokw/repositories/books/BookRepo.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/be/kokw/repositories/implementations/BookRepoImpl.java" afterPath="$PROJECT_DIR$/src/main/java/be/kokw/repositories/implementations/BookRepoImpl.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/books/found/tableView.fxml" afterPath="$PROJECT_DIR$/src/main/resources/fxml/books/found/tableView.fxml" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/books/found/tableViewBooks.fxml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/books/found/tableViewByTitle.fxml" afterPath="$PROJECT_DIR$/src/main/resources/fxml/books/found/tableViewByTitle.fxml" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/books/found/tableViewTopic.fxml" afterPath="$PROJECT_DIR$/src/main/resources/fxml/books/found/tableViewTopic.fxml" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/books/found/tableviewByPublisher.fxml" afterPath="$PROJECT_DIR$/src/main/resources/fxml/books/found/tableviewByPublisher.fxml" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/books/search/byBoughtOnBetweenDialog.fxml" afterPath="$PROJECT_DIR$/src/main/resources/fxml/books/search/byBoughtOnBetweenDialog.fxml" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/books/search/byGiftedForOnBetweenDialog.fxml" afterPath="$PROJECT_DIR$/src/main/resources/fxml/books/search/byGiftedForOnBetweenDialog.fxml" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/books/search/byGiftedForOnNameAndDateDialog.fxml" afterPath="$PROJECT_DIR$/src/main/resources/fxml/books/search/byGiftedForOnNameAndDateDialog.fxml" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/books/search/byGiftedOnBetweenDialog.fxml" afterPath="$PROJECT_DIR$/src/main/resources/fxml/books/search/byGiftedOnBetweenDialog.fxml" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/books/search/byGiftedOnDialog.fxml" afterPath="$PROJECT_DIR$/src/main/resources/fxml/books/search/byGiftedOnDialog.fxml" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/books/search/byISBNDialog.fxml" afterPath="$PROJECT_DIR$/src/main/resources/fxml/books/search/byISBNDialog.fxml" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/magazines/create/addMagazine.fxml" afterPath="$PROJECT_DIR$/src/main/resources/fxml/magazines/create/addMagazine.fxml" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/menu.fxml" afterPath="$PROJECT_DIR$/src/main/resources/fxml/menu.fxml" />
-      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" afterPath="$PROJECT_DIR$/target/classes/application.properties" />
-      <change beforePath="$PROJECT_DIR$/target/classes/be/kokw/controllers/books/create/AddBook.class" afterPath="$PROJECT_DIR$/target/classes/be/kokw/controllers/books/create/AddBook.class" />
+      <change beforePath="$PROJECT_DIR$/target/classes/be/kokw/controllers/MenuController.class" afterPath="$PROJECT_DIR$/target/classes/be/kokw/controllers/MenuController.class" />
+      <change beforePath="$PROJECT_DIR$/target/classes/be/kokw/controllers/books/search/SearchBookByDepot.class" afterPath="$PROJECT_DIR$/target/classes/be/kokw/controllers/books/search/SearchBookByDepot.class" />
+      <change beforePath="$PROJECT_DIR$/target/classes/be/kokw/controllers/books/search/SearchBookByGiftedOn.class" afterPath="$PROJECT_DIR$/target/classes/be/kokw/controllers/books/search/SearchBookByGiftedOn.class" />
+      <change beforePath="$PROJECT_DIR$/target/classes/be/kokw/controllers/books/search/SearchBookByGiftedOnBetween.class" afterPath="$PROJECT_DIR$/target/classes/be/kokw/controllers/books/search/SearchBookByGiftedOnBetween.class" />
+      <change beforePath="$PROJECT_DIR$/target/classes/be/kokw/controllers/books/search/SearchBookByIssbn.class" afterPath="$PROJECT_DIR$/target/classes/be/kokw/controllers/books/search/SearchBookByIssbn.class" />
       <change beforePath="$PROJECT_DIR$/target/classes/be/kokw/controllers/books/search/SearchBookByName.class" afterPath="$PROJECT_DIR$/target/classes/be/kokw/controllers/books/search/SearchBookByName.class" />
       <change beforePath="$PROJECT_DIR$/target/classes/be/kokw/controllers/books/search/SearchBookByPublisher.class" afterPath="$PROJECT_DIR$/target/classes/be/kokw/controllers/books/search/SearchBookByPublisher.class" />
       <change beforePath="$PROJECT_DIR$/target/classes/be/kokw/controllers/books/search/SearchBookByTitle.class" afterPath="$PROJECT_DIR$/target/classes/be/kokw/controllers/books/search/SearchBookByTitle.class" />
       <change beforePath="$PROJECT_DIR$/target/classes/be/kokw/controllers/books/search/SearchBookByTopic.class" afterPath="$PROJECT_DIR$/target/classes/be/kokw/controllers/books/search/SearchBookByTopic.class" />
-      <change beforePath="$PROJECT_DIR$/target/classes/be/kokw/controllers/magazines/create/AddMagazine.class" afterPath="$PROJECT_DIR$/target/classes/be/kokw/controllers/magazines/create/AddMagazine.class" />
-      <change beforePath="$PROJECT_DIR$/target/classes/be/kokw/repositories/implementations/BookRepoImpl.class" afterPath="$PROJECT_DIR$/target/classes/be/kokw/repositories/implementations/BookRepoImpl.class" />
-      <change beforePath="$PROJECT_DIR$/target/classes/fxml/books/found/tableView.fxml" afterPath="$PROJECT_DIR$/target/classes/fxml/books/found/tableView.fxml" />
-      <change beforePath="$PROJECT_DIR$/target/classes/fxml/books/found/tableViewByTitle.fxml" afterPath="$PROJECT_DIR$/target/classes/fxml/books/found/tableViewByTitle.fxml" />
-      <change beforePath="$PROJECT_DIR$/target/classes/fxml/books/found/tableViewTopic.fxml" afterPath="$PROJECT_DIR$/target/classes/fxml/books/found/tableViewTopic.fxml" />
-      <change beforePath="$PROJECT_DIR$/target/classes/fxml/books/found/tableviewByPublisher.fxml" afterPath="$PROJECT_DIR$/target/classes/fxml/books/found/tableviewByPublisher.fxml" />
-      <change beforePath="$PROJECT_DIR$/target/classes/fxml/books/search/byISBNDialog.fxml" afterPath="$PROJECT_DIR$/target/classes/fxml/books/search/byISBNDialog.fxml" />
-      <change beforePath="$PROJECT_DIR$/target/classes/fxml/magazines/create/addMagazine.fxml" afterPath="$PROJECT_DIR$/target/classes/fxml/magazines/create/addMagazine.fxml" />
+      <change beforePath="$PROJECT_DIR$/target/classes/fxml/books/search/byBoughtOnBetweenDialog.fxml" afterPath="$PROJECT_DIR$/target/classes/fxml/books/search/byBoughtOnBetweenDialog.fxml" />
+      <change beforePath="$PROJECT_DIR$/target/classes/fxml/books/search/byGiftedForOnBetweenDialog.fxml" afterPath="$PROJECT_DIR$/target/classes/fxml/books/search/byGiftedForOnBetweenDialog.fxml" />
+      <change beforePath="$PROJECT_DIR$/target/classes/fxml/books/search/byGiftedForOnNameAndDateDialog.fxml" afterPath="$PROJECT_DIR$/target/classes/fxml/books/search/byGiftedForOnNameAndDateDialog.fxml" />
+      <change beforePath="$PROJECT_DIR$/target/classes/fxml/books/search/byGiftedOnBetweenDialog.fxml" afterPath="$PROJECT_DIR$/target/classes/fxml/books/search/byGiftedOnBetweenDialog.fxml" />
     </list>
     <ignored path="C:/KOKW-AdminFX/out/" />
     <ignored path="C:/KOKW-AdminFX/target/" />
@@ -79,24 +53,14 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="MenuController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/be/kokw/controllers/MenuController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="454">
-              <caret line="169" column="82" lean-forward="false" selection-start-line="169" selection-start-column="82" selection-end-line="169" selection-end-column="82" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="byBoughtOnBetweenDialog.fxml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/fxml/books/search/byBoughtOnBetweenDialog.fxml">
-          <provider editor-type-id="JavaFX-Scene-Builder">
+      <file leaf-file-name="byGiftedForOnNameAndDateDialog.fxml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/fxml/books/search/byGiftedForOnNameAndDateDialog.fxml">
+          <provider selected="true" editor-type-id="JavaFX-Scene-Builder">
             <state />
           </provider>
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="9" column="87" lean-forward="false" selection-start-line="9" selection-start-column="87" selection-end-line="9" selection-end-column="87" />
+          <provider editor-type-id="text-editor">
+            <state relative-caret-position="366">
+              <caret line="25" column="52" lean-forward="false" selection-start-line="25" selection-start-column="52" selection-end-line="25" selection-end-column="52" />
               <folding />
             </state>
           </provider>
@@ -104,10 +68,10 @@
       </file>
       <file leaf-file-name="byBoughtOnDialog.fxml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/resources/fxml/books/search/byBoughtOnDialog.fxml">
-          <provider editor-type-id="JavaFX-Scene-Builder">
+          <provider selected="true" editor-type-id="JavaFX-Scene-Builder">
             <state />
           </provider>
-          <provider selected="true" editor-type-id="text-editor">
+          <provider editor-type-id="text-editor">
             <state relative-caret-position="153">
               <caret line="9" column="78" lean-forward="false" selection-start-line="9" selection-start-column="78" selection-end-line="9" selection-end-column="78" />
               <folding />
@@ -115,12 +79,25 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="byDepotDialog.fxml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/fxml/books/search/byDepotDialog.fxml">
-          <provider editor-type-id="JavaFX-Scene-Builder">
+      <file leaf-file-name="byBoughtOnBetweenDialog.fxml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/fxml/books/search/byBoughtOnBetweenDialog.fxml">
+          <provider selected="true" editor-type-id="JavaFX-Scene-Builder">
             <state />
           </provider>
-          <provider selected="true" editor-type-id="text-editor">
+          <provider editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="byDepotDialog.fxml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/fxml/books/search/byDepotDialog.fxml">
+          <provider selected="true" editor-type-id="JavaFX-Scene-Builder">
+            <state />
+          </provider>
+          <provider editor-type-id="text-editor">
             <state relative-caret-position="0">
               <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
@@ -130,12 +107,12 @@
       </file>
       <file leaf-file-name="byGiftedForOnBetweenDialog.fxml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/resources/fxml/books/search/byGiftedForOnBetweenDialog.fxml">
-          <provider editor-type-id="JavaFX-Scene-Builder">
+          <provider selected="true" editor-type-id="JavaFX-Scene-Builder">
             <state />
           </provider>
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="18" column="41" lean-forward="true" selection-start-line="18" selection-start-column="41" selection-end-line="18" selection-end-column="41" />
+          <provider editor-type-id="text-editor">
+            <state relative-caret-position="476">
+              <caret line="45" column="17" lean-forward="true" selection-start-line="13" selection-start-column="4" selection-end-line="45" selection-end-column="17" />
               <folding />
             </state>
           </provider>
@@ -143,10 +120,10 @@
       </file>
       <file leaf-file-name="byGiftedForOnDialog.fxml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/resources/fxml/books/search/byGiftedForOnDialog.fxml">
-          <provider editor-type-id="JavaFX-Scene-Builder">
+          <provider selected="true" editor-type-id="JavaFX-Scene-Builder">
             <state />
           </provider>
-          <provider selected="true" editor-type-id="text-editor">
+          <provider editor-type-id="text-editor">
             <state relative-caret-position="0">
               <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
@@ -156,10 +133,10 @@
       </file>
       <file leaf-file-name="byGiftedForOnName.fxml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/resources/fxml/books/search/byGiftedForOnName.fxml">
-          <provider editor-type-id="JavaFX-Scene-Builder">
+          <provider selected="true" editor-type-id="JavaFX-Scene-Builder">
             <state />
           </provider>
-          <provider selected="true" editor-type-id="text-editor">
+          <provider editor-type-id="text-editor">
             <state relative-caret-position="0">
               <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
@@ -167,37 +144,39 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="byGiftedForOnNameAndDateDialog.fxml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/fxml/books/search/byGiftedForOnNameAndDateDialog.fxml">
+      <file leaf-file-name="byGiftedOnBetweenDialog.fxml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/fxml/books/search/byGiftedOnBetweenDialog.fxml">
           <provider editor-type-id="JavaFX-Scene-Builder">
             <state />
           </provider>
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="408">
-              <caret line="25" column="45" lean-forward="false" selection-start-line="25" selection-start-column="45" selection-end-line="25" selection-end-column="45" />
+            <state relative-caret-position="867">
+              <caret line="51" column="17" lean-forward="false" selection-start-line="51" selection-start-column="17" selection-end-line="51" selection-end-column="17" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SearchBookByGiftedForOnNameAndDate.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/be/kokw/controllers/books/search/SearchBookByGiftedForOnNameAndDate.java">
+      <file leaf-file-name="SearchBookByGiftedOnBetween.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/be/kokw/controllers/books/search/SearchBookByGiftedOnBetween.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="675">
-              <caret line="85" column="116" lean-forward="false" selection-start-line="85" selection-start-column="116" selection-end-line="85" selection-end-column="116" />
-              <folding />
+            <state relative-caret-position="188">
+              <caret line="80" column="0" lean-forward="false" selection-start-line="80" selection-start-column="0" selection-end-line="80" selection-end-column="0" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="tableviewGiftedForOnNameAndDate.fxml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/fxml/books/found/tableviewGiftedForOnNameAndDate.fxml">
+      <file leaf-file-name="tableviewGiftedOnBetween.fxml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/fxml/books/found/tableviewGiftedOnBetween.fxml">
           <provider editor-type-id="JavaFX-Scene-Builder">
             <state />
           </provider>
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="9" column="94" lean-forward="false" selection-start-line="9" selection-start-column="94" selection-end-line="9" selection-end-column="94" />
+            <state relative-caret-position="731">
+              <caret line="43" column="30" lean-forward="false" selection-start-line="43" selection-start-column="30" selection-end-line="43" selection-end-column="30" />
               <folding />
             </state>
           </provider>
@@ -235,14 +214,8 @@
         <option value="$PROJECT_DIR$/src/main/resources/fxml/magazines/create/addMagazine.fxml" />
         <option value="$PROJECT_DIR$/src/main/java/be/kokw/controllers/books/create/AddBook.java" />
         <option value="$PROJECT_DIR$/src/main/java/be/kokw/controllers/books/delete/DerateBook.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/fxml/books/search/byISBNDialog.fxml" />
         <option value="$PROJECT_DIR$/src/main/resources/fxml/books/found/tableViewBooks.fxml" />
-        <option value="$PROJECT_DIR$/src/main/resources/fxml/books/search/byGiftedForOnNameAndDateDialog.fxml" />
-        <option value="$PROJECT_DIR$/src/main/resources/fxml/books/search/byGiftedOnDialog.fxml" />
-        <option value="$PROJECT_DIR$/src/main/resources/fxml/books/search/byBoughtOnBetweenDialog.fxml" />
         <option value="$PROJECT_DIR$/src/main/resources/fxml/books/search/byBoughtOnDialog.fxml" />
-        <option value="$PROJECT_DIR$/src/main/resources/fxml/books/search/byGiftedOnBetweenDialog.fxml" />
-        <option value="$PROJECT_DIR$/src/main/resources/fxml/books/search/byGiftedForOnBetweenDialog.fxml" />
         <option value="$PROJECT_DIR$/src/main/java/be/kokw/bean/Book.java" />
         <option value="$PROJECT_DIR$/src/main/java/be/kokw/repositories/books/BookRepo.java" />
         <option value="$PROJECT_DIR$/src/main/java/be/kokw/repositories/implementations/BookRepoImpl.java" />
@@ -258,12 +231,17 @@
         <option value="$PROJECT_DIR$/src/main/resources/fxml/books/found/tableviewByDepot.fxml" />
         <option value="$PROJECT_DIR$/src/main/resources/fxml/books/found/tableviewByBoughtOnBetween.fxml" />
         <option value="$PROJECT_DIR$/src/main/resources/fxml/books/found/tableviewByBoughtOn.fxml" />
+        <option value="$PROJECT_DIR$/src/main/resources/fxml/books/found/tableView.fxml" />
+        <option value="$PROJECT_DIR$/src/main/resources/fxml/menu.fxml" />
+        <option value="$PROJECT_DIR$/src/main/resources/fxml/books/found/tableviewGiftedForOnNameAndDate.fxml" />
+        <option value="$PROJECT_DIR$/src/main/java/be/kokw/controllers/MenuController.java" />
         <option value="$PROJECT_DIR$/src/main/java/be/kokw/controllers/books/search/SearchBookByBoughtOn.java" />
         <option value="$PROJECT_DIR$/src/main/java/be/kokw/controllers/books/search/SearchBookByBoughtOnBetween.java" />
         <option value="$PROJECT_DIR$/src/main/java/be/kokw/controllers/books/search/SearchBookByDepot.java" />
         <option value="$PROJECT_DIR$/src/main/java/be/kokw/controllers/books/search/SearchBookByGiftedForOn.java" />
         <option value="$PROJECT_DIR$/src/main/java/be/kokw/controllers/books/search/SearchBookByGiftedForOnBetween.java" />
         <option value="$PROJECT_DIR$/src/main/java/be/kokw/controllers/books/search/SearchBookByGiftedForOnName.java" />
+        <option value="$PROJECT_DIR$/src/main/java/be/kokw/controllers/books/search/SearchBookByGiftedForOnNameAndDate.java" />
         <option value="$PROJECT_DIR$/src/main/java/be/kokw/controllers/books/search/SearchBookByGiftedOn.java" />
         <option value="$PROJECT_DIR$/src/main/java/be/kokw/controllers/books/search/SearchBookByGiftedOnBetween.java" />
         <option value="$PROJECT_DIR$/src/main/java/be/kokw/controllers/books/search/SearchBookByIssbn.java" />
@@ -271,11 +249,12 @@
         <option value="$PROJECT_DIR$/src/main/java/be/kokw/controllers/books/search/SearchBookByPublisher.java" />
         <option value="$PROJECT_DIR$/src/main/java/be/kokw/controllers/books/search/SearchBookByTitle.java" />
         <option value="$PROJECT_DIR$/src/main/java/be/kokw/controllers/books/search/SearchBookByTopic.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/fxml/books/found/tableView.fxml" />
-        <option value="$PROJECT_DIR$/src/main/resources/fxml/menu.fxml" />
-        <option value="$PROJECT_DIR$/src/main/java/be/kokw/controllers/MenuController.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/fxml/books/found/tableviewGiftedForOnNameAndDate.fxml" />
-        <option value="$PROJECT_DIR$/src/main/java/be/kokw/controllers/books/search/SearchBookByGiftedForOnNameAndDate.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/fxml/books/search/byGiftedOnDialog.fxml" />
+        <option value="$PROJECT_DIR$/src/main/resources/fxml/books/search/byBoughtOnBetweenDialog.fxml" />
+        <option value="$PROJECT_DIR$/src/main/resources/fxml/books/search/byGiftedForOnBetweenDialog.fxml" />
+        <option value="$PROJECT_DIR$/src/main/resources/fxml/books/search/byISBNDialog.fxml" />
+        <option value="$PROJECT_DIR$/src/main/resources/fxml/books/search/byGiftedForOnNameAndDateDialog.fxml" />
+        <option value="$PROJECT_DIR$/src/main/resources/fxml/books/search/byGiftedOnBetweenDialog.fxml" />
       </list>
     </option>
   </component>
@@ -1100,12 +1079,12 @@
       <workItem from="1514369793767" duration="16593000" />
       <workItem from="1514454982672" duration="25930000" />
       <workItem from="1514543466848" duration="30833000" />
-      <workItem from="1514639995146" duration="16362000" />
+      <workItem from="1514639995146" duration="21253000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="614084000" />
+    <option name="totallyTimeSpent" value="618975000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1456" height="876" extended-state="6" />
@@ -1130,7 +1109,7 @@
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32923833" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18717277" sideWeight="0.48680556" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19633508" sideWeight="0.48680556" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32923833" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25972223" sideWeight="0.86621624" order="0" side_tool="false" content_ui="combo" />
@@ -1224,17 +1203,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/fxml/books/search/byISBNDialog.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="181">
-          <caret line="16" column="38" lean-forward="false" selection-start-line="16" selection-start-column="38" selection-end-line="16" selection-end-column="38" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/fxml/books/found/tableViewBooks.fxml">
       <provider editor-type-id="JavaFX-Scene-Builder">
         <state />
@@ -1242,28 +1210,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/fxml/books/search/byGiftedOnDialog.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" column="45" lean-forward="false" selection-start-line="16" selection-start-column="45" selection-end-line="16" selection-end-column="45" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/fxml/books/search/byGiftedOnBetweenDialog.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="141">
-          <caret line="9" column="87" lean-forward="false" selection-start-line="9" selection-start-column="87" selection-end-line="9" selection-end-column="87" />
           <folding />
         </state>
       </provider>
@@ -1403,17 +1349,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/fxml/books/found/tableviewGiftedOnBetween.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="379">
-          <caret line="43" column="30" lean-forward="false" selection-start-line="43" selection-start-column="30" selection-end-line="43" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/fxml/books/found/tableviewGiftedForOnName.fxml">
       <provider editor-type-id="JavaFX-Scene-Builder">
         <state />
@@ -1443,123 +1378,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
           <caret line="37" column="77" lean-forward="false" selection-start-line="37" selection-start-column="77" selection-end-line="37" selection-end-column="77" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/be/kokw/controllers/books/search/SearchBookByBoughtOn.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="174">
-          <caret line="16" column="0" lean-forward="false" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/be/kokw/controllers/books/search/SearchBookByBoughtOnBetween.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="338">
-          <caret line="93" column="82" lean-forward="false" selection-start-line="93" selection-start-column="82" selection-end-line="93" selection-end-column="82" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/be/kokw/controllers/books/search/SearchBookByDepot.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="403">
-          <caret line="108" column="84" lean-forward="false" selection-start-line="108" selection-start-column="84" selection-end-line="108" selection-end-column="84" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#2363#2364#0" expanded="false" />
-            <element signature="e#2394#2395#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/be/kokw/controllers/books/search/SearchBookByGiftedForOn.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="98" column="88" lean-forward="true" selection-start-line="98" selection-start-column="88" selection-end-line="99" selection-end-column="88" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/be/kokw/controllers/books/search/SearchBookByGiftedForOnBetween.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="371">
-          <caret line="79" column="87" lean-forward="false" selection-start-line="79" selection-start-column="87" selection-end-line="79" selection-end-column="87" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/be/kokw/controllers/books/search/SearchBookByGiftedForOnName.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-483">
-          <caret line="8" column="24" lean-forward="false" selection-start-line="8" selection-start-column="24" selection-end-line="8" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/be/kokw/controllers/books/search/SearchBookByGiftedOn.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="80">
-          <caret line="16" column="0" lean-forward="false" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
-          <folding>
-            <element signature="e#2059#2060#0" expanded="false" />
-            <element signature="e#2090#2091#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/be/kokw/controllers/books/search/SearchBookByGiftedOnBetween.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="174">
-          <caret line="16" column="0" lean-forward="false" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/be/kokw/controllers/books/search/SearchBookByIssbn.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="377">
-          <caret line="107" column="88" lean-forward="true" selection-start-line="107" selection-start-column="88" selection-end-line="108" selection-end-column="88" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/be/kokw/controllers/books/search/SearchBookByName.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="2" column="25" lean-forward="false" selection-start-line="2" selection-start-column="25" selection-end-line="2" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/be/kokw/controllers/books/search/SearchBookByPublisher.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="359">
-          <caret line="113" column="92" lean-forward="false" selection-start-line="113" selection-start-column="92" selection-end-line="113" selection-end-column="92" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/be/kokw/controllers/books/search/SearchBookByTitle.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="348">
-          <caret line="115" column="92" lean-forward="false" selection-start-line="115" selection-start-column="92" selection-end-line="115" selection-end-column="92" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/be/kokw/controllers/books/search/SearchBookByTopic.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="109" column="92" lean-forward="false" selection-start-line="109" selection-start-column="92" selection-end-line="109" selection-end-column="92" />
           <folding />
         </state>
       </provider>
@@ -1663,91 +1481,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/be/kokw/controllers/MenuController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="454">
-          <caret line="169" column="82" lean-forward="false" selection-start-line="169" selection-start-column="82" selection-end-line="169" selection-end-column="82" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/fxml/books/search/byBoughtOnBetweenDialog.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="87" lean-forward="false" selection-start-line="9" selection-start-column="87" selection-end-line="9" selection-end-column="87" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/fxml/books/search/byBoughtOnDialog.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="78" lean-forward="false" selection-start-line="9" selection-start-column="78" selection-end-line="9" selection-end-column="78" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/fxml/books/search/byDepotDialog.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/fxml/books/search/byGiftedForOnBetweenDialog.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="18" column="41" lean-forward="true" selection-start-line="18" selection-start-column="41" selection-end-line="18" selection-end-column="41" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/fxml/books/search/byGiftedForOnDialog.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/fxml/books/search/byGiftedForOnName.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/fxml/books/search/byGiftedForOnNameAndDateDialog.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="25" column="45" lean-forward="false" selection-start-line="25" selection-start-column="45" selection-end-line="25" selection-end-column="45" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/fxml/books/found/tableviewGiftedForOnNameAndDate.fxml">
       <provider editor-type-id="JavaFX-Scene-Builder">
         <state />
@@ -1759,11 +1492,254 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/be/kokw/controllers/MenuController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="191">
+          <caret line="149" column="0" lean-forward="false" selection-start-line="149" selection-start-column="0" selection-end-line="149" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/be/kokw/controllers/books/search/SearchBookByBoughtOn.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="366">
+          <caret line="73" column="42" lean-forward="false" selection-start-line="73" selection-start-column="12" selection-end-line="73" selection-end-column="42" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/be/kokw/controllers/books/search/SearchBookByBoughtOnBetween.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="55">
+          <caret line="75" column="42" lean-forward="false" selection-start-line="75" selection-start-column="42" selection-end-line="75" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/be/kokw/controllers/books/search/SearchBookByGiftedForOn.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="256">
+          <caret line="80" column="42" lean-forward="false" selection-start-line="80" selection-start-column="42" selection-end-line="80" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/be/kokw/controllers/books/search/SearchBookByGiftedForOnBetween.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="82" column="42" lean-forward="false" selection-start-line="82" selection-start-column="42" selection-end-line="82" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/be/kokw/controllers/books/search/SearchBookByGiftedForOnName.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="222">
+          <caret line="80" column="42" lean-forward="false" selection-start-line="80" selection-start-column="42" selection-end-line="80" selection-end-column="42" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/be/kokw/controllers/books/search/SearchBookByGiftedForOnNameAndDate.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="675">
-          <caret line="85" column="116" lean-forward="false" selection-start-line="85" selection-start-column="116" selection-end-line="85" selection-end-column="116" />
+        <state relative-caret-position="193">
+          <caret line="83" column="42" lean-forward="false" selection-start-line="83" selection-start-column="42" selection-end-line="83" selection-end-column="42" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/be/kokw/controllers/books/search/SearchBookByGiftedOn.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="99">
+          <caret line="75" column="42" lean-forward="false" selection-start-line="75" selection-start-column="42" selection-end-line="75" selection-end-column="42" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/be/kokw/controllers/books/search/SearchBookByIssbn.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="20">
+          <caret line="86" column="42" lean-forward="false" selection-start-line="86" selection-start-column="42" selection-end-line="86" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/be/kokw/controllers/books/search/SearchBookByName.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="382">
+          <caret line="95" column="46" lean-forward="false" selection-start-line="95" selection-start-column="46" selection-end-line="95" selection-end-column="46" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/be/kokw/controllers/books/search/SearchBookByPublisher.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="446">
+          <caret line="121" column="46" lean-forward="false" selection-start-line="121" selection-start-column="46" selection-end-line="121" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/be/kokw/controllers/books/search/SearchBookByTitle.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="484">
+          <caret line="123" column="46" lean-forward="false" selection-start-line="123" selection-start-column="46" selection-end-line="123" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/be/kokw/controllers/books/search/SearchBookByTopic.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="426">
+          <caret line="117" column="46" lean-forward="false" selection-start-line="117" selection-start-column="46" selection-end-line="117" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/be/kokw/controllers/books/search/SearchBookByDepot.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="76">
+          <caret line="86" column="42" lean-forward="false" selection-start-line="86" selection-start-column="42" selection-end-line="86" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/fxml/books/search/byGiftedOnDialog.fxml">
+      <provider selected="true" editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="17" column="45" lean-forward="false" selection-start-line="17" selection-start-column="45" selection-end-line="17" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/fxml/books/search/byISBNDialog.fxml">
+      <provider selected="true" editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="17" column="38" lean-forward="false" selection-start-line="17" selection-start-column="38" selection-end-line="17" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/fxml/books/search/byGiftedForOnDialog.fxml">
+      <provider selected="true" editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/fxml/books/search/byGiftedForOnBetweenDialog.fxml">
+      <provider selected="true" editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="476">
+          <caret line="45" column="17" lean-forward="true" selection-start-line="13" selection-start-column="4" selection-end-line="45" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/fxml/books/search/byBoughtOnDialog.fxml">
+      <provider selected="true" editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="78" lean-forward="false" selection-start-line="9" selection-start-column="78" selection-end-line="9" selection-end-column="78" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/fxml/books/search/byBoughtOnBetweenDialog.fxml">
+      <provider selected="true" editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/fxml/books/search/byDepotDialog.fxml">
+      <provider selected="true" editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/fxml/books/search/byGiftedForOnName.fxml">
+      <provider selected="true" editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/fxml/books/search/byGiftedForOnNameAndDateDialog.fxml">
+      <provider selected="true" editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="366">
+          <caret line="25" column="52" lean-forward="false" selection-start-line="25" selection-start-column="52" selection-end-line="25" selection-end-column="52" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/fxml/books/search/byGiftedOnBetweenDialog.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="867">
+          <caret line="51" column="17" lean-forward="false" selection-start-line="51" selection-start-column="17" selection-end-line="51" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/fxml/books/found/tableviewGiftedOnBetween.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="731">
+          <caret line="43" column="30" lean-forward="false" selection-start-line="43" selection-start-column="30" selection-end-line="43" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/be/kokw/controllers/books/search/SearchBookByGiftedOnBetween.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="188">
+          <caret line="80" column="0" lean-forward="false" selection-start-line="80" selection-start-column="0" selection-end-line="80" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

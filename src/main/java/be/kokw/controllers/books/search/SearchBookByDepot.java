@@ -84,6 +84,7 @@ public class SearchBookByDepot {
         ObservableList<Book> bookList = observableArrayList(bookRepo.findByDepot(depot.getText()));
         if (bookList.isEmpty()) {
             Warning.alert("No Books found!", "Er werden geen boeken gevonden met " + depot.getText() + " als depotnummer.");
+            MenuController.window.close();
         } else {
             MenuController.window.close();
             ChangeScene.init("/fxml/books/found/tableviewByDepot.fxml", "Books by DepotNumber");
@@ -103,7 +104,7 @@ public class SearchBookByDepot {
             illusCol.setCellValueFactory(new PropertyValueFactory<>("illustrated"));
             copiesCol.setCellValueFactory(new PropertyValueFactory<>("copies"));
             boughtCol.setCellValueFactory(new PropertyValueFactory<>("boughtOn"));
-            giftedByCol.setCellValueFactory(new PropertyValueFactory<>("name"));
+            giftedByCol.setCellValueFactory(new PropertyValueFactory<>("name_gifter"));
             giftedOnCol.setCellValueFactory(new PropertyValueFactory<>("giftedOn"));
             conNrCol.setCellValueFactory(new PropertyValueFactory<>("contract_number"));
             conDateCol.setCellValueFactory(new PropertyValueFactory<>("contract_date"));

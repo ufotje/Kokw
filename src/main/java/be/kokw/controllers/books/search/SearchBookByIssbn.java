@@ -84,6 +84,7 @@ public class SearchBookByIssbn {
         ObservableList<Book> bookList = observableArrayList(bookRepo.findByIsbn(isbn.getText()));
         if (bookList.isEmpty()) {
             Warning.alert("No Books found!", "Er werden geen boeken gevonden met " + isbn.getText() + " als isbnnummer.");
+            MenuController.window.close();
         } else {
             MenuController.window.close();
             ChangeScene.init("/fxml/books/found/tableviewByIssn.fxml", "Books by IsbnNumber");
@@ -103,7 +104,7 @@ public class SearchBookByIssbn {
             illusCol.setCellValueFactory(new PropertyValueFactory<>("illustrated"));
             copiesCol.setCellValueFactory(new PropertyValueFactory<>("copies"));
             boughtCol.setCellValueFactory(new PropertyValueFactory<>("boughtOn"));
-            giftedByCol.setCellValueFactory(new PropertyValueFactory<>("name"));
+            giftedByCol.setCellValueFactory(new PropertyValueFactory<>("name_gifter"));
             giftedOnCol.setCellValueFactory(new PropertyValueFactory<>("giftedOn"));
             conNrCol.setCellValueFactory(new PropertyValueFactory<>("contract_number"));
             conDateCol.setCellValueFactory(new PropertyValueFactory<>("contract_date"));

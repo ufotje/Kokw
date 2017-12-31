@@ -108,7 +108,7 @@ public class SearchBookByPublisher {
                 illusCol.setCellValueFactory(new PropertyValueFactory<>("illustrated"));
                 copiesCol.setCellValueFactory(new PropertyValueFactory<>("copies"));
                 boughtCol.setCellValueFactory(new PropertyValueFactory<>("boughtOn"));
-                giftedByCol.setCellValueFactory(new PropertyValueFactory<>("name"));
+                giftedByCol.setCellValueFactory(new PropertyValueFactory<>("name_gifter"));
                 giftedOnCol.setCellValueFactory(new PropertyValueFactory<>("giftedOn"));
                 conNrCol.setCellValueFactory(new PropertyValueFactory<>("contract_number"));
                 conDateCol.setCellValueFactory(new PropertyValueFactory<>("contract_date"));
@@ -119,6 +119,7 @@ public class SearchBookByPublisher {
                 table.setItems(bookList);
             }else{
                 Warning.alert("Book Not Found","Er werden geen boeken gevonden die werden uitgegeven door: '" + publisher.getText() + "'!");
+                MenuController.window.close();
             }
         }
     }

@@ -73,6 +73,7 @@ public class SearchBookByBoughtOnBetween {
         ObservableList<Book> bookList = observableArrayList(bookRepo.findByBoughtOnBetween(start.getValue(), end.getValue()));
         if (bookList.isEmpty()) {
             Warning.alert("No Books found!", "Er werden geen boeken gevonden die tussen " + start.getValue() + " en " + end.getValue() + " werden aangekocht.");
+            MenuController.window.close();
         } else {
             MenuController.window.close();
             ChangeScene.init("/fxml/books/found/tableviewByBoughtOnBetween.fxml", "Books by Bought Between");

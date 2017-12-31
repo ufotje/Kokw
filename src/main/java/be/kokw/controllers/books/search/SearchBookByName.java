@@ -93,6 +93,7 @@ public class SearchBookByName {
             ObservableList<Book> bookList = observableArrayList(bookRepo.findByAuthorsContains(firstName.getText() + " " + lastName.getText()));
             if (bookList.isEmpty()) {
                 Warning.alert("No Books found!", "Er werden geen boeken gevonden geschreven door " + firstName.getText() + " " + lastName.getText());
+                MenuController.window.close();
             } else {
 
                 MenuController.window.close();
@@ -113,7 +114,7 @@ public class SearchBookByName {
                 illusCol.setCellValueFactory(new PropertyValueFactory<>("illustrated"));
                 copiesCol.setCellValueFactory(new PropertyValueFactory<>("copies"));
                 boughtCol.setCellValueFactory(new PropertyValueFactory<>("boughtOn"));
-                giftedByCol.setCellValueFactory(new PropertyValueFactory<>("name"));
+                giftedByCol.setCellValueFactory(new PropertyValueFactory<>("name_gifter"));
                 giftedOnCol.setCellValueFactory(new PropertyValueFactory<>("giftedOn"));
                 conNrCol.setCellValueFactory(new PropertyValueFactory<>("contract_number"));
                 conDateCol.setCellValueFactory(new PropertyValueFactory<>("contract_date"));

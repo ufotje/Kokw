@@ -80,6 +80,7 @@ public class SearchBookByGiftedForOnBetween {
         ObservableList<Book> bookList = observableArrayList(bookRepo.findByContractDateBetween(start.getValue(), end.getValue()));
         if (bookList.isEmpty()) {
             Warning.alert("No Books found!", "Er werden geen boeken gevonden die tussen " + start.getValue() + " en " + end.getValue() + " werden gedoneerd met tegenprestatie.");
+            MenuController.window.close();
         } else {
             MenuController.window.close();
             ChangeScene.init("/fxml/books/found/tableviewByGiftedForOnBetween.fxml", "Books by Donated Between");

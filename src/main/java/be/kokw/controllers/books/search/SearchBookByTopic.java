@@ -104,7 +104,7 @@ public class SearchBookByTopic {
                 illusCol.setCellValueFactory(new PropertyValueFactory<>("illustrated"));
                 copiesCol.setCellValueFactory(new PropertyValueFactory<>("copies"));
                 boughtCol.setCellValueFactory(new PropertyValueFactory<>("boughtOn"));
-                giftedByCol.setCellValueFactory(new PropertyValueFactory<>("name"));
+                giftedByCol.setCellValueFactory(new PropertyValueFactory<>("name_gifter"));
                 giftedOnCol.setCellValueFactory(new PropertyValueFactory<>("giftedOn"));
                 conNrCol.setCellValueFactory(new PropertyValueFactory<>("contract_number"));
                 conDateCol.setCellValueFactory(new PropertyValueFactory<>("contract_date"));
@@ -115,6 +115,7 @@ public class SearchBookByTopic {
                 table.setItems(bookList);
             } else {
                 Warning.alert("No Books Found", "Er werden geen boeken met '" + topic.getText() + "' als onderwerp gevonden!");
+                MenuController.window.close();
             }
         }
     }

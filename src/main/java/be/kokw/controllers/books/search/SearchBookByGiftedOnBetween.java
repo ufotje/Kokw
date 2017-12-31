@@ -75,6 +75,7 @@ public class SearchBookByGiftedOnBetween {
         ObservableList<Book> bookList = observableArrayList(bookRepo.findByGiftedOnBetween(start.getValue(), end.getValue()));
         if (bookList.isEmpty()) {
             Warning.alert("No Books found!", "Er werden geen boeken gevonden die tussen " + start.getValue() + " en " + end.getValue() + " werden gedoneerd.");
+            MenuController.window.close();
         } else {
             MenuController.window.close();
             ChangeScene.init("/fxml/books/found/tableviewByGiftedOnBetween.fxml", "Books by Donated Between");
@@ -93,7 +94,7 @@ public class SearchBookByGiftedOnBetween {
             pagesCol.setCellValueFactory(new PropertyValueFactory<>("nrOfPages"));
             illusCol.setCellValueFactory(new PropertyValueFactory<>("illustrated"));
             copiesCol.setCellValueFactory(new PropertyValueFactory<>("copies"));
-            giftedByCol.setCellValueFactory(new PropertyValueFactory<>("name"));
+            giftedByCol.setCellValueFactory(new PropertyValueFactory<>("name_gifter"));
             giftedOnCol.setCellValueFactory(new PropertyValueFactory<>("giftedOn"));
             deratedCol.setCellValueFactory(new PropertyValueFactory<>("derated"));
             destinationCol.setCellValueFactory(new PropertyValueFactory<>("destination"));

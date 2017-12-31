@@ -71,6 +71,7 @@ public class SearchBookByBoughtOn {
         ObservableList<Book> bookList = observableArrayList(bookRepo.findByBoughtOn(date.getValue()));
         if (bookList.isEmpty()) {
             Warning.alert("No Books found!", "Er werden geen boeken gevonden die op " + date.getValue() + " werden aangekocht.");
+            MenuController.window.close();
         } else {
             MenuController.window.close();
             ChangeScene.init("/fxml/books/found/tableviewByBoughtOn.fxml", "Books by Bought on");

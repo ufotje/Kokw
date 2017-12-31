@@ -78,6 +78,7 @@ public class SearchBookByGiftedForOnName {
         ObservableList<Book> bookList = observableArrayList(bookRepo.findByContractor(name.getText()));
         if (bookList.isEmpty()) {
             Warning.alert("No Books found!", "Er werden geen boeken gevonden die door " + name.getText() + " werden gedoneerd met tegenprestatie.");
+            MenuController.window.close();
         } else {
             MenuController.window.close();
             ChangeScene.init("/fxml/books/found/tableviewByGiftedForOnName.fxml", "Books by Donated for by");

@@ -110,7 +110,7 @@ public class SearchBookByTitle {
                 illusCol.setCellValueFactory(new PropertyValueFactory<>("illustrated"));
                 copiesCol.setCellValueFactory(new PropertyValueFactory<>("copies"));
                 boughtCol.setCellValueFactory(new PropertyValueFactory<>("boughtOn"));
-                giftedByCol.setCellValueFactory(new PropertyValueFactory<>("name"));
+                giftedByCol.setCellValueFactory(new PropertyValueFactory<>("name_gifter"));
                 giftedOnCol.setCellValueFactory(new PropertyValueFactory<>("giftedOn"));
                 conNrCol.setCellValueFactory(new PropertyValueFactory<>("contract_number"));
                 conDateCol.setCellValueFactory(new PropertyValueFactory<>("contract_date"));
@@ -121,6 +121,7 @@ public class SearchBookByTitle {
                 table.setItems(bookList);
             }else{
                 Warning.alert("Book Not Found","The book '" + title.getText() + "' has not been found!");
+                MenuController.window.close();
             }
         }
     }
