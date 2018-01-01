@@ -44,7 +44,7 @@ public class DerateBook {
     @FXML
     private void derate(){
         Book b = repo.findByTitle(title.getText());
-        Derated derated = new Derated(LocalDate.now(), destination.getValue(), b.getIsbn(), b.getDepot(), b.getTitle(), b.getAuthors());
+        Derated derated = new Derated(b.getId(),LocalDate.now(), destination.getValue(), b.getIsbn(), b.getDepot(), b.getTitle(), b.getAuthors());
         Derated d = derateRepo.save(derated);
         int i = repo.updateDeratedAndDestination(title.getText());
         MenuController.window.close();

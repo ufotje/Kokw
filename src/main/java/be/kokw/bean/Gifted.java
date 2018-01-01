@@ -11,9 +11,10 @@ public class Gifted implements Serializable{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private long id;
+    private int bookId;
     private String name;
     private LocalDate giftedOn;
-    @OneToOne(targetEntity = Book.class, mappedBy = "giftedBy",fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "book_id", referencedColumnName = "id", nullable = false)
     private Book book;
     private String issbn;
@@ -28,6 +29,7 @@ public class Gifted implements Serializable{
         this.name = name;
         this.giftedOn = giftedOn;
         this.book = book;
+        bookId = book.getId();
         issbn = book.getIsbn();
         depot = book.getDepot();
         title = book.getTitle();
@@ -40,6 +42,14 @@ public class Gifted implements Serializable{
 
     public void setId(long id) {
         this.id = id;
+    }
+
+    public int getBookId() {
+        return bookId;
+    }
+
+    public void setBookId(int bookId) {
+        this.bookId = bookId;
     }
 
     public String getName() {

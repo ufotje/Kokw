@@ -36,23 +36,6 @@
                 <TableColumn fx:id="pagesCol" prefWidth="60.0" text="Pages"/>
                 <TableColumn fx:id="illusCol" text="Geïllustreerd"/>
                 <TableColumn fx:id="copiesCol" prefWidth="60" text="Aantal"/>
-                <TableColumn fx:id="boughtCol" prefWidth="100.0" text="Gekocht Op"/>
-                <TableColumn prefWidth="300.0" text="Gedoneerd">
-                    <columns>
-                        <TableColumn fx:id="giftedByCol" prefWidth="150.0" text="Gedoneerd door"/>
-                        <TableColumn fx:id="giftedOnCol" prefWidth="100.0" text="Donatiedatum"/>
-                    </columns>
-                </TableColumn>
-                <TableColumn prefWidth="450.0" text="Gedoneerd tegen">
-                    <columns>
-                        <TableColumn fx:id="conNrCol" prefWidth="100" text="Contractnummer"/>
-                        <TableColumn fx:id="conDateCol" prefWidth="100" text="Datum"/>
-                        <TableColumn fx:id="conNameCol" prefWidth="150" text="Contractant"/>
-                        <TableColumn fx:id="conCol" prefWidth="100" text="Contract"/>
-                    </columns>
-                </TableColumn>
-                <TableColumn fx:id="deratedCol" prefWidth="100.0" text="Geklassseerd"/>
-                <TableColumn fx:id="destinationCol" prefWidth="100.0" text="Bestemming"/>
             </columns>
         </TableView>
     </center>

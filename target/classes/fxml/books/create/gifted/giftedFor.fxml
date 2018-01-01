@@ -2,6 +2,7 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.HBox?>
@@ -26,20 +27,17 @@
         </TextField>
     </HBox>
     <HBox>
-        <Label text="ContractNummer:">
-            <font>
-                <Font size="14.0" />
-            </font>
+        <TextField fx:id="contractNr" prefHeight="25.0" prefWidth="78.0" promptText="contractNr">
             <HBox.margin>
                 <Insets left="50.0" top="10.0" />
             </HBox.margin>
-        </Label>
-        <TextField fx:id="contractNr" prefHeight="25.0" prefWidth="60.0">
-            <HBox.margin>
-                <Insets left="15.0" top="10.0" />
-            </HBox.margin>
         </TextField>
-        <Button mnemonicParsing="false" onAction="#chooseFile" prefHeight="25.0" prefWidth="244.0" style="-fx-background-radius: 10;" text="Voeg Contract Toe">
+      <DatePicker fx:id="contractDate" promptText="ContractDate">
+         <HBox.margin>
+            <Insets left="50.0" top="10.0" />
+         </HBox.margin>
+      </DatePicker>
+        <Button mnemonicParsing="false" onAction="#chooseFile" prefHeight="25.0" prefWidth="127.0" style="-fx-background-radius: 10;" text="Voeg Contract Toe">
             <HBox.margin>
                 <Insets left="50.0" top="10.0" />
             </HBox.margin>
@@ -54,6 +52,9 @@
             <font>
                <Font size="14.0" />
             </font>
+            <HBox.margin>
+               <Insets bottom="10.0" />
+            </HBox.margin>
          </Button>
       </children>
    </HBox>

@@ -16,9 +16,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
-import java.io.File;
-import java.time.LocalDate;
-
 import static javafx.collections.FXCollections.observableArrayList;
 
 
@@ -46,25 +43,7 @@ public class SearchBookByName {
     @FXML
     private TableColumn<Book, Boolean> illusCol;
     @FXML
-    private TableColumn<Book, LocalDate> boughtCol;
-    @FXML
     private TableColumn<Book, Integer> copiesCol;
-    @FXML
-    private TableColumn<Book, Boolean> deratedCol;
-    @FXML
-    private TableColumn<Book, String> destinationCol;
-    @FXML
-    private TableColumn<Book, String> conNameCol;
-    @FXML
-    private TableColumn<Book, LocalDate> conDateCol;
-    @FXML
-    private TableColumn<Book,File> conCol;
-    @FXML
-    private TableColumn<Book,String>conNrCol;
-    @FXML
-    private TableColumn<Book, String> giftedByCol;
-    @FXML
-    private TableColumn<Book, LocalDate> giftedOnCol;
     @FXML
     private TableColumn<Book, String> titleCol;
     @FXML
@@ -113,15 +92,6 @@ public class SearchBookByName {
                 pagesCol.setCellValueFactory(new PropertyValueFactory<>("nrOfPages"));
                 illusCol.setCellValueFactory(new PropertyValueFactory<>("illustrated"));
                 copiesCol.setCellValueFactory(new PropertyValueFactory<>("copies"));
-                boughtCol.setCellValueFactory(new PropertyValueFactory<>("boughtOn"));
-                giftedByCol.setCellValueFactory(new PropertyValueFactory<>("nameGifter"));
-                giftedOnCol.setCellValueFactory(new PropertyValueFactory<>("giftedOn"));
-                conNrCol.setCellValueFactory(new PropertyValueFactory<>("contractNumber"));
-                conDateCol.setCellValueFactory(new PropertyValueFactory<>("contractDate"));
-                conNameCol.setCellValueFactory(new PropertyValueFactory<>("contractor"));
-                conCol.setCellValueFactory(new PropertyValueFactory<>("contract"));
-                deratedCol.setCellValueFactory(new PropertyValueFactory<>("derated"));
-                destinationCol.setCellValueFactory(new PropertyValueFactory<>("destination"));
                 table.setItems(bookList);
             }
         }

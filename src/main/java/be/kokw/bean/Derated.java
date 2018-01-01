@@ -10,6 +10,7 @@ public class Derated {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private int id;
+    private int bookId;
     @Column(name = "derateDate")
     private LocalDate derated;
     @Column(name = "destination")
@@ -26,7 +27,8 @@ public class Derated {
     public Derated() {
     }
 
-    public Derated(LocalDate derated, String destination, String isbn, String depot, String title, String authors) {
+    public Derated(int bookId, LocalDate derated, String destination, String isbn, String depot, String title, String authors) {
+        this.bookId = bookId;
         this.derated = derated;
         this.destination = destination;
         this.isbn = isbn;
@@ -41,6 +43,14 @@ public class Derated {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public int getBookId() {
+        return bookId;
+    }
+
+    public void setBookId(int bookId) {
+        this.bookId = bookId;
     }
 
     public LocalDate getDerated() {
