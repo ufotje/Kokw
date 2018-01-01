@@ -110,10 +110,10 @@ public class SearchBookByTitle {
                 illusCol.setCellValueFactory(new PropertyValueFactory<>("illustrated"));
                 copiesCol.setCellValueFactory(new PropertyValueFactory<>("copies"));
                 boughtCol.setCellValueFactory(new PropertyValueFactory<>("boughtOn"));
-                giftedByCol.setCellValueFactory(new PropertyValueFactory<>("name_gifter"));
+                giftedByCol.setCellValueFactory(new PropertyValueFactory<>("nameGifter"));
                 giftedOnCol.setCellValueFactory(new PropertyValueFactory<>("giftedOn"));
-                conNrCol.setCellValueFactory(new PropertyValueFactory<>("contract_number"));
-                conDateCol.setCellValueFactory(new PropertyValueFactory<>("contract_date"));
+                conNrCol.setCellValueFactory(new PropertyValueFactory<>("contractNumber"));
+                conDateCol.setCellValueFactory(new PropertyValueFactory<>("contractDate"));
                 conNameCol.setCellValueFactory(new PropertyValueFactory<>("contractor"));
                 conCol.setCellValueFactory(new PropertyValueFactory<>("contract"));
                 deratedCol.setCellValueFactory(new PropertyValueFactory<>("derated"));

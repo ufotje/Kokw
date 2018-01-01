@@ -65,4 +65,7 @@ public interface BookRepo extends JpaRepository<Book, Long> {
 
     @Transactional
     int update(int id, String title, String topic, String firstName, String lastName, String publisher, String place, int year, int pages);
+
+    @Transactional
+    int updateDeratedAndDestination( String title);
 }

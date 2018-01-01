@@ -2,10 +2,8 @@ package be.kokw.bean;
 
 
 import javax.persistence.*;
-import java.io.File;
 import java.io.Serializable;
 import java.time.LocalDate;
-import java.util.List;
 
 /**
  * Created by ufotje on 4/10/2017.
@@ -41,30 +39,11 @@ public class Book implements Serializable {
     private int nrOfPages;
     @Column(name = "Bought_On")
     private LocalDate boughtOn;
-    @Column(name = "Derated")
-    private LocalDate derated;
-    @Column(name = "Destination")
-    private String destination;
     @Column(name = "Illustrated")
     private boolean illustrated;
     @Column(name = "authors")
     private String authors;
     private String topics;
-    /* @JoinColumn(name = "id_gifted", referencedColumnName = "id")
-     @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-     private Gifted gift;
-     @JoinColumn(name = "id_gifted_for", referencedColumnName = "id")
-     @OneToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
-     private GiftedFor giftedFor;*/
-    private String nameGifter;
-    private LocalDate giftedOn;
-    @Column(name = "Contract_Number")
-    private String contractNr;
-    @Column(name = "contractor")
-    private String contractor;
-    @Column(name = "Contract")
-    private File contract;
-    private LocalDate contractDate;
 
     public Book() {
     }
@@ -198,22 +177,6 @@ public class Book implements Serializable {
         this.boughtOn = boughtOn;
     }
 
-    public LocalDate getDerated() {
-        return derated;
-    }
-
-    public void setDerated(LocalDate derated) {
-        this.derated = derated;
-    }
-
-    public String getDestination() {
-        return destination;
-    }
-
-    public void setDestination(String destination) {
-        this.destination = destination;
-    }
-
     public boolean isIllustrated() {
         return illustrated;
     }
@@ -236,69 +199,5 @@ public class Book implements Serializable {
 
     public void setTopics(String topics) {
         this.topics = topics;
-    }
-
-  /*  public Gifted getGift() {
-        return gift;
-    }
-
-    public void setGift(Gifted gift) {
-        this.gift = gift;
-    }
-
-    public GiftedFor getGiftedFor() {
-        return giftedFor;
-    }
-
-    public void setGiftedFor(GiftedFor giftedFor) {
-        this.giftedFor = giftedFor;
-    }*/
-
-    public String getNameGifter() {
-        return nameGifter;
-    }
-
-    public void setNameGifter(String nameGifter) {
-        this.nameGifter = nameGifter;
-    }
-
-    public LocalDate getGiftedOn() {
-        return giftedOn;
-    }
-
-    public void setGiftedOn(LocalDate giftedOn) {
-        this.giftedOn = giftedOn;
-    }
-
-    public String getContractNr() {
-        return contractNr;
-    }
-
-    public void setContractNr(String contractNr) {
-        this.contractNr = contractNr;
-    }
-
-    public String getContractor() {
-        return contractor;
-    }
-
-    public void setContractor(String contractor) {
-        this.contractor = contractor;
-    }
-
-    public File getContract() {
-        return contract;
-    }
-
-    public void setContract(File contract) {
-        this.contract = contract;
-    }
-
-    public LocalDate getContractDate() {
-        return contractDate;
-    }
-
-    public void setContractDate(LocalDate contractDate) {
-        this.contractDate = contractDate;
     }
 }

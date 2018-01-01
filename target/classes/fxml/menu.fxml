@@ -40,6 +40,8 @@
                     </Menu>
                     <Menu mnemonicParsing="false" text="Verwijder">
                         <MenuItem mnemonicParsing="false" onAction="#deleteBookByTitle" text="Op Titel" />
+                        <MenuItem mnemonicParsing="false" onAction="#derateBook" text="Declasseer Boek " />
+
                     </Menu>
                     <MenuItem mnemonicParsing="false" onAction="#updateBookByTitle" text="Updaten" />
                 </Menu>

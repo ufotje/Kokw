@@ -78,7 +78,7 @@ public class SearchBookByGiftedOnBetween {
             MenuController.window.close();
         } else {
             MenuController.window.close();
-            ChangeScene.init("/fxml/books/found/tableviewByGiftedOnBetween.fxml", "Books by Donated Between");
+            ChangeScene.init("/fxml/books/found/tableviewGiftedOnBetween.fxml", "Books by Donated Between");
             table.setEditable(true);
             idCol.setCellValueFactory(new PropertyValueFactory<>("id"));
             isbnCol.setCellValueFactory(new PropertyValueFactory<>("isbn"));
@@ -94,7 +94,7 @@ public class SearchBookByGiftedOnBetween {
             pagesCol.setCellValueFactory(new PropertyValueFactory<>("nrOfPages"));
             illusCol.setCellValueFactory(new PropertyValueFactory<>("illustrated"));
             copiesCol.setCellValueFactory(new PropertyValueFactory<>("copies"));
-            giftedByCol.setCellValueFactory(new PropertyValueFactory<>("name_gifter"));
+            giftedByCol.setCellValueFactory(new PropertyValueFactory<>("nameGifter"));
             giftedOnCol.setCellValueFactory(new PropertyValueFactory<>("giftedOn"));
             deratedCol.setCellValueFactory(new PropertyValueFactory<>("derated"));
             destinationCol.setCellValueFactory(new PropertyValueFactory<>("destination"));

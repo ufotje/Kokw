@@ -42,6 +42,8 @@ public class AddBook {
     private ChoiceBox<String> topic;
     @FXML
     private ChoiceBox<Integer> volume;
+    @FXML
+    DatePicker contractDate;
     private Stage window;
     private BookRepo repo;
     private StringBuilder authors = new StringBuilder();
@@ -50,11 +52,19 @@ public class AddBook {
     private StringBuilder topics = new StringBuilder();
     private File file;
     private Book book;
+    private GiftedRepo giftedRepo;
+    private GiftedForRepo giftedForRepo;
 
     @Autowired
     private void setBookRepo(@Qualifier("bookRepo") BookRepo repo) {
         this.repo = repo;
     }
+
+    @Autowired
+    private void setGiftedRepo(@Qualifier("giftedRepo") GiftedRepo giftedRepo){this.giftedRepo = giftedRepo;}
+
+    @Autowired
+    private void setGiftedForRepo(@Qualifier("giftedForRepo") GiftedForRepo giftedForRepo){this.giftedForRepo = giftedForRepo;}
 
     public void initialize() {
         ObservableList<String> topics = FXCollections.observableArrayList("Wereld Oorlog 1", "Wereld Ooorlog 2", "MiddelEeuwen", "Gulden Sporenslag", "Brugse Metten");
@@ -140,10 +150,14 @@ public class AddBook {
         if (Validation.validate("firstName", firstName.getText(), "[a-zA-Z \\-]+")) {
             if (Validation.validate("lastName", lastName.getText(), "[a-zA-Z \\-]+")) {
                 if (Validation.validate("date", date.getValue().toString(), "[0-9\\-]+")) {
-                    book.setNameGifter(firstName.getText() + " " + lastName.getText());
-                    book.setGiftedOn(date.getValue());
-                    saveBook(book);
+                    Gifted gift = new Gifted(firstName.getText() + " " + lastName.getText(), date.getValue(), book);
+                    Gifted g = giftedRepo.save(gift);
                     window.close();
+                    if(g != null){
+                        Warning.alert("Book saved!", "Het boek '" + book.getTitle() + "' werd succesvol opgeslaan");
+                    }else {
+                        Warning.alert("Error!", "Er ging iets fout");
+                    }
                 } else {
                     Warning.alert("Date Error", "Geef aub een geldige datum in.");
                 }
@@ -158,11 +172,14 @@ public class AddBook {
     @FXML
     private void giftedFor() throws Exception {
         if (Validation.validate("fullName", fullName.getText(), "[a-zA-Z \\-]+")) {
-            book.setContractNr(contractNr.getText());
-            book.setContract(file);
-            book.setContractor(fullName.getText());
+            GiftedFor giftedFor = new GiftedFor(fullName.getText(), contractNr.getText(), file, contractDate.getValue(), book);
+            GiftedFor gf = giftedForRepo.save(giftedFor);
             window.close();
-            saveBook(book);
+            if (gf != null){
+                Warning.alert("Book saved!", "Het boek '" + book.getTitle() + "' werd succesvol opgeslaan");
+            }else {
+                Warning.alert("Error!", "Er ging iets fout");
+            }
         } else {
             Warning.alert("Wrong value", "De contractant is verkeerd ingevuld.");
         }

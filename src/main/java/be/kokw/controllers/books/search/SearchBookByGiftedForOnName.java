@@ -97,8 +97,8 @@ public class SearchBookByGiftedForOnName {
             pagesCol.setCellValueFactory(new PropertyValueFactory<>("nrOfPages"));
             illusCol.setCellValueFactory(new PropertyValueFactory<>("illustrated"));
             copiesCol.setCellValueFactory(new PropertyValueFactory<>("copies"));
-            conNrCol.setCellValueFactory(new PropertyValueFactory<>("contract_number"));
-            conDateCol.setCellValueFactory(new PropertyValueFactory<>("contract_date"));
+            conNrCol.setCellValueFactory(new PropertyValueFactory<>("contractNumber"));
+            conDateCol.setCellValueFactory(new PropertyValueFactory<>("contractDate"));
             conNameCol.setCellValueFactory(new PropertyValueFactory<>("contractor"));
             conCol.setCellValueFactory(new PropertyValueFactory<>("contract"));
             deratedCol.setCellValueFactory(new PropertyValueFactory<>("derated"));

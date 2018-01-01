@@ -140,6 +140,13 @@ public class BookRepoImpl implements BookRepo {
     }
 
     @Override
+    public int updateDeratedAndDestination( String title){
+        Query query = manager.createQuery("update Book set copies = copies-1 where title=:title");
+        query.setParameter("title", title);
+        return query.executeUpdate();
+    }
+
+    @Override
     public <S extends Book> S save(S s) {
         manager.persist(s);
         return s;

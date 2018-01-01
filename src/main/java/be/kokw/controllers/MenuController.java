@@ -212,6 +212,16 @@ public class MenuController {
         window.show();
     }
 
+    @FXML
+    private void derateBook() {
+        try {
+            window = NewStage.getStage("Declasseer een boek.", "/fxml/books/delete/derateDialog.fxml");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        window.show();
+    }
+
     //checkOut Methods
     @FXML
     private void checkOut() {

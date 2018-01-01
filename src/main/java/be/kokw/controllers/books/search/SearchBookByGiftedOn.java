@@ -92,7 +92,7 @@ public class SearchBookByGiftedOn {
             pagesCol.setCellValueFactory(new PropertyValueFactory<>("nrOfPages"));
             illusCol.setCellValueFactory(new PropertyValueFactory<>("illustrated"));
             copiesCol.setCellValueFactory(new PropertyValueFactory<>("copies"));
-            giftedByCol.setCellValueFactory(new PropertyValueFactory<>("name_gifter"));
+            giftedByCol.setCellValueFactory(new PropertyValueFactory<>("nameGifter"));
             giftedOnCol.setCellValueFactory(new PropertyValueFactory<>("giftedOn"));
             deratedCol.setCellValueFactory(new PropertyValueFactory<>("derated"));
             destinationCol.setCellValueFactory(new PropertyValueFactory<>("destination"));
