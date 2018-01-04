@@ -49,20 +49,20 @@ public class UpdateBook {
         }*/
     }
 
-    @FXML
+  /*  @FXML
     public void update() throws Exception {
         if (validated()) {
-            int result = repo.update(book.getId(), title.getText(), topic.getText(), firstName.getText(), lastName.getText(), publisher.getText(), place.getText(), Integer.parseInt(year.getText()), Integer.parseInt(pages.getText()));
+            int result = repo.update(new Book(book.getId(), title.getText(), topic.getText(), firstName.getText(), lastName.getText(), publisher.getText(), place.getText(), Integer.parseInt(year.getText()), Integer.parseInt(pages.getText()));
             if (result > 0) {
                 String alert = "The book with title: '" + title.getText() + "' has been successfully updated!";
                 Warning.alert("Book updated!", alert);
-                ChangeScene.init("/fxml/home.fxml", "KOKW - Het verleden draait door!");
+                ChangeScene.init("/fxml/home.fxml", "KOKW - Het verleden draait mee!");
             } else {
                 Warning.alert("Update failed", "Corresponderend boek niet gevonden!");
             }
         }
     }
-
+*/
     private boolean validated() {
         boolean valid = false;
         if (Validation.emptyValidation("Titel", title.getText().isEmpty() &&

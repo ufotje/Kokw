@@ -7,7 +7,7 @@
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.layout.*?>
 <AnchorPane xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="be.kokw.controllers.books.search.SearchBookByBoughtOn">
+            fx:controller="be.kokw.controllers.books.search.bought.SearchBookByBoughtOn">
     <DialogPane headerText="Zoek op Onderwerp" layoutX="50.0" layoutY="50.0" maxHeight="-Infinity" maxWidth="-Infinity"
                 minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="480.0">
         <header>

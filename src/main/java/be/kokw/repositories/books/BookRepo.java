@@ -2,6 +2,7 @@ package be.kokw.repositories.books;
 
 import be.kokw.bean.Book;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
 import javax.transaction.Transactional;
 import java.time.LocalDate;
@@ -10,8 +11,8 @@ import java.util.List;
 /**
  * Created by ufotje on 7/10/2017.
  */
-
-public interface BookRepo extends JpaRepository<Book, Long> {
+@Repository("bookRepo")
+public interface BookRepo extends JpaRepository<Book, Integer> {
     @Transactional
     Book findById(int id);
 
@@ -37,22 +38,7 @@ public interface BookRepo extends JpaRepository<Book, Long> {
     List<Book> findByBoughtOnBetween(LocalDate start, LocalDate end);
 
     @Transactional
-    List<Book> findByGiftedOn(LocalDate date);
-
-    @Transactional
-    List<Book> findByGiftedOnBetween(LocalDate start, LocalDate end);
-
-    @Transactional
-    List<Book> findByContractDateBetween(LocalDate start, LocalDate end);
-
-    @Transactional
-    List<Book> findByContractDate(LocalDate date);
-
-    @Transactional
-    List<Book> findByContractor(String name);
-
-    @Transactional
-    List<Book> findByContractDateAndContractor(LocalDate date, String name);
+    List<Book> findBookByBoughtOnIsNotNull();
 
     @Transactional
     Book findBySubtitlesContains(String SubTitle);
@@ -62,10 +48,4 @@ public interface BookRepo extends JpaRepository<Book, Long> {
 
     @Transactional
     int deleteByTitle(String title);
-
-    @Transactional
-    int update(int id, String title, String topic, String firstName, String lastName, String publisher, String place, int year, int pages);
-
-    @Transactional
-    int updateDeratedAndDestination( String title);
 }

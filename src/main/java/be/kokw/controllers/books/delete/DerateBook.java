@@ -46,12 +46,25 @@ public class DerateBook {
         Book b = repo.findByTitle(title.getText());
         Derated derated = new Derated(b.getId(),LocalDate.now(), destination.getValue(), b.getIsbn(), b.getDepot(), b.getTitle(), b.getAuthors());
         Derated d = derateRepo.save(derated);
-        int i = repo.updateDeratedAndDestination(title.getText());
+        Book book = null;
+        if(b.getCopies() > 1){
+            b.setCopies(b.getCopies()-1);
+            book = repo.save(b);
+        }else{
+            repo.delete(b);
+        }
         MenuController.window.close();
-        if(i>0 && d != null){
-            Warning.alert("Derating succesvol", "Het boek '" + title.getText() + "' werd met succes gedeclasseerd.");
+        if( d != null){
+            StringBuilder sb = new StringBuilder();
+            if(book != null){
+                sb.append("Er zijn nog ").append(book.getCopies()).append(" kopieën van het boek '").append(book.getTitle()).append("' in de bibliotheek van de kokw.");
+            }else{
+                sb.append("Er zijn geen kopieën meer van het boek '").append(title.getText()).append("' in de bibliotheek van de kokw");
+            }
+            Warning.alert("Derating succesvol", "Het boek '" + title.getText() + "' werd met succes gedeclasseerd.\n" + sb.toString());
         }else {
             Warning.alert("No item found", "Het boek '" + title.getText() + "' werd niet terug gevonden.");
         }
+
     }
 }

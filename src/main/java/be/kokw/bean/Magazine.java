@@ -20,9 +20,6 @@ public class Magazine {
     private int nrOfPages;
     private String theme;
     private boolean subscribed;
-    @JoinColumn(name = "id_trade", referencedColumnName = "id")
-    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    private Trade trade;
     private boolean traded;
     private boolean illustrated = true;
 
@@ -127,14 +124,6 @@ public class Magazine {
 
     public void setSubscribed(boolean subscribed) {
         this.subscribed = subscribed;
-    }
-
-    public Trade getTrade() {
-        return trade;
-    }
-
-    public void setTrade(Trade trade) {
-        this.trade = trade;
     }
 
     public boolean isTraded() {

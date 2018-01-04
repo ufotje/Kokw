@@ -125,6 +125,15 @@ public class MenuController {
     }
 
     @FXML
+    private void findByBoughtOnAll() {
+        try {
+            ChangeScene.init("/fxml/books/found/tableviewByBoughtOnAll.fxml", "Alle boeken die werden aangekocht");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
     private void findByBoughtOnBetween() {
         try {
             window = NewStage.getStage("Vind boeken aangekocht tussen", "/fxml/books/search/byBoughtOnBetweenDialog.fxml");
@@ -145,6 +154,15 @@ public class MenuController {
     }
 
     @FXML
+    private void findByGiftedOnAll() {
+        try {
+            ChangeScene.init("/fxml/books/found/tableviewByGiftedOnAll.fxml", "Alle boeken die werden gedonneeerd");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
     private void findByGiftedOnBetween() {
         try {
             window = NewStage.getStage("Vind boeken gedonneerd tussen", "/fxml/books/search/byGiftedOnBetweenDialog.fxml");
@@ -152,6 +170,15 @@ public class MenuController {
             e.printStackTrace();
         }
         window.show();
+    }
+
+    @FXML
+    private void findByGiftedForOnAll() {
+        try {
+            ChangeScene.init("/fxml/books/found/tableviewGiftedForOnAll.fxml", "Alle boeken die werden gedonneeerd tegenprestatie");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @FXML
