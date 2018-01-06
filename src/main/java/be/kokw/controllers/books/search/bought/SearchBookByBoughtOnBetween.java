@@ -1,6 +1,6 @@
 package be.kokw.controllers.books.search.bought;
 
-import be.kokw.bean.Book;
+import be.kokw.bean.books.Book;
 import be.kokw.controllers.MenuController;
 import be.kokw.repositories.books.BookRepo;
 import be.kokw.utility.ChangeScene;

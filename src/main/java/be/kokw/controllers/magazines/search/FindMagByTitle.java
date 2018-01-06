@@ -1,8 +1,9 @@
 package be.kokw.controllers.magazines.search;
 
-import be.kokw.bean.Magazine;
+import be.kokw.bean.magazines.Magazine;
 import be.kokw.controllers.MenuController;
 import be.kokw.repositories.MagazineRepo;
+import be.kokw.utility.ChangeScene;
 import be.kokw.utility.Validation;
 import be.kokw.utility.Warning;
 import javafx.collections.ObservableList;
@@ -53,13 +54,14 @@ public class FindMagByTitle {
     }
 
     @FXML
-    public void search(){
+    public void search() throws Exception {
         if (Validation.validate("name", title.getText(), "[a-zA-Z \\-]+")) {
             ObservableList<Magazine> list = observableArrayList(repo.findMagazinesByName(title.getText()));
             MenuController.window.close();
             if (list.isEmpty()){
                 Warning.alert("No Magazines found!", "Er werden geen magazines gevonden met '" + title.getText() + "' als title gevonden.");
             }else{
+                ChangeScene.init("/fxml/magazines/search/views/findMagByTitleView.fxml", "Find magazines by title");
                 id.setCellValueFactory(new PropertyValueFactory<>("id"));
                 issn.setCellValueFactory(new PropertyValueFactory<>("issn"));
                 name.setCellValueFactory(new PropertyValueFactory<>("name"));
@@ -71,6 +73,7 @@ public class FindMagByTitle {
                 period.setCellValueFactory(new PropertyValueFactory<>("period"));
                 copies.setCellValueFactory(new PropertyValueFactory<>("copies"));
                 illustrated.setCellValueFactory(new PropertyValueFactory<>("illustrated"));
+                table.setItems(list);
             }
         }
     }

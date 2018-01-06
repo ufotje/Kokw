@@ -1,24 +1,18 @@
-package be.kokw.bean;
+package be.kokw.bean.books;
 
 import javax.persistence.*;
-import java.io.File;
 import java.io.Serializable;
 import java.time.LocalDate;
 
+@Table(name = "Gifted")
 @Entity
-@Table(name = "Gifted_for")
-public class GiftedFor implements Serializable{
+public class Gifted implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private long id;
-    @Column(name = "Contract_Number")
-    private String contractNr;
-    @Column(name = "Name")
     private String name;
-    @Column(name = "Contract")
-    private File contract;
-    private LocalDate contractDate;
+    private LocalDate giftedOn;
     @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "book_id", referencedColumnName = "id", nullable = false)
     private Book book;
@@ -27,25 +21,12 @@ public class GiftedFor implements Serializable{
     private String title;
     private String authors;
 
-    public GiftedFor() {
+    public Gifted() {
     }
 
-    public GiftedFor(String contractNr, String name, LocalDate contractDate, Book book) {
-        this.contractNr = contractNr;
+    public Gifted(String name, LocalDate giftedOn, Book book ) {
         this.name = name;
-        this.contractDate = contractDate;
-        this.book = book;
-        issbn = book.getIsbn();
-        depot = book.getDepot();
-        title = book.getTitle();
-        authors = book.getAuthors();
-    }
-
-    public GiftedFor(String name, String contractNr, File contract, LocalDate contractDate, Book book) {
-        this.contractNr = contractNr;
-        this.name = name;
-        this.contract = contract;
-        this.contractDate = contractDate;
+        this.giftedOn = giftedOn;
         this.book = book;
         issbn = book.getIsbn();
         depot = book.getDepot();
@@ -61,14 +42,6 @@ public class GiftedFor implements Serializable{
         this.id = id;
     }
 
-    public String getContractNr() {
-        return contractNr;
-    }
-
-    public void setContractNr(String contractNr) {
-        this.contractNr = contractNr;
-    }
-
     public String getName() {
         return name;
     }
@@ -76,21 +49,12 @@ public class GiftedFor implements Serializable{
     public void setName(String name) {
         this.name = name;
     }
-
-    public File getContract() {
-        return contract;
+    public LocalDate getGiftedOn() {
+        return giftedOn;
     }
 
-    public void setContract(File contract) {
-        this.contract = contract;
-    }
-
-    public LocalDate getContractDate() {
-        return contractDate;
-    }
-
-    public void setContractDate(LocalDate contractDate) {
-        this.contractDate = contractDate;
+    public void setGiftedOn(LocalDate giftedOn) {
+        this.giftedOn = giftedOn;
     }
 
     public Book getBook() {

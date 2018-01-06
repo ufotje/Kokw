@@ -1,19 +1,6 @@
 package be.kokw.repositories.implementations;
 
-import be.kokw.bean.Book;
-
-import be.kokw.repositories.books.BookRepo;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
-import org.springframework.data.domain.Sort;
-import org.springframework.stereotype.Repository;
-
 import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
-import javax.persistence.Query;
-import javax.persistence.TypedQuery;
-import java.time.LocalDate;
-import java.util.List;
 
 /**
  * Created by ufotje on 22/10/2017.

@@ -1,6 +1,6 @@
 package be.kokw.controllers.books.search.donated;
 
-import be.kokw.bean.Gifted;
+import be.kokw.bean.books.Gifted;
 import be.kokw.repositories.books.GiftedRepo;
 import be.kokw.utility.Warning;
 import javafx.collections.ObservableList;

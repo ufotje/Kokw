@@ -1,4 +1,4 @@
-package be.kokw.bean;
+package be.kokw.bean.books;
 
 
 import javax.persistence.*;

@@ -1,6 +1,6 @@
 package be.kokw.repositories.books;
 
-import be.kokw.bean.GiftedFor;
+import be.kokw.bean.books.GiftedFor;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

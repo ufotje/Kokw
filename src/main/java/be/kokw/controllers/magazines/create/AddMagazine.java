@@ -1,6 +1,6 @@
 package be.kokw.controllers.magazines.create;
 
-import be.kokw.bean.Magazine;
+import be.kokw.bean.magazines.Magazine;
 import be.kokw.repositories.MagazineRepo;
 import be.kokw.utility.ChangeScene;
 import be.kokw.utility.Validation;
@@ -41,7 +41,7 @@ public class AddMagazine {
     private MagazineRepo repo;
 
     @Autowired
-    private void setRepo(@Qualifier("magazineRepo") MagazineRepo repo) {
+    private void setRepo(@Qualifier("magRepo") MagazineRepo repo) {
         this.repo = repo;
     }
 

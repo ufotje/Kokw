@@ -1,7 +1,7 @@
 package be.kokw.utility;
 
-import be.kokw.bean.Book;
-import be.kokw.bean.CheckedOut;
+import be.kokw.bean.books.Book;
+import be.kokw.bean.books.CheckedOut;
 import be.kokw.bean.Member;
 import be.kokw.bean.TimeStamp;
 import be.kokw.repositories.CheckOutRepo;

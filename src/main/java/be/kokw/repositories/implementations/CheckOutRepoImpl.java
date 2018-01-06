@@ -1,10 +1,9 @@
 package be.kokw.repositories.implementations;
 
-import be.kokw.bean.Book;
-import be.kokw.bean.CheckedOut;
+import be.kokw.bean.books.Book;
+import be.kokw.bean.books.CheckedOut;
 import be.kokw.bean.Member;
 import be.kokw.repositories.CheckOutRepo;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;

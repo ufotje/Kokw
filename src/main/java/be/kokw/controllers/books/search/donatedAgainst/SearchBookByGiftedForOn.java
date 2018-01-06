@@ -1,6 +1,6 @@
 package be.kokw.controllers.books.search.donatedAgainst;
 
-import be.kokw.bean.GiftedFor;
+import be.kokw.bean.books.GiftedFor;
 import be.kokw.controllers.MenuController;
 import be.kokw.repositories.books.GiftedForRepo;
 import be.kokw.utility.ChangeScene;
@@ -8,6 +8,7 @@ import be.kokw.utility.Warning;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.DatePicker;
+import javafx.scene.control.Hyperlink;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -15,7 +16,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
-import java.io.File;
 import java.time.LocalDate;
 
 import static javafx.collections.FXCollections.observableArrayList;
@@ -31,13 +31,13 @@ public class SearchBookByGiftedForOn {
     @FXML
     private TableColumn<GiftedFor, String> isbnCol;
     @FXML
-    private TableColumn<GiftedFor, String> boekIdCol;
+    private TableColumn<GiftedFor, String> bookIdCol;
     @FXML
     private TableColumn<GiftedFor, String> depotCol;
     @FXML
     private TableColumn<GiftedFor, String> conNameCol;
     @FXML
-    private TableColumn<GiftedFor, File> conCol;
+    private TableColumn<GiftedFor, Hyperlink> conCol;
     @FXML
     private TableColumn<GiftedFor,LocalDate>conDateCol;
     @FXML
@@ -65,7 +65,7 @@ public class SearchBookByGiftedForOn {
             table.setEditable(true);
             idCol.setCellValueFactory(new PropertyValueFactory<>("id"));
             isbnCol.setCellValueFactory(new PropertyValueFactory<>("isbn"));
-            boekIdCol.setCellValueFactory(new PropertyValueFactory<>("bookId"));
+            bookIdCol.setCellValueFactory(new PropertyValueFactory<>("bookId"));
             depotCol.setCellValueFactory(new PropertyValueFactory<>("depot"));
             titleCol.setCellValueFactory(new PropertyValueFactory<>("title"));
             authorCol.setCellValueFactory(new PropertyValueFactory<>("authors"));

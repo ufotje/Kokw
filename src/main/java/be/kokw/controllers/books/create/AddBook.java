@@ -1,6 +1,8 @@
 package be.kokw.controllers.books.create;
 
-import be.kokw.bean.*;
+import be.kokw.bean.books.Book;
+import be.kokw.bean.books.Gifted;
+import be.kokw.bean.books.GiftedFor;
 import be.kokw.repositories.books.*;
 import be.kokw.utility.ChangeScene;
 import be.kokw.utility.NewStage;

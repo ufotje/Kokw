@@ -1,6 +1,6 @@
 package be.kokw.repositories.books;
 
-import be.kokw.bean.Derated;
+import be.kokw.bean.books.Derated;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

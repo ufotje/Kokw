@@ -313,22 +313,47 @@ public class MenuController {
 
     @FXML
     private void magByName() {
+        try {
+            NewStage.getStage("Geef de titel van het magazine", "/fxml/magazines/search/dialogs/byTitleDialog.fxml");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @FXML
     private void magByPublisher() {
+        try {
+            NewStage.getStage("Geef de uitgever van het magazine", "/fxml/magazines/search/dialogs/byPublisherDialog.fxml");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @FXML
     private void magByTraded() {
+        try {
+            ChangeScene.init("/fxml/magazines/search/views/findMagByTradedView.fxml","Alle magzines met ruilabonnement.");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @FXML
     private void magBySubscription() {
+        try {
+            ChangeScene.init("/fxml/magazines/search/views/findMagBySubscribedView.fxml", "Find magazines by subscription");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @FXML
     private void magByTopic() {
+        try {
+            ChangeScene.init("/fxml/magazines/search/dialogs/byTopicDialog.fxml", "Geef het onderwerp op");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     //DigitalMethods

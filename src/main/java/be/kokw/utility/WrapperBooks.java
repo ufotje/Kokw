@@ -1,8 +1,8 @@
 package be.kokw.utility;
 
-import be.kokw.bean.Book;
-import be.kokw.bean.Gifted;
-import be.kokw.bean.GiftedFor;
+import be.kokw.bean.books.Book;
+import be.kokw.bean.books.Gifted;
+import be.kokw.bean.books.GiftedFor;
 
 import java.util.List;
 

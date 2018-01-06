@@ -1,6 +1,6 @@
 package be.kokw.controllers.books.search.donatedAgainst;
 
-import be.kokw.bean.GiftedFor;
+import be.kokw.bean.books.GiftedFor;
 import be.kokw.controllers.MenuController;
 import be.kokw.repositories.books.GiftedForRepo;
 import be.kokw.utility.ChangeScene;

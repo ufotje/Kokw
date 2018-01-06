@@ -1,4 +1,6 @@
-package be.kokw.bean;
+package be.kokw.bean.books;
+
+import be.kokw.bean.Member;
 
 import javax.persistence.*;
 import java.io.Serializable;
