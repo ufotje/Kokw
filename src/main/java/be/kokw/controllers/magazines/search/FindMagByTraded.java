@@ -1,15 +1,20 @@
 package be.kokw.controllers.magazines.search;
 
 import be.kokw.bean.magazines.Magazine;
-import be.kokw.repositories.MagazineRepo;
+import be.kokw.bean.magazines.Trade;
+import be.kokw.repositories.magazines.MagazineRepo;
+import be.kokw.repositories.magazines.TradeRepo;
+import be.kokw.utility.NewStage;
 import be.kokw.utility.Warning;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseButton;
+import javafx.stage.Stage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
@@ -42,11 +47,40 @@ public class FindMagByTraded {
     private TableColumn<Magazine, String> copies;
     @FXML
     private TableColumn<Magazine, Boolean> illustrated;
+    @FXML
+    private TextField detailsId;
+    @FXML
+    private TextField magId;
+    @FXML
+    private TextField title;
+    @FXML
+    private TextField org;
+    @FXML
+    private TextField expected;
+    @FXML
+    private TextField street;
+    @FXML
+    private TextField houseNr;
+    @FXML
+    private TextField zip;
+    @FXML
+    private TextField city;
+    @FXML
+    private TextField telephone;
+    @FXML
+    private TextField mail;
     private MagazineRepo repo;
+    private TradeRepo tradeRepo;
+    private Stage window;
 
     @Autowired
     private void setRepo(@Qualifier("magRepo") MagazineRepo repo) {
         this.repo = repo;
+    }
+
+    @Autowired
+    private void setTradeRepo(@Qualifier("tradeRepo") TradeRepo repo) {
+        tradeRepo = repo;
     }
 
     @FXML
@@ -74,9 +108,47 @@ public class FindMagByTraded {
                 if (!row.isEmpty() && event.getButton() == MouseButton.PRIMARY
                         && event.getClickCount() == 2) {
                     Magazine clickedRow = row.getItem();
+                    Trade trade = tradeRepo.findTradeByNameMag(clickedRow.getName());
+                    if(trade != null){
+                        try {
+                            window = NewStage.getStage("RijDetails!", "/fxml/magazines/search/views/tradeDetailsView.fxml");
+                            window.show();
+                            detailsId.setText("" + trade.getId());
+                            magId.setText("" + clickedRow.getId());
+                            title.setText(trade.getNameMag());
+                            org.setText(trade.getNameOrg());
+                            expected.setText("" + trade.getExpected());
+                            String[] parts = trade.getContactInfo().split("[\\n ]");
+                            street.setText(parts[0]);
+                            houseNr.setText(parts[1]);
+                            zip.setText(parts[2]);
+                            city.setText(parts[3]);
+                            telephone.setText(trade.getTel());
+                            mail.setText(trade.getEmail());
+
+                        } catch (Exception e) {
+                            Warning.alert("Error!", "Er ging iets fout tijdens het openen van de rijdetails.");
+                            e.printStackTrace();
+                        }
+                    }
                 }
             });
             return row;
         });
+    }
+    @FXML
+    private void closeDetails(){
+        detailsId.clear();
+        magId.clear();
+        title.clear();
+        org.clear();
+        expected.clear();
+        street.clear();
+        houseNr.clear();
+        zip.clear();
+        city.clear();
+        telephone.clear();
+        mail.clear();
+        window.close();
     }
 }

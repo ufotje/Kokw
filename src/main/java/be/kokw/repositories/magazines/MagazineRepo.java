@@ -1,4 +1,4 @@
-package be.kokw.repositories;
+package be.kokw.repositories.magazines;
 
 import be.kokw.bean.magazines.Magazine;
 import org.springframework.data.jpa.repository.JpaRepository;

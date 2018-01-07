@@ -2,7 +2,7 @@ package be.kokw.controllers.checkedOut.books;
 
 import be.kokw.bean.books.CheckedOut;
 import be.kokw.controllers.MenuController;
-import be.kokw.repositories.CheckOutRepo;
+import be.kokw.repositories.books.CheckOutRepo;
 import be.kokw.utility.ChangeScene;
 import be.kokw.utility.Warning;
 import javafx.collections.ObservableList;

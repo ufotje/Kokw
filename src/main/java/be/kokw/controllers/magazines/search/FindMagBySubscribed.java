@@ -2,7 +2,7 @@ package be.kokw.controllers.magazines.search;
 
 import be.kokw.bean.magazines.Magazine;
 import be.kokw.controllers.MenuController;
-import be.kokw.repositories.MagazineRepo;
+import be.kokw.repositories.magazines.MagazineRepo;
 import be.kokw.utility.Warning;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;

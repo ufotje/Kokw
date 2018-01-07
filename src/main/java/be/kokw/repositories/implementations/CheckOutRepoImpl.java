@@ -1,9 +1,10 @@
 package be.kokw.repositories.implementations;
 
+
+import be.kokw.bean.Member;
 import be.kokw.bean.books.Book;
 import be.kokw.bean.books.CheckedOut;
-import be.kokw.bean.Member;
-import be.kokw.repositories.CheckOutRepo;
+import be.kokw.repositories.books.CheckOutRepo;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
@@ -49,7 +50,7 @@ public class CheckOutRepoImpl implements CheckOutRepo {
 
     @Override
     public CheckedOut getOne(String title, String fullName) {
-        TypedQuery <CheckedOut> query = manager.createQuery("select c from CheckedOut c where c.title=:title and c.fullName =:fullName",CheckedOut.class);
+        TypedQuery<CheckedOut> query = manager.createQuery("select c from CheckedOut c where c.title=:title and c.fullName =:fullName", CheckedOut.class);
         return query.setParameter("title", title).setParameter("fullName", fullName).getSingleResult();
     }
 
@@ -62,18 +63,18 @@ public class CheckOutRepoImpl implements CheckOutRepo {
     @Override
     public List<CheckedOut> findByReturnDateAndReturnedIsFalse(LocalDate returnDate) {
         TypedQuery<CheckedOut> query = manager.createQuery("select c from CheckedOut c where c.returnDate =:returnDate or c.returnDate =:returnDate-1 or c.returnDate=:returnDate-2 and c.returned = false", CheckedOut.class);
-        return query.setParameter("returnDate",returnDate).getResultList();
+        return query.setParameter("returnDate", returnDate).getResultList();
     }
 
     @Override
     public List<CheckedOut> findByReturnDateBeforeAndReturnedIsFalse(LocalDate now) {
         TypedQuery<CheckedOut> query = manager.createQuery("select c from CheckedOut c where c.returnDate <:returnDate and c.returned = false", CheckedOut.class);
-        return query.setParameter("returnDate",now).getResultList();
+        return query.setParameter("returnDate", now).getResultList();
     }
 
     @Override
     public List<CheckedOut> findByCheckOutDateBetween(LocalDate startDate, LocalDate endDate) {
-        TypedQuery<CheckedOut> query = manager.createQuery("Select c from CheckedOut c where c.checkOutDate >= :startDate and c.checkOutDate <= :endDate",CheckedOut.class);
+        TypedQuery<CheckedOut> query = manager.createQuery("Select c from CheckedOut c where c.checkOutDate >= :startDate and c.checkOutDate <= :endDate", CheckedOut.class);
         return query.setParameter("startDate", startDate).setParameter("endDate", endDate).getResultList();
     }
 

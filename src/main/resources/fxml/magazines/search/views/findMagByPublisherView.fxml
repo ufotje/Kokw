@@ -4,8 +4,19 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.BorderPane?>
 
+<?import javafx.scene.layout.VBox?>
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="be.kokw.controllers.magazines.search.FindMagByPublisher">
-   <center>
+    <top>
+        <VBox BorderPane.alignment="CENTER">
+            <fx:include source="/fxml/menu.fxml" />
+        </VBox>
+    </top>
+    <bottom>
+        <VBox alignment="CENTER" style="-fx-background-color: #A9CCE3; -fx-background-radius: 10;" BorderPane.alignment="CENTER">
+            <fx:include source="/fxml/footer.fxml" />
+        </VBox>
+    </bottom>
+    <center>
       <TableView fx:id="table" editable="true" BorderPane.alignment="CENTER">
         <columns>
           <TableColumn fx:id="id" prefWidth="75.0" text="ID" />

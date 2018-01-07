@@ -1,5 +1,7 @@
 package be.kokw.bean.magazines;
 
+import org.hibernate.validator.constraints.Email;
+
 import javax.persistence.*;
 
 

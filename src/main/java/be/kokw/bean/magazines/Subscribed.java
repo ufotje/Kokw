@@ -1,5 +1,7 @@
 package be.kokw.bean.magazines;
 
+import org.hibernate.validator.constraints.Email;
+
 import javax.persistence.*;
 @Entity
 @Table
@@ -17,16 +19,21 @@ public class Subscribed {
     private int expected;
     private boolean completed = false;
     private String contactInfo;
+    @Email(message = "*Please provide a valid Email")
+    private String email;
+    private String tel;
 
     public Subscribed() {
     }
 
-    public Subscribed(Magazine mag, String contactInfo, int expected) {
+    public Subscribed(Magazine mag, String contactInfo, int expected, String email, String tel) {
         this.mag = mag;
         nameMag = mag.getName();
         publisher = mag.getPublisher();
         this.contactInfo = contactInfo;
         this.expected = expected;
+        this.email = email;
+        this.tel = tel;
     }
 
     public int getId() {
@@ -91,5 +98,21 @@ public class Subscribed {
 
     public void setContactInfo(String contactInfo) {
         this.contactInfo = contactInfo;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getTel() {
+        return tel;
+    }
+
+    public void setTel(String tel) {
+        this.tel = tel;
     }
 }

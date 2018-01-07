@@ -5,7 +5,7 @@ import be.kokw.bean.books.CheckedOut;
 import be.kokw.bean.Member;
 import be.kokw.controllers.MenuController;
 import be.kokw.repositories.books.BookRepo;
-import be.kokw.repositories.CheckOutRepo;
+import be.kokw.repositories.books.CheckOutRepo;
 import be.kokw.repositories.MemberRepo;
 import be.kokw.utility.Warning;
 import javafx.fxml.FXML;

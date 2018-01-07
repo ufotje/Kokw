@@ -1,10 +1,9 @@
-package be.kokw.repositories;
+package be.kokw.repositories.books;
 
 import be.kokw.bean.books.Book;
 import be.kokw.bean.books.CheckedOut;
 import be.kokw.bean.Member;
 import org.springframework.data.jpa.repository.JpaRepository;
-
 import javax.transaction.Transactional;
 import java.time.LocalDate;
 import java.util.List;
