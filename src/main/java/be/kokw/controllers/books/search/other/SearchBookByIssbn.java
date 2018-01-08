@@ -67,7 +67,7 @@ public class SearchBookByIssbn {
             MenuController.window.close();
         } else {
             MenuController.window.close();
-            ChangeScene.init("/fxml/books/found/tableviewByIssn.fxml", "Books by IsbnNumber");
+            ChangeScene.init("/fxml/books/found/other/tableviewByIssn.fxml", "Books by IsbnNumber");
             table.setEditable(true);
             idCol.setCellValueFactory(new PropertyValueFactory<>("id"));
             isbnCol.setCellValueFactory(new PropertyValueFactory<>("isbn"));

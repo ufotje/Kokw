@@ -109,11 +109,10 @@ public class FindMagBySubscribed {
                 TableRow<Magazine> row = new TableRow<>();
                 row.setOnMouseClicked(event -> {
                     if (!row.isEmpty() && event.getButton() == MouseButton.PRIMARY
-                            && event.getClickCount() == 2) {
-                        Magazine clickedRow = row.getItem();
-                        Subscribed subscribed = subRepo.findByNameMag(clickedRow.getName());
+                                && event.getClickCount() == 2) {
+                            Magazine clickedRow = row.getItem();
+                            Subscribed subscribed = subRepo.findByNameMag(clickedRow.getName());
                         if (subscribed != null) {
-                            System.out.println("row clicked");
                             try {
                                 window = NewStage.getStage("RijDetails!", "/fxml/magazines/search/views/subscriptionDetailsView.fxml");
                                 window.show();

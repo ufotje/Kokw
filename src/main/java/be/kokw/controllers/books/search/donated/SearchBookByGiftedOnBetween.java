@@ -58,7 +58,7 @@ public class SearchBookByGiftedOnBetween {
             MenuController.window.close();
         } else {
             MenuController.window.close();
-            ChangeScene.init("/fxml/books/found/tableviewGiftedOnBetween.fxml", "Books by Donated Between");
+            ChangeScene.init("/fxml/books/found/gifted/tableviewGiftedOnBetween.fxml", "Books by Donated Between");
             table.setEditable(true);
             idCol.setCellValueFactory(new PropertyValueFactory<>("id"));
             isbnCol.setCellValueFactory(new PropertyValueFactory<>("isbn"));

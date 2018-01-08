@@ -72,7 +72,7 @@ public class SearchBookByBoughtOnBetween {
             MenuController.window.close();
         } else {
             MenuController.window.close();
-            ChangeScene.init("/fxml/books/found/tableviewByBoughtOnBetween.fxml", "Books by Bought Between");
+            ChangeScene.init("/fxml/books/found/bought/tableviewByBoughtOnBetween.fxml", "Books by Bought Between");
             table.setEditable(true);
             idCol.setCellValueFactory(new PropertyValueFactory<>("id"));
             isbnCol.setCellValueFactory(new PropertyValueFactory<>("isbn"));

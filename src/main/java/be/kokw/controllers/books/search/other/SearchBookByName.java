@@ -76,7 +76,7 @@ public class SearchBookByName {
             } else {
 
                 MenuController.window.close();
-                ChangeScene.init("/fxml/books/found/tableView.fxml", "Books by Author's name");
+                ChangeScene.init("/fxml/books/found/other/tableView.fxml", "Books by Author's name");
                 table.setEditable(true);
                 idCol.setCellValueFactory(new PropertyValueFactory<>("id"));
                 isbnCol.setCellValueFactory(new PropertyValueFactory<>("isbn"));

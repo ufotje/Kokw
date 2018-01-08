@@ -127,7 +127,7 @@ public class MenuController {
     @FXML
     private void findByBoughtOnAll() {
         try {
-            ChangeScene.init("/fxml/books/found/tableviewByBoughtOnAll.fxml", "Alle boeken die werden aangekocht");
+            ChangeScene.init("/fxml/books/found/bought/tableviewByBoughtOnAll.fxml", "Alle boeken die werden aangekocht");
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -156,7 +156,7 @@ public class MenuController {
     @FXML
     private void findByGiftedOnAll() {
         try {
-            ChangeScene.init("/fxml/books/found/tableviewByGiftedOnAll.fxml", "Alle boeken die werden gedonneeerd");
+            ChangeScene.init("/fxml/books/found/gifted/tableviewByGiftedOnAll.fxml", "Alle boeken die werden gedonneeerd");
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -175,7 +175,7 @@ public class MenuController {
     @FXML
     private void findByGiftedForOnAll() {
         try {
-            ChangeScene.init("/fxml/books/found/tableviewGiftedForOnAll.fxml", "Alle boeken die werden gedonneeerd tegenprestatie");
+            ChangeScene.init("/fxml/books/found/giftedFor/tableviewGiftedForOnAll.fxml", "Alle boeken die werden gedonneeerd tegenprestatie");
         } catch (Exception e) {
             e.printStackTrace();
         }
