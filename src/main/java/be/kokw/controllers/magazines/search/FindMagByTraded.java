@@ -136,6 +136,7 @@ public class FindMagByTraded {
             return row;
         });
     }
+
     @FXML
     private void closeDetails(){
         detailsId.clear();
