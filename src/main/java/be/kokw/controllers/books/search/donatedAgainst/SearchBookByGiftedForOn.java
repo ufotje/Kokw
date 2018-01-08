@@ -1,23 +1,19 @@
 package be.kokw.controllers.books.search.donatedAgainst;
 
-import be.kokw.bean.books.Book;
 import be.kokw.bean.books.GiftedFor;
 import be.kokw.controllers.MenuController;
 import be.kokw.repositories.books.GiftedForRepo;
 import be.kokw.utility.ChangeScene;
+import be.kokw.utility.RowFactoryGF;
 import be.kokw.utility.Warning;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.input.MouseButton;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
-import java.awt.*;
-import java.io.File;
-import java.io.IOException;
 import java.time.LocalDate;
 
 import static javafx.collections.FXCollections.observableArrayList;
@@ -67,15 +63,16 @@ public class SearchBookByGiftedForOn {
             table.setEditable(true);
             idCol.setCellValueFactory(new PropertyValueFactory<>("id"));
             isbnCol.setCellValueFactory(new PropertyValueFactory<>("issbn"));
-            bookIdCol.setCellValueFactory(new PropertyValueFactory<>("book_id"));
+            bookIdCol.setCellValueFactory(new PropertyValueFactory<>("bookId"));
             depotCol.setCellValueFactory(new PropertyValueFactory<>("depot"));
             titleCol.setCellValueFactory(new PropertyValueFactory<>("title"));
             authorCol.setCellValueFactory(new PropertyValueFactory<>("authors"));
-            conNrCol.setCellValueFactory(new PropertyValueFactory<>("contract_number"));
-            conDateCol.setCellValueFactory(new PropertyValueFactory<>("contract_date"));
-            conNameCol.setCellValueFactory(new PropertyValueFactory<>("contractor"));
+            conNrCol.setCellValueFactory(new PropertyValueFactory<>("contractNr"));
+            conDateCol.setCellValueFactory(new PropertyValueFactory<>("contractDate"));
+            conNameCol.setCellValueFactory(new PropertyValueFactory<>("name"));
             conCol.setCellValueFactory(new PropertyValueFactory<>("contract"));
             table.setItems(bookList);
+            RowFactoryGF.set(table);
         }
     }
 }

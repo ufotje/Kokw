@@ -2,31 +2,22 @@ package be.kokw.controllers.books.search.donatedAgainst;
 
 import be.kokw.bean.books.GiftedFor;
 import be.kokw.repositories.books.GiftedForRepo;
-import be.kokw.utility.NewStage;
+
+import be.kokw.utility.RowFactoryGF;
 import be.kokw.utility.Warning;
 import javafx.collections.ObservableList;
-import javafx.embed.swing.SwingFXUtils;
+
 import javafx.fxml.FXML;
-import javafx.scene.Scene;
-import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseButton;
-import javafx.scene.layout.AnchorPane;
-import javafx.stage.Stage;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
-import javax.imageio.ImageIO;
-import java.awt.*;
-import java.awt.image.BufferedImage;
 import java.io.File;
-import java.io.IOException;
+
 import java.time.LocalDate;
 
 import static javafx.collections.FXCollections.observableArrayList;
@@ -72,58 +63,17 @@ public class SearchBookByGiftedForOnAll {
             table.setEditable(true);
             idCol.setCellValueFactory(new PropertyValueFactory<>("id"));
             isbnCol.setCellValueFactory(new PropertyValueFactory<>("issbn"));
-            bookIdCol.setCellValueFactory(new PropertyValueFactory<>("book_id"));
+            bookIdCol.setCellValueFactory(new PropertyValueFactory<>("bookId"));
             depotCol.setCellValueFactory(new PropertyValueFactory<>("depot"));
             titleCol.setCellValueFactory(new PropertyValueFactory<>("title"));
             authorCol.setCellValueFactory(new PropertyValueFactory<>("authors"));
-            conNrCol.setCellValueFactory(new PropertyValueFactory<>("contract_number"));
-            conDateCol.setCellValueFactory(new PropertyValueFactory<>("contract_date"));
-            conNameCol.setCellValueFactory(new PropertyValueFactory<>("contractor"));
+            conNrCol.setCellValueFactory(new PropertyValueFactory<>("contractNr"));
+            conDateCol.setCellValueFactory(new PropertyValueFactory<>("contractDate"));
+            conNameCol.setCellValueFactory(new PropertyValueFactory<>("name"));
             conCol.setCellValueFactory(new PropertyValueFactory<>("contract"));
             table.setItems(bookList);
 
-            table.setRowFactory(tv -> {
-                TableRow<GiftedFor> row = new TableRow<>();
-                row.setOnMouseClicked(event -> {
-                    if (!row.isEmpty() && event.getButton() == MouseButton.PRIMARY
-                            && event.getClickCount() == 2) {
-                        GiftedFor clickedRow = row.getItem();
-                        File file = clickedRow.getContract();
-
-                        if (!Desktop.isDesktopSupported()) {
-                            System.out.println("Desktop is not supported");
-                            System.setProperty("java.awt.headless", "true");
-                            try {
-                                BufferedImage bufferedImage = ImageIO.read(file);
-                                Image image = SwingFXUtils.toFXImage(bufferedImage, null);
-                                ImageView imageV = new ImageView();
-                                imageV.setImage(image);
-                                AnchorPane pane = new AnchorPane();
-                                pane.getChildren().add(imageV);
-                                Scene scene = new Scene(pane);
-                                Stage window = new Stage();
-                                window.setTitle("Selected Contract!");
-                                window.setScene(scene);
-                                window.show();
-                            } catch (Exception z) {
-                                z.printStackTrace(System.err);
-                            }
-                            //return;
-                        } else {
-                            Desktop desktop = Desktop.getDesktop();
-                            if (file.exists()) {
-                                try {
-                                    desktop.open(file);
-                                } catch (IOException e) {
-                                    e.printStackTrace();
-                                }
-                            }
-                        }
-
-                    }
-                });
-                return row;
-            });
+            RowFactoryGF.set(table);
         }
     }
 }

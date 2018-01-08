@@ -148,7 +148,7 @@ public class AddBook {
     }
 
     @FXML
-    private void giftedBy() throws Exception {
+    private void giftedBy() {
         if (Validation.validate("firstName", firstName.getText(), "[a-zA-Z \\-]+")) {
             if (Validation.validate("lastName", lastName.getText(), "[a-zA-Z \\-]+")) {
                 if (Validation.validate("date", date.getValue().toString(), "[0-9\\-]+")) {
@@ -172,7 +172,7 @@ public class AddBook {
     }
 
     @FXML
-    private void giftedFor() throws Exception {
+    private void giftedFor() {
         if (Validation.validate("fullName", fullName.getText(), "[a-zA-Z \\-]+")) {
             GiftedFor giftedFor = new GiftedFor(fullName.getText(), contractNr.getText(), file, contractDate.getValue(), book);
             GiftedFor gf = giftedForRepo.save(giftedFor);

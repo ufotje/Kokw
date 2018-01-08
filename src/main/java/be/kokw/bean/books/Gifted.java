@@ -65,6 +65,10 @@ public class Gifted implements Serializable{
         this.book = book;
     }
 
+    public int getBookId(){
+        return book.getId();
+    }
+
     public String getIssbn() {
         return issbn;
     }

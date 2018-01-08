@@ -4,6 +4,7 @@ import be.kokw.bean.books.GiftedFor;
 import be.kokw.controllers.MenuController;
 import be.kokw.repositories.books.GiftedForRepo;
 import be.kokw.utility.ChangeScene;
+import be.kokw.utility.RowFactoryGF;
 import be.kokw.utility.Warning;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -64,16 +65,17 @@ public class SearchBookByGiftedForOnName {
             ChangeScene.init("/fxml/books/found/tableviewByGiftedForOnName.fxml", "Books by Donated for by");
             table.setEditable(true);
             idCol.setCellValueFactory(new PropertyValueFactory<>("id"));
-            isbnCol.setCellValueFactory(new PropertyValueFactory<>("isbn"));
+            isbnCol.setCellValueFactory(new PropertyValueFactory<>("issbn"));
             boekIdCol.setCellValueFactory(new PropertyValueFactory<>("bookId"));
             depotCol.setCellValueFactory(new PropertyValueFactory<>("depot"));
             titleCol.setCellValueFactory(new PropertyValueFactory<>("title"));
             authorCol.setCellValueFactory(new PropertyValueFactory<>("authors"));
-            conNrCol.setCellValueFactory(new PropertyValueFactory<>("contractNumber"));
+            conNrCol.setCellValueFactory(new PropertyValueFactory<>("contractNr"));
             conDateCol.setCellValueFactory(new PropertyValueFactory<>("contractDate"));
-            conNameCol.setCellValueFactory(new PropertyValueFactory<>("contractor"));
+            conNameCol.setCellValueFactory(new PropertyValueFactory<>("name"));
             conCol.setCellValueFactory(new PropertyValueFactory<>("contract"));
             table.setItems(bookList);
+            RowFactoryGF.set(table);
         }
     }
 }
