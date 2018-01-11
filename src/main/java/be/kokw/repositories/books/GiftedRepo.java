@@ -20,7 +20,7 @@ public interface GiftedRepo extends JpaRepository<Gifted, Long> {
     Gifted findByBookId(int bookId);
 
     @Transactional
-    int deleteByBookId(int bookId);
+    void deleteByBookId(int bookId);
 
 
 }

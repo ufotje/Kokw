@@ -154,16 +154,17 @@ public class UpdateBook {
                 textField11.setOnAction(event -> giftedFor.setName(textField11.getText()));
                 hb11.getChildren().add(textField11);
                 HBox.setMargin(textField11, new Insets(20, 0, 20, 0));
-                vBox.getChildren().add(hb11);
 
-                HBox hb12 = getHBox("Contract:");
+                Label label12 = new Label("Contract:");
                 TextField textField12 = new TextField();
                 textField12.setAlignment(Pos.CENTER);
                 textField12.setText(giftedFor.getContract().getAbsolutePath());
                 textField12.setOnAction(event -> giftedFor.setContract(FileSelector.chooseFile()));
-                hb12.getChildren().add(textField12);
+                hb11.getChildren().add(label12);
+                hb11.getChildren().add(textField12);
+                HBox.setMargin(label12, new Insets(20, 20, 20, 50));
                 HBox.setMargin(textField12, new Insets(20, 0, 50, 0));
-                vBox.getChildren().add(hb12);
+                vBox.getChildren().add(hb11);
                 giftedForRepo.saveAndFlush(giftedFor);
             }
 
@@ -176,7 +177,7 @@ public class UpdateBook {
             scrollPane.setContent(vBox);
             scrollPane.setFitToWidth(true);
             scrollPane.setFitToHeight(true);
-            vBox.setBackground(new Background(new BackgroundImage(new Image("/images/achtergrond.jpg"),null, null, BackgroundPosition.CENTER, BackgroundSize.DEFAULT)));
+            vBox.setBackground(new Background(new BackgroundImage(new Image("/images/achtergrond.jpg"),null, null, BackgroundPosition.CENTER, new BackgroundSize(800,600,false, false, false, true))));
             borderPane.setCenter(scrollPane);
 
         } else {
