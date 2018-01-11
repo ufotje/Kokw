@@ -1,6 +1,7 @@
 package be.kokw.utility;
 
 
+import java.io.File;
 import java.util.Properties;
 
 import javax.activation.DataHandler;
@@ -45,7 +46,8 @@ public class MailWithAttachement {
             Multipart multipart = new MimeMultipart();
             multipart.addBodyPart(messageBodyPart);
             messageBodyPart = new MimeBodyPart();
-            String filename = "filepath";
+            File file = FileSelector.chooseFile();
+            String filename = file.getAbsolutePath();
             DataSource source = new FileDataSource(filename);
             messageBodyPart.setDataHandler(new DataHandler(source));
             messageBodyPart.setFileName(filename);

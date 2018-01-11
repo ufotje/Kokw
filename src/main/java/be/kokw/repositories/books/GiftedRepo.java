@@ -16,5 +16,11 @@ public interface GiftedRepo extends JpaRepository<Gifted, Long> {
     @Transactional
     List<Gifted> findByGiftedOnBetween(LocalDate start, LocalDate end);
 
+    @Transactional
+    Gifted findByBookId(int bookId);
+
+    @Transactional
+    int deleteByBookId(int bookId);
+
 
 }

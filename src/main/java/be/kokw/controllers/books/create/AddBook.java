@@ -1,13 +1,11 @@
 package be.kokw.controllers.books.create;
 
 import be.kokw.bean.books.Book;
+import be.kokw.bean.Copies;
 import be.kokw.bean.books.Gifted;
 import be.kokw.bean.books.GiftedFor;
 import be.kokw.repositories.books.*;
-import be.kokw.utility.ChangeScene;
-import be.kokw.utility.NewStage;
-import be.kokw.utility.Validation;
-import be.kokw.utility.Warning;
+import be.kokw.utility.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -56,6 +54,7 @@ public class AddBook {
     private Book book;
     private GiftedRepo giftedRepo;
     private GiftedForRepo giftedForRepo;
+    private CopyRepo copyRepo;
 
     @Autowired
     private void setBookRepo(@Qualifier("bookRepo") BookRepo repo) {
@@ -63,10 +62,19 @@ public class AddBook {
     }
 
     @Autowired
-    private void setGiftedRepo(@Qualifier("giftedRepo") GiftedRepo giftedRepo){this.giftedRepo = giftedRepo;}
+    private void setGiftedRepo(@Qualifier("giftedRepo") GiftedRepo giftedRepo) {
+        this.giftedRepo = giftedRepo;
+    }
 
     @Autowired
-    private void setGiftedForRepo(@Qualifier("giftedForRepo") GiftedForRepo giftedForRepo){this.giftedForRepo = giftedForRepo;}
+    private void setGiftedForRepo(@Qualifier("giftedForRepo") GiftedForRepo giftedForRepo) {
+        this.giftedForRepo = giftedForRepo;
+    }
+
+    @Autowired
+    private void setCopyRepo(@Qualifier("copyRepo") CopyRepo copyRepo) {
+        this.copyRepo = copyRepo;
+    }
 
     public void initialize() {
         ObservableList<String> topics = FXCollections.observableArrayList("Wereld Oorlog 1", "Wereld Ooorlog 2", "MiddelEeuwen", "Gulden Sporenslag", "Brugse Metten");
@@ -77,9 +85,9 @@ public class AddBook {
     }
 
     @FXML
-    public void save() throws Exception {
+    public void save() {
         if (validated()) {
-            book = new Book(isbn.getText(), depot.getText(), title.getText(), subTitles.toString(), Integer.parseInt(edition.getText()), Integer.parseInt(copies.getText()), volume.getValue(), publisher.getText(), Integer.parseInt(year.getText()), Integer.parseInt(pages.getText()), illustrated.isSelected(), authors.toString(), topics.append(topic.getValue()).toString());
+            book = new Book(isbn.getText(), depot.getText(), title.getText(), subTitles.toString(), Integer.parseInt(edition.getText()), volume.getValue(), publisher.getText(), Integer.parseInt(year.getText()), Integer.parseInt(pages.getText()), illustrated.isSelected(), authors.toString(), topics.append(topic.getValue()).toString());
             if (gifted.isSelected() && bought.isSelected()) {
                 Warning.alert("Multiple Values", "U dient 1 iets te kiezen.\nEen boek kan niet zowel geschonken als aangekocht zijn. ");
             }
@@ -93,6 +101,7 @@ public class AddBook {
                 Warning.alert("Multiple Values", "U dient 1 iets te kiezen.\nEen boek kan niet zowel geschonken, geschonken voor een tegenprestatie als aangekocht zijn. ");
             }
             if (gifted.isSelected()) {
+                book.setGifted(true);
                 window = NewStage.getStage("Gifted By", "/fxml/books/create/gifted/giftedBy.fxml");
                 window.showAndWait();
             }
@@ -101,6 +110,7 @@ public class AddBook {
                 window.showAndWait();
             }
             if (giftedFor.isSelected()) {
+                book.setGiftedFor(true);
                 window = NewStage.getStage("Gifted for", "/fxml/books/create/gifted/giftedFor.fxml");
                 window.showAndWait();
             }
@@ -154,10 +164,11 @@ public class AddBook {
                 if (Validation.validate("date", date.getValue().toString(), "[0-9\\-]+")) {
                     Gifted gift = new Gifted(firstName.getText() + " " + lastName.getText(), date.getValue(), book);
                     Gifted g = giftedRepo.save(gift);
+                    saveCopies();
                     window.close();
-                    if(g != null){
+                    if (g != null) {
                         Warning.alert("Book saved!", "Het boek '" + book.getTitle() + "' werd succesvol opgeslaan");
-                    }else {
+                    } else {
                         Warning.alert("Error!", "Er ging iets fout");
                     }
                 } else {
@@ -176,10 +187,11 @@ public class AddBook {
         if (Validation.validate("fullName", fullName.getText(), "[a-zA-Z \\-]+")) {
             GiftedFor giftedFor = new GiftedFor(fullName.getText(), contractNr.getText(), file, contractDate.getValue(), book);
             GiftedFor gf = giftedForRepo.save(giftedFor);
+            saveCopies();
             window.close();
-            if (gf != null){
+            if (gf != null) {
                 Warning.alert("Book saved!", "Het boek '" + book.getTitle() + "' werd succesvol opgeslaan");
-            }else {
+            } else {
                 Warning.alert("Error!", "Er ging iets fout");
             }
         } else {
@@ -189,7 +201,7 @@ public class AddBook {
     }
 
     @FXML
-    private void bought() throws Exception {
+    private void bought(){
         LocalDate boughtDate = boughtOn.getValue();
         book.setBoughtOn(boughtDate);
         window.close();
@@ -198,15 +210,11 @@ public class AddBook {
 
     @FXML
     public void chooseFile() {
-        Stage stage = new Stage();
-        stage.setTitle("Kies het Contract");
-        FileChooser fileChooser = new FileChooser();
-        fileChooser.setInitialDirectory(new File(System.getProperty("user.home")));
-        file = fileChooser.showOpenDialog(stage);
+       file = FileSelector.chooseFile();
     }
 
     @FXML
-    public void more() throws Exception {
+    public void more(){
         save();
         clearFields();
     }
@@ -218,13 +226,23 @@ public class AddBook {
                 Validation.validate("Jaar van publicatie:", year.getText(), "[0-9999]+") &&
                 Validation.validate("Aantal Bladzijden:", pages.getText(), "[0-9999]+")) &&
                 Validation.validate("isbn", isbn.getText(), "[a-zA-Z0-9999 \\-]+") && Validation.validate("depot", depot.getText(), "[a-zA-Z0-9999 -]+") && Validation.validate("edition", edition.getText(), "[0-999]+") && Validation.validate("copies", copies.getText(), "[0-999]+")) {
-            //    if(Validation.emptyValidation("topic", topics.to.isEmpty())){
             valid = true;
         } else {
             Warning.alert("Wrong input", "Verkeerde invoer!\nControleer uw velden aub.");
         }
 
         return valid;
+    }
+
+    private void saveCopies() {
+        Copies copy = copyRepo.findByTitle(book.getTitle());
+        if (copy != null) {
+            copy.setNrOfCopies(copy.getNrOfCopies() + 1);
+            copyRepo.save(copy);
+        } else {
+            Copies c = new Copies(title.getText());
+            copyRepo.save(c);
+        }
     }
 
     private void clearFields() {
@@ -247,8 +265,9 @@ public class AddBook {
         pages.clear();
     }
 
-    private void saveBook(Book book) throws Exception {
+    private void saveBook(Book book) {
         repo.save(book);
+        saveCopies();
         bookList.add(book.getTitle());
         StringBuilder alert = new StringBuilder("The book(s) with title: ");
         for (String s : bookList) {
@@ -258,6 +277,6 @@ public class AddBook {
         }
         alert.append(" has been successfully saved!");
         Warning.alert("Book saved!", alert.toString());
-        ChangeScene.init("/fxml/menu.fxml", "KOKW-AdminApp");
+        ChangeScene.init("/fxml/menu.fxml", "KOKW - Het Verleden Draait Altijd Mee!");
     }
 }

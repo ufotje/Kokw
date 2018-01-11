@@ -15,15 +15,15 @@
             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="185.0" prefWidth="505.0">
                 <HBox alignment="CENTER" layoutY="180.0" prefHeight="30.0" prefWidth="480.0">
                     <Label text="Titel  Boek:" />
-                    <TextField fx:id="title" alignment="CENTER" prefHeight="31.0" prefWidth="318.0">
+                    <TextField fx:id="title" alignment="CENTER" prefWidth="318.0">
                         <HBox.margin>
                             <Insets left="30.0" />
                         </HBox.margin>
                     </TextField>
                 </HBox>
-                <HBox alignment="CENTER"  layoutY="125.0" prefHeight="30.0" prefWidth="480.0">
+                <HBox alignment="CENTER" layoutY="125.0" prefHeight="30.0" prefWidth="480.0">
                     <Label text="Achternaam:" />
-                    <TextField fx:id="lastName" alignment="CENTER" prefHeight="31.0" prefWidth="318.0">
+                    <TextField fx:id="lastName" alignment="CENTER" prefWidth="318.0">
                         <HBox.margin>
                             <Insets left="20.0" />
                         </HBox.margin>
@@ -32,7 +32,7 @@
                 <Region layoutX="-51.0" layoutY="-57.0" prefHeight="113.0" prefWidth="530.0" style="-fx-background-repeat: no-repeat; -fx-background-image: url('http://users.telenet.be/hbo5_java/pictures/kokw/logo.jpg'); -fx-background-size: 40%;" />
                 <HBox alignment="CENTER" layoutY="69.0" prefHeight="30.0" prefWidth="480.0">
                     <Label text="Voornaam:" />
-                    <TextField fx:id="firstName" alignment="CENTER" prefHeight="31.0" prefWidth="318.0">
+                    <TextField fx:id="firstName" alignment="CENTER" prefWidth="318.0">
                         <HBox.margin>
                             <Insets left="30.0" />
                         </HBox.margin>
@@ -41,8 +41,22 @@
             </AnchorPane>
         </header>
         <content>
-            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="150.0" prefWidth="320.0">
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefWidth="320.0">
                 <Button layoutX="200.0" layoutY="100.0" mnemonicParsing="false" onAction="#save" text="Check-Out" />
+            <HBox alignment="CENTER" layoutX="-3.0" layoutY="33.0" prefHeight="30.0" prefWidth="480.0">
+               <children>
+                  <Label text="Boek ID:">
+                     <HBox.margin>
+                        <Insets left="5.0" top="20.0" />
+                     </HBox.margin>
+                  </Label>
+                  <TextField fx:id="id" alignment="CENTER" prefHeight="31.0" prefWidth="318.0">
+                     <HBox.margin>
+                        <Insets left="40.0" top="20.0" />
+                     </HBox.margin>
+                  </TextField>
+               </children>
+            </HBox>
             </AnchorPane>
         </content>
     </DialogPane>

@@ -58,7 +58,7 @@ public class UpdateMember {
     }
 
     @FXML
-    private void update() throws Exception {
+    private void update() {
         if (valid()) {
             member.setAnal(anal.isSelected());
             member.setbDay(bDay.getValue());

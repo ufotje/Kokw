@@ -17,7 +17,7 @@ public interface BookRepo extends JpaRepository<Book, Integer> {
     Book findById(int id);
 
     @Transactional
-    Book findByTitle(String title);
+    List<Book> findByTitle(String title);
 
     @Transactional
     List<Book> findBookByTopicsContains(String topics);

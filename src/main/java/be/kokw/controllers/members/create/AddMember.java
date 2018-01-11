@@ -52,7 +52,7 @@ public class AddMember {
     }
 
     @FXML
-    private void save() throws Exception {
+    private void save() {
         if (valid()) {
             Member member = new Member(firstName.getText(), lastName.getText(), street.getText(), Integer.parseInt(houseNr.getText()), Integer.parseInt(zip.getText()), city.getText(), email.getText(), bDay.getValue(), board.isSelected(), payed.isSelected(), anal.isSelected());
             repo.save(member);

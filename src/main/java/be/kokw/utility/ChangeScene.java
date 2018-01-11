@@ -10,8 +10,14 @@ import javafx.stage.Stage;
  */
 public interface ChangeScene {
     @FXML
-    static void init(String resource, String title) throws Exception {
-        Parent root = ControllerBean.getBean(resource);
+    static void init(String resource, String title){
+        Parent root = null;
+        try {
+            root = ControllerBean.getBean(resource);
+        } catch (Exception e) {
+            Warning.alert("Error!", "Er ging iets fout tijdens het laden van de pagina!");
+            e.printStackTrace();
+        }
         Stage window = Main.stage;
         window.setTitle(title);
         window.getScene().setRoot(root);

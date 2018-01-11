@@ -20,8 +20,8 @@
             <VBox layoutY="69.0">
                <children>
                   <HBox alignment="CENTER" prefHeight="30.0" prefWidth="480.0">
-                      <Label text="Titel v/h Boek:" />
-                      <TextField fx:id="title" alignment="CENTER" prefHeight="31.0" prefWidth="318.0">
+                      <Label text="Id v/h Boek:" />
+                      <TextField fx:id="id" alignment="CENTER" prefHeight="31.0" prefWidth="318.0">
                           <HBox.margin>
                               <Insets left="30.0" />
                           </HBox.margin>

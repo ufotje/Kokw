@@ -10,93 +10,106 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane style="-fx-background-image: url('/images/achtergrond.jpg'); -fx-background-position: center; -fx-background-repeat: no-repeat; -fx-background-size: 90%;" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="be.kokw.controllers.MenuController">
+<BorderPane
+        style="-fx-background-image: url('/images/achtergrond.jpg'); -fx-background-position: center; -fx-background-repeat: no-repeat; -fx-background-size: 90%;"
+        xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1"
+        fx:controller="be.kokw.controllers.MenuController">
     <top>
         <VBox alignment="CENTER" BorderPane.alignment="CENTER">
             <MenuBar style="-fx-background-color: #85C1E9; -fx-background-radius: 10;">
                 <Menu mnemonicParsing="false" text="Boeken">
-                    <MenuItem mnemonicParsing="false" onAction="#addBook" text="Voeg Toe" />
+                    <MenuItem mnemonicParsing="false" onAction="#addBook" text="Voeg Toe"/>
                     <Menu mnemonicParsing="false" text="Zoeken">
-                        <MenuItem mnemonicParsing="false" onAction="#findBookByISBN" text="Op ISBN" />
-                        <MenuItem mnemonicParsing="false" onAction="#findBookByDepot" text="Op Depotnummer" />
-                        <MenuItem mnemonicParsing="false" onAction="#findBookByTitle" text="Op Titel" />
-                        <MenuItem mnemonicParsing="false" onAction="#findBookByAuthor" text="Op Auteur" />
-                        <MenuItem mnemonicParsing="false" onAction="#findBookByPublisher" text="Op Uitgever" />
-                        <MenuItem mnemonicParsing="false" onAction="#findBookByTopic" text="Op Onderwerp" />
+                        <MenuItem mnemonicParsing="false" onAction="#findBookByISBN" text="Op ISBN"/>
+                        <MenuItem mnemonicParsing="false" onAction="#findBookByDepot" text="Op Depotnummer"/>
+                        <MenuItem mnemonicParsing="false" onAction="#findBookByTitle" text="Op Titel"/>
+                        <MenuItem mnemonicParsing="false" onAction="#findBookByAuthor" text="Op Auteur"/>
+                        <MenuItem mnemonicParsing="false" onAction="#findBookByPublisher" text="Op Uitgever"/>
+                        <MenuItem mnemonicParsing="false" onAction="#findBookByTopic" text="Op Onderwerp"/>
                         <Menu mnemonicParsing="false" text="Aangekocht">
-                            <MenuItem mnemonicParsing="false" onAction="#findByBoughtOnAll" text="Alle" />
-                            <MenuItem mnemonicParsing="false" onAction="#findByBoughtOn" text="Op Datum" />
-                            <MenuItem mnemonicParsing="false" onAction="#findByBoughtOnBetween" text="Op Datum Tussen" />
+                            <MenuItem mnemonicParsing="false" onAction="#findByBoughtOnAll" text="Alle"/>
+                            <MenuItem mnemonicParsing="false" onAction="#findByBoughtOn" text="Op Datum"/>
+                            <MenuItem mnemonicParsing="false" onAction="#findByBoughtOnBetween" text="Op Datum Tussen"/>
                         </Menu>
                         <Menu mnemonicParsing="false" text="Geschonken">
-                            <MenuItem mnemonicParsing="false" onAction="#findByGiftedOnAll" text="Alle" />
-                            <MenuItem mnemonicParsing="false" onAction="#findByGiftedOn" text="Op Datum" />
-                            <MenuItem mnemonicParsing="false" onAction="#findByGiftedOnBetween" text="Op Datum Tussen" />
+                            <MenuItem mnemonicParsing="false" onAction="#findByGiftedOnAll" text="Alle"/>
+                            <MenuItem mnemonicParsing="false" onAction="#findByGiftedOn" text="Op Datum"/>
+                            <MenuItem mnemonicParsing="false" onAction="#findByGiftedOnBetween" text="Op Datum Tussen"/>
                             <Menu mnemonicParsing="false" text="Geschonken tegenprestatie">
-                                <MenuItem mnemonicParsing="false" onAction="#findByGiftedForOnAll" text="Alle" />
-                                <MenuItem mnemonicParsing="false" onAction="#findByGiftedForOn" text="Op Datum" />
-                                <MenuItem mnemonicParsing="false" onAction="#findByGiftedForOnBetween" text="Op Datum tussen" />
-                                <MenuItem mnemonicParsing="false" onAction="#findByGiftedForOnName" text="Op Naam" />
-                                <MenuItem mnemonicParsing="false" onAction="#findByGiftedForOnNameAndDate" text="Op Naam en Datum" />
+                                <MenuItem mnemonicParsing="false" onAction="#findByGiftedForOnAll" text="Alle"/>
+                                <MenuItem mnemonicParsing="false" onAction="#findByGiftedForOn" text="Op Datum"/>
+                                <MenuItem mnemonicParsing="false" onAction="#findByGiftedForOnBetween"
+                                          text="Op Datum tussen"/>
+                                <MenuItem mnemonicParsing="false" onAction="#findByGiftedForOnName" text="Op Naam"/>
+                                <MenuItem mnemonicParsing="false" onAction="#findByGiftedForOnNameAndDate"
+                                          text="Op Naam en Datum"/>
                             </Menu>
                         </Menu>
                     </Menu>
                     <Menu mnemonicParsing="false" text="Verwijder">
-                        <MenuItem mnemonicParsing="false" onAction="#deleteBookByTitle" text="Op Titel" />
-                        <MenuItem mnemonicParsing="false" onAction="#derateBook" text="Declasseer Boek " />
+                        <MenuItem mnemonicParsing="false" onAction="#deleteBookByTitle" text="Op Titel"/>
+                        <MenuItem mnemonicParsing="false" onAction="#derateBook" text="Declasseer Boek "/>
 
                     </Menu>
-                    <MenuItem mnemonicParsing="false" onAction="#updateBookByTitle" text="Updaten" />
+                    <MenuItem mnemonicParsing="false" onAction="#updateBookByTitle" text="Updaten"/>
                 </Menu>
                 <Menu mnemonicParsing="false" text="Tijdschriften">
-                    <MenuItem mnemonicParsing="false" onAction="#addMag" text="Voeg Toe" />
+                    <MenuItem mnemonicParsing="false" onAction="#addMag" text="Voeg Toe"/>
                     <Menu mnemonicParsing="false" text="Zoeken">
-                        <MenuItem mnemonicParsing="false" onAction="#magByIssn" text="Op ISSN" />
-                        <MenuItem mnemonicParsing="false" onAction="#magByName" text="Op Naam" />
-                        <MenuItem mnemonicParsing="false" onAction="#magByPublisher" text="Op Uitgeverij" />
-                        <MenuItem mnemonicParsing="false" onAction="#magByTraded" text="Op Ruilabonnement" />
-                        <MenuItem mnemonicParsing="false" onAction="#magBySubscription" text="Op Abonnement" />
-                        <MenuItem mnemonicParsing="false" onAction="#magByTopic" text="Op Onderwerp" />
+                        <MenuItem mnemonicParsing="false" onAction="#magByIssn" text="Op ISSN"/>
+                        <MenuItem mnemonicParsing="false" onAction="#magByName" text="Op Naam"/>
+                        <MenuItem mnemonicParsing="false" onAction="#magByPublisher" text="Op Uitgeverij"/>
+                        <MenuItem mnemonicParsing="false" onAction="#magByTraded" text="Op Ruilabonnement"/>
+                        <MenuItem mnemonicParsing="false" onAction="#magBySubscription" text="Op Abonnement"/>
+                        <MenuItem mnemonicParsing="false" onAction="#magByTopic" text="Op Onderwerp"/>
                     </Menu>
-                    <MenuItem mnemonicParsing="false" onAction="#deleteMag" text="Verwijderen" />
+                    <MenuItem mnemonicParsing="false" onAction="#deleteMag" text="Verwijderen"/>
                 </Menu>
                 <Menu mnemonicParsing="false" text="Digi Dragers">
-                    <MenuItem mnemonicParsing="false" onAction="#addDigi" text="Voeg Toe" />
+                    <MenuItem mnemonicParsing="false" onAction="#addDigi" text="Voeg Toe"/>
                     <Menu mnemonicParsing="false" text="Zoeken"></Menu>
-                    <MenuItem mnemonicParsing="false" onAction="#deleteDigi" text="Verwijderen" />
+                    <MenuItem mnemonicParsing="false" onAction="#deleteDigi" text="Verwijderen"/>
                 </Menu>
 
                 <Menu mnemonicParsing="false" text="Leden">
-                    <MenuItem mnemonicParsing="false" onAction="#addMember" text="Voeg toe" />
-                    <MenuItem mnemonicParsing="false" onAction="#updateMember" text="Update" />
-                    <MenuItem mnemonicParsing="false" onAction="#deleteMember" text="Verwijder" />
+                    <MenuItem mnemonicParsing="false" onAction="#addMember" text="Voeg toe"/>
+                    <MenuItem mnemonicParsing="false" onAction="#updateMember" text="Update"/>
+                    <MenuItem mnemonicParsing="false" onAction="#deleteMember" text="Verwijder"/>
                     <Menu mnemonicParsing="false" text="Zoeken">
-                        <MenuItem mnemonicParsing="false" onAction="#findMemberByName" text="Op Naam" />
-                        <MenuItem mnemonicParsing="false" onAction="#findMemberByCity" text="Op Stad" />
-                        <MenuItem mnemonicParsing="false" onAction="#findMemberByDayOfBirth" text="Op geboortedatum" />
-                        <MenuItem mnemonicParsing="false" onAction="#findMemberByPayed" text="Op onbetaald Lidgeld" />
-                        <MenuItem mnemonicParsing="false" onAction="#findMemberByAnalen" text="Analen niet Ontvangen" />
+                        <MenuItem mnemonicParsing="false" onAction="#findMemberByName" text="Op Naam"/>
+                        <MenuItem mnemonicParsing="false" onAction="#findMemberByCity" text="Op Stad"/>
+                        <MenuItem mnemonicParsing="false" onAction="#findMemberByDayOfBirth" text="Op geboortedatum"/>
+                        <MenuItem mnemonicParsing="false" onAction="#findMemberByPayed" text="Op onbetaald Lidgeld"/>
+                        <MenuItem mnemonicParsing="false" onAction="#findMemberByAnalen" text="Annalen niet Ontvangen"/>
                     </Menu>
                 </Menu>
                 <Menu mnemonicParsing="false" text="Uitlenen">
-                    <MenuItem mnemonicParsing="false" onAction="#checkOut" text="Uitlenen" />
-                    <MenuItem mnemonicParsing="false" onAction="#prolong" text="Verlengen" />
-                    <MenuItem mnemonicParsing="false" onAction="#returnBook" text="Terugbrengen" />
-                    <MenuItem mnemonicParsing="false" onAction="#datesBetween" text="Tussen" />
+                    <Menu mnemonicParsing="false" text="Boeken">
+                        <MenuItem mnemonicParsing="false" onAction="#checkOut" text="Uitlenen"/>
+                        <MenuItem mnemonicParsing="false" onAction="#prolong" text="Verlengen"/>
+                        <MenuItem mnemonicParsing="false" onAction="#returnBook" text="Terugbrengen"/>
+                        <MenuItem mnemonicParsing="false" onAction="#datesBetween" text="Tussen"/>
+                    </Menu>
+                    <Menu mnemonicParsing="false" text="DVD's">
+                        <MenuItem mnemonicParsing="false" onAction="#checkOutDVD" text="Uitlenen"/>
+                        <MenuItem mnemonicParsing="false" onAction="#prolongDVD" text="Verlengen"/>
+                        <MenuItem mnemonicParsing="false" onAction="#returnDVD" text="Terugbrengen"/>
+                        <MenuItem mnemonicParsing="false" onAction="#datesBetweenDVD" text="Tussen"/>
+                    </Menu>
                 </Menu>
                 <Menu mnemonicParsing="false" text="Mailings">
-                    <MenuItem mnemonicParsing="false" onAction="#mailBoard" text="Raad van Bestuur" />
-                    <MenuItem mnemonicParsing="false" onAction="#mailMembers" text="Alle leden" />
-                    <MenuItem mnemonicParsing="false" onAction="#mailMen" text="Alle Mannen" />
-                    <MenuItem mnemonicParsing="false" onAction="#mailWomen" text="Alle Vrouwen" />
+                    <MenuItem mnemonicParsing="false" onAction="#mailBoard" text="Raad van Bestuur"/>
+                    <MenuItem mnemonicParsing="false" onAction="#mailMembers" text="Alle leden"/>
+                    <MenuItem mnemonicParsing="false" onAction="#mailMen" text="Alle Mannen"/>
+                    <MenuItem mnemonicParsing="false" onAction="#mailWomen" text="Alle Vrouwen"/>
                 </Menu>
                 <opaqueInsets>
-                    <Insets bottom="6.0" left="6.0" right="6.0" top="6.0" />
+                    <Insets bottom="6.0" left="6.0" right="6.0" top="6.0"/>
                 </opaqueInsets>
                 <effect>
                     <Lighting>
                         <bumpInput>
-                            <Shadow />
+                            <Shadow/>
                         </bumpInput>
                         <light>
 
@@ -104,11 +117,11 @@
                     </Lighting>
                 </effect>
                 <cursor>
-                    <Cursor fx:constant="HAND" />
+                    <Cursor fx:constant="HAND"/>
                 </cursor>
-            <padding>
-               <Insets bottom="5.0" top="5.0" />
-            </padding>
+                <padding>
+                    <Insets bottom="5.0" top="5.0"/>
+                </padding>
             </MenuBar>
         </VBox>
     </top>

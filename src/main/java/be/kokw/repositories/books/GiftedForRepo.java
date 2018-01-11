@@ -22,4 +22,10 @@ public interface GiftedForRepo extends JpaRepository<GiftedFor, Long> {
 
     @Transactional
     List<GiftedFor> findByContractDateAndName(LocalDate date, String name);
+
+    @Transactional
+    int deleteByBookId(int bookId);
+
+    @Transactional
+    GiftedFor findByBookId(int bookId);
 }

@@ -234,7 +234,7 @@ public class MenuController {
 
     //Delete a Book
     @FXML
-    private void deleteBookByTitle() throws Exception {
+    private void deleteBookByTitle() {
         window = NewStage.getStage("Verwijder Boek op Titel!", "/fxml/books/delete/dialogpaneByTitle.fxml");
         window.show();
     }
@@ -368,6 +368,48 @@ public class MenuController {
     }
 
     //Search for Digitals
+
+
+    //Checkout Digi
+    @FXML
+    private void checkOutDVD() {
+        try {
+            window = NewStage.getStage("Check-Out DVD!", "/fxml/checkOut/dvd/checkOutDialog.fxml");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        window.show();
+    }
+
+    @FXML
+    private void returnDVD() {
+        try {
+            window = NewStage.getStage("Return DVD!", "/fxml/checkOut/dvd/returnDialog.fxml");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        window.show();
+    }
+
+    @FXML
+    private void prolongDVD() {
+        try {
+            window = NewStage.getStage("Prolong Checked-Out DVD!", "/fxml/checkOut/dvd/prolongDialog.fxml");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        window.show();
+    }
+
+    @FXML
+    private void datesBetweenDVD() {
+        try {
+            window = NewStage.getStage("Checked-Out Between", "/fxml/checkOut/dvd/betweenDialog.fxml");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        window.show();
+    }
 
     //MemberMethods
     //Add a Member

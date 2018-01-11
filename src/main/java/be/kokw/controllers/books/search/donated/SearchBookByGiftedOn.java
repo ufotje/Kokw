@@ -66,7 +66,7 @@ public class SearchBookByGiftedOn {
             depotCol.setCellValueFactory(new PropertyValueFactory<>("depot"));
             titleCol.setCellValueFactory(new PropertyValueFactory<>("title"));
             authorCol.setCellValueFactory(new PropertyValueFactory<>("authors"));
-            giftedByCol.setCellValueFactory(new PropertyValueFactory<>("nameGifter"));
+            giftedByCol.setCellValueFactory(new PropertyValueFactory<>("name"));
             giftedOnCol.setCellValueFactory(new PropertyValueFactory<>("giftedOn"));
             table.setItems(bookList);
         }

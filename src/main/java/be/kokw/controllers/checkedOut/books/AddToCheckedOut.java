@@ -3,10 +3,12 @@ package be.kokw.controllers.checkedOut.books;
 import be.kokw.bean.books.Book;
 import be.kokw.bean.books.CheckedOut;
 import be.kokw.bean.Member;
+import be.kokw.bean.Copies;
 import be.kokw.controllers.MenuController;
 import be.kokw.repositories.books.BookRepo;
 import be.kokw.repositories.books.CheckOutRepo;
 import be.kokw.repositories.MemberRepo;
+import be.kokw.repositories.books.CopyRepo;
 import be.kokw.utility.Warning;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
@@ -22,44 +24,60 @@ public class AddToCheckedOut {
     private TextField firstName;
     @FXML
     private TextField lastName;
+    @FXML
+    private TextField id;
     private BookRepo bookRepo;
     private MemberRepo memberRepo;
     private CheckOutRepo checkOutRepo;
+    private CopyRepo copyRepo;
     private Member member;
     private Book book;
 
     @Autowired
-    private void setBookRepo(@Qualifier("bookRepo") BookRepo repo){
+    private void setBookRepo(@Qualifier("bookRepo") BookRepo repo) {
         bookRepo = repo;
     }
 
     @Autowired
-    private void setMemberRepo(@Qualifier("memberRepo") MemberRepo repo){
+    private void setMemberRepo(@Qualifier("memberRepo") MemberRepo repo) {
         memberRepo = repo;
     }
 
     @Autowired
-    private void setCheckOutRepo(@Qualifier("checkOutRepo") CheckOutRepo repo){
+    private void setCheckOutRepo(@Qualifier("checkOutRepo") CheckOutRepo repo) {
         checkOutRepo = repo;
     }
 
-    public void save(){
+    @Autowired
+    private void setCopyRepo(@Qualifier("copyRepo") CopyRepo copyRepo) {
+        this.copyRepo = copyRepo;
+    }
+
+    public void save() {
         setMember();
         setBook();
         MenuController.window.close();
-        if(member != null){
-            if(book != null){
+        if (member != null) {
+            if (book != null) {
+                Copies copy = copyRepo.findByTitle(title.getText());
+                if (copy.getNrOfCopies() > 0) {
+                    copy.setNrOfCopies(copy.getNrOfCopies() - 1);
+                    copyRepo.save(copy);
+                } else {
+                    Warning.alert("No More Copies", "Er zijn geen kopieën van het boek '" + title.getText() + "' meer beschikbaar.");
+
+                }
                 CheckedOut checkOut = checkOutRepo.save(book, member);
-                if(checkOut != null){
+                if (checkOut != null) {
                     StringBuilder sb = new StringBuilder(checkOut.getReturnDate().toString());
                     Warning.alert("Book checked out!", "Het boek '" + title.getText() + "' werd succesvol uitgeleend aan '" + firstName.getText() + " " + lastName.getText() + "'!\nDe retourdatum is " + sb.reverse().toString());
-                }else {
+                } else {
                     Warning.alert("Check out failed", "Er is iets fout gegaan!");
                 }
-            }else{
+            } else {
                 Warning.alert("Book not found!", "Het boek '" + title.getText() + "' werd niet gevonden!");
             }
-        }else{
+        } else {
             Warning.alert("Member not found", "Het lid '" + firstName.getText() + " " + lastName.getText() + "' werd niet gevonden!");
         }
 
@@ -70,6 +88,6 @@ public class AddToCheckedOut {
     }
 
     private void setBook() {
-        book = bookRepo.findByTitle(title.getText());
+        book = bookRepo.findOne(Integer.parseInt(id.getText()));
     }
 }

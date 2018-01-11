@@ -27,8 +27,6 @@ public class Book implements Serializable {
     private String subtitles;
     @Column(name = "Edition")
     private int edition;
-    @Column(name = "Copies")
-    private int copies;
     @Column(name = "Volume")
     private Integer volume;
     @Column(name = "Publisher")
@@ -44,17 +42,18 @@ public class Book implements Serializable {
     @Column(name = "authors")
     private String authors;
     private String topics;
+    private boolean gifted;
+    private boolean giftedFor;
 
     public Book() {
     }
 
-    public Book(String isbn, String depot, String title, String subtitles, int edition, int copies, Integer volume, String publisher, int yearPublished, int nrOfPages, boolean illustrated, String authors, String topics) {
+    public Book(String isbn, String depot, String title, String subtitles, int edition, Integer volume, String publisher, int yearPublished, int nrOfPages, boolean illustrated, String authors, String topics) {
         this.isbn = isbn;
         this.depot = depot;
         this.title = title;
         this.subtitles = subtitles;
         this.edition = edition;
-        this.copies = copies;
         this.volume = volume;
         this.publisher = publisher;
         this.yearPublished = yearPublished;
@@ -64,13 +63,13 @@ public class Book implements Serializable {
         this.topics = topics;
     }
 
-    public Book(String isbn, String depot, String title, String subtitles, int edition, int copies, Integer volume, String publisher, int yearPublished, int nrOfPages, LocalDate boughtOn, boolean illustrated, String authors, String topics) {
+
+    public Book(String isbn, String depot, String title, String subtitles, int edition, Integer volume, String publisher, int yearPublished, int nrOfPages, LocalDate boughtOn, boolean illustrated, String authors, String topics) {
         this.isbn = isbn;
         this.depot = depot;
         this.title = title;
         this.subtitles = subtitles;
         this.edition = edition;
-        this.copies = copies;
         this.volume = volume;
         this.publisher = publisher;
         this.yearPublished = yearPublished;
@@ -127,14 +126,6 @@ public class Book implements Serializable {
 
     public void setEdition(int edition) {
         this.edition = edition;
-    }
-
-    public int getCopies() {
-        return copies;
-    }
-
-    public void setCopies(int copies) {
-        this.copies = copies;
     }
 
     public int getVolume() {
@@ -199,5 +190,21 @@ public class Book implements Serializable {
 
     public void setTopics(String topics) {
         this.topics = topics;
+    }
+
+    public boolean isGifted() {
+        return gifted;
+    }
+
+    public void setGifted(boolean gifted) {
+        this.gifted = gifted;
+    }
+
+    public boolean isGiftedFor() {
+        return giftedFor;
+    }
+
+    public void setGiftedFor(boolean giftedFor) {
+        this.giftedFor = giftedFor;
     }
 }
