@@ -37,6 +37,8 @@ public class UpdateBook {
     private GiftedRepo giftedRepo;
     private GiftedForRepo giftedForRepo;
     private Book book;
+    private GiftedFor giftedFor;
+    private Gifted gifted;
 
     @Autowired
     private void setBookRepo(@Qualifier("bookRepo") BookRepo repo) {
@@ -63,109 +65,110 @@ public class UpdateBook {
             vBox.setAlignment(Pos.CENTER);
             HBox hb1 = getHBox("Titel:");
             setTextfield(hb1, book.getTitle());
+            HBox.setMargin(hb1, new Insets(100, 0, 0, 0));
             vBox.getChildren().add(hb1);
 
             String[] subTitles = book.getSubtitles().split("\n");
-            HBox hBox = getHBox("Ondertitel;");
+            HBox hBox = getHBox("Ondertitel:");
             for (String s : subTitles) {
                 setTextfield(hBox, s);
             }
             vBox.getChildren().add(hBox);
 
             String[] authors = book.getAuthors().split("\n");
-            HBox hb3 = getHBox("Auteur");
+            HBox hb3 = getHBox("Auteurs:");
             for (String author : authors) {
                 setTextfield(hb3, author);
             }
             vBox.getChildren().add(hb3);
 
             String[] topics = book.getTopics().split("\n");
-            HBox hb2 = getHBox("Onderwerp:");
+            HBox hb2 = getHBox("Onderwerpen:");
             for (String topic : topics) {
                 setTextfield(hb2, topic);
             }
             vBox.getChildren().add(hb2);
 
-            HBox hb4 = getHBox("Uitgeverij;");
+            HBox hb4 = getHBox("Uitgeverij:");
             setTextfield(hb4, book.getPublisher());
+            Label label5 = new Label("Jaar van Uitgave:");
+            hb4.getChildren().add(label5);
+            HBox.setMargin(label5, new Insets(0, 20, 30, 50));
+            setTextfield(hb4, "" + book.getYearPublished());
+            Label label6 = new Label("Aantal Pagina's:");
+            hb4.getChildren().add(label6);
+            HBox.setMargin(label6, new Insets(0, 20, 30, 50));
+            setTextfield(hb4, "" + book.getNrOfPages());
             vBox.getChildren().add(hb4);
 
-            HBox hb5 = getHBox("Jaar van Uitgave:");
-            setTextfield(hb5, "" + book.getYearPublished());
-            vBox.getChildren().add(hb5);
-
-            HBox hb6 = getHBox("Aantal Pagina's:");
-            setTextfield(hb6, "" + book.getNrOfPages());
-            vBox.getChildren().add(hb6);
-
             if (book.isGifted()) {
-                Gifted gifted = giftedRepo.findByBookId(book.getId());
+                gifted = giftedRepo.findByBookId(book.getId());
                 HBox hb7 = getHBox("Naam Gifter:");
                 TextField textField7 = new TextField();
                 textField7.setAlignment(Pos.CENTER);
                 textField7.setText(gifted.getName());
-                textField7.setOnAction(event -> gifted.setName(textField7.getText()));
+                textField7.textProperty().addListener((observable, oldValue, newValue) -> gifted.setName(newValue));
                 hb7.getChildren().add(textField7);
-                HBox.setMargin(textField7, new Insets(20, 0, 20, 0));
+                HBox.setMargin(textField7, new Insets(0, 0, 30, 0));
                 vBox.getChildren().add(hb7);
 
                 HBox hb8 = getHBox("Datum gift:");
                 DatePicker date = new DatePicker();
                 date.setValue(gifted.getGiftedOn());
-                date.setOnAction(event -> gifted.setGiftedOn(date.getValue()));
+                date.valueProperty().addListener((observable, oldValue, newValue) -> gifted.setGiftedOn(date.getValue()));
                 hb8.getChildren().add(date);
-                HBox.setMargin(date, new Insets(20, 0, 20, 0));
+                HBox.setMargin(date, new Insets(0, 0, 30, 0));
                 vBox.getChildren().add(hb8);
-                giftedRepo.saveAndFlush(gifted);
             }
 
             if (book.getBoughtOn() != null) {
-                HBox hb9 = getHBox("Jaar van uitgave:");
+                HBox hb9 = getHBox("Datum Aankoop:");
                 DatePicker date2 = new DatePicker();
                 date2.setValue(book.getBoughtOn());
-                date2.setOnAction(event -> book.setBoughtOn(date2.getValue()));
+                date2.valueProperty().addListener((observable, oldValue, newValue) -> book.setBoughtOn(newValue));
                 hb9.getChildren().add(date2);
-                HBox.setMargin(date2, new Insets(20, 0, 20, 0));
+                HBox.setMargin(date2, new Insets(0, 0, 30, 0));
                 vBox.getChildren().add(hb9);
-                repo.saveAndFlush(book);
             }
 
             if (book.isGiftedFor()) {
-                GiftedFor giftedFor = giftedForRepo.findByBookId(book.getId());
+                giftedFor = giftedForRepo.findByBookId(book.getId());
                 HBox hb10 = getHBox("ContractNummer:");
                 TextField textField10 = new TextField();
                 textField10.setAlignment(Pos.CENTER);
                 textField10.setText(giftedFor.getContractNr());
-                textField10.setOnAction(event -> giftedFor.setContractNr(textField10.getText()));
+                textField10.textProperty().addListener((observable, oldValue, newValue) ->{
+                    giftedFor.setContractNr(newValue);
+                    System.out.println("Contractnummer changed");
+                });
                 Label label11 = new Label("ContractDatum:");
                 DatePicker date3 = new DatePicker();
                 date3.setValue(giftedFor.getContractDate());
-                date3.setOnAction(event -> giftedFor.setContractDate(date3.getValue()));
+                date3.valueProperty().addListener((observable, oldValue, newValue) -> giftedFor.setContractDate(newValue));
                 hb10.getChildren().addAll(textField10, label11, date3);
-                HBox.setMargin(textField10, new Insets(20, 0, 20, 0));
-                HBox.setMargin(label11, new Insets(20, 20, 20, 50));
-                HBox.setMargin(date3, new Insets(20, 0, 20, 0));
+                HBox.setMargin(textField10, new Insets(0, 0, 30, 0));
+                HBox.setMargin(label11, new Insets(0, 20, 30, 50));
+                HBox.setMargin(date3, new Insets(0, 0, 30, 0));
                 vBox.getChildren().add(hb10);
 
                 HBox hb11 = getHBox("Contractant:");
                 TextField textField11 = new TextField();
                 textField11.setAlignment(Pos.CENTER);
                 textField11.setText(giftedFor.getName());
-                textField11.setOnAction(event -> giftedFor.setName(textField11.getText()));
+                textField11.textProperty().addListener((observable, oldValue, newValue) -> giftedFor.setName(newValue));
                 hb11.getChildren().add(textField11);
-                HBox.setMargin(textField11, new Insets(20, 0, 20, 0));
+                HBox.setMargin(textField11, new Insets(0, 0, 30, 0));
 
                 Label label12 = new Label("Contract:");
                 TextField textField12 = new TextField();
                 textField12.setAlignment(Pos.CENTER);
                 textField12.setText(giftedFor.getContract().getAbsolutePath());
-                textField12.setOnAction(event -> giftedFor.setContract(FileSelector.chooseFile()));
+                textField12.setOnMouseClicked(event -> giftedFor.setContract(FileSelector.chooseFile()));
                 hb11.getChildren().add(label12);
                 hb11.getChildren().add(textField12);
-                HBox.setMargin(label12, new Insets(20, 20, 20, 50));
-                HBox.setMargin(textField12, new Insets(20, 0, 50, 0));
+                HBox.setMargin(label12, new Insets(0, 20, 30, 50));
+                HBox.setMargin(textField12, new Insets(0, 0, 30, 0));
                 vBox.getChildren().add(hb11);
-                giftedForRepo.saveAndFlush(giftedFor);
             }
 
             Button bt = new Button("updaten");
@@ -173,11 +176,12 @@ public class UpdateBook {
             bt.setFont(Font.font(18));
             bt.setOnAction(event -> update());
             vBox.getChildren().add(bt);
+            VBox.setMargin(bt, new Insets(20, 0, 0, 100));
             ScrollPane scrollPane = new ScrollPane();
             scrollPane.setContent(vBox);
             scrollPane.setFitToWidth(true);
             scrollPane.setFitToHeight(true);
-            vBox.setBackground(new Background(new BackgroundImage(new Image("/images/achtergrond.jpg"),null, null, BackgroundPosition.CENTER, new BackgroundSize(800,600,false, false, false, true))));
+            vBox.setBackground(new Background(new BackgroundImage(new Image("/images/achtergrond.jpg"), null, null, BackgroundPosition.CENTER, new BackgroundSize(800, 400, false, false, false, true))));
             borderPane.setCenter(scrollPane);
 
         } else {
@@ -187,46 +191,33 @@ public class UpdateBook {
 
 
     private void update() {
-        /*if (validated()) {
-            int result = repo.update(new Book(book.getId(), title.getText(), topic.getText(), firstName.getText(), lastName.getText(), publisher.getText(), place.getText(), Integer.parseInt(year.getText()), Integer.parseInt(pages.getText()));
-            if (result > 0) {
-                String alert = "The book with title: '" + title.getText() + "' has been successfully updated!";
-                Warning.alert("Book updated!", alert);
-                ChangeScene.init("/fxml/home.fxml", "KOKW - Het verleden draait mee!");
-            } else {
-                Warning.alert("Update failed", "Corresponderend boek niet gevonden!");
-            }
-        }*/
+        if (book.isGifted()) {
+            giftedRepo.saveAndFlush(gifted);
+        }
+        if (book.getBoughtOn() != null) {
+            repo.saveAndFlush(book);
+        }
+        if (book.isGiftedFor()) {
+            giftedForRepo.saveAndFlush(giftedFor);
+        }
+        ChangeScene.init("/fxml/home.fxml", "KOKW - Het Verleden Draait Altijd Mee!");
     }
 
-    /*  private boolean validated() {
-          boolean valid = false;
-          if (Validation.emptyValidation("Titel", title.getText().isEmpty() &&
-                  Validation.emptyValidation("Topic", topic.getText().isEmpty()) &&
-                  Validation.validate("Achternaam Auteur", lastName.getText(), "[a-zA-Z -]+") &&
-                  Validation.validate("Voornaam Auteur:", firstName.getText(), "[a-zA-Z]+")) &&
-                  Validation.validate("Uitgeverij:", publisher.getText(), "[a-zA-Z -]+") &&
-                  Validation.emptyValidation("Plaats Uitgeverij", place.getText().isEmpty()) &&
-                  Validation.validate("Jaar van publicatie:", year.getText(), "[0-9999]+") &&
-                  Validation.validate("Aantal Bladzijden:", pages.getText(), "[0-9999]+")) {
-              valid = true;
-          }
-          return valid;
-      }*/
-    private HBox getHBox(String value){
+    private HBox getHBox(String value) {
         HBox hBox = new HBox();
         hBox.setAlignment(Pos.CENTER);
         Label label1 = new Label(value);
         hBox.getChildren().add(label1);
-        HBox.setMargin(label1, new Insets(20, 20, 20, 100));
+        HBox.setMargin(label1, new Insets(0, 20, 30, 100));
         return hBox;
     }
+
     private void setTextfield(HBox hBox, String value) {
         TextField textField = new TextField();
         textField.setAlignment(Pos.CENTER);
         textField.setText(value);
-        textField.setOnAction(event -> Warning.alert("Error!", "Dit veld kan niet aangepast worden!"));
-        HBox.setMargin(textField, new Insets(0, 20, 20, 0));
+        textField.setOnMouseClicked(event -> Warning.alert("Error!", "Dit veld kan niet aangepast worden!"));
+        HBox.setMargin(textField, new Insets(0, 0, 30, 0));
         hBox.getChildren().add(textField);
     }
 }
