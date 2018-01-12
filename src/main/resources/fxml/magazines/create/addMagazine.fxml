@@ -22,13 +22,25 @@
         </VBox>
     </bottom>
     <center>
-        <VBox alignment="CENTER" style="-fx-background-image: url('/images/achtergrond.jpg'); -fx-background-position: center; -fx-background-size: cover; -fx-background-repeat: no-repeat;" BorderPane.alignment="CENTER">     <HBox alignment="CENTER" prefWidth="200.0">
+        <VBox alignment="CENTER" style="-fx-background-image: url('/images/achtergrond.jpg'); -fx-background-position: center; -fx-background-size: cover; -fx-background-repeat: no-repeat;" BorderPane.alignment="CENTER">
+            <HBox alignment="CENTER" prefWidth="200.0">
                 <Label text="Naam:">
                     <HBox.margin>
                         <Insets left="30.0" right="50.0" />
                     </HBox.margin>
                 </Label>
                 <TextField fx:id="name" prefWidth="382.0" />
+            </HBox>
+            <HBox alignment="CENTER" prefWidth="200.0">
+                <Label text="Titel:">
+                    <HBox.margin>
+                        <Insets left="30.0" right="57.0" />
+                    </HBox.margin>
+                </Label>
+                <TextField fx:id="title" prefWidth="382.0" />
+            <VBox.margin>
+               <Insets top="20.0" />
+            </VBox.margin>
             </HBox>
             <HBox alignment="CENTER" layoutX="10.0" layoutY="160.0" prefWidth="200.0">
                 <Label text="ISSN:">

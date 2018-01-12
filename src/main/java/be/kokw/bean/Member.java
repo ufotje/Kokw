@@ -37,13 +37,14 @@ public class Member implements Serializable{
     private boolean board;
     @Column(name = "Lidgeld_Betaald")
     private boolean payed;
-    @Column(name="analen_Ontvangen")
+    @Column(name="annalen_Ontvangen")
     private boolean anal;
+    private String gender;
 
     public Member() {
     }
 
-    public Member(String firstName, String lastName, String street, int houseNr, int zip, String city, String email, LocalDate bDay, boolean board, boolean payed, boolean anal) {
+    public Member(String firstName, String lastName, String street, int houseNr, int zip, String city, String email, LocalDate bDay, boolean board, boolean payed, boolean anal, String gender) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.street = street;
@@ -55,6 +56,7 @@ public class Member implements Serializable{
         this.board = board;
         this.payed = payed;
         this.anal = anal;
+        this.gender = gender;
     }
 
     public long getId() {
@@ -151,5 +153,13 @@ public class Member implements Serializable{
 
     public void setAnal(boolean anal) {
         this.anal = anal;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
     }
 }

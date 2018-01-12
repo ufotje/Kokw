@@ -2,7 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f706f8ad-5c5e-4c8c-9123-98f4956da70d" name="Default" comment="">
+<<<<<<< Updated upstream
       <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="" />
+=======
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/be/kokw/bean/magazines/MagazineCount.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/be/kokw/repositories/magazines/MagazineCountRepo.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/be/kokw/bean/magazines/Magazine.java" afterPath="$PROJECT_DIR$/src/main/java/be/kokw/bean/magazines/Magazine.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/be/kokw/bean/magazines/Subscribed.java" afterPath="$PROJECT_DIR$/src/main/java/be/kokw/bean/magazines/Subscribed.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/be/kokw/controllers/books/update/UpdateBook.java" afterPath="$PROJECT_DIR$/src/main/java/be/kokw/controllers/books/update/UpdateBook.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/be/kokw/controllers/magazines/create/AddMagazine.java" afterPath="$PROJECT_DIR$/src/main/java/be/kokw/controllers/magazines/create/AddMagazine.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/fxml/magazines/create/addMagazine.fxml" afterPath="$PROJECT_DIR$/src/main/resources/fxml/magazines/create/addMagazine.fxml" />
+>>>>>>> Stashed changes
     </list>
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -18,6 +29,7 @@
       <file leaf-file-name="Magazine.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/be/kokw/bean/magazines/Magazine.java">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< Updated upstream
             <state relative-caret-position="151">
               <caret line="18" column="31" lean-forward="true" selection-start-line="18" selection-start-column="31" selection-end-line="18" selection-end-column="31" />
               <folding>
@@ -73,11 +85,76 @@
                 <marker date="1515751188301" expanded="false" signature="2819:2825" ph=" }" />
                 <marker date="1515751188301" expanded="false" signature="2878:2889" ph=" { " />
                 <marker date="1515751188301" expanded="false" signature="2920:2926" ph=" }" />
+=======
+            <state relative-caret-position="508">
+              <caret line="76" column="30" lean-forward="false" selection-start-line="76" selection-start-column="30" selection-end-line="76" selection-end-column="30" />
+              <folding>
+                <element signature="e#1706#1707#0" expanded="true" />
+                <element signature="e#1748#1749#0" expanded="true" />
+                <element signature="e#1782#1783#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="Subscribed.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/be/kokw/bean/magazines/Subscribed.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="289">
+              <caret line="65" column="5" lean-forward="false" selection-start-line="65" selection-start-column="5" selection-end-line="65" selection-end-column="5" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MagazineCount.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/be/kokw/bean/magazines/MagazineCount.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="794">
+              <caret line="48" column="38" lean-forward="true" selection-start-line="48" selection-start-column="38" selection-end-line="48" selection-end-column="38" />
+              <folding>
+                <element signature="e#1114#1115#0" expanded="true" />
+                <element signature="e#1139#1140#0" expanded="true" />
+                <element signature="e#1172#1173#0" expanded="true" />
+                <element signature="e#1200#1201#0" expanded="true" />
+                <element signature="e#1231#1232#0" expanded="true" />
+                <element signature="e#1258#1259#0" expanded="true" />
+                <element signature="e#1330#1331#0" expanded="true" />
+                <element signature="e#1362#1363#0" expanded="true" />
+                <element signature="e#1393#1394#0" expanded="true" />
+                <element signature="e#1438#1439#0" expanded="true" />
+                <element signature="e#1478#1479#0" expanded="true" />
+                <element signature="e#1510#1511#0" expanded="true" />
+                <element signature="e#1541#1542#0" expanded="true" />
+                <element signature="e#1586#1587#0" expanded="true" />
+                <element signature="e#1626#1627#0" expanded="true" />
+                <element signature="e#1659#1660#0" expanded="true" />
+                <element signature="e#1688#1689#0" expanded="true" />
+                <element signature="e#1733#1734#0" expanded="true" />
+                <element signature="e#1769#1770#0" expanded="true" />
+                <element signature="e#1806#1807#0" expanded="true" />
+                <element signature="e#1839#1840#0" expanded="true" />
+                <element signature="e#1892#1893#0" expanded="true" />
+                <element signature="e#1936#1937#0" expanded="true" />
+                <element signature="e#1967#1968#0" expanded="true" />
+                <element signature="e#1995#1996#0" expanded="true" />
+                <element signature="e#2036#2037#0" expanded="true" />
+                <element signature="e#2070#2071#0" expanded="true" />
+                <element signature="e#2113#2114#0" expanded="true" />
+                <element signature="e#2148#2149#0" expanded="true" />
+                <element signature="e#2208#2209#0" expanded="true" />
+                <element signature="e#2256#2257#0" expanded="true" />
+                <element signature="e#2293#2294#0" expanded="true" />
+                <element signature="e#2324#2325#0" expanded="true" />
+                <element signature="e#2374#2375#0" expanded="true" />
+                <element signature="e#2414#2415#0" expanded="true" />
+>>>>>>> Stashed changes
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+<<<<<<< Updated upstream
       <file leaf-file-name="Subscribed.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/be/kokw/bean/magazines/Subscribed.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -91,11 +168,22 @@
                 <marker date="1515751188303" expanded="false" signature="2042:2048" ph=" }" />
                 <marker date="1515751188303" expanded="false" signature="2084:2095" ph=" { " />
                 <marker date="1515751188303" expanded="false" signature="2114:2120" ph=" }" />
+=======
+      <file leaf-file-name="AddMagazine.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/be/kokw/controllers/magazines/create/AddMagazine.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="102">
+              <caret line="164" column="50" lean-forward="false" selection-start-line="164" selection-start-column="50" selection-end-line="164" selection-end-column="50" />
+              <folding>
+                <element signature="e#2441#2442#0" expanded="true" />
+                <element signature="e#2483#2484#0" expanded="true" />
+>>>>>>> Stashed changes
               </folding>
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< Updated upstream
       <file leaf-file-name="AddMagazine.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/be/kokw/controllers/magazines/create/AddMagazine.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -106,6 +194,15 @@
                 <marker date="1515751188326" expanded="true" signature="5979:6510" ph="{...}" />
                 <marker date="1515751188326" expanded="true" signature="6544:7581" ph="{...}" />
                 <marker date="1515751188326" expanded="true" signature="7620:9348" ph="{...}" />
+=======
+      <file leaf-file-name="MagazineCountRepo.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/be/kokw/repositories/magazines/MagazineCountRepo.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="119">
+              <caret line="7" column="39" lean-forward="false" selection-start-line="7" selection-start-column="39" selection-end-line="7" selection-end-column="39" />
+              <folding>
+                <element signature="imports" expanded="true" />
+>>>>>>> Stashed changes
               </folding>
             </state>
           </provider>
@@ -115,6 +212,7 @@
         <entry file="file://$PROJECT_DIR$/src/main/resources/fxml/magazines/create/addMagazine.fxml">
           <provider editor-type-id="text-editor">
             <state relative-caret-position="357">
+<<<<<<< Updated upstream
               <caret line="31" column="19" lean-forward="false" selection-start-line="31" selection-start-column="19" selection-end-line="31" selection-end-column="19" />
               <folding>
                 <marker date="1515751188328" expanded="true" signature="1558:1578" ph="..." />
@@ -164,6 +262,56 @@
                 <marker date="1515751188328" expanded="true" signature="6824:7066" ph="..." />
                 <marker date="1515751188328" expanded="true" signature="6851:6924" ph="..." />
                 <marker date="1515751188328" expanded="true" signature="6958:7040" ph="..." />
+=======
+              <caret line="39" column="39" lean-forward="false" selection-start-line="39" selection-start-column="39" selection-end-line="39" selection-end-column="39" />
+              <folding>
+                <marker date="1515747451043" expanded="true" signature="2093:3423" ph="..." />
+                <marker date="1515747451043" expanded="true" signature="2130:2284" ph="..." />
+                <marker date="1515747451043" expanded="true" signature="2164:2259" ph="..." />
+                <marker date="1515747451043" expanded="true" signature="2360:2504" ph="..." />
+                <marker date="1515747451043" expanded="true" signature="2394:2475" ph="..." />
+                <marker date="1515747451043" expanded="true" signature="2573:2727" ph="..." />
+                <marker date="1515747451043" expanded="true" signature="2607:2702" ph="..." />
+                <marker date="1515747451043" expanded="true" signature="2905:3059" ph="..." />
+                <marker date="1515747451043" expanded="true" signature="2939:3034" ph="..." />
+                <marker date="1515747451043" expanded="true" signature="3167:3300" ph="..." />
+                <marker date="1515747451043" expanded="true" signature="3201:3271" ph="..." />
+                <marker date="1515747451043" expanded="true" signature="3330:3403" ph="..." />
+                <marker date="1515747451043" expanded="true" signature="3510:3894" ph="..." />
+                <marker date="1515747451043" expanded="true" signature="3551:3705" ph="..." />
+                <marker date="1515747451043" expanded="true" signature="3585:3680" ph="..." />
+                <marker date="1515747451043" expanded="true" signature="3801:3874" ph="..." />
+                <marker date="1515747451043" expanded="true" signature="3981:5312" ph="..." />
+                <marker date="1515747451043" expanded="true" signature="4021:4175" ph="..." />
+                <marker date="1515747451043" expanded="true" signature="4055:4150" ph="..." />
+                <marker date="1515747451043" expanded="true" signature="4253:4397" ph="..." />
+                <marker date="1515747451043" expanded="true" signature="4287:4368" ph="..." />
+                <marker date="1515747451043" expanded="true" signature="4464:4618" ph="..." />
+                <marker date="1515747451043" expanded="true" signature="4498:4593" ph="..." />
+                <marker date="1515747451043" expanded="true" signature="4797:4951" ph="..." />
+                <marker date="1515747451043" expanded="true" signature="4831:4926" ph="..." />
+                <marker date="1515747451043" expanded="true" signature="5056:5189" ph="..." />
+                <marker date="1515747451043" expanded="true" signature="5090:5160" ph="..." />
+                <marker date="1515747451043" expanded="true" signature="5219:5292" ph="..." />
+                <marker date="1515747451043" expanded="true" signature="5399:5776" ph="..." />
+                <marker date="1515747451043" expanded="true" signature="5437:5591" ph="..." />
+                <marker date="1515747451043" expanded="true" signature="5471:5566" ph="..." />
+                <marker date="1515747451043" expanded="true" signature="5683:5756" ph="..." />
+                <marker date="1515747451043" expanded="true" signature="5832:6628" ph="..." />
+                <marker date="1515747451043" expanded="true" signature="5927:6087" ph="..." />
+                <marker date="1515747451043" expanded="true" signature="5961:6056" ph="..." />
+                <marker date="1515747451043" expanded="true" signature="6210:6358" ph="..." />
+                <marker date="1515747451043" expanded="true" signature="6244:6327" ph="..." />
+                <marker date="1515747451043" expanded="true" signature="6535:6608" ph="..." />
+                <marker date="1515747451043" expanded="true" signature="6666:7514" ph="..." />
+                <marker date="1515747451043" expanded="true" signature="6696:6769" ph="..." />
+                <marker date="1515747451043" expanded="true" signature="6882:7108" ph="..." />
+                <marker date="1515747451043" expanded="true" signature="6909:6982" ph="..." />
+                <marker date="1515747451043" expanded="true" signature="7011:7082" ph="..." />
+                <marker date="1515747451043" expanded="true" signature="7252:7494" ph="..." />
+                <marker date="1515747451043" expanded="true" signature="7279:7352" ph="..." />
+                <marker date="1515747451043" expanded="true" signature="7386:7468" ph="..." />
+>>>>>>> Stashed changes
               </folding>
             </state>
           </provider>
@@ -207,6 +355,83 @@
       </file>
     </leaf>
   </component>
+<<<<<<< Updated upstream
+=======
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="FxmlFile" />
+        <option value="Class" />
+        <option value="Interface" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GradleLocalSettings">
+    <option name="externalProjectsViewState">
+      <projects_view />
+    </option>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/src/main/resources/fxml/magazines/create/subsciptionDetails.fxml" />
+        <option value="$PROJECT_DIR$/src/main/resources/fxml/magazines/search/views/subscriptionDetailsView.fxml" />
+        <option value="$PROJECT_DIR$/src/main/resources/application.properties" />
+        <option value="$PROJECT_DIR$/src/main/java/be/kokw/repositories/magazines/SubscribedRepo.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/fxml/books/found/contractView.fxml" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/be/kokw/utility/ConvertPdfToImage.java" />
+        <option value="$PROJECT_DIR$/src/main/java/be/kokw/utility/PdfToImage.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/fxml/books/found/ffdf.fxml" />
+        <option value="$PROJECT_DIR$/src/main/java/be/kokw/utility/ShowContract.java" />
+        <option value="$PROJECT_DIR$/src/main/java/be/kokw/utility/RowFactoryGF.java" />
+        <option value="$PROJECT_DIR$/src/main/java/be/kokw/controllers/books/search/donatedAgainst/SearchBookByGiftedForOnNameAndDate.java" />
+        <option value="$PROJECT_DIR$/src/main/java/be/kokw/controllers/books/search/donatedAgainst/SearchBookByGiftedForOnName.java" />
+        <option value="$PROJECT_DIR$/src/main/java/be/kokw/controllers/books/search/donatedAgainst/SearchBookByGiftedForOnBetween.java" />
+        <option value="$PROJECT_DIR$/src/main/java/be/kokw/controllers/books/search/donatedAgainst/SearchBookByGiftedForOnAll.java" />
+        <option value="$PROJECT_DIR$/src/main/java/be/kokw/controllers/books/search/donatedAgainst/SearchBookByGiftedForOn.java" />
+        <option value="$PROJECT_DIR$/src/main/java/be/kokw/controllers/magazines/search/FindMagBySubscribed.java" />
+        <option value="$PROJECT_DIR$/src/main/java/be/kokw/bean/books/GiftedFor.java" />
+        <option value="$PROJECT_DIR$/src/main/java/be/kokw/bean/books/Gifted.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/fxml/menu.fxml" />
+        <option value="$PROJECT_DIR$/src/main/java/be/kokw/controllers/books/search/donated/SearchBookByGiftedOn.java" />
+        <option value="$PROJECT_DIR$/src/main/java/be/kokw/controllers/magazines/search/FindMagBySubscriptionForfilled.java" />
+        <option value="$PROJECT_DIR$/src/main/java/be/kokw/controllers/MenuController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/be/kokw/repositories/books/BookRepo.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/fxml/books/delete/derateDialog.fxml" />
+        <option value="$PROJECT_DIR$/src/main/java/be/kokw/bean/books/Book.java" />
+        <option value="$PROJECT_DIR$/src/main/java/be/kokw/bean/books/Copies.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/fxml/checkOut/books/checkOutDialog.fxml" />
+        <option value="$PROJECT_DIR$/src/main/java/be/kokw/repositories/books/CopyRepo.java" />
+        <option value="$PROJECT_DIR$/src/main/java/be/kokw/controllers/checkedOut/books/AddToCheckedOut.java" />
+        <option value="$PROJECT_DIR$/src/main/java/be/kokw/bean/Copies.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/fxml/books/update/updateDialog.fxml" />
+        <option value="$PROJECT_DIR$/src/main/java/be/kokw/utility/ControllerBean.java" />
+        <option value="$PROJECT_DIR$/src/main/java/be/kokw/utility/NewStage.java" />
+        <option value="$PROJECT_DIR$/src/main/java/be/kokw/utility/ChangeScene.java" />
+        <option value="$PROJECT_DIR$/src/main/java/be/kokw/repositories/books/GiftedForRepo.java" />
+        <option value="$PROJECT_DIR$/src/main/java/be/kokw/controllers/books/create/AddBook.java" />
+        <option value="$PROJECT_DIR$/src/main/java/be/kokw/controllers/books/delete/DerateBook.java" />
+        <option value="$PROJECT_DIR$/src/main/java/be/kokw/controllers/books/delete/DeleteBookByTitle.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/fxml/books/update/updateBook.fxml" />
+        <option value="$PROJECT_DIR$/src/main/java/be/kokw/utility/FileSelector.java" />
+        <option value="$PROJECT_DIR$/src/main/java/be/kokw/utility/MailWithAttachement.java" />
+        <option value="$PROJECT_DIR$/src/main/java/be/kokw/repositories/books/GiftedRepo.java" />
+        <option value="$PROJECT_DIR$/src/main/java/be/kokw/controllers/books/update/UpdateBook.java" />
+        <option value="$PROJECT_DIR$/src/main/java/be/kokw/bean/magazines/Subscribed.java" />
+        <option value="$PROJECT_DIR$/src/main/java/be/kokw/bean/magazines/count.java" />
+        <option value="$PROJECT_DIR$/src/main/java/be/kokw/bean/magazines/Magazine.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/fxml/magazines/create/addMagazine.fxml" />
+        <option value="$PROJECT_DIR$/src/main/java/be/kokw/repositories/magazines/MagazineCountRepo.java" />
+        <option value="$PROJECT_DIR$/src/main/java/be/kokw/bean/magazines/MagazineCount.java" />
+        <option value="$PROJECT_DIR$/src/main/java/be/kokw/controllers/magazines/create/AddMagazine.java" />
+      </list>
+    </option>
+  </component>
+>>>>>>> Stashed changes
   <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
   <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
   <component name="JsGulpfileManager">
@@ -288,6 +513,7 @@
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="kokw" type="462c0819:PsiDirectoryNode" />
               <item name="bean" type="462c0819:PsiDirectoryNode" />
+<<<<<<< Updated upstream
               <item name="books" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -298,6 +524,8 @@
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="kokw" type="462c0819:PsiDirectoryNode" />
               <item name="bean" type="462c0819:PsiDirectoryNode" />
+=======
+>>>>>>> Stashed changes
               <item name="magazines" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -661,10 +889,89 @@
     <option name="remove_strategy" value="false" />
   </component>
   <component name="TaskManager">
+<<<<<<< Updated upstream
     <servers />
   </component>
   <component name="TimeTrackingManager">
     <option name="totallyTimeSpent" value="7000" />
+=======
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="f706f8ad-5c5e-4c8c-9123-98f4956da70d" name="Default" comment="" />
+      <created>1508608062017</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1508608062017</updated>
+      <workItem from="1508608069437" duration="43900000" />
+      <workItem from="1508785239610" duration="8710000" />
+      <workItem from="1508858044282" duration="19498000" />
+      <workItem from="1508887179091" duration="38000" />
+      <workItem from="1508956307355" duration="30654000" />
+      <workItem from="1509185752306" duration="5245000" />
+      <workItem from="1509231099526" duration="20058000" />
+      <workItem from="1509351238570" duration="5277000" />
+      <workItem from="1509624917039" duration="9341000" />
+      <workItem from="1509695914186" duration="803000" />
+      <workItem from="1509709334892" duration="5195000" />
+      <workItem from="1510911570928" duration="68566000" />
+      <workItem from="1511439200635" duration="2594000" />
+      <workItem from="1512028709306" duration="13721000" />
+      <workItem from="1512049529520" duration="4165000" />
+      <workItem from="1512375381157" duration="19013000" />
+      <workItem from="1512460863742" duration="16451000" />
+      <workItem from="1512633956382" duration="10622000" />
+      <workItem from="1512648530515" duration="55287000" />
+      <workItem from="1513265010545" duration="3991000" />
+      <workItem from="1513271307150" duration="9766000" />
+      <workItem from="1513325613659" duration="3535000" />
+      <workItem from="1513340177550" duration="1208000" />
+      <workItem from="1513341409845" duration="4531000" />
+      <workItem from="1513347744778" duration="152000" />
+      <workItem from="1513351568402" duration="149000" />
+      <workItem from="1513353224207" duration="99000" />
+      <workItem from="1513355120708" duration="1444000" />
+      <workItem from="1513360856939" duration="7242000" />
+      <workItem from="1513375113603" duration="5042000" />
+      <workItem from="1513418210355" duration="26091000" />
+      <workItem from="1513522632424" duration="2284000" />
+      <workItem from="1513610678740" duration="941000" />
+      <workItem from="1513677949935" duration="15255000" />
+      <workItem from="1513764921487" duration="22566000" />
+      <workItem from="1513837375285" duration="3410000" />
+      <workItem from="1513844783728" duration="10458000" />
+      <workItem from="1513874304048" duration="11132000" />
+      <workItem from="1514032533392" duration="5766000" />
+      <workItem from="1514048252122" duration="560000" />
+      <workItem from="1514204985000" duration="5297000" />
+      <workItem from="1514228466908" duration="2631000" />
+      <workItem from="1514283683729" duration="13873000" />
+      <workItem from="1514369793767" duration="16593000" />
+      <workItem from="1514454982672" duration="25930000" />
+      <workItem from="1514543466848" duration="30833000" />
+      <workItem from="1514639995146" duration="22181000" />
+      <workItem from="1514762117635" duration="6646000" />
+      <workItem from="1514818383558" duration="8057000" />
+      <workItem from="1514889031316" duration="6746000" />
+      <workItem from="1514905534651" duration="1250000" />
+      <workItem from="1514911173580" duration="3263000" />
+      <workItem from="1514974527625" duration="23964000" />
+      <workItem from="1515148720733" duration="4281000" />
+      <workItem from="1515185205882" duration="3845000" />
+      <workItem from="1515244598966" duration="20996000" />
+      <workItem from="1515281586077" duration="137000" />
+      <workItem from="1515285489694" duration="6178000" />
+      <workItem from="1515333960612" duration="18232000" />
+      <workItem from="1515409986026" duration="21349000" />
+      <workItem from="1515506603749" duration="27188000" />
+      <workItem from="1515603115098" duration="450000" />
+      <workItem from="1515618581268" duration="8994000" />
+      <workItem from="1515658256505" duration="8362000" />
+      <workItem from="1515745730172" duration="4323000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="794164000" />
+>>>>>>> Stashed changes
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
@@ -690,7 +997,11 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18783784" sideWeight="0.48402777" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32923833" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+<<<<<<< Updated upstream
       <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.29498714" sideWeight="0.86621624" order="0" side_tool="false" content_ui="combo" />
+=======
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.29498714" sideWeight="0.86621624" order="0" side_tool="false" content_ui="combo" />
+>>>>>>> Stashed changes
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21401028" sideWeight="0.13378379" order="6" side_tool="true" content_ui="tabs" />
@@ -705,6 +1016,7 @@
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+<<<<<<< Updated upstream
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24985473" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -718,6 +1030,9 @@
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+=======
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31675392" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+>>>>>>> Stashed changes
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32923833" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18783784" sideWeight="0.48402777" order="2" side_tool="false" content_ui="tabs" />
@@ -737,6 +1052,7 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+<<<<<<< Updated upstream
     <entry file="file://$PROJECT_DIR$/src/main/java/be/kokw/controllers/magazines/search/FindMagByTitle.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
@@ -752,6 +1068,8 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/be/kokw/controllers/books/search/donatedAgainst/SearchBookByGiftedForOnAll.java" />
+=======
+>>>>>>> Stashed changes
     <entry file="file://$PROJECT_DIR$/src/main/java/be/kokw/controllers/magazines/search/FindMagByTopic.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="765">
@@ -812,6 +1130,7 @@
         </state>
       </provider>
     </entry>
+<<<<<<< Updated upstream
     <entry file="file://$PROJECT_DIR$/src/main/java/be/kokw/controllers/magazines/create/AddMagazine.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
@@ -841,6 +1160,8 @@
         </state>
       </provider>
     </entry>
+=======
+>>>>>>> Stashed changes
     <entry file="file://$PROJECT_DIR$/src/main/java/be/kokw/repositories/books/BookRepo.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-80">
@@ -899,6 +1220,7 @@
       </provider>
       <provider selected="true" editor-type-id="JavaFX-Scene-Builder">
         <state />
+<<<<<<< Updated upstream
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/be/kokw/bean/books/Book.java">
@@ -907,6 +1229,8 @@
           <caret line="15" column="2" lean-forward="false" selection-start-line="15" selection-start-column="2" selection-end-line="19" selection-end-column="2" />
           <folding />
         </state>
+=======
+>>>>>>> Stashed changes
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/be/kokw/controllers/books/search/donatedAgainst/SearchBookByGiftedForOn.java" />
@@ -921,6 +1245,7 @@
         <state />
       </provider>
     </entry>
+<<<<<<< Updated upstream
     <entry file="file://$PROJECT_DIR$/src/main/java/be/kokw/bean/books/Gifted.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="188">
@@ -932,6 +1257,8 @@
         </state>
       </provider>
     </entry>
+=======
+>>>>>>> Stashed changes
     <entry file="file://$PROJECT_DIR$/src/main/resources/fxml/books/create/gifted/giftedFor.fxml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -952,8 +1279,13 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/be/kokw/repositories/books/GiftedForRepo.java">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< Updated upstream
         <state relative-caret-position="391">
           <caret line="29" column="39" lean-forward="false" selection-start-line="29" selection-start-column="39" selection-end-line="29" selection-end-column="39" />
+=======
+        <state relative-caret-position="119">
+          <caret line="31" column="0" lean-forward="false" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
+>>>>>>> Stashed changes
         </state>
       </provider>
     </entry>
@@ -961,7 +1293,31 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1054">
           <caret line="86" column="42" lean-forward="false" selection-start-line="86" selection-start-column="42" selection-end-line="86" selection-end-column="42" />
+<<<<<<< Updated upstream
+=======
         </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/be/kokw/controllers/books/delete/DeleteBookByTitle.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="55" column="0" lean-forward="false" selection-start-line="55" selection-start-column="0" selection-end-line="55" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/fxml/books/update/updateBook.fxml">
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="30" column="0" lean-forward="false" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
+          <folding>
+            <marker date="1515658121891" expanded="true" signature="1249:1262" ph="..." />
+            <marker date="1515658121891" expanded="true" signature="1249:1276" ph="..." />
+          </folding>
+>>>>>>> Stashed changes
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="JavaFX-Scene-Builder">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/be/kokw/utility/FileSelector.java">
@@ -1011,8 +1367,13 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/be/kokw/controllers/books/create/AddBook.java">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< Updated upstream
         <state relative-caret-position="3111">
           <caret line="212" column="14" lean-forward="false" selection-start-line="212" selection-start-column="14" selection-end-line="212" selection-end-column="14" />
+=======
+        <state relative-caret-position="3588">
+          <caret line="254" column="14" lean-forward="false" selection-start-line="254" selection-start-column="14" selection-end-line="254" selection-end-column="14" />
+>>>>>>> Stashed changes
         </state>
       </provider>
     </entry>
@@ -1026,14 +1387,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/be/kokw/repositories/implementations/BookRepoImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-889">
+        <state relative-caret-position="153">
           <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/be/kokw/repositories/implementations/CheckOutRepoImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-561">
+        <state relative-caret-position="102">
           <caret line="20" column="13" lean-forward="false" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
         </state>
       </provider>
@@ -1055,7 +1416,12 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/be/kokw/utility/ControllerBean.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
+<<<<<<< Updated upstream
           <caret line="11" column="42" lean-forward="true" selection-start-line="11" selection-start-column="42" selection-end-line="11" selection-end-column="58" />
+=======
+          <caret line="11" column="42" lean-forward="false" selection-start-line="11" selection-start-column="42" selection-end-line="11" selection-end-column="58" />
+          <folding />
+>>>>>>> Stashed changes
         </state>
       </provider>
     </entry>
@@ -1085,10 +1451,22 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="408">
           <caret line="42" column="13" lean-forward="false" selection-start-line="42" selection-start-column="13" selection-end-line="42" selection-end-column="13" />
+<<<<<<< Updated upstream
+=======
           <folding />
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/be/kokw/bean/books/Book.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="15" column="2" lean-forward="false" selection-start-line="15" selection-start-column="2" selection-end-line="19" selection-end-column="2" />
+>>>>>>> Stashed changes
+          <folding />
+        </state>
+      </provider>
+    </entry>
+<<<<<<< Updated upstream
     <entry file="file://$PROJECT_DIR$/src/main/resources/fxml/books/update/updateBook.fxml">
       <provider editor-type-id="text-editor">
         <state relative-caret-position="493">
@@ -1096,10 +1474,86 @@
           <folding />
         </state>
       </provider>
+=======
+    <entry file="file://$PROJECT_DIR$/src/main/java/be/kokw/bean/books/Gifted.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="188">
+          <caret line="16" column="80" lean-forward="true" selection-start-line="15" selection-start-column="4" selection-end-line="16" selection-end-column="80" />
+          <folding>
+            <element signature="e#1451#1452#0" expanded="true" />
+            <element signature="e#1483#1484#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/be/kokw/bean/magazines/Subscribed.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="65" column="5" lean-forward="false" selection-start-line="65" selection-start-column="5" selection-end-line="65" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/fxml/magazines/create/addMagazine.fxml">
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="39" column="39" lean-forward="false" selection-start-line="39" selection-start-column="39" selection-end-line="39" selection-end-column="39" />
+          <folding>
+            <marker date="1515747451043" expanded="true" signature="2093:3423" ph="..." />
+            <marker date="1515747451043" expanded="true" signature="2130:2284" ph="..." />
+            <marker date="1515747451043" expanded="true" signature="2164:2259" ph="..." />
+            <marker date="1515747451043" expanded="true" signature="2360:2504" ph="..." />
+            <marker date="1515747451043" expanded="true" signature="2394:2475" ph="..." />
+            <marker date="1515747451043" expanded="true" signature="2573:2727" ph="..." />
+            <marker date="1515747451043" expanded="true" signature="2607:2702" ph="..." />
+            <marker date="1515747451043" expanded="true" signature="2905:3059" ph="..." />
+            <marker date="1515747451043" expanded="true" signature="2939:3034" ph="..." />
+            <marker date="1515747451043" expanded="true" signature="3167:3300" ph="..." />
+            <marker date="1515747451043" expanded="true" signature="3201:3271" ph="..." />
+            <marker date="1515747451043" expanded="true" signature="3330:3403" ph="..." />
+            <marker date="1515747451043" expanded="true" signature="3510:3894" ph="..." />
+            <marker date="1515747451043" expanded="true" signature="3551:3705" ph="..." />
+            <marker date="1515747451043" expanded="true" signature="3585:3680" ph="..." />
+            <marker date="1515747451043" expanded="true" signature="3801:3874" ph="..." />
+            <marker date="1515747451043" expanded="true" signature="3981:5312" ph="..." />
+            <marker date="1515747451043" expanded="true" signature="4021:4175" ph="..." />
+            <marker date="1515747451043" expanded="true" signature="4055:4150" ph="..." />
+            <marker date="1515747451043" expanded="true" signature="4253:4397" ph="..." />
+            <marker date="1515747451043" expanded="true" signature="4287:4368" ph="..." />
+            <marker date="1515747451043" expanded="true" signature="4464:4618" ph="..." />
+            <marker date="1515747451043" expanded="true" signature="4498:4593" ph="..." />
+            <marker date="1515747451043" expanded="true" signature="4797:4951" ph="..." />
+            <marker date="1515747451043" expanded="true" signature="4831:4926" ph="..." />
+            <marker date="1515747451043" expanded="true" signature="5056:5189" ph="..." />
+            <marker date="1515747451043" expanded="true" signature="5090:5160" ph="..." />
+            <marker date="1515747451043" expanded="true" signature="5219:5292" ph="..." />
+            <marker date="1515747451043" expanded="true" signature="5399:5776" ph="..." />
+            <marker date="1515747451043" expanded="true" signature="5437:5591" ph="..." />
+            <marker date="1515747451043" expanded="true" signature="5471:5566" ph="..." />
+            <marker date="1515747451043" expanded="true" signature="5683:5756" ph="..." />
+            <marker date="1515747451043" expanded="true" signature="5832:6628" ph="..." />
+            <marker date="1515747451043" expanded="true" signature="5927:6087" ph="..." />
+            <marker date="1515747451043" expanded="true" signature="5961:6056" ph="..." />
+            <marker date="1515747451043" expanded="true" signature="6210:6358" ph="..." />
+            <marker date="1515747451043" expanded="true" signature="6244:6327" ph="..." />
+            <marker date="1515747451043" expanded="true" signature="6535:6608" ph="..." />
+            <marker date="1515747451043" expanded="true" signature="6666:7514" ph="..." />
+            <marker date="1515747451043" expanded="true" signature="6696:6769" ph="..." />
+            <marker date="1515747451043" expanded="true" signature="6882:7108" ph="..." />
+            <marker date="1515747451043" expanded="true" signature="6909:6982" ph="..." />
+            <marker date="1515747451043" expanded="true" signature="7011:7082" ph="..." />
+            <marker date="1515747451043" expanded="true" signature="7252:7494" ph="..." />
+            <marker date="1515747451043" expanded="true" signature="7279:7352" ph="..." />
+            <marker date="1515747451043" expanded="true" signature="7386:7468" ph="..." />
+          </folding>
+        </state>
+      </provider>
+>>>>>>> Stashed changes
       <provider selected="true" editor-type-id="JavaFX-Scene-Builder">
         <state />
       </provider>
     </entry>
+<<<<<<< Updated upstream
     <entry file="file://$PROJECT_DIR$/src/main/java/be/kokw/controllers/books/delete/DeleteBookByTitle.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="351">
@@ -1111,10 +1565,82 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="461">
           <caret line="124" column="0" lean-forward="false" selection-start-line="123" selection-start-column="0" selection-end-line="124" selection-end-column="0" />
+=======
+    <entry file="file://$PROJECT_DIR$/src/main/java/be/kokw/repositories/magazines/MagazineCountRepo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="39" lean-forward="false" selection-start-line="7" selection-start-column="39" selection-end-line="7" selection-end-column="39" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/be/kokw/controllers/magazines/create/AddMagazine.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="164" column="50" lean-forward="false" selection-start-line="164" selection-start-column="50" selection-end-line="164" selection-end-column="50" />
+          <folding>
+            <element signature="e#2441#2442#0" expanded="true" />
+            <element signature="e#2483#2484#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/be/kokw/bean/magazines/MagazineCount.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="794">
+          <caret line="48" column="38" lean-forward="true" selection-start-line="48" selection-start-column="38" selection-end-line="48" selection-end-column="38" />
+          <folding>
+            <element signature="e#1114#1115#0" expanded="true" />
+            <element signature="e#1139#1140#0" expanded="true" />
+            <element signature="e#1172#1173#0" expanded="true" />
+            <element signature="e#1200#1201#0" expanded="true" />
+            <element signature="e#1231#1232#0" expanded="true" />
+            <element signature="e#1258#1259#0" expanded="true" />
+            <element signature="e#1330#1331#0" expanded="true" />
+            <element signature="e#1362#1363#0" expanded="true" />
+            <element signature="e#1393#1394#0" expanded="true" />
+            <element signature="e#1438#1439#0" expanded="true" />
+            <element signature="e#1478#1479#0" expanded="true" />
+            <element signature="e#1510#1511#0" expanded="true" />
+            <element signature="e#1541#1542#0" expanded="true" />
+            <element signature="e#1586#1587#0" expanded="true" />
+            <element signature="e#1626#1627#0" expanded="true" />
+            <element signature="e#1659#1660#0" expanded="true" />
+            <element signature="e#1688#1689#0" expanded="true" />
+            <element signature="e#1733#1734#0" expanded="true" />
+            <element signature="e#1769#1770#0" expanded="true" />
+            <element signature="e#1806#1807#0" expanded="true" />
+            <element signature="e#1839#1840#0" expanded="true" />
+            <element signature="e#1892#1893#0" expanded="true" />
+            <element signature="e#1936#1937#0" expanded="true" />
+            <element signature="e#1967#1968#0" expanded="true" />
+            <element signature="e#1995#1996#0" expanded="true" />
+            <element signature="e#2036#2037#0" expanded="true" />
+            <element signature="e#2070#2071#0" expanded="true" />
+            <element signature="e#2113#2114#0" expanded="true" />
+            <element signature="e#2148#2149#0" expanded="true" />
+            <element signature="e#2208#2209#0" expanded="true" />
+            <element signature="e#2256#2257#0" expanded="true" />
+            <element signature="e#2293#2294#0" expanded="true" />
+            <element signature="e#2324#2325#0" expanded="true" />
+            <element signature="e#2374#2375#0" expanded="true" />
+            <element signature="e#2414#2415#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/be/kokw/controllers/books/update/UpdateBook.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3247">
+          <caret line="223" column="0" lean-forward="false" selection-start-line="223" selection-start-column="0" selection-end-line="223" selection-end-column="0" />
+>>>>>>> Stashed changes
           <folding />
         </state>
       </provider>
     </entry>
+<<<<<<< Updated upstream
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_152/javafx-src.zip!/javafx/event/EventHandler.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/be/kokw/controllers/books/update/UpdateBook.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -1122,9 +1648,110 @@
           <caret line="141" column="62" lean-forward="false" selection-start-line="141" selection-start-column="62" selection-end-line="141" selection-end-column="62" />
           <folding>
             <element signature="imports" expanded="false" />
+=======
+    <entry file="file://$PROJECT_DIR$/src/main/java/be/kokw/bean/magazines/Magazine.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="508">
+          <caret line="76" column="30" lean-forward="false" selection-start-line="76" selection-start-column="30" selection-end-line="76" selection-end-column="30" />
+          <folding>
+            <element signature="e#1706#1707#0" expanded="true" />
+            <element signature="e#1748#1749#0" expanded="true" />
+            <element signature="e#1782#1783#0" expanded="true" />
+>>>>>>> Stashed changes
           </folding>
         </state>
       </provider>
     </entry>
+<<<<<<< Updated upstream
+=======
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ArtifactsStructureConfigurable.UI">
+        <settings>
+          <artifact-editor />
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="FacetStructureConfigurable.UI">
+        <settings>
+          <last-edited>Spring</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="GlobalLibrariesConfigurable.UI">
+        <settings>
+          <last-edited>beid35JavaWrapper-win</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="JdkListConfigurable.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ModuleStructureConfigurable.UI">
+        <settings>
+          <last-edited>KOKWAdminFX</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectJDKs.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
+          <last-edited>5.11</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+>>>>>>> Stashed changes
   </component>
 </project>

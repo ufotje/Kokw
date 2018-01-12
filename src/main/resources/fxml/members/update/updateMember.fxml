@@ -12,8 +12,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane prefHeight="600.0" prefWidth="1200.0" style="-fx-background-image: url('/images/achtergrond.jpg');
--fx-background-position: center; -fx-background-repeat: no-repeat; -fx-background-size: 100%;" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="be.kokw.controllers.members.update.UpdateMember">
+<BorderPane prefHeight="600.0" prefWidth="1200.0" style="-fx-background-image: url('/images/achtergrond.jpg'); -fx-background-position: center; -fx-background-repeat: no-repeat; -fx-background-size: 100%;" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="be.kokw.controllers.members.update.UpdateMember">
     <top>
         <VBox BorderPane.alignment="CENTER">
             <fx:include source="/fxml/menu.fxml" />
@@ -43,7 +42,7 @@
                         <Insets left="10.0" />
                     </HBox.margin>
                 </TextField>
-                <TextField fx:id="lastName" alignment="CENTER" prefHeight="41.0" prefWidth="175.0" promptText="achternaam " style="-fx-background-color: transparent; -fx-border-color: gray; -fx-border-radius: 10;">
+                <TextField fx:id="lastName" alignment="CENTER" prefWidth="175.0" promptText="achternaam " style="-fx-background-color: transparent; -fx-border-color: gray; -fx-border-radius: 10;">
                     <tooltip>
                         <Tooltip text="Voeg de achternaam in" />
                     </tooltip>
@@ -69,7 +68,7 @@
                         <Tooltip text="Voeg de straat in" />
                     </tooltip>
                     <HBox.margin>
-                        <Insets left="10.0" />
+                        <Insets left="20.0" />
                     </HBox.margin>
                 </TextField>
                 <TextField fx:id="houseNr" prefHeight="27.0" prefWidth="97.0" promptText="huisnr" style="-fx-background-color: transparent; -fx-border-color: gray; -fx-border-radius: 10;">
@@ -119,7 +118,7 @@
                 </Label>
                 <TextField fx:id="email" alignment="CENTER" prefHeight="27.0" prefWidth="335.0" promptText="example@example.com" style="-fx-background-color: transparent; -fx-border-color: gray; -fx-border-radius: 10;">
                     <HBox.margin>
-                        <Insets left="10.0" right="10.0" />
+                        <Insets left="12.0" right="10.0" />
                     </HBox.margin>
                 </TextField>
                 <VBox.margin>
@@ -140,6 +139,26 @@
                     <Insets left="150.0" />
                 </VBox.margin>
             </HBox>
+         <HBox alignment="CENTER" layoutX="160.0" layoutY="217.0" prefHeight="50.0" prefWidth="200.0">
+            <children>
+               <Label text="Geslacht:" textAlignment="CENTER">
+                  <HBox.margin>
+                     <Insets left="15.0" right="25.0" />
+                  </HBox.margin>
+                  <font>
+                     <Font size="16.0" />
+                  </font>
+               </Label>
+               <TextField fx:id="email1" alignment="CENTER" prefHeight="27.0" prefWidth="326.0" promptText="geslacht" style="-fx-background-color: transparent; -fx-border-color: gray; -fx-border-radius: 10;">
+                  <HBox.margin>
+                     <Insets left="12.0" right="10.0" />
+                  </HBox.margin>
+               </TextField>
+            </children>
+            <VBox.margin>
+               <Insets left="150.0" />
+            </VBox.margin>
+         </HBox>
             <HBox alignment="CENTER">
                     <RadioButton fx:id="payed" mnemonicParsing="false" text="Betaald" textAlignment="CENTER" textFill="#fc3d3d">
                         <HBox.margin>
@@ -150,9 +169,6 @@
                         </tooltip>
                     </RadioButton>
                     <RadioButton fx:id="board" mnemonicParsing="false" style="-fx-background-color: transparent;" text="Bestuurslid" textAlignment="CENTER" textFill="#fc3d3d">
-                        <font>
-                            <Font size="18.0" />
-                        </font>
                         <tooltip>
                             <Tooltip text="Zit dit lid in het bestuur" />
                         </tooltip>

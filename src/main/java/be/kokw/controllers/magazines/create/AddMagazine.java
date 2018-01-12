@@ -1,11 +1,10 @@
 package be.kokw.controllers.magazines.create;
 
 import be.kokw.bean.magazines.Magazine;
+import be.kokw.bean.magazines.MagazineCount;
 import be.kokw.bean.magazines.Subscribed;
 import be.kokw.bean.magazines.Trade;
-import be.kokw.repositories.magazines.MagazineRepo;
-import be.kokw.repositories.magazines.SubscribedRepo;
-import be.kokw.repositories.magazines.TradeRepo;
+import be.kokw.repositories.magazines.MagazineCountRepo;
 import be.kokw.utility.ChangeScene;
 import be.kokw.utility.NewStage;
 import be.kokw.utility.Validation;
@@ -18,10 +17,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
+
+
 @Component
 public class AddMagazine {
     @FXML
     private TextField name;
+    @FXML
+    private TextField title;
     @FXML
     private TextField issn;
     @FXML
@@ -58,26 +61,16 @@ public class AddMagazine {
     private TextField email;
     @FXML
     private TextField telephone;
-    private MagazineRepo repo;
+
     private Stage window;
-    private TradeRepo tr;
-    private SubscribedRepo subRepo;
+    private MagazineCountRepo countRepo;
     private Magazine magazine;
     private StringBuilder sb = new StringBuilder();
 
-    @Autowired
-    private void setRepo(@Qualifier("magRepo") MagazineRepo repo) {
-        this.repo = repo;
-    }
 
     @Autowired
-    private void setTr(@Qualifier("tradeRepo") TradeRepo tr) {
-        this.tr = tr;
-    }
-
-    @Autowired
-    private void setSubRepo(@Qualifier("subscribedRepo") SubscribedRepo subRepo) {
-        this.subRepo = subRepo;
+    private void setCountRepo(@Qualifier("magCountRepo") MagazineCountRepo countRepo) {
+        this.countRepo = countRepo;
     }
 
     @FXML
@@ -101,39 +94,56 @@ public class AddMagazine {
 
     private boolean saveMag() {
         if (validated()) {
-            magazine = new Magazine(issn.getText(), Integer.parseInt(copies.getText()), name.getText(), publisher.getText(), period.getText(), year.getText(), Integer.parseInt(nr.getText()), Integer.parseInt(pages.getText()), theme.getText());
+            magazine = new Magazine(issn.getText(), Integer.parseInt(copies.getText()), name.getText(), title.getText(), publisher.getText(), period.getText(), year.getText(), Integer.parseInt(nr.getText()), Integer.parseInt(pages.getText()), theme.getText());
+            MagazineCount count = countRepo.findByName(magazine.getName());
+            if (!illustrated.isSelected()) {
+                magazine.setIllustrated(false);
+            }
             if (traded.isSelected() && subscription.isSelected()) {
                 Warning.alert("Selection error", "Een magazine kan niet zowel geruild als deel van een abonnement zijn.\nGelieve 1 iets te selecteren");
             } else if (traded.isSelected()) {
                 magazine.setTraded(true);
-                try {
-                    window = NewStage.getStage("Ruilabonnement Info", "/fxml/magazines/create/tradeDetails.fxml");
-                    publisher.setText(magazine.getPublisher());
-                    name.setText(magazine.getName());
-                    window.show();
-                } catch (Exception e) {
-                    e.printStackTrace();
+                if (count != null) {
+                    count.setReceived(count.getReceived() + 1);
+                    countRepo.saveAndFlush(count);
+                } else {
+                    try {
+                        window = NewStage.getStage("Ruilabonnement Info", "/fxml/magazines/create/tradeDetails.fxml");
+                        publisher.setText(magazine.getPublisher());
+                        name.setText(magazine.getName());
+                        window.show();
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
                 }
             } else if (subscription.isSelected()) {
                 magazine.setSubscribed(true);
-                try {
-                    window = NewStage.getStage("AbonnementInfo!", "/fxml/magazines/create/subsciptionDetails.fxml");
-                    window.show();
-                    publisher.setText(magazine.getPublisher());
-                    name.setText(magazine.getName());
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-            if (!illustrated.isSelected()) {
-                magazine.setIllustrated(false);
-            }
-            if (!traded.isSelected() && !subscription.isSelected()) {
-                Magazine mag = repo.save(magazine);
-                if (mag != null) {
-                    Warning.alert("Magazine saved", "Het magazine '" + name.getText() + "' werd succesvol opgeslaan.");
+                if (count != null) {
+                    count.setReceived(count.getReceived() + 1);
+                    countRepo.saveAndFlush(count);
                 } else {
-                    Warning.alert("Saving error", "Er ging iets fout tijdens het opslaan van het magazine '" + name.getText() + "'.");
+                    try {
+                        window = NewStage.getStage("AbonnementInfo!", "/fxml/magazines/create/subsciptionDetails.fxml");
+                        window.show();
+                        publisher.setText(magazine.getPublisher());
+                        name.setText(magazine.getName());
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+                if (!traded.isSelected() && !subscription.isSelected()) {
+                    if (count != null) {
+                        count.setReceived(count.getReceived() + 1);
+                        countRepo.saveAndFlush(count);
+                    } else {
+                        count = new MagazineCount(name.getText(), Integer.parseInt(expected.getText()));
+                        count.setMagazine(magazine);
+                    }
+                    if (countRepo.save(count) != null) {
+                        Warning.alert("Magazine saved", "Het magazine '" + name.getText() + "' werd succesvol opgeslaan.");
+                    } else {
+                        Warning.alert("Saving error", "Er ging iets fout tijdens het opslaan van het magazine '" + name.getText() + "'.");
+                    }
                 }
             }
         }
@@ -144,10 +154,13 @@ public class AddMagazine {
     private void saveTradeDetail() {
         if (validateDetail()) {
             Trade trade = new Trade(magazine, publisher.getText(), Integer.parseInt(expected.getText()), sb.toString(), email.getText(), telephone.getText());
-            Trade t = tr.save(trade);
+            MagazineCount mc = new MagazineCount(name.getText(), Integer.parseInt(expected.getText()));
+            mc.setTraded(true);
+            mc.setTrade(trade);
+            MagazineCount mCount = countRepo.save(mc);
             window.close();
             clear();
-            if (t != null) {
+            if (mCount != null) {
                 Warning.alert("Magazine saved", "Het magazine '" + name.getText() + "' werd succesvol opgeslaan.");
             } else {
                 Warning.alert("Saving error", "Er ging iets fout tijdens het opslaan van het magazine '" + name.getText() + "'.");
@@ -158,12 +171,15 @@ public class AddMagazine {
 
     @FXML
     private void saveSubscriptionDetail() {
-        if (validateDetail()){
-            Subscribed subscribed = new Subscribed(magazine,sb.toString() , Integer.parseInt(expected.getText()), email.getText(), telephone.getText());
-            Subscribed sc = subRepo.save(subscribed);
+        if (validateDetail()) {
+            Subscribed subscribed = new Subscribed(magazine, sb.toString(), email.getText(), telephone.getText());
+            MagazineCount mc = new MagazineCount(name.getText(), Integer.parseInt(expected.getText()));
+            mc.setSubscribed(true);
+            mc.setSubscribtion(subscribed);
+            MagazineCount mCount = countRepo.save(mc);
             window.close();
             clear();
-            if (sc != null) {
+            if (mCount != null) {
                 Warning.alert("Magazine saved", "Het magazine '" + name.getText() + "' werd succesvol opgeslaan.");
             } else {
                 Warning.alert("Saving error", "Er ging iets fout tijdens het opslaan van het magazine '" + name.getText() + "'.");

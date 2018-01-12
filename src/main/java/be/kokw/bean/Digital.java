@@ -1,5 +1,8 @@
 package be.kokw.bean;
 
+import be.kokw.bean.books.Gifted;
+import be.kokw.bean.books.GiftedFor;
+
 import javax.persistence.*;
 import java.time.LocalDate;
 
@@ -37,13 +40,13 @@ public class Digital {
     @Column(name = "authors")
     private String authors;
     private String topics;
- /*   @JoinColumn(name = "id_gifted", referencedColumnName = "id")
+    @JoinColumn(name = "id_gifted", referencedColumnName = "id")
     @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private Gifted gift;
     @JoinColumn(name = "id_gifted_for", referencedColumnName = "id")
     @OneToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
     private GiftedFor giftedFor;
-*/
+
     public Digital() {
     }
 
@@ -184,7 +187,7 @@ public class Digital {
         this.topics = topics;
     }
 
-  /*  public Gifted getGift() {
+    public Gifted getGift() {
         return gift;
     }
 
@@ -198,5 +201,5 @@ public class Digital {
 
     public void setGiftedFor(GiftedFor giftedFor) {
         this.giftedFor = giftedFor;
-    }*/
+    }
 }

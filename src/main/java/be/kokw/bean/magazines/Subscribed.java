@@ -15,8 +15,6 @@ public class Subscribed {
     private Magazine mag;
     private String nameMag;
     private String publisher;
-    private int count = 0;
-    private int expected;
     private boolean completed = false;
     private String contactInfo;
     @Email(message = "*Please provide a valid Email")
@@ -26,12 +24,11 @@ public class Subscribed {
     public Subscribed() {
     }
 
-    public Subscribed(Magazine mag, String contactInfo, int expected, String email, String tel) {
+    public Subscribed(Magazine mag, String contactInfo, String email, String tel) {
         this.mag = mag;
         nameMag = mag.getName();
         publisher = mag.getPublisher();
         this.contactInfo = contactInfo;
-        this.expected = expected;
         this.email = email;
         this.tel = tel;
     }
@@ -66,22 +63,6 @@ public class Subscribed {
 
     public void setPublisher(String publisher) {
         this.publisher = publisher;
-    }
-
-    public int getCount() {
-        return count;
-    }
-
-    public void setCount(int count) {
-        this.count = count;
-    }
-
-    public int getExpected() {
-        return expected;
-    }
-
-    public void setExpected(int expected) {
-        this.expected = expected;
     }
 
     public boolean isCompleted() {

@@ -15,6 +15,7 @@ public class Magazine {
     private String issn;
     private int copies;
     private String name;
+    private String title;
     private String publisher;
     private String periodicity;
     private String year;
@@ -28,10 +29,11 @@ public class Magazine {
     public Magazine() {
     }
 
-    public Magazine(String issn, int copies, String name, String publisher, String periodicity, String year, int nr, int nrOfPages, String theme) {
+    public Magazine(String issn, int copies, String name, String title, String publisher, String periodicity, String year, int nr, int nrOfPages, String theme) {
         this.issn = issn;
         this.copies = copies;
         this.name = name;
+        this.title = title;
         this.publisher = publisher;
         this.periodicity = periodicity;
         this.year = year;
@@ -70,6 +72,14 @@ public class Magazine {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     public String getPublisher() {

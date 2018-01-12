@@ -11,16 +11,15 @@ import javafx.stage.Stage;
 public interface NewStage {
     static Stage getStage(String title, String resource){
         Stage window = new Stage();
-        Parent root = null;
         try {
-            root = ControllerBean.getBean(resource);
+            Parent root = ControllerBean.getBean(resource);
+            window.setScene(new Scene(root));
+            window.setTitle(title);
+            window.initModality(Modality.APPLICATION_MODAL);
         } catch (Exception e) {
             Warning.alert("Error!", "Er ging iets fout tijdens het laden van de pagina!");
             e.printStackTrace();
         }
-        window.setScene(new Scene(root));
-        window.setTitle(title);
-        window.initModality(Modality.APPLICATION_MODAL);
         return window;
     }
 }
