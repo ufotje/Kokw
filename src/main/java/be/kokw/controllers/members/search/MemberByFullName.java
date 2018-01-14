@@ -67,6 +67,7 @@ public class MemberByFullName {
             ObservableList<Member> memberList = observableArrayList(repo.findByFirstNameAndLastName(firstName.getText(), lastName.getText()));
             if (memberList.get(0) == null) {
                 Warning.alert("No Members found!", "Het lid " + firstName.getText() + " " + lastName.getText() + " werd niet gevonden!");
+                ChangeScene.init("/fxml/home.fxml", "KOKW - Het verleden draait altijd mee!");
                 MenuController.window.close();
             } else {
                 ChangeScene.init("/fxml/members/search/tableviewByFullName.fxml", "Zoeken op volledige naam");

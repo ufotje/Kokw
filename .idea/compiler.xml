@@ -7,13 +7,10 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="KOKWAdminFX" />
-        <module name="KOKWAdminFX (1)" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="KOKW-AdminFX" target="1.8" />
       <module name="KOKWAdminFX" target="1.8" />
-      <module name="KOKWAdminFX (1)" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>

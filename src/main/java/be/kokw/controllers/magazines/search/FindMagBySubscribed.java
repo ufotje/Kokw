@@ -2,9 +2,9 @@ package be.kokw.controllers.magazines.search;
 
 import be.kokw.bean.magazines.Magazine;
 import be.kokw.bean.magazines.Subscribed;
-import be.kokw.controllers.MenuController;
 import be.kokw.repositories.magazines.MagazineRepo;
 import be.kokw.repositories.magazines.SubscribedRepo;
+import be.kokw.utility.ChangeScene;
 import be.kokw.utility.NewStage;
 import be.kokw.utility.Warning;
 import javafx.collections.ObservableList;
@@ -90,6 +90,7 @@ public class FindMagBySubscribed {
         ObservableList<Magazine> list = observableArrayList(repo.findMagazinesBySubscribedIsTrue());
         if (list.isEmpty()) {
             Warning.alert("No Magazines found!", "Er werden geen magazines gevonden waar de KOKW op geabonneerd is.");
+            ChangeScene.init("/fxml/home.fxml", "KOKW - Het verleden draait altijd mee!");
         } else {
             table.setEditable(true);
             id.setCellValueFactory(new PropertyValueFactory<>("id"));
@@ -120,7 +121,7 @@ public class FindMagBySubscribed {
                                 magId.setText("" + clickedRow.getId());
                                 title.setText(subscribed.getNameMag());
                                 org.setText(subscribed.getPublisher());
-                                expected.setText("" + subscribed.getExpected());
+                                expected.setText("" );
                                 String[] parts = subscribed.getContactInfo().split("[\\n ]");
                                 street.setText(parts[0]);
                                 houseNr.setText(parts[1]);

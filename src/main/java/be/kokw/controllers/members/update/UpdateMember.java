@@ -54,6 +54,7 @@ public class UpdateMember {
         } else {
             String alert = "Het lid '" + firstName.getText() + " " + lastName.getText() + "' werd niet terug gevonden";
             Warning.alert("No Member to update found!", alert);
+            ChangeScene.init("/fxml/home.fxml", "KOKW - Het verleden draait altijd mee!");
         }
     }
 

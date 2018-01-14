@@ -2,6 +2,7 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.RadioButton?>
@@ -131,13 +132,20 @@
                             <Insets left="10.0" right="25.0" />
                         </HBox.margin>
                     </Label>
-                    <DatePicker fx:id="bDay" prefHeight="27.0" prefWidth="339.0" promptText="Enter your Day of birth" style="-fx-background-color: transparrent; -fx-border-color: gray; -fx-border-radius: 10;" HBox.hgrow="ALWAYS" />
+                    <DatePicker fx:id="bDay" prefHeight="27.0" prefWidth="344.0" promptText="Enter your Day of birth" style="-fx-background-color: transparrent; -fx-border-color: gray; -fx-border-radius: 10;" HBox.hgrow="ALWAYS" />
                 <VBox.margin>
                     <Insets left="50.0" />
                 </VBox.margin>
             </HBox>
+         <HBox alignment="CENTER" prefWidth="200.0">
+               <ChoiceBox fx:id="gender" prefWidth="150.0">
+                   <value>Geslacht</value>
+                  <HBox.margin>
+                     <Insets left="100.0" top="10.0" />
+                  </HBox.margin>
+               </ChoiceBox>
+         </HBox>
          <HBox alignment="CENTER">
-            <children>
                <RadioButton fx:id="payed" mnemonicParsing="false" text="Betaald" textAlignment="CENTER" textFill="#fc3d3d">
                   <HBox.margin>
                      <Insets right="30.0" />
@@ -165,7 +173,6 @@
                      <Tooltip text="Heeft dit lid de Analen al ontvangen" />
                   </tooltip>
                </RadioButton>
-            </children>
             <VBox.margin>
                <Insets left="100.0" top="20.0" />
             </VBox.margin>

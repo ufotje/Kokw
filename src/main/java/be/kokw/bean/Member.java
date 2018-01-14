@@ -39,12 +39,12 @@ public class Member implements Serializable{
     private boolean payed;
     @Column(name="annalen_Ontvangen")
     private boolean anal;
-    private String gender;
+    private char gender;
 
     public Member() {
     }
 
-    public Member(String firstName, String lastName, String street, int houseNr, int zip, String city, String email, LocalDate bDay, boolean board, boolean payed, boolean anal, String gender) {
+    public Member(String firstName, String lastName, String street, int houseNr, int zip, String city, String email, LocalDate bDay, boolean board, boolean payed, boolean anal, char gender) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.street = street;
@@ -155,11 +155,11 @@ public class Member implements Serializable{
         this.anal = anal;
     }
 
-    public String getGender() {
+    public char getGender() {
         return gender;
     }
 
-    public void setGender(String gender) {
+    public void setGender(char gender) {
         this.gender = gender;
     }
 }

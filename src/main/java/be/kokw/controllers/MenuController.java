@@ -42,6 +42,15 @@ public class MenuController {
         this.memberRepo = memberRepo;
     }
 
+    @FXML
+    private void home(){
+        try{
+            ChangeScene.init("/fxml/home.fxml", "KOKW - Het verleden draait altijd mee!");
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
     //BookMethods
     //Add a Book
     @FXML
@@ -342,6 +351,24 @@ public class MenuController {
     private void magBySubscription() {
         try {
             ChangeScene.init("/fxml/magazines/search/views/findMagBySubscribedView.fxml", "Find magazines by subscription");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    private void magBySubscriptionFulfilled() {
+        try {
+            ChangeScene.init("/fxml/magazines/search/views/findMagBySubscriptionFulfilledView.fxml", "Find magazines by subscription fulfilled.");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    private void magBySubscriptionNotFulfilled() {
+        try {
+            ChangeScene.init("/fxml/magazines/search/views/findMagBySubscriptionNotFulfilledView.fxml", "Find magazines by subscription not fulfilled.");
         } catch (Exception e) {
             e.printStackTrace();
         }

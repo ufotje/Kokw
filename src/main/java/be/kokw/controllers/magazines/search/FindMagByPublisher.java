@@ -60,6 +60,7 @@ public class FindMagByPublisher {
             MenuController.window.close();
             if (list.isEmpty()){
                 Warning.alert("No Magazines found!", "Er werden geen magazines gevonden met '" + publisherField.getText() + "' als title gevonden.");
+                ChangeScene.init("/fxml/home.fxml", "KOKW - Het verleden draait altijd mee!");
             }else{
                 ChangeScene.init("/fxml/magazines/search/views/findMagByPublisherView.fxml", "Find magazines by publisher");
                 id.setCellValueFactory(new PropertyValueFactory<>("id"));

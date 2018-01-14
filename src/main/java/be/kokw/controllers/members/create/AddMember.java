@@ -12,7 +12,10 @@ import be.kokw.repositories.MemberRepo;
 import be.kokw.utility.ChangeScene;
 import be.kokw.utility.Validation;
 import be.kokw.utility.Warning;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
@@ -44,6 +47,9 @@ public class AddMember {
     private RadioButton board, anal, payed;
 
     @FXML
+    private ChoiceBox<Character> gender;
+
+    @FXML
     private DatePicker bDay;
 
     @Autowired
@@ -52,9 +58,15 @@ public class AddMember {
     }
 
     @FXML
+    private void initialize(){
+        ObservableList<Character> list =  FXCollections.observableArrayList('M', 'V');
+        gender.setItems(list);
+    }
+
+    @FXML
     private void save() {
         if (valid()) {
-            Member member = new Member(firstName.getText(), lastName.getText(), street.getText(), Integer.parseInt(houseNr.getText()), Integer.parseInt(zip.getText()), city.getText(), email.getText(), bDay.getValue(), board.isSelected(), payed.isSelected(), anal.isSelected());
+            Member member = new Member(firstName.getText(), lastName.getText(), street.getText(), Integer.parseInt(houseNr.getText()), Integer.parseInt(zip.getText()), city.getText(), email.getText(), bDay.getValue(), board.isSelected(), payed.isSelected(), anal.isSelected(), gender.getValue());
             repo.save(member);
             members.add(firstName.getText() + " " + lastName.getText());
             StringBuilder names = new StringBuilder("The member(s) with name: '");
@@ -71,7 +83,7 @@ public class AddMember {
     @FXML
     private void addMore() {
         if (valid()) {
-            Member member = new Member(firstName.getText(), lastName.getText(), street.getText(), Integer.parseInt(houseNr.getText()), Integer.parseInt(zip.getText()), city.getText(), email.getText(), bDay.getValue(), board.isSelected(), payed.isSelected(), anal.isSelected());
+            Member member = new Member(firstName.getText(), lastName.getText(), street.getText(), Integer.parseInt(houseNr.getText()), Integer.parseInt(zip.getText()), city.getText(), email.getText(), bDay.getValue(), board.isSelected(), payed.isSelected(), anal.isSelected(), gender.getValue());
             members.add(firstName.getText() + " " + lastName.getText());
             repo.save(member);
         }
@@ -120,6 +132,7 @@ public class AddMember {
                     String[] nameSplit = id.firstName.split(" ");
                     firstName.setText(nameSplit[0]);
                     lastName.setText(id.name);
+                    System.out.println(id.gender);
                     LocalDate date = id.dateOfBirth.toZonedDateTime().toLocalDate();
                     bDay.setValue(date);
                 } catch (final CardException cex) {

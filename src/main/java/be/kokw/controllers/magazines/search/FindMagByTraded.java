@@ -4,6 +4,7 @@ import be.kokw.bean.magazines.Magazine;
 import be.kokw.bean.magazines.Trade;
 import be.kokw.repositories.magazines.MagazineRepo;
 import be.kokw.repositories.magazines.TradeRepo;
+import be.kokw.utility.ChangeScene;
 import be.kokw.utility.NewStage;
 import be.kokw.utility.Warning;
 import javafx.collections.ObservableList;
@@ -88,6 +89,7 @@ public class FindMagByTraded {
         ObservableList<Magazine> list = observableArrayList(repo.findMagazinesByTradedIsTrue());
         if (list.isEmpty()) {
             Warning.alert("No Magazines found!", "Er werden geen magazines gevonden waar er een ruilabonnement is.");
+            ChangeScene.init("/fxml/home.fxml", "KOKW - Het verleden draait altijd mee!");
         } else {
             id.setCellValueFactory(new PropertyValueFactory<>("id"));
             issn.setCellValueFactory(new PropertyValueFactory<>("issn"));

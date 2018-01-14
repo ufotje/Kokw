@@ -6,6 +6,7 @@ import be.kokw.bean.books.Book;
 import be.kokw.controllers.MenuController;
 import be.kokw.repositories.books.BookRepo;
 import be.kokw.repositories.books.CopyRepo;
+import be.kokw.utility.ChangeScene;
 import be.kokw.utility.Warning;
 import be.kokw.utility.Validation;
 import javafx.fxml.FXML;
@@ -49,6 +50,7 @@ public class DeleteBookByTitle {
                 MenuController.window.close();
             } else {
                 Warning.alert("Book Not Found", "The book '" + title.getText() + "' has not been found!");
+                ChangeScene.init("/fxml/home.fxml", "KOKW - Het verleden draait altijd mee!");
             }
         }
     }

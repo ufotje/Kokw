@@ -1,9 +1,11 @@
 package be.kokw.controllers.magazines.search;
 
 import be.kokw.bean.magazines.Magazine;
+import be.kokw.bean.magazines.MagazineCount;
 import be.kokw.bean.magazines.Subscribed;
-import be.kokw.repositories.magazines.MagazineRepo;
+import be.kokw.repositories.magazines.MagazineCountRepo;
 import be.kokw.repositories.magazines.SubscribedRepo;
+import be.kokw.utility.ChangeScene;
 import be.kokw.utility.NewStage;
 import be.kokw.utility.Warning;
 import javafx.collections.ObservableList;
@@ -17,10 +19,13 @@ import javafx.scene.input.MouseButton;
 import javafx.stage.Stage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Component;
 
 import static javafx.collections.FXCollections.observableArrayList;
 
-public class FindMagBySubscriptionForfilled {
+
+@Component
+public class FindMagBySubscriptionNotFulfilled {
     @FXML
     private TableView<Magazine> table;
     @FXML
@@ -68,26 +73,30 @@ public class FindMagBySubscriptionForfilled {
     @FXML
     private TextField mail;
     private Stage window;
-    private MagazineRepo repo;
     private SubscribedRepo subRepo;
-
-    @Autowired
-    private void setRepo(@Qualifier("magRepo") MagazineRepo repo) {
-        this.repo = repo;
-    }
+    private MagazineCountRepo countRepo;
 
     @Autowired
     private void setSubRepo(@Qualifier("subscribedRepo") SubscribedRepo subRepo) {
         this.subRepo = subRepo;
     }
 
+    @Autowired
+    private void setCountRepo(@Qualifier("magCountRepo") MagazineCountRepo countRepo){
+        this.countRepo = countRepo;
+    }
+
     @FXML
     public void initialize() {
-        ObservableList<Magazine> list = observableArrayList(repo.findMagazinesBySubscribedIsTrue());
+        ObservableList<MagazineCount> fulfilledList = observableArrayList(countRepo.findByExpectedIsGreaterThanReceived());
+        ObservableList<Magazine> list = observableArrayList();
+        for (MagazineCount m :fulfilledList) {
+            list.add(m.getMagazine());
+        }
         if (list.isEmpty()) {
-            Warning.alert("No Magazines found!", "Er werden geen magazines gevonden waar de KOKW op geabonneerd is.");
+            Warning.alert("No Magazines found!", "Er werden geen magazines gevonden waar we niet alle editities van gekregen hebben.");
+            ChangeScene.init("/fxml/home.fxml", "KOKW - Het verleden draait altijd mee!");
         } else {
-            table.setEditable(true);
             id.setCellValueFactory(new PropertyValueFactory<>("id"));
             issn.setCellValueFactory(new PropertyValueFactory<>("issn"));
             name.setCellValueFactory(new PropertyValueFactory<>("name"));
@@ -105,18 +114,19 @@ public class FindMagBySubscriptionForfilled {
                 TableRow<Magazine> row = new TableRow<>();
                 row.setOnMouseClicked(event -> {
                     if (!row.isEmpty() && event.getButton() == MouseButton.PRIMARY
-                            && event.getClickCount() == 2) {
-                        Magazine clickedRow = row.getItem();
-                        Subscribed subscribed = subRepo.findByNameMag(clickedRow.getName());
+                                && event.getClickCount() == 2) {
+                            Magazine clickedRow = row.getItem();
+                            Subscribed subscribed = subRepo.findByNameMag(clickedRow.getName());
                         if (subscribed != null) {
                             try {
-                                window = NewStage.getStage("RijDetails!", "/fxml/magazines/search/views/subscriptionDetailsView.fxml");
+                                MagazineCount mc = countRepo.findByName(clickedRow.getName());
+                                window = NewStage.getStage("RijDetails!", "/fxml/magazines/search/views/subscriptionNotFulfilledDetailsView.fxml");
                                 window.show();
                                 detailsId.setText("" + subscribed.getId());
                                 magId.setText("" + clickedRow.getId());
                                 title.setText(subscribed.getNameMag());
                                 org.setText(subscribed.getPublisher());
-                                expected.setText("" + subscribed.getExpected());
+                                expected.setText("" + mc.getExpected());
                                 String[] parts = subscribed.getContactInfo().split("[\\n ]");
                                 street.setText(parts[0]);
                                 houseNr.setText(parts[1]);
@@ -138,18 +148,10 @@ public class FindMagBySubscriptionForfilled {
     }
 
     @FXML
-    private void closeSubDetails() {
+    private void closeDetails() {
         window.close();
-        detailsId.clear();
-        magId.clear();
-        title.clear();
-        org.clear();
-        expected.clear();
-        street.clear();
-        houseNr.clear();
-        zip.clear();
-        city.clear();
-        telephone.clear();
-        mail.clear();
     }
 }
+
+
+

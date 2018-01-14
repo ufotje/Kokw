@@ -2,6 +2,7 @@ package be.kokw.controllers.books.search.bought;
 
 import be.kokw.bean.books.Book;
 import be.kokw.repositories.books.BookRepo;
+import be.kokw.utility.ChangeScene;
 import be.kokw.utility.Warning;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -62,6 +63,7 @@ public class SearchBookByBoughtOnAll {
         ObservableList<Book> bookList = observableArrayList(bookRepo.findBookByBoughtOnIsNotNull());
         if (bookList.isEmpty()) {
             Warning.alert("No Books found!", "Er werden geen boeken gevonden die werden aangekocht.");
+            ChangeScene.init("/fxml/home.fxml", "KOKW - Het verleden draait altijd mee!");
         } else {
             table.setEditable(true);
             idCol.setCellValueFactory(new PropertyValueFactory<>("id"));

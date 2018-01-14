@@ -62,6 +62,7 @@ public class MembersByCity {
             if (memberList.isEmpty()) {
                 Warning.alert("No Members found!", "Er werden geen leden in " + city.getText() + " gevonden!");
                 MenuController.window.close();
+                ChangeScene.init("/fxml/home.fxml", "KOKW - Het verleden draait altijd mee!");
             } else {
                 ChangeScene.init("/fxml/members/search/tableviewByCity.fxml", "Zoeken op Stad");
                 MenuController.window.close();

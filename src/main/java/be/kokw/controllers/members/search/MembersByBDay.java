@@ -60,6 +60,7 @@ public class MembersByBDay {
         if (memberList.isEmpty()) {
             Warning.alert("No Members found!", "Er werden geen leden geboren op " + bDay.getValue() + " gevonden!");
             MenuController.window.close();
+            ChangeScene.init("/fxml/home.fxml", "KOKW - Het verleden draait altijd mee!");
         } else {
             ChangeScene.init("/fxml/members/search/tableviewByBDay.fxml", "Zoeken op GeboorteDatum");
             MenuController.window.close();

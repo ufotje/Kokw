@@ -186,6 +186,7 @@ public class UpdateBook {
 
         } else {
             Warning.alert("No Book Found!", "Het boek met " + "'" + id.getText() + "'" + " als id werd niet gevonden!");
+            ChangeScene.init("/fxml/home.fxml", "KOKW - Het verleden draait altijd mee!");
         }
     }
 

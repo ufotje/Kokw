@@ -6,6 +6,7 @@ import be.kokw.bean.books.Derated;
 
 import be.kokw.controllers.MenuController;
 import be.kokw.repositories.books.*;
+import be.kokw.utility.ChangeScene;
 import be.kokw.utility.Warning;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -88,6 +89,7 @@ public class DerateBook {
             Warning.alert("Derating succesvol", "Het boek '" + b.getTitle() + "' werd met succes gedeclasseerd.\n" + sb.toString());
         } else {
             Warning.alert("No item found", "Het boek werd niet terug gevonden.");
+            ChangeScene.init("/fxml/home.fxml", "KOKW - Het verleden draait altijd mee!");
         }
 
     }

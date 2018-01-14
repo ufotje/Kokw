@@ -7,7 +7,7 @@ import java.io.Serializable;
 import java.time.LocalDate;
 
 @Entity
-@Table(name = "checked_out")
+@Table(name = "checked_out_books")
 public class CheckedOut implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

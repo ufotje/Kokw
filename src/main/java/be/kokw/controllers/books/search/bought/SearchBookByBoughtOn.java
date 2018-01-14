@@ -68,6 +68,7 @@ public class SearchBookByBoughtOn {
         if (bookList.isEmpty()) {
             Warning.alert("No Books found!", "Er werden geen boeken gevonden die op " + date.getValue() + " werden aangekocht.");
             MenuController.window.close();
+            ChangeScene.init("/fxml/home.fxml", "KOKW - Het verleden draait altijd mee!");
         } else {
             MenuController.window.close();
             ChangeScene.init("/fxml/books/found/bought/tableviewByBoughtOn.fxml", "Books by Bought on");
