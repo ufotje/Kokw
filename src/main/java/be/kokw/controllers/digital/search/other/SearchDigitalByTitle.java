@@ -20,12 +20,13 @@ import static javafx.collections.FXCollections.observableArrayList;
 
 /**
  * Created by ufotje on 3/11/2017.
+ * The find by titleClass
  */
 
 @Component
-public class SearchBookByPublisher {
+public class SearchDigitalByTitle {
     @FXML
-    private TextField publisher;
+    private TextField title;
     @FXML
     private TableView<Book> table;
     @FXML
@@ -59,17 +60,18 @@ public class SearchBookByPublisher {
     private BookRepo bookRepo;
 
     @Autowired
-    private void setBookRepo(@Qualifier("bookRepo") BookRepo repo) {
+    private void SetBookRepo(@Qualifier("bookRepo") BookRepo repo) {
         bookRepo = repo;
     }
 
     @FXML
     public void search() throws Exception {
-        if(Validation.emptyValidation("Uitgeverij",publisher.getText().isEmpty())){
-            ObservableList<Book> bookList = observableArrayList(bookRepo.findByPublisher(publisher.getText()));
-            if(!(bookList.isEmpty())){
+        if(Validation.emptyValidation("Titel",title.getText().isEmpty())){
+            ObservableList<Book> bookList = observableArrayList(bookRepo.findByTitle(title.getText()));
+            if(bookList.get(0) != null){
+
                 MenuController.window.close();
-                ChangeScene.init("/fxml/digital/found/other/tableviewByPublisher.fxml", "Books by Publisher");
+                ChangeScene.init("/fxml/digital/found/other/tableViewByTitle.fxml", "Books by Title");
                 table.setEditable(true);
                 idCol.setCellValueFactory(new PropertyValueFactory<>("id"));
                 isbnCol.setCellValueFactory(new PropertyValueFactory<>("isbn"));
@@ -87,9 +89,10 @@ public class SearchBookByPublisher {
                 copiesCol.setCellValueFactory(new PropertyValueFactory<>("copies"));
                 table.setItems(bookList);
             }else{
-                Warning.alert("Book Not Found","Er werden geen boeken gevonden die werden uitgegeven door: '" + publisher.getText() + "'!");
+                Warning.alert("Book Not Found","The book '" + title.getText() + "' has not been found!");
                 MenuController.window.close();
             }
         }
     }
 }
+

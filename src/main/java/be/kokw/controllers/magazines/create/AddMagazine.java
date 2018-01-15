@@ -94,7 +94,7 @@ public class AddMagazine {
 
     private boolean saveMag() {
         if (validated()) {
-            magazine = new Magazine(issn.getText(), Integer.parseInt(copies.getText()), name.getText(), title.getText(), publisher.getText(), period.getText(), year.getText(), Integer.parseInt(nr.getText()), Integer.parseInt(pages.getText()), theme.getText());
+            magazine = new Magazine(issn.getText(), name.getText(), title.getText(), publisher.getText(), period.getText(), year.getText(), Integer.parseInt(nr.getText()), Integer.parseInt(pages.getText()), theme.getText());
             MagazineCount count = countRepo.findByName(magazine.getName());
             if (!illustrated.isSelected()) {
                 magazine.setIllustrated(false);

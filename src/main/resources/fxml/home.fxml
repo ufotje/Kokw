@@ -3,7 +3,7 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" style="-fx-background-image: url('/images/achtergrond.jpg');
+<BorderPane maxHeight="-Infinity" prefWidth="800" prefHeight="600git add ." maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" style="-fx-background-image: url('/images/achtergrond.jpg');
 -fx-background-position: center; -fx-background-repeat: no-repeat; -fx-background-size: cover;" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1">
       <top>
             <VBox BorderPane.alignment="CENTER">

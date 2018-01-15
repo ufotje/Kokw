@@ -76,7 +76,7 @@ public class AddMember {
             }
             names.append(" has been successfully saved!");
             Warning.alert("Member saved!", names.toString());
-            ChangeScene.init("/fxml/home.fxml", "KOKW - Het Verleden Draait Door!");
+            ChangeScene.init("/fxml/home.fxml", "KOKW - Het Verleden Draait Altijd Door!");
         }
     }
 

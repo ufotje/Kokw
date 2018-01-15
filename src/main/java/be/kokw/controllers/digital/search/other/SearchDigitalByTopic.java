@@ -19,7 +19,7 @@ import org.springframework.stereotype.Component;
 import static javafx.collections.FXCollections.observableArrayList;
 
 @Component
-public class SearchBookByTopic {
+public class SearchDigitalByTopic {
     @FXML
     private TextField topic;
     @FXML
