@@ -13,7 +13,6 @@ public class Magazine {
     @Column(name = "id")
     private int id;
     private String issn;
-    private int copies;
     private String name;
     private String title;
     private String publisher;
@@ -29,9 +28,8 @@ public class Magazine {
     public Magazine() {
     }
 
-    public Magazine(String issn, int copies, String name, String title, String publisher, String periodicity, String year, int nr, int nrOfPages, String theme) {
+    public Magazine(String issn, String name, String title, String publisher, String periodicity, String year, int nr, int nrOfPages, String theme) {
         this.issn = issn;
-        this.copies = copies;
         this.name = name;
         this.title = title;
         this.publisher = publisher;
@@ -56,14 +54,6 @@ public class Magazine {
 
     public void setIssn(String issn) {
         this.issn = issn;
-    }
-
-    public int getCopies() {
-        return copies;
-    }
-
-    public void setCopies(int copies) {
-        this.copies = copies;
     }
 
     public String getName() {

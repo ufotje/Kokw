@@ -1,4 +1,4 @@
-package be.kokw.controllers.books.search.bought;
+package be.kokw.controllers.digital.search.bought;
 
 import be.kokw.bean.books.Book;
 import be.kokw.controllers.MenuController;
@@ -20,11 +20,9 @@ import java.time.LocalDate;
 import static javafx.collections.FXCollections.observableArrayList;
 
 @Component
-public class SearchBookByBoughtOnBetween {
+public class SearchDigitalByBoughtOn {
     @FXML
-    private DatePicker start;
-    @FXML
-    private DatePicker end;
+    private DatePicker date;
     @FXML
     private TableView<Book> table;
     @FXML
@@ -66,14 +64,14 @@ public class SearchBookByBoughtOnBetween {
 
     @FXML
     public void search() throws Exception {
-        ObservableList<Book> bookList = observableArrayList(bookRepo.findByBoughtOnBetween(start.getValue(), end.getValue()));
+        ObservableList<Book> bookList = observableArrayList(bookRepo.findByBoughtOn(date.getValue()));
         if (bookList.isEmpty()) {
-            Warning.alert("No Books found!", "Er werden geen boeken gevonden die tussen " + start.getValue() + " en " + end.getValue() + " werden aangekocht.");
+            Warning.alert("No Books found!", "Er werden geen boeken gevonden die op " + date.getValue() + " werden aangekocht.");
             MenuController.window.close();
             ChangeScene.init("/fxml/home.fxml", "KOKW - Het verleden draait altijd mee!");
         } else {
             MenuController.window.close();
-            ChangeScene.init("/fxml/digital/found/bought/tableviewByBoughtOnBetween.fxml", "Books by Bought Between");
+            ChangeScene.init("/fxml/digital/found/bought/tableviewByBoughtOn.fxml", "Books by Bought on");
             table.setEditable(true);
             idCol.setCellValueFactory(new PropertyValueFactory<>("id"));
             isbnCol.setCellValueFactory(new PropertyValueFactory<>("isbn"));

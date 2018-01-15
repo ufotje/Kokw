@@ -66,7 +66,7 @@ public class MenuController {
     @FXML
     private void findBookByTitle() {
         try {
-            window = NewStage.getStage("Vind Boek op Titel!", "/fxml/books/search/dialogpaneByTitle.fxml");
+            window = NewStage.getStage("Vind Boek op Titel!", "/fxml/digital/search/dialogpaneByTitle.fxml");
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -76,7 +76,7 @@ public class MenuController {
     @FXML
     private void findBookByAuthor() {
         try {
-            window = NewStage.getStage("Vul de auteurs naam in!", "/fxml/books/search/byName.fxml");
+            window = NewStage.getStage("Vul de auteurs naam in!", "/fxml/digital/search/byName.fxml");
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -86,7 +86,7 @@ public class MenuController {
     @FXML
     private void findBookByPublisher() {
         try {
-            window = NewStage.getStage("Vind Boeken op uitgeverij!", "/fxml/books/search/dialogpaneByPublisher.fxml");
+            window = NewStage.getStage("Vind Boeken op uitgeverij!", "/fxml/digital/search/dialogpaneByPublisher.fxml");
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -96,7 +96,7 @@ public class MenuController {
     @FXML
     private void findBookByTopic() {
         try {
-            window = NewStage.getStage("Vind Boeken op onderwerp!", "/fxml/books/search/byTopicDialog.fxml");
+            window = NewStage.getStage("Vind Boeken op onderwerp!", "/fxml/digital/search/byTopicDialog.fxml");
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -106,7 +106,7 @@ public class MenuController {
     @FXML
     private void findBookByISBN() {
         try {
-            window = NewStage.getStage("Vind boeken op ISBN", "/fxml/books/search/byISBNDialog.fxml");
+            window = NewStage.getStage("Vind boeken op ISBN", "/fxml/digital/search/byISBNDialog.fxml");
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -116,7 +116,7 @@ public class MenuController {
     @FXML
     private void findBookByDepot() {
         try {
-            window = NewStage.getStage("Vind boeken op depotnr", "/fxml/books/search/byDepotDialog.fxml");
+            window = NewStage.getStage("Vind boeken op depotnr", "/fxml/digital/search/byDepotDialog.fxml");
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -126,7 +126,7 @@ public class MenuController {
     @FXML
     private void findByBoughtOn() {
         try {
-            window = NewStage.getStage("Vind boeken aangekocht op datum", "/fxml/books/search/byBoughtOnDialog.fxml");
+            window = NewStage.getStage("Vind boeken aangekocht op datum", "/fxml/digital/search/byBoughtOnDialog.fxml");
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -136,7 +136,7 @@ public class MenuController {
     @FXML
     private void findByBoughtOnAll() {
         try {
-            ChangeScene.init("/fxml/books/found/bought/tableviewByBoughtOnAll.fxml", "Alle boeken die werden aangekocht");
+            ChangeScene.init("/fxml/digital/found/bought/tableviewByBoughtOnAll.fxml", "Alle boeken die werden aangekocht");
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -145,7 +145,7 @@ public class MenuController {
     @FXML
     private void findByBoughtOnBetween() {
         try {
-            window = NewStage.getStage("Vind boeken aangekocht tussen", "/fxml/books/search/byBoughtOnBetweenDialog.fxml");
+            window = NewStage.getStage("Vind boeken aangekocht tussen", "/fxml/digital/search/byBoughtOnBetweenDialog.fxml");
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -155,7 +155,7 @@ public class MenuController {
     @FXML
     private void findByGiftedOn() {
         try {
-            window = NewStage.getStage("Vind boeken gedonneerd op datum", "/fxml/books/search/byGiftedOnDialog.fxml");
+            window = NewStage.getStage("Vind boeken gedonneerd op datum", "/fxml/digital/search/byGiftedOnDialog.fxml");
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -165,7 +165,7 @@ public class MenuController {
     @FXML
     private void findByGiftedOnAll() {
         try {
-            ChangeScene.init("/fxml/books/found/gifted/tableviewByGiftedOnAll.fxml", "Alle boeken die werden gedonneeerd");
+            ChangeScene.init("/fxml/digital/found/gifted/tableviewByGiftedOnAll.fxml", "Alle boeken die werden gedonneeerd");
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -174,7 +174,7 @@ public class MenuController {
     @FXML
     private void findByGiftedOnBetween() {
         try {
-            window = NewStage.getStage("Vind boeken gedonneerd tussen", "/fxml/books/search/byGiftedOnBetweenDialog.fxml");
+            window = NewStage.getStage("Vind boeken gedonneerd tussen", "/fxml/digital/search/byGiftedOnBetweenDialog.fxml");
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -184,7 +184,7 @@ public class MenuController {
     @FXML
     private void findByGiftedForOnAll() {
         try {
-            ChangeScene.init("/fxml/books/found/giftedFor/tableviewGiftedForOnAll.fxml", "Alle boeken die werden gedonneeerd tegenprestatie");
+            ChangeScene.init("/fxml/digital/found/giftedFor/tableviewGiftedForOnAll.fxml", "Alle boeken die werden gedonneeerd tegenprestatie");
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -193,7 +193,7 @@ public class MenuController {
     @FXML
     private void findByGiftedForOn() {
         try {
-            window = NewStage.getStage("Vind Boeken tegenprestatie op datum", "/fxml/books/search/byGiftedForOnDialog.fxml");
+            window = NewStage.getStage("Vind Boeken tegenprestatie op datum", "/fxml/digital/search/byGiftedForOnDialog.fxml");
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -203,7 +203,7 @@ public class MenuController {
     @FXML
     private void findByGiftedForOnBetween() {
         try {
-            window = NewStage.getStage("Vind boeken gedonneerd met tegenprestatie tussen", "/fxml/books/search/byGiftedForOnBetweenDialog.fxml");
+            window = NewStage.getStage("Vind boeken gedonneerd met tegenprestatie tussen", "/fxml/digital/search/byGiftedForOnBetweenDialog.fxml");
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -213,7 +213,7 @@ public class MenuController {
     @FXML
     private void findByGiftedForOnName() {
         try {
-            window = NewStage.getStage("Vind boeken tegenprestatie op naam", "/fxml/books/search/byGiftedForOnName.fxml");
+            window = NewStage.getStage("Vind boeken tegenprestatie op naam", "/fxml/digital/search/byGiftedForOnName.fxml");
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -223,7 +223,7 @@ public class MenuController {
     @FXML
     private void findByGiftedForOnNameAndDate() {
         try {
-            window = NewStage.getStage("Vind boek tegenprestatie op naam en datum", "/fxml/books/search/byGiftedForOnNameAndDateDialog.fxml");
+            window = NewStage.getStage("Vind boek tegenprestatie op naam en datum", "/fxml/digital/search/byGiftedForOnNameAndDateDialog.fxml");
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -234,7 +234,7 @@ public class MenuController {
     @FXML
     private void updateBookByTitle() {
         try {
-            window = NewStage.getStage("Update een Boek!", "/fxml/books/update/updateDialog.fxml");
+            window = NewStage.getStage("Update een Boek!", "/fxml/digital/update/updateDialog.fxml");
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -244,14 +244,14 @@ public class MenuController {
     //Delete a Book
     @FXML
     private void deleteBookByTitle() {
-        window = NewStage.getStage("Verwijder Boek op Titel!", "/fxml/books/delete/dialogpaneByTitle.fxml");
+        window = NewStage.getStage("Verwijder Boek op Titel!", "/fxml/digital/delete/dialogpaneByTitle.fxml");
         window.show();
     }
 
     @FXML
     private void derateBook() {
         try {
-            window = NewStage.getStage("Declasseer een boek.", "/fxml/books/delete/derateDialog.fxml");
+            window = NewStage.getStage("Declasseer een boek.", "/fxml/digital/delete/derateDialog.fxml");
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -262,7 +262,7 @@ public class MenuController {
     @FXML
     private void checkOut() {
         try {
-            window = NewStage.getStage("Check-Out Book!", "/fxml/checkOut/books/checkOutDialog.fxml");
+            window = NewStage.getStage("Check-Out Book!", "/fxml/books/checkOut/checkOutDialog.fxml");
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -272,7 +272,7 @@ public class MenuController {
     @FXML
     private void returnBook() {
         try {
-            window = NewStage.getStage("Return Book!", "/fxml/checkOut/books/returnDialog.fxml");
+            window = NewStage.getStage("Return Book!", "/fxml/books/checkOut/returnDialog.fxml");
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -282,7 +282,7 @@ public class MenuController {
     @FXML
     private void prolong() {
         try {
-            window = NewStage.getStage("Prolong Checked-Out Book!", "/fxml/checkOut/books/prolongDialog.fxml");
+            window = NewStage.getStage("Prolong Checked-Out Book!", "/fxml/books/checkOut/prolongDialog.fxml");
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -292,7 +292,7 @@ public class MenuController {
     @FXML
     private void datesBetween() {
         try {
-            window = NewStage.getStage("Checked-Out Between", "/fxml/checkOut/books/betweenDialog.fxml");
+            window = NewStage.getStage("Checked-Out Between", "/fxml/books/checkOut/betweenDialog.fxml");
         } catch (Exception e) {
             e.printStackTrace();
         }

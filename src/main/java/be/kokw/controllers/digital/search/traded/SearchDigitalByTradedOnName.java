@@ -1,4 +1,4 @@
-package be.kokw.controllers.books.search.donatedAgainst;
+package be.kokw.controllers.digital.search.traded;
 
 import be.kokw.bean.books.GiftedFor;
 import be.kokw.controllers.MenuController;
@@ -8,7 +8,6 @@ import be.kokw.utility.RowFactoryGF;
 import be.kokw.utility.Warning;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.scene.control.DatePicker;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -23,11 +22,9 @@ import java.time.LocalDate;
 import static javafx.collections.FXCollections.observableArrayList;
 
 @Component
-public class SearchBookByGiftedForOnNameAndDate {
+public class SearchDigitalByTradedOnName {
     @FXML
     private TextField name;
-    @FXML
-    private DatePicker date;
     @FXML
     private TableView<GiftedFor> table;
     @FXML
@@ -59,13 +56,13 @@ public class SearchBookByGiftedForOnNameAndDate {
 
     @FXML
     public void search() throws Exception {
-        ObservableList<GiftedFor> bookList = observableArrayList(repo.findByContractDateAndName(date.getValue(),name.getText()));
+        ObservableList<GiftedFor> bookList = observableArrayList(repo.findByName(name.getText()));
         if (bookList.isEmpty()) {
-            Warning.alert("No Books found!", "Er werden geen boeken gevonden die door " + name.getText() + " op " + date.getValue() + " werden gedoneerd met tegenprestatie.");
+            Warning.alert("No Books found!", "Er werden geen boeken gevonden die door " + name.getText() + " werden gedoneerd met tegenprestatie.");
             MenuController.window.close();
         } else {
             MenuController.window.close();
-            ChangeScene.init("/fxml/digital/found/tableviewByGiftedForOnNameAndDate.fxml", "Books by Donated for by on");
+            ChangeScene.init("/fxml/digital/found/tableviewByGiftedForOnName.fxml", "Books by Donated for by");
             table.setEditable(true);
             idCol.setCellValueFactory(new PropertyValueFactory<>("id"));
             isbnCol.setCellValueFactory(new PropertyValueFactory<>("issbn"));

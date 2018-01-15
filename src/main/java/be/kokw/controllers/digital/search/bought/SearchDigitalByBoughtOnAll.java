@@ -1,13 +1,11 @@
-package be.kokw.controllers.books.search.bought;
+package be.kokw.controllers.digital.search.bought;
 
 import be.kokw.bean.books.Book;
-import be.kokw.controllers.MenuController;
 import be.kokw.repositories.books.BookRepo;
 import be.kokw.utility.ChangeScene;
 import be.kokw.utility.Warning;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.scene.control.DatePicker;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -20,11 +18,7 @@ import java.time.LocalDate;
 import static javafx.collections.FXCollections.observableArrayList;
 
 @Component
-public class SearchBookByBoughtOnBetween {
-    @FXML
-    private DatePicker start;
-    @FXML
-    private DatePicker end;
+public class SearchDigitalByBoughtOnAll {
     @FXML
     private TableView<Book> table;
     @FXML
@@ -65,15 +59,12 @@ public class SearchBookByBoughtOnBetween {
     }
 
     @FXML
-    public void search() throws Exception {
-        ObservableList<Book> bookList = observableArrayList(bookRepo.findByBoughtOnBetween(start.getValue(), end.getValue()));
+    public void initialize(){
+        ObservableList<Book> bookList = observableArrayList(bookRepo.findBookByBoughtOnIsNotNull());
         if (bookList.isEmpty()) {
-            Warning.alert("No Books found!", "Er werden geen boeken gevonden die tussen " + start.getValue() + " en " + end.getValue() + " werden aangekocht.");
-            MenuController.window.close();
+            Warning.alert("No Books found!", "Er werden geen boeken gevonden die werden aangekocht.");
             ChangeScene.init("/fxml/home.fxml", "KOKW - Het verleden draait altijd mee!");
         } else {
-            MenuController.window.close();
-            ChangeScene.init("/fxml/digital/found/bought/tableviewByBoughtOnBetween.fxml", "Books by Bought Between");
             table.setEditable(true);
             idCol.setCellValueFactory(new PropertyValueFactory<>("id"));
             isbnCol.setCellValueFactory(new PropertyValueFactory<>("isbn"));

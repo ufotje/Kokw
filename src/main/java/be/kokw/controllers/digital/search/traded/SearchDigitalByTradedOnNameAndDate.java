@@ -1,4 +1,4 @@
-package be.kokw.controllers.books.search.donatedAgainst;
+package be.kokw.controllers.digital.search.traded;
 
 import be.kokw.bean.books.GiftedFor;
 import be.kokw.controllers.MenuController;
@@ -23,7 +23,7 @@ import java.time.LocalDate;
 import static javafx.collections.FXCollections.observableArrayList;
 
 @Component
-public class SearchBookByGiftedForOnNameAndDate {
+public class SearchDigitalByTradedOnNameAndDate {
     @FXML
     private TextField name;
     @FXML

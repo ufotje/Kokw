@@ -1,4 +1,4 @@
- package be.kokw.controllers.books.search.other;
+package be.kokw.controllers.digital.search.other;
 
 import be.kokw.bean.books.Book;
 import be.kokw.controllers.MenuController;
@@ -18,16 +18,10 @@ import org.springframework.stereotype.Component;
 
 import static javafx.collections.FXCollections.observableArrayList;
 
-
-/**
- * Created by ufotje on 28/10/2017.
- * The search byAuthorsNameControllerClass
- */
-
 @Component
-public class SearchBookByName {
+public class SearchBookByTopic {
     @FXML
-    private TextField firstName, lastName;
+    private TextField topic;
     @FXML
     private TableView<Book> table;
     @FXML
@@ -61,22 +55,17 @@ public class SearchBookByName {
     private BookRepo bookRepo;
 
     @Autowired
-    private void setBookRepo(@Qualifier("bookRepo") BookRepo repo) {
+    private void SetBookRepo(@Qualifier("bookRepo") BookRepo repo) {
         bookRepo = repo;
     }
 
     @FXML
     public void search() throws Exception {
-        if (Validation.validate("Achternaam Auteur", lastName.getText(), "[a-zA-Z]+") &&
-                Validation.validate("Voornaam Auteur:", firstName.getText(), "[a-zA-Z]+")) {
-            ObservableList<Book> bookList = observableArrayList(bookRepo.findByAuthorsContains(firstName.getText() + " " + lastName.getText()));
-            if (bookList.isEmpty()) {
-                Warning.alert("No Books found!", "Er werden geen boeken gevonden geschreven door " + firstName.getText() + " " + lastName.getText());
+        if (Validation.emptyValidation("Topic", topic.getText().isEmpty())) {
+            ObservableList<Book> bookList = observableArrayList(bookRepo.findBookByTopicsContains(topic.getText()));
+            if (bookList.get(0) != null) {
                 MenuController.window.close();
-            } else {
-
-                MenuController.window.close();
-                ChangeScene.init("/fxml/digital/found/other/tableView.fxml", "Books by Author's name");
+                ChangeScene.init("/fxml/digital/found/other/tableViewTopic.fxml", "Books by Topic");
                 table.setEditable(true);
                 idCol.setCellValueFactory(new PropertyValueFactory<>("id"));
                 isbnCol.setCellValueFactory(new PropertyValueFactory<>("isbn"));
@@ -93,6 +82,9 @@ public class SearchBookByName {
                 illusCol.setCellValueFactory(new PropertyValueFactory<>("illustrated"));
                 copiesCol.setCellValueFactory(new PropertyValueFactory<>("copies"));
                 table.setItems(bookList);
+            } else {
+                Warning.alert("No Books Found", "Er werden geen boeken met '" + topic.getText() + "' als onderwerp gevonden!");
+                MenuController.window.close();
             }
         }
     }

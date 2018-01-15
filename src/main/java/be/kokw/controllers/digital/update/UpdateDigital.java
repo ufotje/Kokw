@@ -1,4 +1,4 @@
-package be.kokw.controllers.books.update;
+package be.kokw.controllers.digital.update;
 
 import be.kokw.bean.books.Book;
 import be.kokw.bean.books.Gifted;
@@ -28,7 +28,7 @@ import org.springframework.stereotype.Component;
  */
 
 @Component
-public class UpdateBook {
+public class UpdateDigital {
     @FXML
     private TextField id;
     @FXML

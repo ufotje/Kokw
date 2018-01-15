@@ -1,4 +1,4 @@
-package be.kokw.controllers.books.search.donated;
+package be.kokw.controllers.digital.search.donated;
 
 import be.kokw.bean.books.Gifted;
 import be.kokw.controllers.MenuController;
@@ -9,10 +9,8 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.input.MouseButton;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
@@ -22,7 +20,7 @@ import java.time.LocalDate;
 import static javafx.collections.FXCollections.observableArrayList;
 
 @Component
-public class SearchBookByGiftedOn {
+public class SearchDigitalByDonatedOn {
     @FXML
     private DatePicker date;
     @FXML

@@ -65,7 +65,7 @@ public class SearchBookByTopic {
             ObservableList<Book> bookList = observableArrayList(bookRepo.findBookByTopicsContains(topic.getText()));
             if (bookList.get(0) != null) {
                 MenuController.window.close();
-                ChangeScene.init("/fxml/books/found/other/tableViewTopic.fxml", "Books by Topic");
+                ChangeScene.init("/fxml/digital/found/other/tableViewTopic.fxml", "Books by Topic");
                 table.setEditable(true);
                 idCol.setCellValueFactory(new PropertyValueFactory<>("id"));
                 isbnCol.setCellValueFactory(new PropertyValueFactory<>("isbn"));

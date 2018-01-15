@@ -1,4 +1,4 @@
-package be.kokw.bean;
+package be.kokw.bean.digital;
 
 import be.kokw.bean.books.Gifted;
 import be.kokw.bean.books.GiftedFor;

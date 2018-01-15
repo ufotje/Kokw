@@ -1,4 +1,4 @@
-package be.kokw.controllers.books.search.bought;
+package be.kokw.controllers.digital.search.other;
 
 import be.kokw.bean.books.Book;
 import be.kokw.controllers.MenuController;
@@ -7,24 +7,20 @@ import be.kokw.utility.ChangeScene;
 import be.kokw.utility.Warning;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.scene.control.DatePicker;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
-import java.time.LocalDate;
-
 import static javafx.collections.FXCollections.observableArrayList;
 
 @Component
-public class SearchBookByBoughtOnBetween {
+public class SearchBookByDepot {
     @FXML
-    private DatePicker start;
-    @FXML
-    private DatePicker end;
+    TextField depot;
     @FXML
     private TableView<Book> table;
     @FXML
@@ -39,8 +35,6 @@ public class SearchBookByBoughtOnBetween {
     private TableColumn<Book, Integer> volumeCol;
     @FXML
     private TableColumn<Book, Boolean> illusCol;
-    @FXML
-    private TableColumn<Book, LocalDate> boughtCol;
     @FXML
     private TableColumn<Book, Integer> copiesCol;
     @FXML
@@ -66,14 +60,13 @@ public class SearchBookByBoughtOnBetween {
 
     @FXML
     public void search() throws Exception {
-        ObservableList<Book> bookList = observableArrayList(bookRepo.findByBoughtOnBetween(start.getValue(), end.getValue()));
+        ObservableList<Book> bookList = observableArrayList(bookRepo.findByDepot(depot.getText()));
         if (bookList.isEmpty()) {
-            Warning.alert("No Books found!", "Er werden geen boeken gevonden die tussen " + start.getValue() + " en " + end.getValue() + " werden aangekocht.");
+            Warning.alert("No Books found!", "Er werden geen boeken gevonden met " + depot.getText() + " als depotnummer.");
             MenuController.window.close();
-            ChangeScene.init("/fxml/home.fxml", "KOKW - Het verleden draait altijd mee!");
         } else {
             MenuController.window.close();
-            ChangeScene.init("/fxml/digital/found/bought/tableviewByBoughtOnBetween.fxml", "Books by Bought Between");
+            ChangeScene.init("/fxml/digital/found/other/tableviewByDepot.fxml", "Books by DepotNumber");
             table.setEditable(true);
             idCol.setCellValueFactory(new PropertyValueFactory<>("id"));
             isbnCol.setCellValueFactory(new PropertyValueFactory<>("isbn"));
@@ -89,7 +82,6 @@ public class SearchBookByBoughtOnBetween {
             pagesCol.setCellValueFactory(new PropertyValueFactory<>("nrOfPages"));
             illusCol.setCellValueFactory(new PropertyValueFactory<>("illustrated"));
             copiesCol.setCellValueFactory(new PropertyValueFactory<>("copies"));
-            boughtCol.setCellValueFactory(new PropertyValueFactory<>("boughtOn"));
             table.setItems(bookList);
         }
     }

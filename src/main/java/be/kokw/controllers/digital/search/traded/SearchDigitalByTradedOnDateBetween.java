@@ -1,4 +1,4 @@
-package be.kokw.controllers.books.search.donatedAgainst;
+package be.kokw.controllers.digital.search.traded;
 
 import be.kokw.bean.books.GiftedFor;
 import be.kokw.controllers.MenuController;
@@ -11,7 +11,6 @@ import javafx.fxml.FXML;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -23,11 +22,11 @@ import java.time.LocalDate;
 import static javafx.collections.FXCollections.observableArrayList;
 
 @Component
-public class SearchBookByGiftedForOnNameAndDate {
+public class SearchDigitalByTradedOnDateBetween {
     @FXML
-    private TextField name;
+    private DatePicker start;
     @FXML
-    private DatePicker date;
+    private DatePicker end;
     @FXML
     private TableView<GiftedFor> table;
     @FXML
@@ -35,19 +34,19 @@ public class SearchBookByGiftedForOnNameAndDate {
     @FXML
     private TableColumn<GiftedFor, String> isbnCol;
     @FXML
-    private TableColumn<GiftedFor, String> boekIdCol;
-    @FXML
     private TableColumn<GiftedFor, String> depotCol;
     @FXML
     private TableColumn<GiftedFor, String> conNameCol;
     @FXML
     private TableColumn<GiftedFor, File> conCol;
     @FXML
-    private TableColumn<GiftedFor,LocalDate> conDateCol;
-    @FXML
     private TableColumn<GiftedFor, String> conNrCol;
     @FXML
+    private TableColumn<GiftedFor, LocalDate> conDateCol;
+    @FXML
     private TableColumn<GiftedFor, String> titleCol;
+    @FXML
+    private TableColumn<GiftedFor, String> boekIdCol;
     @FXML
     private TableColumn<GiftedFor, String> authorCol;
     private GiftedForRepo repo;
@@ -59,13 +58,13 @@ public class SearchBookByGiftedForOnNameAndDate {
 
     @FXML
     public void search() throws Exception {
-        ObservableList<GiftedFor> bookList = observableArrayList(repo.findByContractDateAndName(date.getValue(),name.getText()));
+        ObservableList<GiftedFor> bookList = observableArrayList(repo.findByContractDateBetween(start.getValue(), end.getValue()));
         if (bookList.isEmpty()) {
-            Warning.alert("No Books found!", "Er werden geen boeken gevonden die door " + name.getText() + " op " + date.getValue() + " werden gedoneerd met tegenprestatie.");
+            Warning.alert("No Books found!", "Er werden geen boeken gevonden die tussen " + start.getValue() + " en " + end.getValue() + " werden gedoneerd met tegenprestatie.");
             MenuController.window.close();
         } else {
             MenuController.window.close();
-            ChangeScene.init("/fxml/digital/found/tableviewByGiftedForOnNameAndDate.fxml", "Books by Donated for by on");
+            ChangeScene.init("/fxml/digital/found/tableviewByGiftedForOnBetween.fxml", "Books by Donated Between");
             table.setEditable(true);
             idCol.setCellValueFactory(new PropertyValueFactory<>("id"));
             isbnCol.setCellValueFactory(new PropertyValueFactory<>("issbn"));

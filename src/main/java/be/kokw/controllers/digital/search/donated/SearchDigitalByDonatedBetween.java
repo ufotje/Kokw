@@ -1,4 +1,4 @@
-package be.kokw.controllers.books.search.donated;
+package be.kokw.controllers.digital.search.donated;
 
 import be.kokw.bean.books.Gifted;
 import be.kokw.controllers.MenuController;
@@ -9,10 +9,8 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.input.MouseButton;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
@@ -22,9 +20,11 @@ import java.time.LocalDate;
 import static javafx.collections.FXCollections.observableArrayList;
 
 @Component
-public class SearchBookByGiftedOn {
+public class SearchDigitalByDonatedBetween {
     @FXML
-    private DatePicker date;
+    private DatePicker start;
+    @FXML
+    private DatePicker end;
     @FXML
     private TableView<Gifted> table;
     @FXML
@@ -52,13 +52,13 @@ public class SearchBookByGiftedOn {
 
     @FXML
     public void search() throws Exception {
-        ObservableList<Gifted> bookList = observableArrayList(repo.findByGiftedOn(date.getValue()));
+        ObservableList<Gifted> bookList = observableArrayList(repo.findByGiftedOnBetween(start.getValue(), end.getValue()));
         if (bookList.isEmpty()) {
-            Warning.alert("No Books found!", "Er werden geen boeken gevonden die op " + date.getValue() + " werden gedoneerd.");
+            Warning.alert("No Books found!", "Er werden geen boeken gevonden die tussen " + start.getValue() + " en " + end.getValue() + " werden gedoneerd.");
             MenuController.window.close();
         } else {
             MenuController.window.close();
-            ChangeScene.init("/fxml/digital/found/gifted/tableviewByGiftedOn.fxml", "Books by Donated on");
+            ChangeScene.init("/fxml/digital/found/gifted/tableviewGiftedOnBetween.fxml", "Books by Donated Between");
             table.setEditable(true);
             idCol.setCellValueFactory(new PropertyValueFactory<>("id"));
             isbnCol.setCellValueFactory(new PropertyValueFactory<>("isbn"));
@@ -66,7 +66,7 @@ public class SearchBookByGiftedOn {
             depotCol.setCellValueFactory(new PropertyValueFactory<>("depot"));
             titleCol.setCellValueFactory(new PropertyValueFactory<>("title"));
             authorCol.setCellValueFactory(new PropertyValueFactory<>("authors"));
-            giftedByCol.setCellValueFactory(new PropertyValueFactory<>("name"));
+            giftedByCol.setCellValueFactory(new PropertyValueFactory<>("nameGifter"));
             giftedOnCol.setCellValueFactory(new PropertyValueFactory<>("giftedOn"));
             table.setItems(bookList);
         }

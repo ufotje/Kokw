@@ -1,4 +1,4 @@
- package be.kokw.controllers.books.search.other;
+package be.kokw.controllers.digital.search.other;
 
 import be.kokw.bean.books.Book;
 import be.kokw.controllers.MenuController;
@@ -18,20 +18,18 @@ import org.springframework.stereotype.Component;
 
 import static javafx.collections.FXCollections.observableArrayList;
 
-
 /**
- * Created by ufotje on 28/10/2017.
- * The search byAuthorsNameControllerClass
+ * Created by ufotje on 3/11/2017.
  */
 
 @Component
-public class SearchBookByName {
+public class SearchBookByPublisher {
     @FXML
-    private TextField firstName, lastName;
+    private TextField publisher;
     @FXML
     private TableView<Book> table;
     @FXML
-    private TableColumn<Book, Integer> idCol;
+    private TableColumn<Book,Integer> idCol;
     @FXML
     private TableColumn<Book, String> isbnCol;
     @FXML
@@ -67,16 +65,11 @@ public class SearchBookByName {
 
     @FXML
     public void search() throws Exception {
-        if (Validation.validate("Achternaam Auteur", lastName.getText(), "[a-zA-Z]+") &&
-                Validation.validate("Voornaam Auteur:", firstName.getText(), "[a-zA-Z]+")) {
-            ObservableList<Book> bookList = observableArrayList(bookRepo.findByAuthorsContains(firstName.getText() + " " + lastName.getText()));
-            if (bookList.isEmpty()) {
-                Warning.alert("No Books found!", "Er werden geen boeken gevonden geschreven door " + firstName.getText() + " " + lastName.getText());
+        if(Validation.emptyValidation("Uitgeverij",publisher.getText().isEmpty())){
+            ObservableList<Book> bookList = observableArrayList(bookRepo.findByPublisher(publisher.getText()));
+            if(!(bookList.isEmpty())){
                 MenuController.window.close();
-            } else {
-
-                MenuController.window.close();
-                ChangeScene.init("/fxml/digital/found/other/tableView.fxml", "Books by Author's name");
+                ChangeScene.init("/fxml/digital/found/other/tableviewByPublisher.fxml", "Books by Publisher");
                 table.setEditable(true);
                 idCol.setCellValueFactory(new PropertyValueFactory<>("id"));
                 isbnCol.setCellValueFactory(new PropertyValueFactory<>("isbn"));
@@ -93,6 +86,9 @@ public class SearchBookByName {
                 illusCol.setCellValueFactory(new PropertyValueFactory<>("illustrated"));
                 copiesCol.setCellValueFactory(new PropertyValueFactory<>("copies"));
                 table.setItems(bookList);
+            }else{
+                Warning.alert("Book Not Found","Er werden geen boeken gevonden die werden uitgegeven door: '" + publisher.getText() + "'!");
+                MenuController.window.close();
             }
         }
     }

@@ -71,7 +71,7 @@ public class SearchBookByBoughtOn {
             ChangeScene.init("/fxml/home.fxml", "KOKW - Het verleden draait altijd mee!");
         } else {
             MenuController.window.close();
-            ChangeScene.init("/fxml/books/found/bought/tableviewByBoughtOn.fxml", "Books by Bought on");
+            ChangeScene.init("/fxml/digital/found/bought/tableviewByBoughtOn.fxml", "Books by Bought on");
             table.setEditable(true);
             idCol.setCellValueFactory(new PropertyValueFactory<>("id"));
             isbnCol.setCellValueFactory(new PropertyValueFactory<>("isbn"));

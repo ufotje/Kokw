@@ -57,7 +57,7 @@ public class CheckOutDateBetween {
                 ObservableList<CheckedOut> dates = observableArrayList(repo.findByCheckOutDateBetween(startDate.getValue(), endDate.getValue()));
                 if(!dates.isEmpty()){
                     MenuController.window.close();
-                    ChangeScene.init("/fxml/checkOut/books/tableViewDatesBetween.fxml", "Books by Dates between");
+                    ChangeScene.init("/fxml/books/checkOut/tableViewDatesBetween.fxml", "Books by Dates between");
                     table.setEditable(true);
                     idCol.setCellValueFactory(new PropertyValueFactory<>("id"));
                     titleCol.setCellValueFactory(new PropertyValueFactory<>("title"));

@@ -71,7 +71,7 @@ public class SearchBookByTitle {
             if(bookList.get(0) != null){
 
                 MenuController.window.close();
-                ChangeScene.init("/fxml/books/found/other/tableViewByTitle.fxml", "Books by Title");
+                ChangeScene.init("/fxml/digital/found/other/tableViewByTitle.fxml", "Books by Title");
                 table.setEditable(true);
                 idCol.setCellValueFactory(new PropertyValueFactory<>("id"));
                 isbnCol.setCellValueFactory(new PropertyValueFactory<>("isbn"));

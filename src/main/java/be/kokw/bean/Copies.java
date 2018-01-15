@@ -11,12 +11,14 @@ public class Copies {
     private int id;
     private String title;
     private int nrOfCopies = 0;
+    private String type;
 
     public Copies() {
     }
 
-    public Copies(String title) {
+    public Copies(String title, String type) {
         this.title = title;
+        this.type = type;
         nrOfCopies += 1;
     }
 
@@ -34,6 +36,14 @@ public class Copies {
 
     public void setTitle(String title) {
         this.title = title;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
     }
 
     public int getNrOfCopies() {

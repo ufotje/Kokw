@@ -1,4 +1,4 @@
-package be.kokw.bean.books;
+package be.kokw.bean.digital;
 
 import be.kokw.bean.Member;
 
@@ -7,35 +7,35 @@ import java.io.Serializable;
 import java.time.LocalDate;
 
 @Entity
-@Table(name = "checked_out_books")
-public class CheckedOut implements Serializable {
+@Table(name = "checked_out_digital")
+public class CheckOutDigi implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private long id;
-    @JoinColumn(name = "id_books", referencedColumnName = "id", nullable = false)
+    private int id;
+    @JoinColumn(name = "id_digital", referencedColumnName = "id", nullable = false)
     @ManyToOne(optional = false, fetch = FetchType.LAZY)
-    private Book book;
+    private Digital digital;
     @JoinColumn(name = "id_members", referencedColumnName = "id", nullable = false)
     @ManyToOne(optional = false, fetch = FetchType.LAZY)
     private Member member;
     private String title;
+    private String address;
     private String email;
     private String fullName;
     private LocalDate checkOutDate;
     private LocalDate returnDate;
     private boolean returned;
-    private String address;
 
-    public CheckedOut() {
+    public CheckOutDigi() {
     }
 
-    public CheckedOut(Book book, Member member) {
-        this.book = book;
+    public CheckOutDigi(Digital digital, Member member) {
+        this.digital = digital;
         this.member = member;
         checkOutDate = LocalDate.now();
         returnDate = checkOutDate.plusWeeks(3);
-        title = book.getTitle();
+        title = digital.getTitle();
         email = member.getEmail();
         fullName = member.getFirstName() + " " + member.getLastName();
         address = member.getStreet() + " " + member.getHouseNr() + "\n" + member.getZip() + " " + member.getCity();
@@ -45,16 +45,24 @@ public class CheckedOut implements Serializable {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(int id) {
         this.id = id;
     }
 
-    public Book getBook() {
-        return book;
+    public Digital getDigital() {
+        return digital;
     }
 
-    public void setBook(Book book) {
-        this.book = book;
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public void setDigital(Digital digital) {
+        this.digital = digital;
     }
 
     public Member getMember() {
@@ -111,14 +119,6 @@ public class CheckedOut implements Serializable {
 
     public void setFullName(String fullName) {
         this.fullName = fullName;
-    }
-
-    public String getAdress() {
-        return address;
-    }
-
-    public void setAdress(String address) {
-        this.address = address;
     }
 }
 

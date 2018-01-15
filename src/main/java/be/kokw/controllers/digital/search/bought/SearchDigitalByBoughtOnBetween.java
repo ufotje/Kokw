@@ -1,4 +1,4 @@
-package be.kokw.controllers.books.search.bought;
+package be.kokw.controllers.digital.search.bought;
 
 import be.kokw.bean.books.Book;
 import be.kokw.controllers.MenuController;
@@ -20,7 +20,7 @@ import java.time.LocalDate;
 import static javafx.collections.FXCollections.observableArrayList;
 
 @Component
-public class SearchBookByBoughtOnBetween {
+public class SearchDigitalByBoughtOnBetween {
     @FXML
     private DatePicker start;
     @FXML
