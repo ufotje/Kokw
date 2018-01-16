@@ -4,10 +4,16 @@ import be.kokw.bean.Copies;
 import be.kokw.bean.books.Book;
 import be.kokw.bean.books.Gifted;
 import be.kokw.bean.books.GiftedFor;
+import be.kokw.bean.digital.Digital;
+import be.kokw.bean.digital.DigitalDonated;
+import be.kokw.bean.digital.DigitalTraded;
 import be.kokw.repositories.books.BookRepo;
 import be.kokw.repositories.books.CopyRepo;
 import be.kokw.repositories.books.GiftedForRepo;
 import be.kokw.repositories.books.GiftedRepo;
+import be.kokw.repositories.digital.DigitalDonateRepo;
+import be.kokw.repositories.digital.DigitalRepo;
+import be.kokw.repositories.digital.DigitalTradeRepo;
 import be.kokw.utility.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -47,30 +53,30 @@ public class AddDigital {
     @FXML
     DatePicker contractDate;
     private Stage window;
-    private BookRepo repo;
+    private DigitalRepo digiRepo;
     private StringBuilder authors = new StringBuilder();
-    private List<String> bookList = new ArrayList<>();
+    private List<String> digitalList = new ArrayList<>();
     private StringBuilder subTitles = new StringBuilder();
     private StringBuilder topics = new StringBuilder();
     private File file;
-    private Book book;
-    private GiftedRepo giftedRepo;
-    private GiftedForRepo giftedForRepo;
+    private Digital digital;
+    private DigitalDonateRepo donateRepo;
+    private DigitalTradeRepo tradeRepo;
     private CopyRepo copyRepo;
 
     @Autowired
-    private void setBookRepo(@Qualifier("bookRepo") BookRepo repo) {
-        this.repo = repo;
+    private void setDigiRepo(@Qualifier("digitalRepo") DigitalRepo repo) {
+        digiRepo = repo;
     }
 
     @Autowired
-    private void setGiftedRepo(@Qualifier("giftedRepo") GiftedRepo giftedRepo) {
-        this.giftedRepo = giftedRepo;
+    private void setDonateRepo(@Qualifier("digiDonateRepo") DigitalDonateRepo donateRepo) {
+        this.donateRepo = donateRepo;
     }
 
     @Autowired
-    private void setGiftedForRepo(@Qualifier("giftedForRepo") GiftedForRepo giftedForRepo) {
-        this.giftedForRepo = giftedForRepo;
+    private void setTradeRepo(@Qualifier("digiTradeRepo") DigitalTradeRepo tradeRepo) {
+        this.tradeRepo = tradeRepo;
     }
 
     @Autowired
@@ -89,7 +95,7 @@ public class AddDigital {
     @FXML
     public void save() {
         if (validated()) {
-            book = new Book(isbn.getText(), depot.getText(), title.getText(), subTitles.toString(), Integer.parseInt(edition.getText()), volume.getValue(), publisher.getText(), Integer.parseInt(year.getText()), Integer.parseInt(pages.getText()), illustrated.isSelected(), authors.toString(), topics.append(topic.getValue()).toString());
+            digital = new Digital(depot.getText(), title.getText(), subTitles.toString(),  volume.getValue(), publisher.getText(), Integer.parseInt(year.getText()),  authors.toString(), topics.append(topic.getValue()).toString());
             if (gifted.isSelected() && bought.isSelected()) {
                 Warning.alert("Multiple Values", "U dient 1 iets te kiezen.\nEen boek kan niet zowel geschonken als aangekocht zijn. ");
             }
@@ -103,17 +109,17 @@ public class AddDigital {
                 Warning.alert("Multiple Values", "U dient 1 iets te kiezen.\nEen boek kan niet zowel geschonken, geschonken voor een tegenprestatie als aangekocht zijn. ");
             }
             if (gifted.isSelected()) {
-                book.setGifted(true);
-                window = NewStage.getStage("Gifted By", "/fxml/books/create/gifted/giftedBy.fxml");
+                digital.setDonated(true);
+                window = NewStage.getStage("Donated By", "/fxml/digital/create/gifted/donateDetails.fxml");
                 window.showAndWait();
             }
             if (bought.isSelected()) {
-                window = NewStage.getStage("Bought On", "/fxml/books/create/boughtOn.fxml");
+                window = NewStage.getStage("Bought On", "/fxml/digital/create/bought.fxml");
                 window.showAndWait();
             }
             if (giftedFor.isSelected()) {
-                book.setGiftedFor(true);
-                window = NewStage.getStage("Gifted for", "/fxml/books/create/gifted/giftedFor.fxml");
+                digital.setTraded(true);
+                window = NewStage.getStage("Traded for", "/fxml/digitals/create/gifted/tradeDetails.fxml");
                 window.showAndWait();
             }
             if (!gifted.isSelected() && !bought.isSelected() && !giftedFor.isSelected()) {
@@ -164,12 +170,12 @@ public class AddDigital {
         if (Validation.validate("firstName", firstName.getText(), "[a-zA-Z \\-]+")) {
             if (Validation.validate("lastName", lastName.getText(), "[a-zA-Z \\-]+")) {
                 if (Validation.validate("date", date.getValue().toString(), "[0-9\\-]+")) {
-                    Gifted gift = new Gifted(firstName.getText() + " " + lastName.getText(), date.getValue(), book);
-                    Gifted g = giftedRepo.save(gift);
+                    DigitalDonated gift = new DigitalDonated(firstName.getText() + " " + lastName.getText(), date.getValue(), digital);
+                    DigitalDonated d = donateRepo.save(gift);
                     saveCopies();
                     window.close();
-                    if (g != null) {
-                        Warning.alert("Book saved!", "Het boek '" + book.getTitle() + "' werd succesvol opgeslaan");
+                    if (d != null) {
+                        Warning.alert("Digtal Carrier saved!", "De digitale drager met titel '" + digital.getTitle() + "' werd succesvol opgeslaan");
                     } else {
                         Warning.alert("Error!", "Er ging iets fout");
                     }
@@ -187,12 +193,12 @@ public class AddDigital {
     @FXML
     private void giftedFor() {
         if (Validation.validate("fullName", fullName.getText(), "[a-zA-Z \\-]+")) {
-            GiftedFor giftedFor = new GiftedFor(fullName.getText(), contractNr.getText(), file, contractDate.getValue(), book);
-            GiftedFor gf = giftedForRepo.save(giftedFor);
+            DigitalTraded giftedFor = new DigitalTraded(fullName.getText(), contractNr.getText(), file, contractDate.getValue(), digital);
+            DigitalTraded dt = tradeRepo.save(giftedFor);
             saveCopies();
             window.close();
-            if (gf != null) {
-                Warning.alert("Book saved!", "Het boek '" + book.getTitle() + "' werd succesvol opgeslaan");
+            if (dt != null) {
+                Warning.alert("Book saved!", "Het boek '" + digital.getTitle() + "' werd succesvol opgeslaan");
             } else {
                 Warning.alert("Error!", "Er ging iets fout");
             }
@@ -203,20 +209,20 @@ public class AddDigital {
     }
 
     @FXML
-    private void bought(){
+    private void bought() {
         LocalDate boughtDate = boughtOn.getValue();
         book.setBoughtOn(boughtDate);
         window.close();
-        saveBook(book);
+        saveBook(digital);
     }
 
     @FXML
     public void chooseFile() {
-       file = FileSelector.chooseFile();
+        file = FileSelector.chooseFile();
     }
 
     @FXML
-    public void more(){
+    public void more() {
         save();
         clearFields();
     }
@@ -226,10 +232,10 @@ public class AddDigital {
         if (Validation.emptyValidation("Titel", title.getText().isEmpty() &&
                 Validation.validate("Uitgeverij:", publisher.getText(), "[a-zA-Z]+") &&
                 Validation.validate("Jaar van publicatie:", year.getText(), "[0-9999]+") &&
-                Validation.validate("Aantal Bladzijden:", pages.getText(), "[0-9999]+")) &&
-                Validation.validate("isbn", isbn.getText(), "[a-zA-Z0-9999 \\-]+") && Validation.validate("depot", depot.getText(), "[a-zA-Z0-9999 -]+") && Validation.validate("edition", edition.getText(), "[0-999]+") && Validation.validate("copies", copies.getText(), "[0-999]+")) {
+                Validation.validate("depot", depot.getText(), "[a-zA-Z0-9999 -]+") &&
+                Validation.validate("edition", edition.getText(), "[0-999]+"))) {
             valid = true;
-        } else {
+        } else{
             Warning.alert("Wrong input", "Verkeerde invoer!\nControleer uw velden aub.");
         }
 
@@ -237,7 +243,7 @@ public class AddDigital {
     }
 
     private void saveCopies() {
-        Copies copy = copyRepo.findByTitle(book.getTitle());
+        Copies copy = copyRepo.findByTitle(digital.getTitle());
         if (copy != null) {
             copy.setNrOfCopies(copy.getNrOfCopies() + 1);
             copyRepo.save(copy);

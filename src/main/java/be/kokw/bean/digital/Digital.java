@@ -21,10 +21,6 @@ public class Digital {
     private String subtitles;
     @Column(name = "Edition")
     private int edition;
-    @Column(name = "Copies")
-    private int copies;
-    @Column(name = "Volume")
-    private Integer volume;
     @Column(name = "Publisher")
     private String publisher;
     @Column(name = "Year_Published")
@@ -40,29 +36,19 @@ public class Digital {
     @Column(name = "authors")
     private String authors;
     private String topics;
-    @JoinColumn(name = "id_gifted", referencedColumnName = "id")
-    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    private Gifted gift;
-    @JoinColumn(name = "id_gifted_for", referencedColumnName = "id")
-    @OneToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
-    private GiftedFor giftedFor;
+    private boolean donated;
+    private boolean traded;
 
     public Digital() {
     }
 
-    public Digital(String depot, String title, String subtitles, int edition, int copies, Integer volume, String publisher, int yearPublished, LocalDate boughtOn, LocalDate derated, String destination, boolean illustrated, String authors, String topics) {
+    public Digital(String depot, String title, String subtitles, int edition, String publisher, int yearPublished, String authors, String topics) {
         this.depot = depot;
         this.title = title;
         this.subtitles = subtitles;
         this.edition = edition;
-        this.copies = copies;
-        this.volume = volume;
         this.publisher = publisher;
         this.yearPublished = yearPublished;
-        this.boughtOn = boughtOn;
-        this.derated = derated;
-        this.destination = destination;
-        this.illustrated = illustrated;
         this.authors = authors;
         this.topics = topics;
     }
@@ -105,22 +91,6 @@ public class Digital {
 
     public void setEdition(int edition) {
         this.edition = edition;
-    }
-
-    public int getCopies() {
-        return copies;
-    }
-
-    public void setCopies(int copies) {
-        this.copies = copies;
-    }
-
-    public Integer getVolume() {
-        return volume;
-    }
-
-    public void setVolume(Integer volume) {
-        this.volume = volume;
     }
 
     public String getPublisher() {
@@ -187,19 +157,19 @@ public class Digital {
         this.topics = topics;
     }
 
-    public Gifted getGift() {
-        return gift;
+    public boolean isDonated() {
+        return donated;
     }
 
-    public void setGift(Gifted gift) {
-        this.gift = gift;
+    public void setDonated(boolean donated) {
+        this.donated = donated;
     }
 
-    public GiftedFor getGiftedFor() {
-        return giftedFor;
+    public boolean isTraded() {
+        return traded;
     }
 
-    public void setGiftedFor(GiftedFor giftedFor) {
-        this.giftedFor = giftedFor;
+    public void setTraded(boolean traded) {
+        this.traded = traded;
     }
 }
