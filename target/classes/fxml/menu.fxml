@@ -64,10 +64,10 @@
                     <Menu mnemonicParsing="false" text="Verwijder">
                         <MenuItem mnemonicParsing="false" onAction="#deleteBookByTitle" text="Op Titel"/>
                         <MenuItem mnemonicParsing="false" onAction="#derateBook" text="Declasseer Boek "/>
-
                     </Menu>
                     <MenuItem mnemonicParsing="false" onAction="#updateBookByTitle" text="Updaten"/>
                 </Menu>
+
                 <Menu mnemonicParsing="false" text="Tijdschriften">
                     <graphic>
                         <ImageView fitHeight="71.0" fitWidth="50.0" pickOnBounds="true">
@@ -90,6 +90,7 @@
                     </Menu>
                     <MenuItem mnemonicParsing="false" onAction="#deleteMag" text="Verwijderen"/>
                 </Menu>
+
                 <Menu mnemonicParsing="false" text="Digi Dragers">
                     <graphic>
                         <ImageView fitHeight="71.0" fitWidth="50.0" pickOnBounds="true">
@@ -101,8 +102,8 @@
                         <MenuItem mnemonicParsing="false" onAction="#digiOnTitle" text="Op Titel"/>
                         <MenuItem mnemonicParsing="false" onAction="#digiOnAuthor" text="Op Regisseur"/>
                         <MenuItem mnemonicParsing="false" onAction="#digiOnPublisher" text="Op Uitgeverij"/>
-                        <MenuItem mnemonicParsing="false" onAction="#digiOnTopic" text="Op Onderwerp"/>
                         <MenuItem mnemonicParsing="false" onAction="#digiOnDepot" text="Op Depotnr"/>
+                        <MenuItem mnemonicParsing="false" onAction="#digiOnTopic" text="Op Onderwerp"/>
                         <Menu mnemonicParsing="false" text="Gekocht">
                             <MenuItem mnemonicParsing="false" onAction="#digiBoughtAll" text="Alle Aangekochte"/>
                             <MenuItem mnemonicParsing="false" onAction="#digiBoughtOn" text="Gekocht Op"/>

@@ -1,17 +1,15 @@
 package be.kokw.controllers.digital.search.donated;
 
 import be.kokw.bean.digital.Digital;
-import be.kokw.controllers.MenuController;
 import be.kokw.repositories.digital.DigitalDonateRepo;
 import be.kokw.repositories.digital.DigitalRepo;
-import be.kokw.utility.ChangeScene;
+import be.kokw.utility.NewStage;
 import be.kokw.utility.RowFactoryDigitalDonated;
 import be.kokw.utility.Warning;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.stage.Stage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
@@ -49,7 +47,6 @@ public class SearchDigitalByDonatedAll {
     private DatePicker date;
     private DigitalRepo digitalRepo;
     private DigitalDonateRepo donateRepo;
-    private Stage window;
 
     @Autowired
     private void setDigitalRepo(@Qualifier("digitalRepo") DigitalRepo repo) {
@@ -79,13 +76,12 @@ public class SearchDigitalByDonatedAll {
             publisherCol.setCellValueFactory(new PropertyValueFactory<>("publisher"));
             yearCol.setCellValueFactory(new PropertyValueFactory<>("yearPublished"));
             table.setItems(bookList);
-            String resource = "/fxml/digital/found/donated/digitalDonateDetails.fxml";
-            //window = RowFactoryDigitalDonated.setFactory(table, donateRepo, firstName, lastName, date,resource);
+//            RowFactoryDigitalDonated.setFactory(table, donateRepo, firstName, lastName, date,NewStage.getStage("DonateDetails","/fxml/digital/found/donated/digitalDonateDetails.fxml"));
         }
     }
 
     @FXML
     private void closeDetails() {
-        window.close();
+
     }
 }

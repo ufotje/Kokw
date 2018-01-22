@@ -1,8 +1,8 @@
 package be.kokw.controllers.digital.search.other;
 
-import be.kokw.bean.books.Book;
+import be.kokw.bean.digital.Digital;
 import be.kokw.controllers.MenuController;
-import be.kokw.repositories.books.BookRepo;
+import be.kokw.repositories.digital.DigitalRepo;
 import be.kokw.utility.ChangeScene;
 import be.kokw.utility.Warning;
 import javafx.collections.ObservableList;
@@ -22,47 +22,39 @@ public class SearchDigitalByDepot {
     @FXML
     TextField depot;
     @FXML
-    private TableView<Book> table;
+    private TableView<Digital> table;
     @FXML
-    private TableColumn<Book, Integer> idCol;
+    private TableColumn<Digital, Integer> idCol;
     @FXML
-    private TableColumn<Book, String> isbnCol;
+    private TableColumn<Digital, String> isbnCol;
     @FXML
-    private TableColumn<Book, String> depotCol;
+    private TableColumn<Digital, String> depotCol;
     @FXML
-    private TableColumn<Book, Integer> editionCol;
+    private TableColumn<Digital, Integer> volumeCol;
     @FXML
-    private TableColumn<Book, Integer> volumeCol;
+    private TableColumn<Digital, String> titleCol;
     @FXML
-    private TableColumn<Book, Boolean> illusCol;
+    private TableColumn<Digital, String> topicCol;
     @FXML
-    private TableColumn<Book, Integer> copiesCol;
+    private TableColumn<Digital, String> authorCol;
     @FXML
-    private TableColumn<Book, String> titleCol;
+    private TableColumn<Digital, String> subTitleCol;
     @FXML
-    private TableColumn<Book, String> topicCol;
+    private TableColumn<Digital, String> publisherCol;
     @FXML
-    private TableColumn<Book, String> authorCol;
-    @FXML
-    private TableColumn<Book, String> subTitleCol;
-    @FXML
-    private TableColumn<Book, String> publisherCol;
-    @FXML
-    private TableColumn<Book, String> yearCol;
-    @FXML
-    private TableColumn<Book, String> pagesCol;
-    private BookRepo bookRepo;
+    private TableColumn<Digital, String> yearCol;
+    private DigitalRepo repo;
 
     @Autowired
-    private void setBookRepo(@Qualifier("bookRepo") BookRepo repo) {
-        bookRepo = repo;
+    private void setRepo(@Qualifier("digitalRepo") DigitalRepo repo){
+        this.repo = repo;
     }
 
     @FXML
     public void search() throws Exception {
-        ObservableList<Book> bookList = observableArrayList(bookRepo.findByDepot(depot.getText()));
-        if (bookList.isEmpty()) {
-            Warning.alert("No Books found!", "Er werden geen boeken gevonden met " + depot.getText() + " als depotnummer.");
+        ObservableList<Digital> digiList = observableArrayList(repo.findByDepot(depot.getText()));
+        if (digiList.isEmpty()) {
+            Warning.alert("No Digital Carriers found!", "Er werden geen digitale dragers gevonden met " + depot.getText() + " als depotnummer.");
             MenuController.window.close();
         } else {
             MenuController.window.close();
@@ -72,17 +64,14 @@ public class SearchDigitalByDepot {
             isbnCol.setCellValueFactory(new PropertyValueFactory<>("isbn"));
             depotCol.setCellValueFactory(new PropertyValueFactory<>("depot"));
             titleCol.setCellValueFactory(new PropertyValueFactory<>("title"));
-            editionCol.setCellValueFactory(new PropertyValueFactory<>("edition"));
             volumeCol.setCellValueFactory(new PropertyValueFactory<>("volume"));
             topicCol.setCellValueFactory(new PropertyValueFactory<>("topics"));
             authorCol.setCellValueFactory(new PropertyValueFactory<>("authors"));
             subTitleCol.setCellValueFactory(new PropertyValueFactory<>("subtitles"));
             publisherCol.setCellValueFactory(new PropertyValueFactory<>("publisher"));
             yearCol.setCellValueFactory(new PropertyValueFactory<>("yearPublished"));
-            pagesCol.setCellValueFactory(new PropertyValueFactory<>("nrOfPages"));
-            illusCol.setCellValueFactory(new PropertyValueFactory<>("illustrated"));
-            copiesCol.setCellValueFactory(new PropertyValueFactory<>("copies"));
-            table.setItems(bookList);
+
+            table.setItems(digiList);
         }
     }
 }

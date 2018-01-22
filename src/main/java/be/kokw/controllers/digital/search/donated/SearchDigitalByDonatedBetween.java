@@ -5,6 +5,7 @@ import be.kokw.bean.digital.DigitalDonated;
 import be.kokw.controllers.MenuController;
 import be.kokw.repositories.digital.DigitalDonateRepo;
 import be.kokw.utility.ChangeScene;
+import be.kokw.utility.NewStage;
 import be.kokw.utility.RowFactoryDigitalDonated;
 import be.kokw.utility.Warning;
 import javafx.collections.ObservableList;
@@ -83,7 +84,7 @@ public class SearchDigitalByDonatedBetween {
                 yearCol.setCellValueFactory(new PropertyValueFactory<>("yearPublished"));
                 table.setItems(digiList);
 
-                window = RowFactoryDigitalDonated.setFactory(table, donateRepo, firstName, lastName, date, "/fxml/digital/create/gifted/donateDetailsBetween.fxml");
+                RowFactoryDigitalDonated.setFactory(table, donateRepo, firstName, lastName, date, NewStage.getStage("DonateDetails", "/fxml/digital/create/gifted/donateDetailsBetween.fxml"));
             }
         }
 

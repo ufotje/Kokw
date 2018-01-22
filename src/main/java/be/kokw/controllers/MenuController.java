@@ -270,19 +270,29 @@ public class MenuController {
 
     //Search for Digitals
     @FXML
-    private void digiOnTitle(){}
+    private void digiOnTitle(){
+        NewStage.getStage("Vind digitale dragers op title", "fxml/digital/search/other/dialogpaneByTitle.fxml");
+    }
 
     @FXML
-    private void digiOnPublisher(){}
+    private void digiOnPublisher(){
+        NewStage.getStage("Vind digitale dragers op uitgever", "fxml/digital/search/other/dialogpaneByPublisher.fxml");
+    }
 
     @FXML
-    private void digiOnTopic(){}
+    private void digiOnTopic(){
+        NewStage.getStage("Vind digitale dragers op onderwerp", "fxml/digital/search/other/byTopicDialog.fxml");
+    }
 
     @FXML
-    private void digiOnAuthor(){}
+    private void digiOnAuthor(){
+        NewStage.getStage("Vind digitale dragers op regisseur", "fxml/digital/search/other/byName.fxml");
+    }
 
     @FXML
-    private void digiOnDepot(){}
+    private void digiOnDepot(){
+        NewStage.getStage("Vind digitale dragers op depotnummer", "/fxml/digital/search/other/byDepotDialog.fxml");
+    }
 
     @FXML
     private void digiBoughtAll(){
@@ -291,12 +301,12 @@ public class MenuController {
 
     @FXML
     private void digiBoughtOn(){
-        ChangeScene.init("/fxml/digital/found/bought/tableviewByBoughtOn.fxml", "Alle digitale dragers gekocht op");
+        NewStage.getStage("Alle digitale dragers gekocht op", "/fxml/digital/search/bought/byBoughtOnDialog.fxml" );
     }
 
     @FXML
     private void digiBoughtBetween(){
-        ChangeScene.init("/fxml/digital/found/bought/tableviewByBoughtOnBetween.fxml", "Alle digitale dragers aangekocht tussen");
+        NewStage.getStage("Alle digitale dragers aangekocht tussen", "/fxml/digital/found/boughtfxml/digital/search/bought/byBoughtOnBetweenDialog.fxmll");
     }
 
     @FXML
@@ -306,13 +316,13 @@ public class MenuController {
 
     @FXML
     private void digiDonatedOn(){
-        ChangeScene.init("/fxml/digital/found/donated/tableviewByGiftedOn.fxml", "Alle gedoneerde digitale dragers op");
+        NewStage.getStage("Alle gedoneerde digitale dragers op","/fxml/digital/search/donated/byGiftedOnDialog.fxml" );
 
     }
 
     @FXML
     private void digiDonatedBetween(){
-        ChangeScene.init("/fxml/digital/found/donated/tableviewByGiftedOnBetween.fxml", "Alle gedoneerde digitale dragers gedoneerd tussen");
+        NewStage.getStage("Alle gedoneerde digitale dragers gedoneerd tussen", "/fxml/digital/search/donated/byGiftedOnBetweenDialog.fxml");
     }
 
     @FXML

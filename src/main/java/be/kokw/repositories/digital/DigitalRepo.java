@@ -22,4 +22,11 @@ public interface DigitalRepo extends JpaRepository<Digital,Long> {
 
     @Transactional
     List<Digital> findByDonatedIsTrue();
+
+    @Transactional
+    Digital findByDepot(String depot);
+
+    @Transactional
+    List<Digital> findByTopicsContains(String topic);
+
 }

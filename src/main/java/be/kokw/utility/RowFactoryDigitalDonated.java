@@ -13,8 +13,7 @@ import javafx.stage.Stage;
 @SuppressWarnings("unchecked")
 public interface RowFactoryDigitalDonated {
 
-    static Stage setFactory(TableView table, DigitalDonateRepo donateRepo, TextField firstName, TextField lastName, DatePicker date, String resource){
-        Stage window = NewStage.getStage("Digital Carrier DonateDetails", resource);
+    static void setFactory(TableView table, DigitalDonateRepo donateRepo, TextField firstName, TextField lastName, DatePicker date, Stage window){
         table.setRowFactory(tv -> {
             TableRow<Digital> row = new TableRow<>();
             row.setOnMouseClicked(event -> {
@@ -41,6 +40,5 @@ public interface RowFactoryDigitalDonated {
             });
             return row;
         });
-        return window;
     }
 }

@@ -1,7 +1,5 @@
 package be.kokw.bean.digital;
 
-import be.kokw.bean.books.Gifted;
-import be.kokw.bean.books.GiftedFor;
 
 import javax.persistence.*;
 import java.time.LocalDate;

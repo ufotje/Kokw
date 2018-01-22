@@ -90,30 +90,30 @@ public class AddDigital {
     public void save() {
         if (validated()) {
             digital = new Digital(depot.getText(), title.getText(), subTitles.toString(), volume.getValue(), publisher.getText(), Integer.parseInt(year.getText()), authors.toString(), topics.append(topic.getValue()).toString());
-            if (gifted.isSelected() && bought.isSelected()) {
+            if (gifted.isSelected() && bought.isSelected() && !giftedFor.isSelected()) {
                 Warning.alert("Multiple Values", "U dient 1 iets te kiezen.\nEen boek kan niet zowel geschonken als aangekocht zijn. ");
             }
-            if (gifted.isSelected() && giftedFor.isSelected()) {
+            if (gifted.isSelected() && giftedFor.isSelected() && !bought.isSelected()) {
                 Warning.alert("Multiple Values", "U dient 1 iets te kiezen.\nEen boek kan niet zowel geschonken als gechonke voor een tegenprestatie zijn. ");
             }
-            if (giftedFor.isSelected() && bought.isSelected()) {
+            if (giftedFor.isSelected() && bought.isSelected() && !gifted.isSelected()) {
                 Warning.alert("Multiple Values", "U dient 1 iets te kiezen.\nEen boek kan niet zowel geschonken voor een tegenprestatie als aangekocht zijn. ");
             }
             if (gifted.isSelected() && bought.isSelected() && giftedFor.isSelected()) {
                 Warning.alert("Multiple Values", "U dient 1 iets te kiezen.\nEen boek kan niet zowel geschonken, geschonken voor een tegenprestatie als aangekocht zijn. ");
             }
-            if (gifted.isSelected()) {
+            if (gifted.isSelected() && !bought.isSelected() && !giftedFor.isSelected()) {
                 digital.setDonated(true);
                 window = NewStage.getStage("Donated By", "/fxml/digital/create/gifted/donateDetails.fxml");
                 window.showAndWait();
             }
-            if (bought.isSelected()) {
+            if (bought.isSelected() && !gifted.isSelected() && !giftedFor.isSelected()) {
                 window = NewStage.getStage("Bought On", "/fxml/digital/create/bought.fxml");
                 window.showAndWait();
             }
-            if (giftedFor.isSelected()) {
+            if (giftedFor.isSelected() && !bought.isSelected() && !gifted.isSelected()) {
                 digital.setTraded(true);
-                window = NewStage.getStage("Traded for", "/fxml/digitals/create/donated/tradeDetails.fxml");
+                window = NewStage.getStage("Traded for", "/fxml/digitals/create/gifted/tradeDetails.fxml");
                 window.showAndWait();
             }
             if (!gifted.isSelected() && !bought.isSelected() && !giftedFor.isSelected()) {
@@ -154,6 +154,7 @@ public class AddDigital {
                     window.close();
                     if (d != null) {
                         Warning.alert("Digtal Carrier saved!", "De digitale drager met titel '" + digital.getTitle() + "' werd succesvol opgeslaan");
+                        ChangeScene.init("/fxml/home.fxml", "KOKW - Het Verleden Draait Altijd Mee!");
                     } else {
                         Warning.alert("Error!", "Er ging iets fout");
                     }
@@ -177,6 +178,7 @@ public class AddDigital {
             window.close();
             if (dt != null) {
                 Warning.alert("Digital Carrier saved!", "De digitale drager met '" + digital.getTitle() + "' als titel werd succesvol opgeslaan");
+                ChangeScene.init("/fxml/home.fxml", "KOKW - Het Verleden Draait Altijd Mee!");
             } else {
                 Warning.alert("Error!", "Er ging iets fout");
             }
@@ -192,6 +194,7 @@ public class AddDigital {
         digital.setBoughtOn(boughtDate);
         window.close();
         saveDigital(digital);
+        ChangeScene.init("/fxml/home.fxml", "KOKW - Het Verleden Draait Altijd Mee!");
     }
 
     @FXML
