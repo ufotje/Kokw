@@ -119,7 +119,6 @@ public class FindMagBySubscriptionFulfilled {
                             Magazine clickedRow = row.getItem();
                             Subscribed subscribed = subRepo.findByNameMag(clickedRow.getName());
                         if (subscribed != null) {
-                            try {
                                 window = NewStage.getStage("RijDetails!", "/fxml/magazines/search/views/subscriptionFulfilledDetailView.fxml");
                                 window.show();
                                 detailsId.setText("" + subscribed.getId());
@@ -134,11 +133,6 @@ public class FindMagBySubscriptionFulfilled {
                                 city.setText(parts[3]);
                                 telephone.setText(subscribed.getTel());
                                 mail.setText(subscribed.getEmail());
-
-                            } catch (Exception e) {
-                                Warning.alert("Error!", "Er ging iets fout tijdens het openen van de rijdetails.");
-                                e.printStackTrace();
-                            }
                         }
                     }
                 });

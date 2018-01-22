@@ -1,64 +1,91 @@
 package be.kokw.controllers.digital.search.donated;
 
-import be.kokw.bean.books.Gifted;
-import be.kokw.repositories.books.GiftedRepo;
+import be.kokw.bean.digital.Digital;
+import be.kokw.controllers.MenuController;
+import be.kokw.repositories.digital.DigitalDonateRepo;
+import be.kokw.repositories.digital.DigitalRepo;
+import be.kokw.utility.ChangeScene;
+import be.kokw.utility.RowFactoryDigitalDonated;
 import be.kokw.utility.Warning;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Stage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
-import java.time.LocalDate;
 
 import static javafx.collections.FXCollections.observableArrayList;
 
 @Component
 public class SearchDigitalByDonatedAll {
     @FXML
-    private TableView<Gifted> table;
+    private TableView<Digital> table;
     @FXML
-    private TableColumn<Gifted, Integer> idGCol;
+    private TableColumn<Digital, Integer> idCol;
     @FXML
-    private TableColumn<Gifted, Integer> bookIdCol;
+    private TableColumn<Digital, String> depotCol;
     @FXML
-    private TableColumn<Gifted, String> isbnGCol;
+    private TableColumn<Digital, Integer> volumeCol;
     @FXML
-    private TableColumn<Gifted, String> depotGCol;
+    private TableColumn<Digital, String> titleCol;
     @FXML
-    private TableColumn<Gifted, String> giftedByCol;
+    private TableColumn<Digital, String> topicCol;
     @FXML
-    private TableColumn<Gifted, LocalDate> giftedOnCol;
+    private TableColumn<Digital, String> authorCol;
     @FXML
-    private TableColumn<Gifted, String> titleGCol;
+    private TableColumn<Digital, String> subTitleCol;
     @FXML
-    private TableColumn<Gifted, String> authorGCol;
-    private GiftedRepo repo;
+    private TableColumn<Digital, String> publisherCol;
+    @FXML
+    private TableColumn<Digital, String> yearCol;
+    @FXML
+    private TextField firstName;
+    @FXML
+    private TextField lastName;
+    @FXML
+    private DatePicker date;
+    private DigitalRepo digitalRepo;
+    private DigitalDonateRepo donateRepo;
+    private Stage window;
 
     @Autowired
-    private void setBookRepo(@Qualifier("giftedRepo") GiftedRepo repo) {
-        this.repo = repo;
+    private void setDigitalRepo(@Qualifier("digitalRepo") DigitalRepo repo) {
+        digitalRepo = repo;
+    }
+
+    @Autowired
+    private void setDonateRepo(@Qualifier("digiDonateRepo") DigitalDonateRepo repo) {
+        donateRepo = repo;
     }
 
     @FXML
-    public void initialize() {
-        ObservableList<Gifted> bookList = observableArrayList(repo.findAll());
+    public void initialize(){
+        ObservableList<Digital> bookList = observableArrayList(digitalRepo.findByDonatedIsTrue());
         if (bookList.isEmpty()) {
-            Warning.alert("No Books found!", "Er werden geen boeken gevonden die werden gedoneerd.");
+            Warning.alert("No Digital Carriers found!", "Er werden geen digitale dragers gevonden met die werden gedoneerd");
+
         } else {
             table.setEditable(true);
-            idGCol.setCellValueFactory(new PropertyValueFactory<>("id"));
-            isbnGCol.setCellValueFactory(new PropertyValueFactory<>("isbn"));
-            bookIdCol.setCellValueFactory(new PropertyValueFactory<>("bookId"));
-            depotGCol.setCellValueFactory(new PropertyValueFactory<>("depot"));
-            titleGCol.setCellValueFactory(new PropertyValueFactory<>("title"));
-            authorGCol.setCellValueFactory(new PropertyValueFactory<>("authors"));
-            giftedByCol.setCellValueFactory(new PropertyValueFactory<>("nameGifter"));
-            giftedOnCol.setCellValueFactory(new PropertyValueFactory<>("giftedOn"));
+            idCol.setCellValueFactory(new PropertyValueFactory<>("id"));
+            depotCol.setCellValueFactory(new PropertyValueFactory<>("depot"));
+            titleCol.setCellValueFactory(new PropertyValueFactory<>("title"));
+            volumeCol.setCellValueFactory(new PropertyValueFactory<>("volume"));
+            topicCol.setCellValueFactory(new PropertyValueFactory<>("topics"));
+            authorCol.setCellValueFactory(new PropertyValueFactory<>("authors"));
+            subTitleCol.setCellValueFactory(new PropertyValueFactory<>("subtitles"));
+            publisherCol.setCellValueFactory(new PropertyValueFactory<>("publisher"));
+            yearCol.setCellValueFactory(new PropertyValueFactory<>("yearPublished"));
             table.setItems(bookList);
+            String resource = "/fxml/digital/found/donated/digitalDonateDetails.fxml";
+            //window = RowFactoryDigitalDonated.setFactory(table, donateRepo, firstName, lastName, date,resource);
         }
+    }
+
+    @FXML
+    private void closeDetails() {
+        window.close();
     }
 }

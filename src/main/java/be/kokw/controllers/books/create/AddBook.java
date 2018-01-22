@@ -13,7 +13,6 @@ import javafx.scene.control.CheckBox;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
-import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -122,31 +121,15 @@ public class AddBook {
 
     @FXML
     private void addSubTitle() {
-        if (Validation.emptyValidation("subTitle", subTitle.getText().isEmpty())) {
-            subTitles.append(subTitle.getText());
-            subTitles.append("\n");
-            subTitle.clear();
-        } else {
-            Warning.alert("Wrong input", "Verkeerde invoer!\nControleer uw velden aub.");
-        }
+        subTitles = AddSubtitle.addSubtitles(subTitle);
+        subTitle.clear();
     }
 
     @FXML
     private void addAuthor() {
-        if (Validation.validate("author", firstNameAuthor.getText(), "[a-zA-Z \\-]+")) {
-            if (Validation.validate("author", lastNameAuthor.getText(), "[a-zA-Z \\-]+")) {
-                authors.append(firstNameAuthor.getText());
-                authors.append(" ");
-                authors.append(lastNameAuthor.getText());
-                authors.append("\n");
-                firstNameAuthor.clear();
-                lastNameAuthor.clear();
-            } else {
-                Warning.alert("Wrong Input!", "Verkeerde invoer voor achternaam Auteur.");
-            }
-        } else {
-            Warning.alert("Wrong Input!", "Verkeerde invoer voor voornaam Auteur.");
-        }
+        authors = AddAuthor.add(firstNameAuthor, lastNameAuthor);
+        firstNameAuthor.clear();
+        lastNameAuthor.clear();
     }
 
     @FXML
@@ -201,7 +184,7 @@ public class AddBook {
     }
 
     @FXML
-    private void bought(){
+    private void bought() {
         LocalDate boughtDate = boughtOn.getValue();
         book.setBoughtOn(boughtDate);
         window.close();
@@ -210,11 +193,11 @@ public class AddBook {
 
     @FXML
     public void chooseFile() {
-       file = FileSelector.chooseFile();
+        file = FileSelector.chooseFile();
     }
 
     @FXML
-    public void more(){
+    public void more() {
         save();
         clearFields();
     }

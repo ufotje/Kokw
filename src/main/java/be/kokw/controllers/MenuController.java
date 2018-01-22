@@ -57,26 +57,26 @@ public class MenuController {
     //Find a Book
     @FXML
     private void findBookByTitle() {
-        window = NewStage.getStage("Vind Boek op Titel!", "/fxml/digital/search/dialogpaneByTitle.fxml");
+        window = NewStage.getStage("Vind Boek op Titel!", "/fxml/digital/search/other/dialogpaneByTitle.fxml");
 
         window.show();
     }
 
     @FXML
     private void findBookByAuthor() {
-        window = NewStage.getStage("Vul de auteurs naam in!", "/fxml/digital/search/byName.fxml");
+        window = NewStage.getStage("Vul de auteurs naam in!", "/fxml/digital/search/other/byName.fxml");
         window.show();
     }
 
     @FXML
     private void findBookByPublisher() {
-        window = NewStage.getStage("Vind Boeken op uitgeverij!", "/fxml/digital/search/dialogpaneByPublisher.fxml");
+        window = NewStage.getStage("Vind Boeken op uitgeverij!", "/fxml/digital/search/other/dialogpaneByPublisher.fxml");
         window.show();
     }
 
     @FXML
     private void findBookByTopic() {
-        window = NewStage.getStage("Vind Boeken op onderwerp!", "/fxml/digital/search/byTopicDialog.fxml");
+        window = NewStage.getStage("Vind Boeken op onderwerp!", "/fxml/digital/search/other/byTopicDialog.fxml");
         window.show();
     }
 
@@ -92,13 +92,13 @@ public class MenuController {
 
     @FXML
     private void findBookByDepot() {
-        window = NewStage.getStage("Vind boeken op depotnr", "/fxml/digital/search/byDepotDialog.fxml");
+        window = NewStage.getStage("Vind boeken op depotnr", "/fxml/digital/search/other/byDepotDialog.fxml");
         window.show();
     }
 
     @FXML
     private void findByBoughtOn() {
-        window = NewStage.getStage("Vind boeken aangekocht op datum", "/fxml/digital/search/byBoughtOnDialog.fxml");
+        window = NewStage.getStage("Vind boeken aangekocht op datum", "/fxml/digital/search/bought/byBoughtOnDialog.fxml");
         window.show();
     }
 
@@ -109,24 +109,24 @@ public class MenuController {
 
     @FXML
     private void findByBoughtOnBetween() {
-        window = NewStage.getStage("Vind boeken aangekocht tussen", "/fxml/digital/search/byBoughtOnBetweenDialog.fxml");
+        window = NewStage.getStage("Vind boeken aangekocht tussen", "/fxml/digital/search/bought/byBoughtOnBetweenDialog.fxml");
         window.show();
     }
 
     @FXML
     private void findByGiftedOn() {
-        window = NewStage.getStage("Vind boeken gedonneerd op datum", "/fxml/digital/search/byGiftedOnDialog.fxml");
+        window = NewStage.getStage("Vind boeken gedonneerd op datum", "/fxml/digital/search/donated/byGiftedOnDialog.fxml");
         window.show();
     }
 
     @FXML
     private void findByGiftedOnAll() {
-        ChangeScene.init("/fxml/digital/found/gifted/tableviewByGiftedOnAll.fxml", "Alle boeken die werden gedonneeerd");
+        ChangeScene.init("/fxml/digital/found/donated/tableviewByGiftedOnAll.fxml", "Alle boeken die werden gedonneeerd");
     }
 
     @FXML
     private void findByGiftedOnBetween() {
-        window = NewStage.getStage("Vind boeken gedonneerd tussen", "/fxml/digital/search/byGiftedOnBetweenDialog.fxml");
+        window = NewStage.getStage("Vind boeken gedonneerd tussen", "/fxml/digital/search/donated/byGiftedOnBetweenDialog.fxml");
         window.show();
     }
 
@@ -137,25 +137,25 @@ public class MenuController {
 
     @FXML
     private void findByGiftedForOn() {
-        window = NewStage.getStage("Vind Boeken tegenprestatie op datum", "/fxml/digital/search/byGiftedForOnDialog.fxml");
+        window = NewStage.getStage("Vind Boeken tegenprestatie op datum", "/fxml/digital/search/traded/byGiftedForOnDialog.fxml");
         window.show();
     }
 
     @FXML
     private void findByGiftedForOnBetween() {
-        window = NewStage.getStage("Vind boeken gedonneerd met tegenprestatie tussen", "/fxml/digital/search/byGiftedForOnBetweenDialog.fxml");
+        window = NewStage.getStage("Vind boeken gedonneerd met tegenprestatie tussen", "/fxml/digital/search/traded/byGiftedForOnBetweenDialog.fxml");
         window.show();
     }
 
     @FXML
     private void findByGiftedForOnName() {
-        window = NewStage.getStage("Vind boeken tegenprestatie op naam", "/fxml/digital/search/byGiftedForOnName.fxml");
+        window = NewStage.getStage("Vind boeken tegenprestatie op naam", "/fxml/digital/search/traded/byGiftedForOnName.fxml");
         window.show();
     }
 
     @FXML
     private void findByGiftedForOnNameAndDate() {
-        window = NewStage.getStage("Vind boek tegenprestatie op naam en datum", "/fxml/digital/search/byGiftedForOnNameAndDateDialog.fxml");
+        window = NewStage.getStage("Vind boek tegenprestatie op naam en datum", "/fxml/digital/search/traded/byGiftedForOnNameAndDateDialog.fxml");
         window.show();
     }
 
@@ -260,6 +260,7 @@ public class MenuController {
     //Add a Digital
     @FXML
     private void addDigi() {
+        ChangeScene.init("/fxml/digital/create/addDigital.fxml", "Voeg een nieuwe digitale drager toe");
     }
 
     //Delete a Digital
@@ -268,6 +269,66 @@ public class MenuController {
     }
 
     //Search for Digitals
+    @FXML
+    private void digiOnTitle(){}
+
+    @FXML
+    private void digiOnPublisher(){}
+
+    @FXML
+    private void digiOnTopic(){}
+
+    @FXML
+    private void digiOnAuthor(){}
+
+    @FXML
+    private void digiOnDepot(){}
+
+    @FXML
+    private void digiBoughtAll(){
+        ChangeScene.init("/fxml/digital/found/bought/tableviewByBoughtOnAll.fxml", "Alle aangekochte digitale dragers");
+    }
+
+    @FXML
+    private void digiBoughtOn(){
+        ChangeScene.init("/fxml/digital/found/bought/tableviewByBoughtOn.fxml", "Alle digitale dragers gekocht op");
+    }
+
+    @FXML
+    private void digiBoughtBetween(){
+        ChangeScene.init("/fxml/digital/found/bought/tableviewByBoughtOnBetween.fxml", "Alle digitale dragers aangekocht tussen");
+    }
+
+    @FXML
+    private void digiDonatedAll(){
+        ChangeScene.init("/fxml/digital/found/donated/tableviewByGiftedOnAll.fxml", "Alle gedoneerde digitale dragers");
+    }
+
+    @FXML
+    private void digiDonatedOn(){
+        ChangeScene.init("/fxml/digital/found/donated/tableviewByGiftedOn.fxml", "Alle gedoneerde digitale dragers op");
+
+    }
+
+    @FXML
+    private void digiDonatedBetween(){
+        ChangeScene.init("/fxml/digital/found/donated/tableviewByGiftedOnBetween.fxml", "Alle gedoneerde digitale dragers gedoneerd tussen");
+    }
+
+    @FXML
+    private void digiDonatedBy(){}
+
+    @FXML
+    private void digiTradedAll(){}
+
+    @FXML
+    private void digiTradedOn(){}
+
+    @FXML
+    private void digiTradedBetween(){}
+
+    @FXML
+    private void digiTradedWith(){}
 
 
     //Checkout Digi
@@ -376,7 +437,7 @@ public class MenuController {
     //Mailings
     @FXML
     private void mailMen() {
-        window = NewStage.getStage("Mail naar alle manelijke leden", "/fxml/mailings/toBoard.fxml");
+        window = NewStage.getStage("Mail naar alle mannelijke leden", "/fxml/mailings/toBoard.fxml");
         window.show();
     }
 

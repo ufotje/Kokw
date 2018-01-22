@@ -1,16 +1,10 @@
 package be.kokw.controllers.digital.create;
 
 import be.kokw.bean.Copies;
-import be.kokw.bean.books.Book;
-import be.kokw.bean.books.Gifted;
-import be.kokw.bean.books.GiftedFor;
 import be.kokw.bean.digital.Digital;
 import be.kokw.bean.digital.DigitalDonated;
 import be.kokw.bean.digital.DigitalTraded;
-import be.kokw.repositories.books.BookRepo;
 import be.kokw.repositories.books.CopyRepo;
-import be.kokw.repositories.books.GiftedForRepo;
-import be.kokw.repositories.books.GiftedRepo;
 import be.kokw.repositories.digital.DigitalDonateRepo;
 import be.kokw.repositories.digital.DigitalRepo;
 import be.kokw.repositories.digital.DigitalTradeRepo;
@@ -41,11 +35,11 @@ import java.util.List;
 @Component
 public class AddDigital {
     @FXML
-    private TextField fullName, contractNr, firstName, lastName, title, firstNameAuthor, lastNameAuthor, publisher, subTitle, year, pages, isbn, depot, edition, copies;
+    private TextField fullName, contractNr, firstName, lastName, title, firstNameAuthor, lastNameAuthor, publisher, subTitle, year, depot;
     @FXML
     private DatePicker date, boughtOn;
     @FXML
-    private CheckBox illustrated, bought, gifted, giftedFor;
+    private CheckBox bought, gifted, giftedFor;
     @FXML
     private ChoiceBox<String> topic;
     @FXML
@@ -87,7 +81,7 @@ public class AddDigital {
     public void initialize() {
         ObservableList<String> topics = FXCollections.observableArrayList("Wereld Oorlog 1", "Wereld Ooorlog 2", "MiddelEeuwen", "Gulden Sporenslag", "Brugse Metten");
         topic.setItems(topics);
-        ObservableList<Integer> volumes = FXCollections.observableArrayList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
+        ObservableList<Integer> volumes = FXCollections.observableArrayList(1, 2, 3, 4, 5);
         volume.setItems(volumes);
         volume.setValue(1);
     }
@@ -95,7 +89,7 @@ public class AddDigital {
     @FXML
     public void save() {
         if (validated()) {
-            digital = new Digital(depot.getText(), title.getText(), subTitles.toString(),  volume.getValue(), publisher.getText(), Integer.parseInt(year.getText()),  authors.toString(), topics.append(topic.getValue()).toString());
+            digital = new Digital(depot.getText(), title.getText(), subTitles.toString(), volume.getValue(), publisher.getText(), Integer.parseInt(year.getText()), authors.toString(), topics.append(topic.getValue()).toString());
             if (gifted.isSelected() && bought.isSelected()) {
                 Warning.alert("Multiple Values", "U dient 1 iets te kiezen.\nEen boek kan niet zowel geschonken als aangekocht zijn. ");
             }
@@ -119,7 +113,7 @@ public class AddDigital {
             }
             if (giftedFor.isSelected()) {
                 digital.setTraded(true);
-                window = NewStage.getStage("Traded for", "/fxml/digitals/create/gifted/tradeDetails.fxml");
+                window = NewStage.getStage("Traded for", "/fxml/digitals/create/donated/tradeDetails.fxml");
                 window.showAndWait();
             }
             if (!gifted.isSelected() && !bought.isSelected() && !giftedFor.isSelected()) {
@@ -130,31 +124,15 @@ public class AddDigital {
 
     @FXML
     private void addSubTitle() {
-        if (Validation.emptyValidation("subTitle", subTitle.getText().isEmpty())) {
-            subTitles.append(subTitle.getText());
-            subTitles.append("\n");
-            subTitle.clear();
-        } else {
-            Warning.alert("Wrong input", "Verkeerde invoer!\nControleer uw velden aub.");
-        }
+        subTitles = AddSubtitle.addSubtitles(subTitle);
+        subTitle.clear();
     }
 
     @FXML
     private void addAuthor() {
-        if (Validation.validate("author", firstNameAuthor.getText(), "[a-zA-Z \\-]+")) {
-            if (Validation.validate("author", lastNameAuthor.getText(), "[a-zA-Z \\-]+")) {
-                authors.append(firstNameAuthor.getText());
-                authors.append(" ");
-                authors.append(lastNameAuthor.getText());
-                authors.append("\n");
-                firstNameAuthor.clear();
-                lastNameAuthor.clear();
-            } else {
-                Warning.alert("Wrong Input!", "Verkeerde invoer voor achternaam Auteur.");
-            }
-        } else {
-            Warning.alert("Wrong Input!", "Verkeerde invoer voor voornaam Auteur.");
-        }
+        authors = AddAuthor.add(firstNameAuthor, lastNameAuthor);
+        firstNameAuthor.clear();
+        lastNameAuthor.clear();
     }
 
     @FXML
@@ -198,7 +176,7 @@ public class AddDigital {
             saveCopies();
             window.close();
             if (dt != null) {
-                Warning.alert("Book saved!", "Het boek '" + digital.getTitle() + "' werd succesvol opgeslaan");
+                Warning.alert("Digital Carrier saved!", "De digitale drager met '" + digital.getTitle() + "' als titel werd succesvol opgeslaan");
             } else {
                 Warning.alert("Error!", "Er ging iets fout");
             }
@@ -211,9 +189,9 @@ public class AddDigital {
     @FXML
     private void bought() {
         LocalDate boughtDate = boughtOn.getValue();
-        book.setBoughtOn(boughtDate);
+        digital.setBoughtOn(boughtDate);
         window.close();
-        saveBook(digital);
+        saveDigital(digital);
     }
 
     @FXML
@@ -232,10 +210,9 @@ public class AddDigital {
         if (Validation.emptyValidation("Titel", title.getText().isEmpty() &&
                 Validation.validate("Uitgeverij:", publisher.getText(), "[a-zA-Z]+") &&
                 Validation.validate("Jaar van publicatie:", year.getText(), "[0-9999]+") &&
-                Validation.validate("depot", depot.getText(), "[a-zA-Z0-9999 -]+") &&
-                Validation.validate("edition", edition.getText(), "[0-999]+"))) {
+                Validation.validate("depot", depot.getText(), "[a-zA-Z0-9999 -]+"))) {
             valid = true;
-        } else{
+        } else {
             Warning.alert("Wrong input", "Verkeerde invoer!\nControleer uw velden aub.");
         }
 
@@ -257,12 +234,8 @@ public class AddDigital {
         title.clear();
         firstNameAuthor.clear();
         lastNameAuthor.clear();
-        isbn.clear();
         depot.clear();
         subTitle.clear();
-        edition.clear();
-        copies.clear();
-        illustrated.setSelected(false);
         giftedFor.setSelected(false);
         gifted.setSelected(false);
         bought.setSelected(false);
@@ -270,21 +243,20 @@ public class AddDigital {
         topic.getSelectionModel().clearSelection();
         publisher.clear();
         year.clear();
-        pages.clear();
     }
 
-    private void saveBook(Book book) {
-        repo.save(book);
+    private void saveDigital(Digital digital) {
+        digiRepo.save(digital);
         saveCopies();
-        bookList.add(book.getTitle());
+        digitalList.add(digital.getTitle());
         StringBuilder alert = new StringBuilder("The book(s) with title: ");
-        for (String s : bookList) {
+        for (String s : digitalList) {
             alert.append("'");
             alert.append(s);
             alert.append("', '");
         }
         alert.append(" has been successfully saved!");
-        Warning.alert("Book saved!", alert.toString());
+        Warning.alert("Digital Carrier saved!", alert.toString());
         ChangeScene.init("/fxml/menu.fxml", "KOKW - Het Verleden Draait Altijd Mee!");
     }
 }

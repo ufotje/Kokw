@@ -9,10 +9,8 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.input.MouseButton;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
@@ -58,7 +56,7 @@ public class SearchBookByGiftedOn {
             MenuController.window.close();
         } else {
             MenuController.window.close();
-            ChangeScene.init("/fxml/digital/found/gifted/tableviewByGiftedOn.fxml", "Books by Donated on");
+            ChangeScene.init("/fxml/digital/found/donated/tableviewByGiftedOn.fxml", "Books by Donated on");
             table.setEditable(true);
             idCol.setCellValueFactory(new PropertyValueFactory<>("id"));
             isbnCol.setCellValueFactory(new PropertyValueFactory<>("isbn"));
