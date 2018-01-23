@@ -71,7 +71,7 @@ public class SearchDigitalByDonatedBetween {
                 MenuController.window.close();
             } else {
                 MenuController.window.close();
-                ChangeScene.init("/fxml/digital/found/donated/tableviewByGiftedOnBetween.fxml", "Donated digital carriers between " + start.getValue() + " and " + end.getValue());
+                ChangeScene.init("/fxml/digital/found/donated/tableviewGiftedOnBetween.fxml", "Donated digital carriers between " + start.getValue() + " and " + end.getValue());
                 table.setEditable(true);
                 idCol.setCellValueFactory(new PropertyValueFactory<>("id"));
                 depotCol.setCellValueFactory(new PropertyValueFactory<>("depot"));
@@ -90,6 +90,6 @@ public class SearchDigitalByDonatedBetween {
 
         @FXML
         private void closeDetails () {
-            window.close();
+           // window.close();
         }
     }

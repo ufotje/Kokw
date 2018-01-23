@@ -69,7 +69,7 @@ public class SearchBookByPublisher {
             ObservableList<Book> bookList = observableArrayList(bookRepo.findByPublisher(publisher.getText()));
             if(!(bookList.isEmpty())){
                 MenuController.window.close();
-                ChangeScene.init("/fxml/digital/found/other/tableviewByPublisher.fxml", "Books by Publisher");
+                ChangeScene.init("/fxml/books/found/other/tableviewByPublisher.fxml", "Books by Publisher");
                 table.setEditable(true);
                 idCol.setCellValueFactory(new PropertyValueFactory<>("id"));
                 isbnCol.setCellValueFactory(new PropertyValueFactory<>("isbn"));

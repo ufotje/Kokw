@@ -26,8 +26,6 @@ public class SearchDigitalByDepot {
     @FXML
     private TableColumn<Digital, Integer> idCol;
     @FXML
-    private TableColumn<Digital, String> isbnCol;
-    @FXML
     private TableColumn<Digital, String> depotCol;
     @FXML
     private TableColumn<Digital, Integer> volumeCol;
@@ -61,7 +59,6 @@ public class SearchDigitalByDepot {
             ChangeScene.init("/fxml/digital/found/other/tableviewByDepot.fxml", "Books by DepotNumber");
             table.setEditable(true);
             idCol.setCellValueFactory(new PropertyValueFactory<>("id"));
-            isbnCol.setCellValueFactory(new PropertyValueFactory<>("isbn"));
             depotCol.setCellValueFactory(new PropertyValueFactory<>("depot"));
             titleCol.setCellValueFactory(new PropertyValueFactory<>("title"));
             volumeCol.setCellValueFactory(new PropertyValueFactory<>("volume"));

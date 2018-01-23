@@ -62,7 +62,7 @@ public class SearchBookByGiftedForOnName {
             MenuController.window.close();
         } else {
             MenuController.window.close();
-            ChangeScene.init("/fxml/digital/found/tableviewByGiftedForOnName.fxml", "Books by Donated for by");
+            ChangeScene.init("/fxml/books/found/tableviewByGiftedForOnName.fxml", "Books by Donated for by");
             table.setEditable(true);
             idCol.setCellValueFactory(new PropertyValueFactory<>("id"));
             isbnCol.setCellValueFactory(new PropertyValueFactory<>("issbn"));

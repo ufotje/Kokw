@@ -87,28 +87,28 @@ public class AddBook {
     public void save() {
         if (validated()) {
             book = new Book(isbn.getText(), depot.getText(), title.getText(), subTitles.toString(), Integer.parseInt(edition.getText()), volume.getValue(), publisher.getText(), Integer.parseInt(year.getText()), Integer.parseInt(pages.getText()), illustrated.isSelected(), authors.toString(), topics.append(topic.getValue()).toString());
-            if (gifted.isSelected() && bought.isSelected()) {
+            if (gifted.isSelected() && bought.isSelected() && !giftedFor.isSelected()) {
                 Warning.alert("Multiple Values", "U dient 1 iets te kiezen.\nEen boek kan niet zowel geschonken als aangekocht zijn. ");
             }
-            if (gifted.isSelected() && giftedFor.isSelected()) {
+            if (gifted.isSelected() && giftedFor.isSelected() && !bought.isSelected()) {
                 Warning.alert("Multiple Values", "U dient 1 iets te kiezen.\nEen boek kan niet zowel geschonken als gechonke voor een tegenprestatie zijn. ");
             }
-            if (giftedFor.isSelected() && bought.isSelected()) {
+            if (giftedFor.isSelected() && bought.isSelected() && !gifted.isSelected()) {
                 Warning.alert("Multiple Values", "U dient 1 iets te kiezen.\nEen boek kan niet zowel geschonken voor een tegenprestatie als aangekocht zijn. ");
             }
             if (gifted.isSelected() && bought.isSelected() && giftedFor.isSelected()) {
                 Warning.alert("Multiple Values", "U dient 1 iets te kiezen.\nEen boek kan niet zowel geschonken, geschonken voor een tegenprestatie als aangekocht zijn. ");
             }
-            if (gifted.isSelected()) {
+            if (gifted.isSelected() && !bought.isSelected() && !giftedFor.isSelected()) {
                 book.setGifted(true);
                 window = NewStage.getStage("Gifted By", "/fxml/books/create/gifted/giftedBy.fxml");
                 window.showAndWait();
             }
-            if (bought.isSelected()) {
+            if (bought.isSelected() && !giftedFor.isSelected() && !gifted.isSelected()) {
                 window = NewStage.getStage("Bought On", "/fxml/books/create/boughtOn.fxml");
                 window.showAndWait();
             }
-            if (giftedFor.isSelected()) {
+            if (giftedFor.isSelected() && !gifted.isSelected() && !bought.isSelected()) {
                 book.setGiftedFor(true);
                 window = NewStage.getStage("Gifted for", "/fxml/books/create/gifted/giftedFor.fxml");
                 window.showAndWait();
@@ -222,9 +222,11 @@ public class AddBook {
         if (copy != null) {
             copy.setNrOfCopies(copy.getNrOfCopies() + 1);
             copyRepo.save(copy);
+            ChangeScene.init("/fxml/home.fxml", "KOKW - Het Verleden Draait Altijd Mee!");
         } else {
             Copies c = new Copies(title.getText(), "Boek");
             copyRepo.save(c);
+            ChangeScene.init("/fxml/home.fxml", "KOKW - Het Verleden Draait Altijd Mee!");
         }
     }
 

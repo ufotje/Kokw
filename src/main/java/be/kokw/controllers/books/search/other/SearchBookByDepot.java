@@ -67,7 +67,7 @@ public class SearchBookByDepot {
             MenuController.window.close();
         } else {
             MenuController.window.close();
-            ChangeScene.init("/fxml/digital/found/other/tableviewByDepot.fxml", "Books by DepotNumber");
+            ChangeScene.init("/fxml/books/found/other/tableviewByDepot.fxml", "Books by DepotNumber");
             table.setEditable(true);
             idCol.setCellValueFactory(new PropertyValueFactory<>("id"));
             isbnCol.setCellValueFactory(new PropertyValueFactory<>("isbn"));

@@ -9,12 +9,12 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Region?>
 
-<AnchorPane xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="be.kokw.controllers.books.search.other.SearchBookByName">
+<AnchorPane xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="be.kokw.controllers.digital.search.other.SearchDigitalByName">
         <DialogPane headerText="Zoek op Naam" layoutX="50.0" layoutY="50.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="480.0">
             <header>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="185.0" prefWidth="505.0">
                         <HBox alignment="CENTER" layoutY="69.0" prefHeight="30.0" prefWidth="480.0">
-                                <Label text="Voornaam Auteur:" />
+                                <Label text="Voornaam Regisseur:" />
                                 <TextField fx:id="firstName" alignment="CENTER" prefHeight="31.0" prefWidth="318.0">
                                     <HBox.margin>
                                         <Insets left="30.0" />
@@ -22,7 +22,7 @@
                                 </TextField>
                         </HBox>
                         <HBox alignment="CENTER" layoutY="112.0" prefHeight="30.0" prefWidth="480.0">
-                                <Label text="Achternaam Auteur:" />
+                                <Label text="Achternaam Regisseur:" />
                                 <TextField fx:id="lastName" alignment="CENTER" prefHeight="31.0" prefWidth="318.0">
                                     <HBox.margin>
                                         <Insets left="20.0" />

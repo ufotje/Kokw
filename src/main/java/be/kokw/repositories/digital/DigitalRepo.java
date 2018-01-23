@@ -27,6 +27,15 @@ public interface DigitalRepo extends JpaRepository<Digital,Long> {
     Digital findByDepot(String depot);
 
     @Transactional
+    List<Digital> findByPublisher(String publisher);
+
+    @Transactional
     List<Digital> findByTopicsContains(String topic);
+
+    @Transactional
+    List<Digital> findByAuthorsContains(String name);
+
+    @Transactional
+    Digital findByTitle(String title);
 
 }
