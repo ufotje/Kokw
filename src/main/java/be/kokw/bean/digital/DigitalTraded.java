@@ -19,7 +19,7 @@ public class DigitalTraded implements Serializable{
     @Column(name = "Contract")
     private File contract;
     private LocalDate contractDate;
-    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinColumn(name = "digital_id", referencedColumnName = "id", nullable = false)
     private Digital digital;
     private String depot;

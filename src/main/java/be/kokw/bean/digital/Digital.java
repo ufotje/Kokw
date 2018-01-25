@@ -1,6 +1,7 @@
 package be.kokw.bean.digital;
 
 
+
 import javax.persistence.*;
 import java.time.LocalDate;
 
@@ -29,8 +30,6 @@ public class Digital {
     private LocalDate derated;
     @Column(name = "Destination")
     private String destination;
-    @Column(name = "Illustrated")
-    private boolean illustrated;
     @Column(name = "authors")
     private String authors;
     private String topics;
@@ -129,14 +128,6 @@ public class Digital {
 
     public void setDestination(String destination) {
         this.destination = destination;
-    }
-
-    public boolean isIllustrated() {
-        return illustrated;
-    }
-
-    public void setIllustrated(boolean illustrated) {
-        this.illustrated = illustrated;
     }
 
     public String getAuthors() {
