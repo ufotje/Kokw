@@ -10,6 +10,7 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Stage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
@@ -47,6 +48,7 @@ public class SearchDigitalByDonatedAll {
     private DatePicker date;
     private DigitalRepo digitalRepo;
     private DigitalDonateRepo donateRepo;
+    private Stage window;
 
     @Autowired
     private void setDigitalRepo(@Qualifier("digitalRepo") DigitalRepo repo) {
@@ -76,12 +78,13 @@ public class SearchDigitalByDonatedAll {
             publisherCol.setCellValueFactory(new PropertyValueFactory<>("publisher"));
             yearCol.setCellValueFactory(new PropertyValueFactory<>("yearPublished"));
             table.setItems(bookList);
-//            RowFactoryDigitalDonated.setFactory(table, donateRepo, firstName, lastName, date,NewStage.getStage("DonateDetails","/fxml/digital/found/donated/digitalDonateDetails.fxml"));
+            window = NewStage.getStage("DonateDetails","/fxml/digital/found/donated/digitalDonateDetails.fxml");
+            RowFactoryDigitalDonated.setFactory(table, donateRepo, firstName, lastName, date, window);
         }
     }
 
     @FXML
     private void closeDetails() {
-
+        window.close();
     }
 }

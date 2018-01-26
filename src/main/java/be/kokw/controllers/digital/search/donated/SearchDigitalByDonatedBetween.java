@@ -84,33 +84,8 @@ public class SearchDigitalByDonatedBetween {
             publisherCol.setCellValueFactory(new PropertyValueFactory<>("publisher"));
             yearCol.setCellValueFactory(new PropertyValueFactory<>("yearPublished"));
             table.setItems(digiList);
-            table.setRowFactory(tv -> {
-                TableRow<Digital> row = new TableRow<>();
-                row.setOnMouseClicked(event -> {
-                    if (!row.isEmpty() && event.getButton() == MouseButton.PRIMARY
-                            && event.getClickCount() == 2) {
-                        Digital clickedRow = row.getItem();
-                        if (clickedRow != null) {
-                            DigitalDonated donated = donateRepo.findByDigital(clickedRow);
-                            window = NewStage.getStage("DonateDetails", "/fxml/digital/found/donated/digitalDonateDetailsBetween.fxml");
-                            window.show();
-                            String[] fullName = donated.getName().split(" ");
-                            StringBuilder sb = new StringBuilder();
-                            for (int i = 0; i < fullName.length; i++) {
-                                if (i == 0) {
-                                    firstName.setText(fullName[i]);
-                                } else {
-                                    sb.append(fullName[i]);
-                                    sb.append(" ");
-                                }
-                            }
-                            lastName.setText(sb.toString());
-                            date.setValue(donated.getGiftedOn());
-                        }
-                    }
-                });
-                return row;
-            });
+            window = NewStage.getStage("DonateDetails", "/fxml/digital/found/donated/digitalDonateDetailsBetween.fxml");
+            RowFactoryDigitalDonated.setFactory(table, donateRepo, firstName, lastName, date, window);
         }
     }
 

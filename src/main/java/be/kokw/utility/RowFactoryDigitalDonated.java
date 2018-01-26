@@ -20,7 +20,7 @@ public interface RowFactoryDigitalDonated {
                 if (!row.isEmpty() && event.getButton() == MouseButton.PRIMARY
                         && event.getClickCount() == 2) {
                     Digital clickedRow = row.getItem();
-                    if (clickedRow.isDonated()) {
+                    if (clickedRow != null) {
                         DigitalDonated donated = donateRepo.findByDigital(clickedRow);
                         window.show();
                         String[] fullName = donated.getName().split(" ");
@@ -29,7 +29,7 @@ public interface RowFactoryDigitalDonated {
                             if (i == 0) {
                                 firstName.setText(fullName[i]);
                             } else {
-                                sb.append(i);
+                                sb.append(fullName[i]);
                                 sb.append(" ");
                             }
                         }
