@@ -8,7 +8,7 @@ import java.time.LocalDate;
 
 @Entity
 @Table(name = "checked_out_digital")
-public class CheckOutDigi implements Serializable {
+public class CheckOutDigi{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
