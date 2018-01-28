@@ -29,7 +29,7 @@ public interface RowFactoryDigitalDonated {
                             if (i == 0) {
                                 firstName.setText(fullName[i]);
                             } else {
-                                sb.append(i);
+                                sb.append(fullName[i]);
                                 sb.append(" ");
                             }
                         }

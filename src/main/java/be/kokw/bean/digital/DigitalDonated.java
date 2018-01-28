@@ -1,5 +1,6 @@
 package be.kokw.bean.digital;
 
+import javax.enterprise.inject.TransientReference;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDate;

@@ -19,7 +19,7 @@ public class DigitalTraded implements Serializable{
     @Column(name = "Contract")
     private File contract;
     private LocalDate contractDate;
-    @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "digital_id", referencedColumnName = "id", nullable = false)
     private Digital digital;
     private String depot;
@@ -27,17 +27,6 @@ public class DigitalTraded implements Serializable{
     private String authors;
 
     public DigitalTraded() {
-    }
-
-    public DigitalTraded(String contractNr, String name, LocalDate contractDate, Digital digital) {
-        this.contractNr = contractNr;
-        this.name = name;
-        this.contractDate = contractDate;
-        this.digital = digital;
-
-        depot = digital.getDepot();
-        title = digital.getTitle();
-        authors = digital.getAuthors();
     }
 
     public DigitalTraded(String name, String contractNr, File contract, LocalDate contractDate, Digital digital) {

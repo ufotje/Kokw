@@ -34,10 +34,6 @@ public class SearchDigitalByDonatedOn {
     @FXML
     private TableColumn<Gifted, String> depotCol;
     @FXML
-    private TableColumn<Gifted, String> giftedByCol;
-    @FXML
-    private TableColumn<Gifted, LocalDate> giftedOnCol;
-    @FXML
     private TableColumn<Gifted, String> titleCol;
     @FXML
     private TableColumn<Gifted, String> authorCol;
@@ -64,8 +60,6 @@ public class SearchDigitalByDonatedOn {
             depotCol.setCellValueFactory(new PropertyValueFactory<>("depot"));
             titleCol.setCellValueFactory(new PropertyValueFactory<>("title"));
             authorCol.setCellValueFactory(new PropertyValueFactory<>("authors"));
-            giftedByCol.setCellValueFactory(new PropertyValueFactory<>("name"));
-            giftedOnCol.setCellValueFactory(new PropertyValueFactory<>("giftedOn"));
             table.setItems(bookList);
         }
     }
