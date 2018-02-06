@@ -83,7 +83,7 @@ public class MenuController {
     @FXML
     private void findBookByISBN() {
         try {
-            window = NewStage.getStage("Vind boeken op ISBN", "/fxml/books/search/byISBNDialog.fxml");
+            window = NewStage.getStage("Vind boeken op ISBN", "/fxml/books/search/other/byISBNDialog.fxml");
         } catch (Exception e) {
             e.printStackTrace();
         }

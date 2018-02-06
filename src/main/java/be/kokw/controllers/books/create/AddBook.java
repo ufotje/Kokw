@@ -6,6 +6,7 @@ import be.kokw.bean.books.Gifted;
 import be.kokw.bean.books.GiftedFor;
 import be.kokw.repositories.books.*;
 import be.kokw.utility.*;
+import impl.org.controlsfx.autocompletion.AutoCompletionTextFieldBinding;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -14,6 +15,9 @@ import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import javafx.util.Callback;
+import org.controlsfx.control.textfield.AutoCompletionBinding;
+import org.controlsfx.control.textfield.TextFields;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
@@ -21,6 +25,7 @@ import org.springframework.stereotype.Component;
 import java.io.File;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 
@@ -32,7 +37,7 @@ import java.util.List;
 @Component
 public class AddBook {
     @FXML
-    private TextField fullName, contractNr, firstName, lastName, title, firstNameAuthor, lastNameAuthor, publisher, subTitle, year, pages, isbn, depot, edition, copies;
+    private TextField fullName, contractNr, firstName, lastName, title, author, publisher, subTitle, year, pages, isbn, depot, edition, copies;
     @FXML
     private DatePicker date, boughtOn;
     @FXML
@@ -81,6 +86,7 @@ public class AddBook {
         ObservableList<Integer> volumes = FXCollections.observableArrayList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
         volume.setItems(volumes);
         volume.setValue(1);
+        BookTextFields.autocomplete(repo, title, author, subTitle, publisher);
     }
 
     @FXML
@@ -127,9 +133,8 @@ public class AddBook {
 
     @FXML
     private void addAuthor() {
-        authors = AddAuthor.add(firstNameAuthor, lastNameAuthor);
-        firstNameAuthor.clear();
-        lastNameAuthor.clear();
+        authors = AddAuthor.add(author);
+        author.clear();
     }
 
     @FXML
@@ -184,7 +189,7 @@ public class AddBook {
     }
 
     @FXML
-    private void bought() {
+    public void bought() {
         LocalDate boughtDate = boughtOn.getValue();
         book.setBoughtOn(boughtDate);
         window.close();
@@ -232,8 +237,7 @@ public class AddBook {
 
     private void clearFields() {
         title.clear();
-        firstNameAuthor.clear();
-        lastNameAuthor.clear();
+        author.clear();
         isbn.clear();
         depot.clear();
         subTitle.clear();

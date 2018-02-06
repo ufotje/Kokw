@@ -90,7 +90,7 @@
                             </HBox.margin>
                         </Label>
                         <TextField fx:id="subTitle" alignment="CENTER" prefHeight="25.0" prefWidth="357.0" promptText="Voeg OnderTitel in" />
-                        <Button fx:id="nogButton" mnemonicParsing="false" onAction="#addSubTitle" prefHeight="25.0" prefWidth="49.0" style="-fx-background-radius: 10;" text="Nog">
+                        <Button fx:id="nogButton" mnemonicParsing="false" onAction="#addSubTitle" prefHeight="25.0" prefWidth="49.0" style="-fx-background-radius: 10;" text="Add">
                             <HBox.margin>
                                 <Insets left="10.0" />
                             </HBox.margin>
@@ -159,17 +159,12 @@
                                 <Font size="14.0" />
                             </font>
                         </Label>
-                        <TextField fx:id="firstNameAuthor" alignment="CENTER" prefHeight="25.0" prefWidth="82.0" promptText="voornaam">
-                            <HBox.margin>
-                                <Insets left="21.0" />
-                            </HBox.margin>
-                        </TextField>
-                        <TextField fx:id="lastNameAuthor" alignment="CENTER" prefHeight="25.0" prefWidth="257.0" promptText="achternaam">
+                        <TextField fx:id="author" alignment="CENTER" prefHeight="25.0" prefWidth="361.0" promptText="Naam Auteur">
                             <HBox.margin>
                                 <Insets left="20.0" />
                             </HBox.margin>
                         </TextField>
-                        <Button fx:id="authorButton" mnemonicParsing="false" onAction="#addAuthor" prefHeight="25.0" prefWidth="50.0" style="-fx-background-radius: 10;" text="Nog">
+                        <Button fx:id="authorButton" mnemonicParsing="false" onAction="#addAuthor" prefHeight="25.0" prefWidth="50.0" style="-fx-background-radius: 10;" text="Add">
                             <HBox.margin>
                                 <Insets left="10.0" />
                             </HBox.margin>

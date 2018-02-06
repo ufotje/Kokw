@@ -130,7 +130,7 @@ public class AddDigital {
 
     @FXML
     private void addAuthor() {
-        authors = AddAuthor.add(firstNameAuthor, lastNameAuthor);
+      //  authors = AddAuthor.add(firstNameAuthor.getText() + " " + lastNameAuthor.getText());
         firstNameAuthor.clear();
         lastNameAuthor.clear();
     }

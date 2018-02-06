@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0"
+            prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="be.kokw.controllers.books.search.other.SearchBookByName">
+    <top>
+        <VBox BorderPane.alignment="CENTER">
+            <fx:include source="/fxml/menu.fxml"/>
+        </VBox>
+    </top>
+    <bottom>
+        <VBox alignment="CENTER" fillWidth="false" style="-fx-background-color: #A9CCE3; -fx-background-radius: 10;"
+              BorderPane.alignment="CENTER">
+            <fx:include source="/fxml/footer.fxml"/>
+        </VBox>
+    </bottom>
+    <center>
+        <TableView fx:id="table" editable="true">
+            <columns>
+                <TableColumn fx:id="idCol" prefWidth="40.0" text="ID"/>
+                <TableColumn fx:id="isbnCol" prefWidth="60.0" text="ISBN"/>
+                <TableColumn fx:id="depotCol" prefWidth="70.0" text="Depot"/>
+                <TableColumn fx:id="titleCol" prefWidth="250.0" text="Titel"/>
+                <TableColumn fx:id="subTitleCol" prefWidth="200" text="Ondertitel"/>
+                <TableColumn fx:id="editionCol" prefWidth="40.0" text="Druk"/>
+                <TableColumn fx:id="volumeCol" prefWidth="40.0" text="Deel"/>
+                <TableColumn fx:id="topicCol" prefWidth="100.0" text="Onderwerp"/>
+                <TableColumn fx:id="authorCol" prefWidth="275.0" text="Auteurs"/>
+                <TableColumn fx:id="publisherCol" text="Uitgeverij"/>
+                <TableColumn fx:id="yearCol" prefWidth="50.0" text="Jaar"/>
+                <TableColumn fx:id="pagesCol" prefWidth="60.0" text="Pages"/>
+                <TableColumn fx:id="illusCol" text="Geïllustreerd"/>
+                <TableColumn fx:id="copiesCol" prefWidth="60" text="Aantal"/>
+            </columns>
+        </TableView>
+    </center>
+</BorderPane>

@@ -82,5 +82,9 @@
     <orderEntry type="library" name="Maven: org.jboss.logging:jboss-logging:3.3.0.Final" level="project" />
     <orderEntry type="library" name="Maven: com.fasterxml:classmate:1.1.0" level="project" />
     <orderEntry type="library" name="Maven: javax.el:javax.el-api:3.0.0" level="project" />
+    <orderEntry type="library" name="Maven: org.controlsfx:controlsfx:8.40.14" level="project" />
+    <orderEntry type="library" name="Maven: com.gluonhq:charm-down-core:3.7.0" level="project" />
+    <orderEntry type="library" name="controlsfx-8.40.14" level="application" />
+    <orderEntry type="library" name="charm-glisten-4.4.1" level="application" />
   </component>
 </module>

@@ -44,6 +44,7 @@ public class Book implements Serializable {
     private String topics;
     private boolean gifted;
     private boolean giftedFor;
+    private boolean inStock = true;
 
     public Book() {
     }
@@ -206,5 +207,13 @@ public class Book implements Serializable {
 
     public void setGiftedFor(boolean giftedFor) {
         this.giftedFor = giftedFor;
+    }
+
+    public boolean isInStock() {
+        return inStock;
+    }
+
+    public void setInStock(boolean inStock) {
+        this.inStock = inStock;
     }
 }

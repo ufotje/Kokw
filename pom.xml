@@ -102,7 +102,16 @@
             <artifactId>javax.el-api</artifactId>
             <version>3.0.0</version>
         </dependency>
-
+        <dependency>
+            <groupId>org.controlsfx</groupId>
+            <artifactId>controlsfx</artifactId>
+            <version>8.40.14</version>
+        </dependency>
+        <dependency>
+            <groupId>com.gluonhq</groupId>
+            <artifactId>charm-down-core</artifactId>
+            <version>3.7.0</version>
+        </dependency>
     </dependencies>
 
     <build>

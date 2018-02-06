@@ -2,6 +2,8 @@ package be.kokw.repositories.books;
 
 import be.kokw.bean.books.Book;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import javax.transaction.Transactional;
@@ -48,4 +50,10 @@ public interface BookRepo extends JpaRepository<Book, Integer> {
 
     @Transactional
     int deleteByTitle(String title);
+
+  //  @Query("select b.authors from books b where b.authors like '%:name%'")
+   // List<String> findAuthor(@Param("name") String name);
+
+    /*@Query("select b.title from books b where b.title = :title")
+    String findTitle(@Param("title") String title);*/
 }
