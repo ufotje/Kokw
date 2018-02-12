@@ -1,5 +1,7 @@
-package be.kokw.utility;
+package be.kokw.utility.controller;
 
+import be.kokw.utility.validation.Validation;
+import be.kokw.utility.validation.Warning;
 import javafx.scene.control.TextField;
 
 public interface AddSubtitle {

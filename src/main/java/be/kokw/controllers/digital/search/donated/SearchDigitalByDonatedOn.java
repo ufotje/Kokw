@@ -3,8 +3,8 @@ package be.kokw.controllers.digital.search.donated;
 import be.kokw.bean.books.Gifted;
 import be.kokw.controllers.MenuController;
 import be.kokw.repositories.books.GiftedRepo;
-import be.kokw.utility.ChangeScene;
-import be.kokw.utility.Warning;
+import be.kokw.utility.sceneControl.ChangeScene;
+import be.kokw.utility.validation.Warning;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.DatePicker;
@@ -14,8 +14,6 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
-
-import java.time.LocalDate;
 
 import static javafx.collections.FXCollections.observableArrayList;
 

@@ -136,12 +136,7 @@
                                 <Font size="14.0" />
                             </font>
                         </Label>
-                        <TextField fx:id="firstNameAuthor" alignment="CENTER" prefHeight="25.0" prefWidth="82.0" promptText="voornaam">
-                            <HBox.margin>
-                                <Insets left="21.0" />
-                            </HBox.margin>
-                        </TextField>
-                        <TextField fx:id="lastNameAuthor" alignment="CENTER" prefHeight="25.0" prefWidth="238.0" promptText="achternaam">
+                        <TextField fx:id="nameAuthor" alignment="CENTER" prefHeight="25.0" prefWidth="340.0" promptText="Naam">
                             <HBox.margin>
                                 <Insets left="20.0" />
                             </HBox.margin>

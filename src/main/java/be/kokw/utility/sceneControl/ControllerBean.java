@@ -1,4 +1,4 @@
-package be.kokw.utility;
+package be.kokw.utility.sceneControl;
 
 import be.kokw.Main;
 import javafx.fxml.FXMLLoader;

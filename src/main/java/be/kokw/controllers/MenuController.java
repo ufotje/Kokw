@@ -2,7 +2,9 @@ package be.kokw.controllers;
 
 import be.kokw.bean.*;
 import be.kokw.repositories.MemberRepo;
-import be.kokw.utility.*;
+import be.kokw.utility.sceneControl.ChangeScene;
+import be.kokw.utility.sceneControl.NewStage;
+import be.kokw.utility.validation.Warning;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;

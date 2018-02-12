@@ -1,5 +1,7 @@
-package be.kokw.utility;
+package be.kokw.utility.maillings;
 
+
+import be.kokw.utility.validation.Warning;
 
 import javax.mail.*;
 import javax.mail.internet.InternetAddress;

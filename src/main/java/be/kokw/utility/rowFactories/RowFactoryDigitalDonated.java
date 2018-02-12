@@ -1,4 +1,4 @@
-package be.kokw.utility;
+package be.kokw.utility.rowFactories;
 
 import be.kokw.bean.digital.Digital;
 import be.kokw.bean.digital.DigitalDonated;

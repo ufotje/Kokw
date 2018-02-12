@@ -1,4 +1,4 @@
-package be.kokw.utility;
+package be.kokw.utility.converting;
 
 import java.awt.image.BufferedImage;
 import java.io.File;

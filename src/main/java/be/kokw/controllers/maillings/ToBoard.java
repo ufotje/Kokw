@@ -3,7 +3,7 @@ package be.kokw.controllers.maillings;
 import be.kokw.bean.Member;
 import be.kokw.controllers.MenuController;
 import be.kokw.repositories.MemberRepo;
-import be.kokw.utility.Mail;
+import be.kokw.utility.maillings.Mail;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;

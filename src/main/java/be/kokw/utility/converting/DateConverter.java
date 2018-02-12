@@ -1,4 +1,4 @@
-package be.kokw.utility;
+package be.kokw.utility.converting;
 
 import javax.persistence.AttributeConverter;
 import javax.persistence.Converter;

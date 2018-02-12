@@ -1,4 +1,4 @@
-package be.kokw.utility;
+package be.kokw.utility.maillings;
 
 import be.kokw.bean.books.Book;
 import be.kokw.bean.books.CheckedOut;
@@ -7,6 +7,8 @@ import be.kokw.bean.TimeStamp;
 import be.kokw.repositories.books.CheckOutRepo;
 import be.kokw.repositories.MemberRepo;
 import be.kokw.repositories.TimeStampRepo;
+import be.kokw.utility.maillings.Mail;
+import be.kokw.utility.validation.Warning;
 import javafx.application.Platform;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;

@@ -1,4 +1,4 @@
-package be.kokw.utility;
+package be.kokw.utility.validation;
 
 import javafx.scene.control.Alert;
 

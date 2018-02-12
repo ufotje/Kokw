@@ -2,8 +2,8 @@ package be.kokw.controllers.checkedOut.books;
 
 import be.kokw.bean.books.CheckedOut;
 import be.kokw.repositories.books.CheckOutRepo;
-import be.kokw.utility.Validation;
-import be.kokw.utility.Warning;
+import be.kokw.utility.validation.Validation;
+import be.kokw.utility.validation.Warning;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,4 +1,4 @@
-package be.kokw.utility;
+package be.kokw.utility.controller;
 
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;

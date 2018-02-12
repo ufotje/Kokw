@@ -9,7 +9,7 @@ import be.kokw.repositories.books.BookRepo;
 import be.kokw.repositories.books.CheckOutRepo;
 import be.kokw.repositories.MemberRepo;
 import be.kokw.repositories.books.CopyRepo;
-import be.kokw.utility.Warning;
+import be.kokw.utility.validation.Warning;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 import org.springframework.beans.factory.annotation.Autowired;

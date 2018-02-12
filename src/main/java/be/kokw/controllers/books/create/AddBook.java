@@ -5,8 +5,14 @@ import be.kokw.bean.Copies;
 import be.kokw.bean.books.Gifted;
 import be.kokw.bean.books.GiftedFor;
 import be.kokw.repositories.books.*;
-import be.kokw.utility.*;
-import impl.org.controlsfx.autocompletion.AutoCompletionTextFieldBinding;
+import be.kokw.utility.autocomplete.BookTextFields;
+import be.kokw.utility.controller.AddAuthor;
+import be.kokw.utility.controller.AddSubtitle;
+import be.kokw.utility.controller.FileSelector;
+import be.kokw.utility.sceneControl.ChangeScene;
+import be.kokw.utility.sceneControl.NewStage;
+import be.kokw.utility.validation.Validation;
+import be.kokw.utility.validation.Warning;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -15,9 +21,6 @@ import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-import javafx.util.Callback;
-import org.controlsfx.control.textfield.AutoCompletionBinding;
-import org.controlsfx.control.textfield.TextFields;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
@@ -25,7 +28,6 @@ import org.springframework.stereotype.Component;
 import java.io.File;
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 
 
@@ -81,7 +83,7 @@ public class AddBook {
     }
 
     public void initialize() {
-        ObservableList<String> topics = FXCollections.observableArrayList("Wereld Oorlog 1", "Wereld Ooorlog 2", "MiddelEeuwen", "Gulden Sporenslag", "Brugse Metten");
+        ObservableList<String> topics = FXCollections.observableArrayList("Wereld Oorlog 1", "Wereld Oorlog 2", "MiddelEeuwen", "Gulden Sporenslag", "Brugse Metten");
         topic.setItems(topics);
         ObservableList<Integer> volumes = FXCollections.observableArrayList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
         volume.setItems(volumes);
@@ -133,7 +135,7 @@ public class AddBook {
 
     @FXML
     private void addAuthor() {
-        authors = AddAuthor.add(author);
+        authors = AddAuthor.add(author.getText());
         author.clear();
     }
 

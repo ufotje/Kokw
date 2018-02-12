@@ -3,8 +3,8 @@ package be.kokw.controllers.books.search.donatedAgainst;
 import be.kokw.bean.books.GiftedFor;
 import be.kokw.repositories.books.GiftedForRepo;
 
-import be.kokw.utility.RowFactoryGF;
-import be.kokw.utility.Warning;
+import be.kokw.utility.rowFactories.RowFactoryGF;
+import be.kokw.utility.validation.Warning;
 import javafx.collections.ObservableList;
 
 import javafx.fxml.FXML;

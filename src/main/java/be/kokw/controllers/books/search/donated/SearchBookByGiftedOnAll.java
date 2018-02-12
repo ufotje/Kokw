@@ -2,7 +2,7 @@ package be.kokw.controllers.books.search.donated;
 
 import be.kokw.bean.books.Gifted;
 import be.kokw.repositories.books.GiftedRepo;
-import be.kokw.utility.Warning;
+import be.kokw.utility.validation.Warning;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;

@@ -8,7 +8,14 @@ import be.kokw.repositories.books.CopyRepo;
 import be.kokw.repositories.digital.DigitalDonateRepo;
 import be.kokw.repositories.digital.DigitalRepo;
 import be.kokw.repositories.digital.DigitalTradeRepo;
-import be.kokw.utility.*;
+import be.kokw.utility.autocomplete.DigiTextFields;
+import be.kokw.utility.controller.AddAuthor;
+import be.kokw.utility.controller.AddSubtitle;
+import be.kokw.utility.controller.FileSelector;
+import be.kokw.utility.sceneControl.ChangeScene;
+import be.kokw.utility.sceneControl.NewStage;
+import be.kokw.utility.validation.Validation;
+import be.kokw.utility.validation.Warning;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -35,7 +42,7 @@ import java.util.List;
 @Component
 public class AddDigital {
     @FXML
-    private TextField fullName, contractNr, firstName, lastName, title, firstNameAuthor, lastNameAuthor, publisher, subTitle, year, depot;
+    private TextField fullName, contractNr, firstName, lastName, title, nameAuthor, publisher, subTitle, year, depot;
     @FXML
     private DatePicker date, boughtOn;
     @FXML
@@ -79,11 +86,12 @@ public class AddDigital {
     }
 
     public void initialize() {
-        ObservableList<String> topics = FXCollections.observableArrayList("Wereld Oorlog 1", "Wereld Ooorlog 2", "MiddelEeuwen", "Gulden Sporenslag", "Brugse Metten");
+        ObservableList<String> topics = FXCollections.observableArrayList("Wereld Oorlog 1", "Wereld Oorlog 2", "MiddelEeuwen", "Gulden Sporenslag", "Brugse Metten");
         topic.setItems(topics);
         ObservableList<Integer> volumes = FXCollections.observableArrayList(1, 2, 3, 4, 5);
         volume.setItems(volumes);
         volume.setValue(1);
+        DigiTextFields.autocomplete(digiRepo, title, nameAuthor, subTitle, publisher);
     }
 
     @FXML
@@ -130,9 +138,8 @@ public class AddDigital {
 
     @FXML
     private void addAuthor() {
-      //  authors = AddAuthor.add(firstNameAuthor.getText() + " " + lastNameAuthor.getText());
-        firstNameAuthor.clear();
-        lastNameAuthor.clear();
+        authors = AddAuthor.add(nameAuthor.getText());
+        nameAuthor.clear();
     }
 
     @FXML
@@ -189,7 +196,7 @@ public class AddDigital {
     }
 
     @FXML
-    private void bought() {
+    public void bought() {
         LocalDate boughtDate = boughtOn.getValue();
         digital.setBoughtOn(boughtDate);
         window.close();
@@ -235,8 +242,7 @@ public class AddDigital {
 
     private void clearFields() {
         title.clear();
-        firstNameAuthor.clear();
-        lastNameAuthor.clear();
+        nameAuthor.clear();
         depot.clear();
         subTitle.clear();
         giftedFor.setSelected(false);

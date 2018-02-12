@@ -1,5 +1,6 @@
-package be.kokw.utility;
+package be.kokw.utility.sceneControl;
 
+import be.kokw.utility.validation.Warning;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Modality;
