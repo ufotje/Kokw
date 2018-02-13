@@ -348,6 +348,8 @@ public class MenuController {
 
     @FXML
     private void digiTradedOn() {
+        window = NewStage.getStage("TradeDate", "/fxml/digital/search/traded/byGiftedForOnDialog.fxml");
+        window.show();
     }
 
     @FXML

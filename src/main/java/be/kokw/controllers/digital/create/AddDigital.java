@@ -121,7 +121,7 @@ public class AddDigital {
             }
             if (giftedFor.isSelected() && !bought.isSelected() && !gifted.isSelected()) {
                 digital.setTraded(true);
-                window = NewStage.getStage("Traded for", "/fxml/digitals/create/gifted/tradeDetails.fxml");
+                window = NewStage.getStage("Traded for", "/fxml/digital/create/gifted/tradeDetails.fxml");
                 window.showAndWait();
             }
             if (!gifted.isSelected() && !bought.isSelected() && !giftedFor.isSelected()) {

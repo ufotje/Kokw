@@ -1,8 +1,11 @@
 package be.kokw.controllers.digital.search.traded;
 
-import be.kokw.bean.books.GiftedFor;
+
+import be.kokw.bean.digital.DigitalTraded;
 import be.kokw.controllers.MenuController;
-import be.kokw.repositories.books.GiftedForRepo;
+import be.kokw.repositories.digital.DigitalTradeRepo;
+import be.kokw.utility.rowFactories.RowFactoryDigitalDonated;
+import be.kokw.utility.rowFactories.RowFactoryDigitalTraded;
 import be.kokw.utility.sceneControl.ChangeScene;
 import be.kokw.utility.rowFactories.RowFactoryGF;
 import be.kokw.utility.validation.Warning;
@@ -26,43 +29,43 @@ public class SearchDigitalByTradedOnDate {
     @FXML
     private DatePicker date;
     @FXML
-    private TableView<GiftedFor> table;
+    private TableView<DigitalTraded> table;
     @FXML
-    private TableColumn<GiftedFor, Integer> idCol;
+    private TableColumn<DigitalTraded, Integer> idCol;
     @FXML
-    private TableColumn<GiftedFor, String> isbnCol;
+    private TableColumn<DigitalTraded, String> isbnCol;
     @FXML
-    private TableColumn<GiftedFor, String> bookIdCol;
+    private TableColumn<DigitalTraded, String> bookIdCol;
     @FXML
-    private TableColumn<GiftedFor, String> depotCol;
+    private TableColumn<DigitalTraded, String> depotCol;
     @FXML
-    private TableColumn<GiftedFor, String> conNameCol;
+    private TableColumn<DigitalTraded, String> conNameCol;
     @FXML
-    private TableColumn<GiftedFor, Hyperlink> conCol;
+    private TableColumn<DigitalTraded, Hyperlink> conCol;
     @FXML
-    private TableColumn<GiftedFor,LocalDate>conDateCol;
+    private TableColumn<DigitalTraded,LocalDate>conDateCol;
     @FXML
-    private TableColumn<GiftedFor, String> conNrCol;
+    private TableColumn<DigitalTraded, String> conNrCol;
     @FXML
-    private TableColumn<GiftedFor, String> titleCol;
+    private TableColumn<DigitalTraded, String> titleCol;
     @FXML
-    private TableColumn<GiftedFor, String> authorCol;
-    private GiftedForRepo repo;
+    private TableColumn<DigitalTraded, String> authorCol;
+    private DigitalTradeRepo repo;
 
     @Autowired
-    private void setBookRepo(@Qualifier("giftedForRepo") GiftedForRepo repo) {
+    private void setRepo(@Qualifier("digiTradeRepo") DigitalTradeRepo repo) {
         this.repo = repo;
     }
 
     @FXML
     public void search() throws Exception {
-        ObservableList<GiftedFor> bookList = observableArrayList(repo.findByContractDate(date.getValue()));
-        if (bookList.isEmpty()) {
-            Warning.alert("No Books found!", "Er werden geen boeken gevonden die op " + date.getValue() + " werden gedoneerd met tegenprestatie.");
+        ObservableList<DigitalTraded> list = observableArrayList(repo.findByContractDate(date.getValue()));
+        if (list.isEmpty()) {
+            Warning.alert("No Books found!", "Er werden geen digitale dragers gevonden die op " + date.getValue() + " werden geruild.");
             MenuController.window.close();
         } else {
             MenuController.window.close();
-            ChangeScene.init("/fxml/digital/found/tableviewByGiftedForOn.fxml", "Books by Donated for on");
+            ChangeScene.init("/fxml/digital/found/giftedFor/tableviewGiftedForOn.fxml", "Digital Carriers by Traded on");
             table.setEditable(true);
             idCol.setCellValueFactory(new PropertyValueFactory<>("id"));
             isbnCol.setCellValueFactory(new PropertyValueFactory<>("issbn"));
@@ -74,8 +77,8 @@ public class SearchDigitalByTradedOnDate {
             conDateCol.setCellValueFactory(new PropertyValueFactory<>("contractDate"));
             conNameCol.setCellValueFactory(new PropertyValueFactory<>("name"));
             conCol.setCellValueFactory(new PropertyValueFactory<>("contract"));
-            table.setItems(bookList);
-            RowFactoryGF.set(table);
+            table.setItems(list);
+            RowFactoryDigitalTraded.set(table);
         }
     }
 }
