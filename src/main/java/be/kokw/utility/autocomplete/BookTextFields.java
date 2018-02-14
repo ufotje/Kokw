@@ -19,10 +19,22 @@ public interface BookTextFields {
         List<String> publishers = new ArrayList<>();
         List<String> subsList = new ArrayList<>();
         for (Book b : books) {
-            titles.add(b.getTitle());
-            publishers.add(b.getPublisher());
-            authorsList = SplitAuthor.split(b.getAuthors(), authorsList);
-            subsList = SplitSubs.split(b.getSubtitles(), subsList);
+
+            if (!publishers.contains(b.getPublisher())) {
+                publishers.add(b.getPublisher());
+            }
+            List<String> aList = SplitAuthor.split(b.getAuthors(), authorsList);
+            for(String s : aList){
+                if(!authorsList.contains(s)){
+                    authorsList.add(s);
+                }
+            }
+            List<String> sList = SplitSubs.split(b.getSubtitles(), subsList);
+            for(String s : sList){
+                if(!subsList.contains(s)){
+                    subsList.add(s);
+                }
+            }
         }
         TextFields.bindAutoCompletion(title, titles);
         TextFields.bindAutoCompletion(author, authorsList);

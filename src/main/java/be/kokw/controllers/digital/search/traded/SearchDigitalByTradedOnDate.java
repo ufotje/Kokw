@@ -4,10 +4,8 @@ package be.kokw.controllers.digital.search.traded;
 import be.kokw.bean.digital.DigitalTraded;
 import be.kokw.controllers.MenuController;
 import be.kokw.repositories.digital.DigitalTradeRepo;
-import be.kokw.utility.rowFactories.RowFactoryDigitalDonated;
 import be.kokw.utility.rowFactories.RowFactoryDigitalTraded;
 import be.kokw.utility.sceneControl.ChangeScene;
-import be.kokw.utility.rowFactories.RowFactoryGF;
 import be.kokw.utility.validation.Warning;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -35,8 +33,6 @@ public class SearchDigitalByTradedOnDate {
     @FXML
     private TableColumn<DigitalTraded, String> isbnCol;
     @FXML
-    private TableColumn<DigitalTraded, String> bookIdCol;
-    @FXML
     private TableColumn<DigitalTraded, String> depotCol;
     @FXML
     private TableColumn<DigitalTraded, String> conNameCol;
@@ -61,7 +57,7 @@ public class SearchDigitalByTradedOnDate {
     public void search() throws Exception {
         ObservableList<DigitalTraded> list = observableArrayList(repo.findByContractDate(date.getValue()));
         if (list.isEmpty()) {
-            Warning.alert("No Books found!", "Er werden geen digitale dragers gevonden die op " + date.getValue() + " werden geruild.");
+            Warning.alert("No Digital carriers found!", "Er werden geen digitale dragers gevonden die op " + date.getValue() + " werden geruild.");
             MenuController.window.close();
         } else {
             MenuController.window.close();
@@ -69,7 +65,6 @@ public class SearchDigitalByTradedOnDate {
             table.setEditable(true);
             idCol.setCellValueFactory(new PropertyValueFactory<>("id"));
             isbnCol.setCellValueFactory(new PropertyValueFactory<>("issbn"));
-            bookIdCol.setCellValueFactory(new PropertyValueFactory<>("bookId"));
             depotCol.setCellValueFactory(new PropertyValueFactory<>("depot"));
             titleCol.setCellValueFactory(new PropertyValueFactory<>("title"));
             authorCol.setCellValueFactory(new PropertyValueFactory<>("authors"));

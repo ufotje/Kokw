@@ -13,16 +13,29 @@ import java.util.List;
 public interface DigiTextFields {
 
     static void autocomplete(DigitalRepo repo, TextField title, TextField author, TextField subTitle, TextField publisher) {
-        List<Digital> digitals = repo.findAll();
         List<String> titles = new ArrayList<>();
         List<String> authorsList = new ArrayList<>();
         List<String> publishers = new ArrayList<>();
         List<String> subsList = new ArrayList<>();
-        for (Digital d : digitals) {
-            titles.add(d.getTitle());
-            publishers.add(d.getPublisher());
-            authorsList = SplitAuthor.split(d.getAuthors(), authorsList);
-            subsList = SplitSubs.split(d.getSubtitles(), subsList);
+        for (Digital d : repo.findAll()) {
+            if(!titles.contains(d.getTitle())) {
+                titles.add(d.getTitle());
+            }
+            if (!publishers.contains(d.getPublisher())) {
+                publishers.add(d.getPublisher());
+            }
+            List<String> aList = SplitAuthor.split(d.getAuthors(), authorsList);
+            for(String s : aList){
+                if(!authorsList.contains(s)){
+                    authorsList.add(s);
+                }
+            }
+            List<String> sList = SplitSubs.split(d.getSubtitles(), subsList);
+            for(String s : sList){
+                if(!subsList.contains(s)){
+                    subsList.add(s);
+                }
+            }
         }
         TextFields.bindAutoCompletion(title, titles);
         TextFields.bindAutoCompletion(author, authorsList);

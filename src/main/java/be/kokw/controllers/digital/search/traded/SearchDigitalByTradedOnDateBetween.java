@@ -1,8 +1,8 @@
 package be.kokw.controllers.digital.search.traded;
 
-import be.kokw.bean.books.GiftedFor;
+import be.kokw.bean.digital.DigitalTraded;
 import be.kokw.controllers.MenuController;
-import be.kokw.repositories.books.GiftedForRepo;
+import be.kokw.repositories.digital.DigitalTradeRepo;
 import be.kokw.utility.sceneControl.ChangeScene;
 import be.kokw.utility.rowFactories.RowFactoryGF;
 import be.kokw.utility.validation.Warning;
@@ -28,39 +28,37 @@ public class SearchDigitalByTradedOnDateBetween {
     @FXML
     private DatePicker end;
     @FXML
-    private TableView<GiftedFor> table;
+    private TableView<DigitalTraded> table;
     @FXML
-    private TableColumn<GiftedFor, Integer> idCol;
+    private TableColumn<DigitalTraded, Integer> idCol;
     @FXML
-    private TableColumn<GiftedFor, String> isbnCol;
+    private TableColumn<DigitalTraded, String> isbnCol;
     @FXML
-    private TableColumn<GiftedFor, String> depotCol;
+    private TableColumn<DigitalTraded, String> depotCol;
     @FXML
-    private TableColumn<GiftedFor, String> conNameCol;
+    private TableColumn<DigitalTraded, String> conNameCol;
     @FXML
-    private TableColumn<GiftedFor, File> conCol;
+    private TableColumn<DigitalTraded, File> conCol;
     @FXML
-    private TableColumn<GiftedFor, String> conNrCol;
+    private TableColumn<DigitalTraded, String> conNrCol;
     @FXML
-    private TableColumn<GiftedFor, LocalDate> conDateCol;
+    private TableColumn<DigitalTraded, LocalDate> conDateCol;
     @FXML
-    private TableColumn<GiftedFor, String> titleCol;
+    private TableColumn<DigitalTraded, String> titleCol;
     @FXML
-    private TableColumn<GiftedFor, String> boekIdCol;
-    @FXML
-    private TableColumn<GiftedFor, String> authorCol;
-    private GiftedForRepo repo;
+    private TableColumn<DigitalTraded, String> authorCol;
+    private DigitalTradeRepo repo;
 
     @Autowired
-    private void setRepo(@Qualifier("giftedForRepo") GiftedForRepo repo) {
+    private void setRepo(@Qualifier("digiTradeRepo") DigitalTradeRepo repo) {
         this.repo = repo;
     }
 
     @FXML
     public void search() throws Exception {
-        ObservableList<GiftedFor> bookList = observableArrayList(repo.findByContractDateBetween(start.getValue(), end.getValue()));
-        if (bookList.isEmpty()) {
-            Warning.alert("No Books found!", "Er werden geen boeken gevonden die tussen " + start.getValue() + " en " + end.getValue() + " werden gedoneerd met tegenprestatie.");
+        ObservableList<DigitalTraded> list = observableArrayList(repo.findByContractDateBetween(start.getValue(), end.getValue()));
+        if (list.isEmpty()) {
+            Warning.alert("No Digitals found!", "Er werden geen digitale dragers gevonden die tussen " + start.getValue() + " en " + end.getValue() + " werden geruild.");
             MenuController.window.close();
         } else {
             MenuController.window.close();
@@ -68,7 +66,6 @@ public class SearchDigitalByTradedOnDateBetween {
             table.setEditable(true);
             idCol.setCellValueFactory(new PropertyValueFactory<>("id"));
             isbnCol.setCellValueFactory(new PropertyValueFactory<>("issbn"));
-            boekIdCol.setCellValueFactory(new PropertyValueFactory<>("bookId"));
             depotCol.setCellValueFactory(new PropertyValueFactory<>("depot"));
             titleCol.setCellValueFactory(new PropertyValueFactory<>("title"));
             authorCol.setCellValueFactory(new PropertyValueFactory<>("authors"));
@@ -76,7 +73,7 @@ public class SearchDigitalByTradedOnDateBetween {
             conDateCol.setCellValueFactory(new PropertyValueFactory<>("contractDate"));
             conNameCol.setCellValueFactory(new PropertyValueFactory<>("name"));
             conCol.setCellValueFactory(new PropertyValueFactory<>("contract"));
-            table.setItems(bookList);
+            table.setItems(list);
             RowFactoryGF.set(table);
         }
     }
