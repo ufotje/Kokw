@@ -3,6 +3,7 @@ package be.kokw.controllers.members.search;
 import be.kokw.bean.Member;
 import be.kokw.controllers.MenuController;
 import be.kokw.repositories.MemberRepo;
+import be.kokw.utility.controller.tables.MemberTable;
 import be.kokw.utility.sceneControl.ChangeScene;
 import be.kokw.utility.validation.Warning;
 import javafx.collections.ObservableList;
@@ -10,7 +11,6 @@ import javafx.fxml.FXML;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
-import javafx.scene.control.cell.PropertyValueFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
@@ -64,19 +64,8 @@ public class MembersByBDay {
         } else {
             ChangeScene.init("/fxml/members/search/tableviewByBDay.fxml", "Zoeken op GeboorteDatum");
             MenuController.window.close();
-            table.setEditable(true);
-            idCol.setCellValueFactory(new PropertyValueFactory<>("id"));
-            firstNameCol.setCellValueFactory(new PropertyValueFactory<>("firstName"));
-            lastNameCol.setCellValueFactory(new PropertyValueFactory<>("lastName"));
-            streetCol.setCellValueFactory(new PropertyValueFactory<>("street"));
-            nrCol.setCellValueFactory(new PropertyValueFactory<>("houseNr"));
-            zipCol.setCellValueFactory(new PropertyValueFactory<>("zip"));
-            cityCol.setCellValueFactory(new PropertyValueFactory<>("city"));
-            mailCol.setCellValueFactory(new PropertyValueFactory<>("email"));
-            bDayCol.setCellValueFactory(new PropertyValueFactory<>("bDay"));
-            payedCol.setCellValueFactory(new PropertyValueFactory<>("payed"));
-            analCol.setCellValueFactory(new PropertyValueFactory<>("anal"));
-            table.setItems(memberList);
+            MemberTable.init(memberList, table, idCol, firstNameCol, lastNameCol, streetCol, nrCol, zipCol, cityCol, mailCol, bDayCol, payedCol, analCol);
+
         }
     }
 }

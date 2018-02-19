@@ -3,6 +3,7 @@ package be.kokw.controllers.members.update;
 import be.kokw.bean.Member;
 import be.kokw.controllers.MenuController;
 import be.kokw.repositories.MemberRepo;
+import be.kokw.utility.autocomplete.TextFieldsMembers;
 import be.kokw.utility.sceneControl.ChangeScene;
 import be.kokw.utility.validation.Validation;
 import be.kokw.utility.validation.Warning;
@@ -29,6 +30,10 @@ public class UpdateMember {
     @Autowired
     private void setRepo(@Qualifier("memberRepo") MemberRepo repo) {
         this.repo = repo;
+    }
+
+    public void initialize() {
+        TextFieldsMembers.autoCompleteAll(repo.findAll(), firstName, lastName, street, city);
     }
 
     @FXML

@@ -9,8 +9,8 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Region?>
 
-<AnchorPane xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="be.kokw.controllers.books.update.UpdateBook">
-    <DialogPane headerText="Update een Boek" layoutX="50.0" layoutY="50.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="237.0" prefWidth="480.0">
+<AnchorPane xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="be.kokw.controllers.digital.update.UpdateDigital">
+    <DialogPane headerText="Update een Digitale Drager" layoutX="50.0" layoutY="50.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="237.0" prefWidth="480.0">
         <header>
             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="185.0" prefWidth="505.0">
                 <HBox alignment="CENTER" layoutY="69.0" prefHeight="30.0" prefWidth="480.0">

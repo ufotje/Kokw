@@ -13,7 +13,7 @@ public class Gifted implements Serializable{
     private long id;
     private String name;
     private LocalDate giftedOn;
-    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinColumn(name = "book_id", referencedColumnName = "id", nullable = false)
     private Book book;
     private String issbn;

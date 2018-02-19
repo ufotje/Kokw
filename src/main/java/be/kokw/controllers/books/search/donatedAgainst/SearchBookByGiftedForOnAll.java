@@ -72,7 +72,6 @@ public class SearchBookByGiftedForOnAll {
             conNameCol.setCellValueFactory(new PropertyValueFactory<>("name"));
             conCol.setCellValueFactory(new PropertyValueFactory<>("contract"));
             table.setItems(bookList);
-
             RowFactoryGF.set(table);
         }
     }

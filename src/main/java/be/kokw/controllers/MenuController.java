@@ -2,6 +2,7 @@ package be.kokw.controllers;
 
 import be.kokw.bean.*;
 import be.kokw.repositories.MemberRepo;
+import be.kokw.utility.controller.tables.MemberTable;
 import be.kokw.utility.sceneControl.ChangeScene;
 import be.kokw.utility.sceneControl.NewStage;
 import be.kokw.utility.validation.Warning;
@@ -28,16 +29,7 @@ import static javafx.collections.FXCollections.observableArrayList;
 public class MenuController {
     public static Stage window;
     private MemberRepo memberRepo;
-    @FXML
-    private TableView<Member> table;
-    @FXML
-    private TableColumn<Member, Integer> idCol, nrCol, zipCol;
-    @FXML
-    private TableColumn<Member, String> firstNameCol, lastNameCol, streetCol, cityCol, mailCol;
-    @FXML
-    private TableColumn<Member, LocalDate> bDayCol;
-    @FXML
-    private TableColumn<Member, Boolean> payedCol, analCol;
+
 
     @Autowired
     private void setMemberRepo(@Qualifier("memberRepo") MemberRepo memberRepo) {
@@ -123,7 +115,7 @@ public class MenuController {
 
     @FXML
     private void findByGiftedOnAll() {
-        ChangeScene.init("/fxml/books/found/donated/tableviewByGiftedOnAll.fxml", "Alle boeken die werden gedonneeerd");
+        ChangeScene.init("/fxml/books/found/gifted/tableviewByGiftedOnAll.fxml", "Alle boeken die werden gedonneeerd");
     }
 
     @FXML
@@ -340,10 +332,13 @@ public class MenuController {
 
     @FXML
     private void digiDonatedBy() {
+        window = NewStage.getStage("Alle gedoneerde digitale dragers gedoneerd door", "/fxml/digital/search/donated/donatedBy.fxml");
+        window.show();
     }
 
     @FXML
     private void digiTradedAll() {
+        ChangeScene.init( "/fxml/books/found/giftedFor/tableviewGiftedForOnAll.fxml","Alle geruilde digitale dragers");
     }
 
     @FXML
@@ -354,10 +349,14 @@ public class MenuController {
 
     @FXML
     private void digiTradedBetween() {
+        window = NewStage.getStage("Geruilde digitale dragers tussen", "/fxml/digital/search/traded/byGiftedForOnBetweenDialog.fxml");
+        window.show();
     }
 
     @FXML
     private void digiTradedWith() {
+        window = NewStage.getStage("Digitale dragers geruild met", "/fxml/digital/search/traded/byGiftedForOnName.fxml");
+        window.show();
     }
 
 
@@ -425,31 +424,12 @@ public class MenuController {
 
     @FXML
     private void findMemberByAnalen() {
-        ObservableList<Member> memberList = observableArrayList(memberRepo.findByAnalIsFalse());
-        if (memberList.isEmpty()) {
-            Warning.alert("No Members found!", "Er werden geen leden gevonden die hun Analen nog niet ontvangen hebben!");
-        } else {
-            String title = "Zoeken op Analen niet ontvangen";
-            initTable(title, memberList);
+        ChangeScene.init("/fxml/members/search/tableviewAnal.fxml", "Leden die geen annalen ontvangen hebben.");
 
-        }
     }
 
     private void initTable(String title, ObservableList<Member> memberList) {
-        ChangeScene.init("/fxml/members/search/tableviewAnal.fxml", title);
-        table.setEditable(true);
-        idCol.setCellValueFactory(new PropertyValueFactory<>("id"));
-        firstNameCol.setCellValueFactory(new PropertyValueFactory<>("firstName"));
-        lastNameCol.setCellValueFactory(new PropertyValueFactory<>("lastName"));
-        streetCol.setCellValueFactory(new PropertyValueFactory<>("street"));
-        nrCol.setCellValueFactory(new PropertyValueFactory<>("houseNr"));
-        zipCol.setCellValueFactory(new PropertyValueFactory<>("zip"));
-        cityCol.setCellValueFactory(new PropertyValueFactory<>("city"));
-        mailCol.setCellValueFactory(new PropertyValueFactory<>("email"));
-        bDayCol.setCellValueFactory(new PropertyValueFactory<>("bDay"));
-        payedCol.setCellValueFactory(new PropertyValueFactory<>("payed"));
-        analCol.setCellValueFactory(new PropertyValueFactory<>("anal"));
-        table.setItems(memberList);
+
     }
 
     //Update Member

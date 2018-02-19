@@ -88,7 +88,7 @@ public class AddBook {
         ObservableList<Integer> volumes = FXCollections.observableArrayList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
         volume.setItems(volumes);
         volume.setValue(1);
-        BookTextFields.autocomplete(repo, title, author, subTitle, publisher);
+        BookTextFields.autocomplete(repo.findAll(), title, author, subTitle, publisher);
     }
 
     @FXML
@@ -129,13 +129,13 @@ public class AddBook {
 
     @FXML
     private void addSubTitle() {
-        subTitles = AddSubtitle.addSubtitles(subTitle);
+        subTitles.append(AddSubtitle.addSubtitles(subTitle));
         subTitle.clear();
     }
 
     @FXML
     private void addAuthor() {
-        authors = AddAuthor.add(author.getText());
+        authors.append(AddAuthor.add(author.getText()));
         author.clear();
     }
 

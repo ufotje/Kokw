@@ -3,10 +3,12 @@ package be.kokw.controllers.books.search.other;
 import be.kokw.bean.books.Book;
 import be.kokw.controllers.MenuController;
 import be.kokw.repositories.books.BookRepo;
+import be.kokw.utility.controller.tables.BookTable;
 import be.kokw.utility.sceneControl.ChangeScene;
 import be.kokw.utility.validation.Warning;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -21,7 +23,9 @@ import static javafx.collections.FXCollections.observableArrayList;
 @Component
 public class SearchBookByIssbn {
     @FXML
-    TextField isbn;
+    private TextField isbn;
+    @FXML
+    private Button button;
     @FXML
     private TableView<Book> table;
     @FXML
@@ -59,8 +63,12 @@ public class SearchBookByIssbn {
         bookRepo = repo;
     }
 
+    public void initialize() {
+        button.setOnAction(event -> search());
+    }
+
     @FXML
-    public void search() throws Exception {
+    public void search() {
         ObservableList<Book> bookList = observableArrayList(bookRepo.findByIsbn(isbn.getText()));
         if (bookList.isEmpty()) {
             Warning.alert("No Books found!", "Er werden geen boeken gevonden met " + isbn.getText() + " als isbnnummer.");
@@ -68,22 +76,8 @@ public class SearchBookByIssbn {
         } else {
             MenuController.window.close();
             ChangeScene.init("/fxml/books/found/other/tableviewByIsbn.fxml", "Books by IsbnNumber");
-            table.setEditable(true);
-            idCol.setCellValueFactory(new PropertyValueFactory<>("id"));
-            isbnCol.setCellValueFactory(new PropertyValueFactory<>("isbn"));
-            depotCol.setCellValueFactory(new PropertyValueFactory<>("depot"));
-            titleCol.setCellValueFactory(new PropertyValueFactory<>("title"));
-            editionCol.setCellValueFactory(new PropertyValueFactory<>("edition"));
-            volumeCol.setCellValueFactory(new PropertyValueFactory<>("volume"));
-            topicCol.setCellValueFactory(new PropertyValueFactory<>("topics"));
-            authorCol.setCellValueFactory(new PropertyValueFactory<>("authors"));
-            subTitleCol.setCellValueFactory(new PropertyValueFactory<>("subtitles"));
-            publisherCol.setCellValueFactory(new PropertyValueFactory<>("publisher"));
-            yearCol.setCellValueFactory(new PropertyValueFactory<>("yearPublished"));
-            pagesCol.setCellValueFactory(new PropertyValueFactory<>("nrOfPages"));
-            illusCol.setCellValueFactory(new PropertyValueFactory<>("illustrated"));
-            copiesCol.setCellValueFactory(new PropertyValueFactory<>("copies"));
-            table.setItems(bookList);
+            BookTable.init(table, idCol, isbnCol, depotCol, titleCol, editionCol, volumeCol, topicCol, authorCol,
+                    subTitleCol, publisherCol, yearCol, pagesCol, illusCol, copiesCol, bookList);
         }
     }
 }

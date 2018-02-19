@@ -8,16 +8,20 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Region?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="be.kokw.controllers.books.search.other.SearchBookByIssbn">
-    <DialogPane headerText="Zoek op Onderwerp" layoutX="50.0" layoutY="50.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="480.0">
+    <DialogPane headerText="Zoek op Onderwerp" layoutX="50.0" layoutY="50.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="250.0" prefWidth="480.0">
         <header>
             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="185.0" prefWidth="505.0">
                 <HBox alignment="CENTER" layoutY="69.0" prefHeight="30.0" prefWidth="480.0">
-                    <Label text="ISBN v/h Boek:" />
-                    <TextField fx:id="isbn" alignment="CENTER" prefHeight="31.0" prefWidth="318.0">
+                    <Label text="ISBN v/h Boek:">
+                  <HBox.margin>
+                     <Insets top="40.0" />
+                  </HBox.margin></Label>
+                    <TextField fx:id="isbn" alignment="CENTER" onAction="#search" prefHeight="31.0" prefWidth="318.0">
                         <HBox.margin>
-                            <Insets left="30.0" />
+                            <Insets left="30.0" top="40.0" />
                         </HBox.margin>
                     </TextField>
                 </HBox>
@@ -26,8 +30,10 @@
         </header>
         <content>
             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="320.0">
-                <Button layoutX="215.0" layoutY="-1.0" mnemonicParsing="false" onAction="#search" text="Zoek" />
-               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="320.0" />
+                <Button fx:id="button" alignment="CENTER" contentDisplay="CENTER" layoutX="215.0" layoutY="-1.0" mnemonicParsing="false" onAction="#search" onMouseClicked="#search" style="-fx-background-radius: 10;" text="Zoek" textAlignment="CENTER">
+               <font>
+                  <Font size="16.0" />
+               </font></Button>
             </AnchorPane>
         </content>
     </DialogPane>

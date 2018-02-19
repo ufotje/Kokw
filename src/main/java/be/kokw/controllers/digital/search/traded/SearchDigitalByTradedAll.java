@@ -2,6 +2,7 @@ package be.kokw.controllers.digital.search.traded;
 
 import be.kokw.bean.digital.DigitalTraded;
 import be.kokw.repositories.digital.DigitalTradeRepo;
+import be.kokw.utility.rowFactories.RowFactoryDigitalTraded;
 import be.kokw.utility.rowFactories.RowFactoryGF;
 import be.kokw.utility.validation.Warning;
 import javafx.collections.ObservableList;
@@ -65,7 +66,7 @@ public class SearchDigitalByTradedAll {
             conNameCol.setCellValueFactory(new PropertyValueFactory<>("name"));
             conCol.setCellValueFactory(new PropertyValueFactory<>("contract"));
             table.setItems(tradedList);
-            RowFactoryGF.set(table);
+            RowFactoryDigitalTraded.set(table);
         }
     }
 }

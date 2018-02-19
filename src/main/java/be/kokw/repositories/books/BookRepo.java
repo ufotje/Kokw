@@ -49,6 +49,9 @@ public interface BookRepo extends JpaRepository<Book, Integer> {
     List<Book> findByPublisher(String Publisher);
 
     @Transactional
+    List<Book> findByGiftedIsTrue();
+
+    @Transactional
     int deleteByTitle(String title);
 
   //  @Query("select b.authors from books b where b.authors like '%:name%'")

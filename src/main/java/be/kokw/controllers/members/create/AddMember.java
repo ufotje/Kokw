@@ -9,6 +9,7 @@ import be.fedict.commons.eid.consumer.tlv.TlvParser;
 import be.fedict.commons.eid.consumer.Address;
 import be.kokw.bean.Member;
 import be.kokw.repositories.MemberRepo;
+import be.kokw.utility.autocomplete.TextFieldsMembers;
 import be.kokw.utility.sceneControl.ChangeScene;
 import be.kokw.utility.validation.Validation;
 import be.kokw.utility.validation.Warning;
@@ -59,6 +60,7 @@ public class AddMember {
 
     @FXML
     private void initialize(){
+        TextFieldsMembers.autoCompleteAll(repo.findAll(), firstName, lastName, street, city);
         ObservableList<Character> list =  FXCollections.observableArrayList('M', 'V');
         gender.setItems(list);
     }
@@ -132,7 +134,7 @@ public class AddMember {
                     String[] nameSplit = id.firstName.split(" ");
                     firstName.setText(nameSplit[0]);
                     lastName.setText(id.name);
-                    System.out.println(id.gender);
+                    gender.setValue(id.gender.toString().charAt(0));
                     LocalDate date = id.dateOfBirth.toZonedDateTime().toLocalDate();
                     bDay.setValue(date);
                 } catch (final CardException cex) {

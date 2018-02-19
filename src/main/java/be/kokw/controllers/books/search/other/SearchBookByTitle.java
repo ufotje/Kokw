@@ -68,8 +68,7 @@ public class SearchBookByTitle {
     public void search() throws Exception {
         if(Validation.emptyValidation("Titel",title.getText().isEmpty())){
             ObservableList<Book> bookList = observableArrayList(bookRepo.findByTitle(title.getText()));
-            if(bookList.get(0) != null){
-
+            if(!bookList.isEmpty()){
                 MenuController.window.close();
                 ChangeScene.init("/fxml/books/found/other/tableViewByTitle.fxml", "Books by Title");
                 table.setEditable(true);

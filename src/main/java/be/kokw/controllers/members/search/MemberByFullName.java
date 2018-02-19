@@ -3,6 +3,8 @@ package be.kokw.controllers.members.search;
 import be.kokw.bean.Member;
 import be.kokw.controllers.MenuController;
 import be.kokw.repositories.MemberRepo;
+import be.kokw.utility.autocomplete.TextFieldsMembers;
+import be.kokw.utility.controller.tables.MemberTable;
 import be.kokw.utility.sceneControl.ChangeScene;
 import be.kokw.utility.validation.Validation;
 import be.kokw.utility.validation.Warning;
@@ -11,7 +13,6 @@ import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
-import javafx.scene.control.cell.PropertyValueFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
@@ -60,6 +61,10 @@ public class MemberByFullName {
         this.repo = repo;
     }
 
+    public void initialize() {
+        TextFieldsMembers.autoCompletNames(repo.findAll(), firstName, lastName);
+    }
+
     @FXML
     public void search() throws Exception {
         if (Validation.validate("Achternaam", lastName.getText(), "[a-zA-Z ]+") &&
@@ -72,19 +77,7 @@ public class MemberByFullName {
             } else {
                 ChangeScene.init("/fxml/members/search/tableviewByFullName.fxml", "Zoeken op volledige naam");
                 MenuController.window.close();
-                table.setEditable(true);
-                idCol.setCellValueFactory(new PropertyValueFactory<>("id"));
-                firstNameCol.setCellValueFactory(new PropertyValueFactory<>("firstName"));
-                lastNameCol.setCellValueFactory(new PropertyValueFactory<>("lastName"));
-                streetCol.setCellValueFactory(new PropertyValueFactory<>("street"));
-                nrCol.setCellValueFactory(new PropertyValueFactory<>("houseNr"));
-                zipCol.setCellValueFactory(new PropertyValueFactory<>("zip"));
-                cityCol.setCellValueFactory(new PropertyValueFactory<>("city"));
-                mailCol.setCellValueFactory(new PropertyValueFactory<>("email"));
-                bDayCol.setCellValueFactory(new PropertyValueFactory<>("birthday"));
-                payedCol.setCellValueFactory(new PropertyValueFactory<>("payed"));
-                analCol.setCellValueFactory(new PropertyValueFactory<>("anal"));
-                table.setItems(memberList);
+                MemberTable.init(memberList, table, idCol, firstNameCol, lastNameCol, streetCol, nrCol, zipCol, cityCol, mailCol, bDayCol, payedCol, analCol);
             }
         }
     }

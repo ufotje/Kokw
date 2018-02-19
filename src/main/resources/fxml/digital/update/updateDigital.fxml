@@ -1,21 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.Cursor?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.control.Tooltip?>
-<?import javafx.scene.effect.InnerShadow?>
 <?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Font?>
 
 <BorderPane fx:id="borderPane" prefHeight="600.0" prefWidth="800.0" style="-fx-background-image: url('/images/achtergrond.jpg');
 -fx-background-position: center; -fx-background-repeat: no-repeat; -fx-background-size: cover;"
             xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="be.kokw.controllers.books.update.UpdateBook">
+            fx:controller="be.kokw.controllers.digital.update.UpdateDigital">
     <top>
         <VBox BorderPane.alignment="CENTER">
             <fx:include source="/fxml/menu.fxml" />

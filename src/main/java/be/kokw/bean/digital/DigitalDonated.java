@@ -14,7 +14,7 @@ public class DigitalDonated implements Serializable{
     private long id;
     private String name;
     private LocalDate giftedOn;
-    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
+    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "digital_id", referencedColumnName = "id", nullable = false)
     private Digital digital;
     private String depot;

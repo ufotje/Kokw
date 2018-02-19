@@ -1,6 +1,7 @@
 package be.kokw.repositories.books;
 
 import be.kokw.bean.Copies;
+import be.kokw.bean.books.Book;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

@@ -9,6 +9,8 @@ import be.kokw.repositories.books.GiftedForRepo;
 import be.kokw.repositories.books.GiftedRepo;
 import be.kokw.utility.sceneControl.ChangeScene;
 import be.kokw.utility.controller.FileSelector;
+import be.kokw.utility.controller.GetHbox;
+import be.kokw.utility.controller.SetTextField;
 import be.kokw.utility.validation.Warning;
 import javafx.fxml.FXML;
 import javafx.geometry.Insets;
@@ -57,53 +59,53 @@ public class UpdateBook {
 
     @FXML
     public void search() {
+        MenuController.window.close();
         book = repo.findOne(Integer.parseInt(id.getText()));
         if (book != null) {
-            MenuController.window.close();
-            ChangeScene.init("/fxml/digital/update/updateBook.fxml", "Boek updaten!");
+            ChangeScene.init("/fxml/books/update/updateBook.fxml", "Boek updaten!");
             VBox vBox = new VBox();
             vBox.setAlignment(Pos.CENTER);
-            HBox hb1 = getHBox("Titel:");
-            setTextfield(hb1, book.getTitle());
+            HBox hb1 = GetHbox.get("Titel:");
+            SetTextField.set(hb1, book.getTitle());
             HBox.setMargin(hb1, new Insets(100, 0, 0, 0));
             vBox.getChildren().add(hb1);
 
             String[] subTitles = book.getSubtitles().split("\n");
-            HBox hBox = getHBox("Ondertitel:");
+            HBox hBox = GetHbox.get("Ondertitel:");
             for (String s : subTitles) {
-                setTextfield(hBox, s);
+                SetTextField.set(hBox, s);
             }
             vBox.getChildren().add(hBox);
 
             String[] authors = book.getAuthors().split("\n");
-            HBox hb3 = getHBox("Auteurs:");
+            HBox hb3 = GetHbox.get("Auteurs:");
             for (String author : authors) {
-                setTextfield(hb3, author);
+                SetTextField.set(hb3, author);
             }
             vBox.getChildren().add(hb3);
 
             String[] topics = book.getTopics().split("\n");
-            HBox hb2 = getHBox("Onderwerpen:");
+            HBox hb2 = GetHbox.get("Onderwerpen:");
             for (String topic : topics) {
-                setTextfield(hb2, topic);
+                SetTextField.set(hb2, topic);
             }
             vBox.getChildren().add(hb2);
 
-            HBox hb4 = getHBox("Uitgeverij:");
-            setTextfield(hb4, book.getPublisher());
+            HBox hb4 = GetHbox.get("Uitgeverij:");
+            SetTextField.set(hb4, book.getPublisher());
             Label label5 = new Label("Jaar van Uitgave:");
             hb4.getChildren().add(label5);
             HBox.setMargin(label5, new Insets(0, 20, 30, 50));
-            setTextfield(hb4, "" + book.getYearPublished());
+            SetTextField.set(hb4, "" + book.getYearPublished());
             Label label6 = new Label("Aantal Pagina's:");
             hb4.getChildren().add(label6);
             HBox.setMargin(label6, new Insets(0, 20, 30, 50));
-            setTextfield(hb4, "" + book.getNrOfPages());
+            SetTextField.set(hb4, "" + book.getNrOfPages());
             vBox.getChildren().add(hb4);
 
             if (book.isGifted()) {
                 gifted = giftedRepo.findByBookId(book.getId());
-                HBox hb7 = getHBox("Naam Gifter:");
+                HBox hb7 = GetHbox.get("Naam Gifter:");
                 TextField textField7 = new TextField();
                 textField7.setAlignment(Pos.CENTER);
                 textField7.setText(gifted.getName());
@@ -112,7 +114,7 @@ public class UpdateBook {
                 HBox.setMargin(textField7, new Insets(0, 0, 30, 0));
                 vBox.getChildren().add(hb7);
 
-                HBox hb8 = getHBox("Datum gift:");
+                HBox hb8 = GetHbox.get("Datum gift:");
                 DatePicker date = new DatePicker();
                 date.setValue(gifted.getGiftedOn());
                 date.valueProperty().addListener((observable, oldValue, newValue) -> gifted.setGiftedOn(date.getValue()));
@@ -122,7 +124,7 @@ public class UpdateBook {
             }
 
             if (book.getBoughtOn() != null) {
-                HBox hb9 = getHBox("Datum Aankoop:");
+                HBox hb9 = GetHbox.get("Datum Aankoop:");
                 DatePicker date2 = new DatePicker();
                 date2.setValue(book.getBoughtOn());
                 date2.valueProperty().addListener((observable, oldValue, newValue) -> book.setBoughtOn(newValue));
@@ -133,11 +135,11 @@ public class UpdateBook {
 
             if (book.isGiftedFor()) {
                 giftedFor = giftedForRepo.findByBookId(book.getId());
-                HBox hb10 = getHBox("ContractNummer:");
+                HBox hb10 = GetHbox.get("ContractNummer:");
                 TextField textField10 = new TextField();
                 textField10.setAlignment(Pos.CENTER);
                 textField10.setText(giftedFor.getContractNr());
-                textField10.textProperty().addListener((observable, oldValue, newValue) ->{
+                textField10.textProperty().addListener((observable, oldValue, newValue) -> {
                     giftedFor.setContractNr(newValue);
                     System.out.println("Contractnummer changed");
                 });
@@ -151,7 +153,7 @@ public class UpdateBook {
                 HBox.setMargin(date3, new Insets(0, 0, 30, 0));
                 vBox.getChildren().add(hb10);
 
-                HBox hb11 = getHBox("Contractant:");
+                HBox hb11 = GetHbox.get("Contractant:");
                 TextField textField11 = new TextField();
                 textField11.setAlignment(Pos.CENTER);
                 textField11.setText(giftedFor.getName());
@@ -190,7 +192,7 @@ public class UpdateBook {
         }
     }
 
-
+    @FXML
     private void update() {
         if (book.isGifted()) {
             giftedRepo.saveAndFlush(gifted);
@@ -202,23 +204,5 @@ public class UpdateBook {
             giftedForRepo.saveAndFlush(giftedFor);
         }
         ChangeScene.init("/fxml/home.fxml", "KOKW - Het Verleden Draait Altijd Mee!");
-    }
-
-    private HBox getHBox(String value) {
-        HBox hBox = new HBox();
-        hBox.setAlignment(Pos.CENTER);
-        Label label1 = new Label(value);
-        hBox.getChildren().add(label1);
-        HBox.setMargin(label1, new Insets(0, 20, 30, 100));
-        return hBox;
-    }
-
-    private void setTextfield(HBox hBox, String value) {
-        TextField textField = new TextField();
-        textField.setAlignment(Pos.CENTER);
-        textField.setText(value);
-        textField.setOnMouseClicked(event -> Warning.alert("Error!", "Dit veld kan niet aangepast worden!"));
-        HBox.setMargin(textField, new Insets(0, 0, 30, 0));
-        hBox.getChildren().add(textField);
     }
 }
