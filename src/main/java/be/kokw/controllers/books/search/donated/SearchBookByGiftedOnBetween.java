@@ -92,13 +92,7 @@ public class SearchBookByGiftedOnBetween {
             ChangeScene.init("/fxml/books/found/gifted/tableviewGiftedOnBetween.fxml", "Books by Donated between" + start.getValue() + "and " + end.getValue());
             BookTable.init(table, idCol, isbnCol, depotCol, titleCol, editionCol, volumeCol, topicCol, authorCol,
                     subTitleCol, publisherCol, yearCol, pagesCol, illusCol, copiesCol, bookList);
-            window = NewStage.getStage("DonatieDetails", "/fxml/books/found/gifted/giftedDetailsBetween.fxml");
-            RowFactoryGiftedBooks.set(table, firstName, lastName, dateValue, repo, window);
+            RowFactoryGiftedBooks.set(table, firstName, lastName, dateValue, repo);
         }
-    }
-
-    @FXML
-    private void close(){
-        window.close();
     }
 }

@@ -68,13 +68,7 @@ public class SearchDigitalByDonatedAll {
             Warning.alert("No Digital Carriers found!", "Er werden geen digitale dragers gevonden met die werden gedoneerd");
         } else {
             DigitalTable.init(table, idCol, depotCol, volumeCol, titleCol, topicCol, authorCol, subTitleCol, publisherCol, yearCol, digiList);
-            window = NewStage.getStage("DonateDetails","/fxml/digital/found/donated/digitalDonateDetails.fxml");
-            RowFactoryDigitalDonated.setFactory(table, donateRepo, firstName, lastName, date, window);
+            RowFactoryDigitalDonated.setFactory(table, donateRepo, firstName, lastName, date);
         }
-    }
-
-    @FXML
-    private void closeDetails() {
-        window.close();
     }
 }

@@ -3,17 +3,13 @@ package be.kokw.utility.rowFactories;
 import be.kokw.bean.digital.Digital;
 import be.kokw.bean.digital.DigitalDonated;
 import be.kokw.repositories.digital.DigitalDonateRepo;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.TableRow;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.input.MouseButton;
-import javafx.stage.Stage;
 
 @SuppressWarnings("unchecked")
 public interface RowFactoryDigitalDonated {
 
-    static void setFactory(TableView table, DigitalDonateRepo donateRepo, TextField firstName, TextField lastName, DatePicker date, Stage window){
+    static void setFactory(TableView table, DigitalDonateRepo donateRepo, TextField firstName, TextField lastName, DatePicker date){
         table.setRowFactory(tv -> {
             TableRow<Digital> row = new TableRow<>();
             row.setOnMouseClicked(event -> {
@@ -22,7 +18,6 @@ public interface RowFactoryDigitalDonated {
                     Digital clickedRow = row.getItem();
                     if (clickedRow != null) {
                         DigitalDonated donated = donateRepo.findByDigital(clickedRow);
-                        window.show();
                         String[] fullName = donated.getName().split(" ");
                         StringBuilder sb = new StringBuilder();
                         for (int i = 0; i < fullName.length; i++) {
@@ -35,6 +30,7 @@ public interface RowFactoryDigitalDonated {
                         }
                         lastName.setText(sb.toString());
                         date.setValue(donated.getGiftedOn());
+                        AllDetailWindow.create(firstName, lastName, date);
                     }
                 }
             });

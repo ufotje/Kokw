@@ -88,16 +88,9 @@ public class SearchBookByGiftedOnAll {
         if (bookList.isEmpty()) {
             Warning.alert("No Books found!", "Er werden geen boeken gevonden die werden gedoneerd.");
         } else {
-            ChangeScene.init("/fxml/books/found/gifted/tableviewByGiftedOnAll.fxml", "All Donated Books");
             BookTable.init(table, idCol, isbnCol, depotCol, titleCol, editionCol, volumeCol, topicCol, authorCol,
                     subTitleCol, publisherCol, yearCol, pagesCol, illusCol, copiesCol, bookList);
-            window = NewStage.getStage("DonatieDetails", "/fxml/books/found/gifted/giftedAllDetails.fxml");
-            RowFactoryGiftedBooks.set(table, firstName, lastName, dateValue, repo, window);
+            RowFactoryGiftedBooks.set(table, firstName, lastName, dateValue, repo);
         }
-    }
-
-    @FXML
-    private void close(){
-        window.close();
     }
 }

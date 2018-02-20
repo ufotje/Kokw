@@ -3,7 +3,6 @@ package be.kokw.utility.rowFactories;
 import be.kokw.bean.books.Book;
 import be.kokw.bean.books.Gifted;
 import be.kokw.repositories.books.GiftedRepo;
-import be.kokw.utility.sceneControl.NewStage;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
@@ -13,7 +12,7 @@ import javafx.stage.Stage;
 
 
 public interface RowFactoryGiftedBooks {
-    static void set(TableView table, TextField firstName, TextField lastName, DatePicker date, GiftedRepo repo, Stage window) {
+    static void set(TableView table, TextField firstName, TextField lastName, DatePicker date, GiftedRepo repo) {
         table.setRowFactory(tv -> {
             TableRow<Book> row = new TableRow<>();
             row.setOnMouseClicked(event -> {
@@ -30,7 +29,7 @@ public interface RowFactoryGiftedBooks {
                     }
                     lastName.setText(sb.toString());
                     date.setValue(gifted.getGiftedOn());
-                    window.show();
+                    AllDetailWindow.create(firstName, lastName, date);
                 }
             });
             return row;

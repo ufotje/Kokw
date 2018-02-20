@@ -28,7 +28,7 @@ public class ShowContract {
             System.setProperty("java.awt.headless", "true");
             if (FilenameUtils.getExtension(file.getAbsolutePath()).equalsIgnoreCase("pdf")) {
                 try {
-                    java.util.List<BufferedImage> bufferedImage = PdfToImage.convert(file);
+                    List<BufferedImage> bufferedImage = PdfToImage.convert(file);
                     showImage(bufferedImage);
                 } catch (IOException e) {
                     e.printStackTrace();
