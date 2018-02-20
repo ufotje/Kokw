@@ -18,4 +18,7 @@ public interface DigitalDonateRepo extends JpaRepository<DigitalDonated,Integer>
 
     @Transactional
     List<DigitalDonated> findByGiftedOnBetween(LocalDate start, LocalDate end);
+
+    @Transactional
+    List<DigitalDonated> findByGiftedOn(LocalDate date);
 }

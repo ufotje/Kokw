@@ -3,6 +3,7 @@ package be.kokw.controllers.digital.search.donated;
 import be.kokw.bean.digital.Digital;
 import be.kokw.repositories.digital.DigitalDonateRepo;
 import be.kokw.repositories.digital.DigitalRepo;
+import be.kokw.utility.controller.tables.DigitalTable;
 import be.kokw.utility.sceneControl.NewStage;
 import be.kokw.utility.rowFactories.RowFactoryDigitalDonated;
 import be.kokw.utility.validation.Warning;
@@ -62,22 +63,11 @@ public class SearchDigitalByDonatedAll {
 
     @FXML
     public void initialize(){
-        ObservableList<Digital> bookList = observableArrayList(digitalRepo.findByDonatedIsTrue());
-        if (bookList.isEmpty()) {
+        ObservableList<Digital> digiList = observableArrayList(digitalRepo.findByDonatedIsTrue());
+        if (digiList.isEmpty()) {
             Warning.alert("No Digital Carriers found!", "Er werden geen digitale dragers gevonden met die werden gedoneerd");
-
         } else {
-            table.setEditable(true);
-            idCol.setCellValueFactory(new PropertyValueFactory<>("id"));
-            depotCol.setCellValueFactory(new PropertyValueFactory<>("depot"));
-            titleCol.setCellValueFactory(new PropertyValueFactory<>("title"));
-            volumeCol.setCellValueFactory(new PropertyValueFactory<>("volume"));
-            topicCol.setCellValueFactory(new PropertyValueFactory<>("topics"));
-            authorCol.setCellValueFactory(new PropertyValueFactory<>("authors"));
-            subTitleCol.setCellValueFactory(new PropertyValueFactory<>("subtitles"));
-            publisherCol.setCellValueFactory(new PropertyValueFactory<>("publisher"));
-            yearCol.setCellValueFactory(new PropertyValueFactory<>("yearPublished"));
-            table.setItems(bookList);
+            DigitalTable.init(table, idCol, depotCol, volumeCol, titleCol, topicCol, authorCol, subTitleCol, publisherCol, yearCol, digiList);
             window = NewStage.getStage("DonateDetails","/fxml/digital/found/donated/digitalDonateDetails.fxml");
             RowFactoryDigitalDonated.setFactory(table, donateRepo, firstName, lastName, date, window);
         }

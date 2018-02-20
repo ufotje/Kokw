@@ -4,6 +4,7 @@ import be.kokw.bean.digital.Digital;
 import be.kokw.bean.digital.DigitalDonated;
 import be.kokw.controllers.MenuController;
 import be.kokw.repositories.digital.DigitalDonateRepo;
+import be.kokw.utility.controller.tables.DigitalTable;
 import be.kokw.utility.sceneControl.ChangeScene;
 import be.kokw.utility.sceneControl.NewStage;
 import be.kokw.utility.rowFactories.RowFactoryDigitalDonated;
@@ -66,23 +67,13 @@ public class SearchDigitalByDonatedBetween {
         for (DigitalDonated donated : donateList) {
             digiList.add(donated.getDigital());
         }
-        if (donateList.isEmpty()) {
+        if (digiList.isEmpty()) {
             Warning.alert("No Digital Carriers found!", "Er werden geen digitale dragers gevonden met die werden gedoneerd");
             MenuController.window.close();
         } else {
             MenuController.window.close();
             ChangeScene.init("/fxml/digital/found/donated/tableviewGiftedOnBetween.fxml", "Donated digital carriers between " + start.getValue() + " and " + end.getValue());
-            table.setEditable(true);
-            idCol.setCellValueFactory(new PropertyValueFactory<>("id"));
-            depotCol.setCellValueFactory(new PropertyValueFactory<>("depot"));
-            titleCol.setCellValueFactory(new PropertyValueFactory<>("title"));
-            volumeCol.setCellValueFactory(new PropertyValueFactory<>("volume"));
-            topicCol.setCellValueFactory(new PropertyValueFactory<>("topics"));
-            authorCol.setCellValueFactory(new PropertyValueFactory<>("authors"));
-            subTitleCol.setCellValueFactory(new PropertyValueFactory<>("subtitles"));
-            publisherCol.setCellValueFactory(new PropertyValueFactory<>("publisher"));
-            yearCol.setCellValueFactory(new PropertyValueFactory<>("yearPublished"));
-            table.setItems(digiList);
+            DigitalTable.init(table, idCol, depotCol, volumeCol, titleCol, topicCol, authorCol, subTitleCol, publisherCol, yearCol, digiList);
             window = NewStage.getStage("DonateDetails", "/fxml/digital/found/donated/digitalDonateDetailsBetween.fxml");
             RowFactoryDigitalDonated.setFactory(table, donateRepo, firstName, lastName, date, window);
         }

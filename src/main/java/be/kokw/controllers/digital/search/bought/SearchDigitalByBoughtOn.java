@@ -3,6 +3,7 @@ package be.kokw.controllers.digital.search.bought;
 import be.kokw.bean.digital.Digital;
 import be.kokw.controllers.MenuController;
 import be.kokw.repositories.digital.DigitalRepo;
+import be.kokw.utility.controller.tables.DigitalTable;
 import be.kokw.utility.sceneControl.ChangeScene;
 import be.kokw.utility.validation.Warning;
 import javafx.collections.ObservableList;
@@ -62,18 +63,9 @@ public class SearchDigitalByBoughtOn {
         } else {
             MenuController.window.close();
             ChangeScene.init("/fxml/digital/found/bought/tableviewByBoughtOn.fxml", "Digitals by Bought on");
-            table.setEditable(true);
-            idCol.setCellValueFactory(new PropertyValueFactory<>("id"));
-            depotCol.setCellValueFactory(new PropertyValueFactory<>("depot"));
-            titleCol.setCellValueFactory(new PropertyValueFactory<>("title"));
-            volumeCol.setCellValueFactory(new PropertyValueFactory<>("volume"));
-            topicCol.setCellValueFactory(new PropertyValueFactory<>("topics"));
-            authorCol.setCellValueFactory(new PropertyValueFactory<>("authors"));
-            subTitleCol.setCellValueFactory(new PropertyValueFactory<>("subtitles"));
-            publisherCol.setCellValueFactory(new PropertyValueFactory<>("publisher"));
-            yearCol.setCellValueFactory(new PropertyValueFactory<>("yearPublished"));
             boughtCol.setCellValueFactory(new PropertyValueFactory<>("boughtOn"));
-            table.setItems(digiList);
+            DigitalTable.init(table, idCol, depotCol, volumeCol, titleCol, topicCol, authorCol, subTitleCol, publisherCol, yearCol, digiList);
+
         }
     }
 }

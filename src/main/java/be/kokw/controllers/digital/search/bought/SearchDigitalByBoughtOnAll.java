@@ -2,6 +2,7 @@ package be.kokw.controllers.digital.search.bought;
 
 import be.kokw.bean.digital.Digital;
 import be.kokw.repositories.digital.DigitalRepo;
+import be.kokw.utility.controller.tables.DigitalTable;
 import be.kokw.utility.sceneControl.ChangeScene;
 import be.kokw.utility.validation.Warning;
 import javafx.collections.ObservableList;
@@ -50,23 +51,13 @@ public class SearchDigitalByBoughtOnAll {
 
     @FXML
     public void initialize(){
-        ObservableList<Digital> bookList = observableArrayList(digitalRepo.findByBoughtOnIsNotNull());
-        if (bookList.isEmpty()) {
+        ObservableList<Digital> digiList = observableArrayList(digitalRepo.findByBoughtOnIsNotNull());
+        if (digiList.isEmpty()) {
             Warning.alert("No Digital Carriers found!", "Er werden geen digitale dragers gevonden die werden aangekocht.");
             ChangeScene.init("/fxml/home.fxml", "KOKW - Het verleden draait altijd mee!");
         } else {
-            table.setEditable(true);
-            idCol.setCellValueFactory(new PropertyValueFactory<>("id"));
-            depotCol.setCellValueFactory(new PropertyValueFactory<>("depot"));
-            titleCol.setCellValueFactory(new PropertyValueFactory<>("title"));
-            volumeCol.setCellValueFactory(new PropertyValueFactory<>("volume"));
-            topicCol.setCellValueFactory(new PropertyValueFactory<>("topics"));
-            authorCol.setCellValueFactory(new PropertyValueFactory<>("authors"));
-            subTitleCol.setCellValueFactory(new PropertyValueFactory<>("subtitles"));
-            publisherCol.setCellValueFactory(new PropertyValueFactory<>("publisher"));
-            yearCol.setCellValueFactory(new PropertyValueFactory<>("yearPublished"));
             boughtCol.setCellValueFactory(new PropertyValueFactory<>("boughtOn"));
-            table.setItems(bookList);
+            DigitalTable.init(table, idCol, depotCol, volumeCol, titleCol, topicCol, authorCol, subTitleCol, publisherCol, yearCol, digiList);
         }
     }
 }
