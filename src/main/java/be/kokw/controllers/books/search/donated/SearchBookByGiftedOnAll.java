@@ -29,12 +29,6 @@ import static javafx.collections.FXCollections.observableArrayList;
 @Component
 public class SearchBookByGiftedOnAll {
     @FXML
-    private TextField firstName;
-    @FXML
-    private TextField lastName;
-    @FXML
-    private DatePicker dateValue;
-    @FXML
     TableView<Book> table;
     @FXML
     private TableColumn<Book, Integer> idCol;
@@ -90,7 +84,7 @@ public class SearchBookByGiftedOnAll {
         } else {
             BookTable.init(table, idCol, isbnCol, depotCol, titleCol, editionCol, volumeCol, topicCol, authorCol,
                     subTitleCol, publisherCol, yearCol, pagesCol, illusCol, copiesCol, bookList);
-            RowFactoryGiftedBooks.set(table, firstName, lastName, dateValue, repo);
+            RowFactoryGiftedBooks.set(table, repo);
         }
     }
 }

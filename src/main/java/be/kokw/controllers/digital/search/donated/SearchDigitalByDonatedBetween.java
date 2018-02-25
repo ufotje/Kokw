@@ -74,7 +74,7 @@ public class SearchDigitalByDonatedBetween {
             MenuController.window.close();
             ChangeScene.init("/fxml/digital/found/donated/tableviewGiftedOnBetween.fxml", "Donated digital carriers between " + start.getValue() + " and " + end.getValue());
             DigitalTable.init(table, idCol, depotCol, volumeCol, titleCol, topicCol, authorCol, subTitleCol, publisherCol, yearCol, digiList);
-            RowFactoryDigitalDonated.setFactory(table, donateRepo, firstName, lastName, date);
+            RowFactoryDigitalDonated.setFactory(table, donateRepo);
         }
     }
 }

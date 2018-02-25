@@ -62,7 +62,7 @@ public class SearchBookByDepot {
     @FXML
     public void search() throws Exception {
         ObservableList<Book> bookList = observableArrayList(bookRepo.findByDepot(depot.getText()));
-        if (bookList.isEmpty()) {
+        if (bookList.get(0) == null) {
             Warning.alert("No Books found!", "Er werden geen boeken gevonden met " + depot.getText() + " als depotnummer.");
             MenuController.window.close();
         } else {

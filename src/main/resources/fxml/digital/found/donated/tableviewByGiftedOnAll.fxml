@@ -5,21 +5,24 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0"
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0"
+            prefWidth="800.0"
             xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="be.kokw.controllers.digital.search.donated.SearchDigitalByDonatedAll">
     <top>
         <VBox BorderPane.alignment="CENTER">
-            <fx:include source="/fxml/menu.fxml" />
+            <fx:include source="/fxml/menu.fxml"/>
         </VBox>
     </top>
     <bottom>
-        <VBox alignment="CENTER" style="-fx-background-color: #A9CCE3; -fx-background-radius: 10;" BorderPane.alignment="CENTER">
-            <fx:include source="/fxml/footer.fxml" />
+        <VBox alignment="CENTER" style="-fx-background-color: #A9CCE3; -fx-background-radius: 10;"
+              BorderPane.alignment="CENTER">
+            <fx:include source="/fxml/footer.fxml"/>
         </VBox>
     </bottom>
     <center>
         <TableView fx:id="table" editable="true" BorderPane.alignment="CENTER">
+            <columns>
                 <TableColumn fx:id="idCol" prefWidth="40.0" text="ID"/>
                 <TableColumn fx:id="depotCol" prefWidth="70.0" text="Depot"/>
                 <TableColumn fx:id="titleCol" prefWidth="250.0" text="Titel"/>
@@ -29,6 +32,7 @@
                 <TableColumn fx:id="authorCol" prefWidth="275.0" text="Auteurs"/>
                 <TableColumn fx:id="publisherCol" text="Uitgeverij"/>
                 <TableColumn fx:id="yearCol" prefWidth="50.0" text="Jaar"/>
+            </columns>
         </TableView>
     </center>
 </BorderPane>

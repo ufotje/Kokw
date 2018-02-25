@@ -70,7 +70,7 @@ public class SearchBookByIssbn {
     @FXML
     public void search() {
         ObservableList<Book> bookList = observableArrayList(bookRepo.findByIsbn(isbn.getText()));
-        if (bookList.isEmpty()) {
+        if (bookList.get(0) == null) {
             Warning.alert("No Books found!", "Er werden geen boeken gevonden met " + isbn.getText() + " als isbnnummer.");
             MenuController.window.close();
         } else {

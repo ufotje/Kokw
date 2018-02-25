@@ -88,7 +88,7 @@ public class SearchBookByGiftedOn {
             ChangeScene.init("/fxml/books/found/gifted/tableviewByGiftedOn.fxml", "Books by Donated on");
             BookTable.init(table, idCol, isbnCol, depotCol, titleCol, editionCol, volumeCol, topicCol, authorCol,
                     subTitleCol, publisherCol, yearCol, pagesCol, illusCol, copiesCol, bookList);
-            RowFactoryGiftedBooks.set(table, firstName, lastName, dateValue, repo);
+            RowFactoryGiftedBooks.set(table, repo);
         }
     }
 }

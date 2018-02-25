@@ -73,7 +73,7 @@ public class SearchDigitalByDonatedOn {
             MenuController.window.close();
             ChangeScene.init("/fxml/digital/found/donated/tableviewByGiftedOn.fxml", "Books by Donated on");
             DigitalTable.init(table, idCol, depotCol, volumeCol, titleCol, topicCol, authorCol, subTitleCol, publisherCol, yearCol, digiList);
-            RowFactoryDigitalDonated.setFactory(table, donateRepo, firstName, lastName, dateValue);
+            RowFactoryDigitalDonated.setFactory(table, donateRepo);
         }
     }
 }

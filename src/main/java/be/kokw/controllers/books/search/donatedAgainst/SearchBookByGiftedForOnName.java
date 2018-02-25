@@ -58,11 +58,11 @@ public class SearchBookByGiftedForOnName {
     public void search() throws Exception {
         ObservableList<GiftedFor> bookList = observableArrayList(repo.findByName(name.getText()));
         if (bookList.isEmpty()) {
-            Warning.alert("No Books found!", "Er werden geen boeken gevonden die door " + name.getText() + " werden gedoneerd met tegenprestatie.");
+            Warning.alert("No Books found!", "Er werden geen boeken gevonden die door " + name.getText() + " werden geruild.");
             MenuController.window.close();
         } else {
             MenuController.window.close();
-            ChangeScene.init("/fxml/books/found/tableviewByGiftedForOnName.fxml", "Books by Donated for by");
+            ChangeScene.init("/fxml/books/found/giftedFor/tableviewGiftedForOnName.fxml", "Books Traded By " + name.getText());
             table.setEditable(true);
             idCol.setCellValueFactory(new PropertyValueFactory<>("id"));
             isbnCol.setCellValueFactory(new PropertyValueFactory<>("issbn"));

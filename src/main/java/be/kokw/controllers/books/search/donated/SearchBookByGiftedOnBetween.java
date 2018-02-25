@@ -89,10 +89,10 @@ public class SearchBookByGiftedOnBetween {
             MenuController.window.close();
         } else {
             MenuController.window.close();
-            ChangeScene.init("/fxml/books/found/gifted/tableviewGiftedOnBetween.fxml", "Books by Donated between" + start.getValue() + "and " + end.getValue());
+            ChangeScene.init("/fxml/books/found/gifted/tableviewGiftedOnBetween.fxml", "Books by Donated between " + start.getValue() + " and " + end.getValue());
             BookTable.init(table, idCol, isbnCol, depotCol, titleCol, editionCol, volumeCol, topicCol, authorCol,
                     subTitleCol, publisherCol, yearCol, pagesCol, illusCol, copiesCol, bookList);
-            RowFactoryGiftedBooks.set(table, firstName, lastName, dateValue, repo);
+            RowFactoryGiftedBooks.set(table, repo);
         }
     }
 }
