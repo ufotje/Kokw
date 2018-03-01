@@ -3,6 +3,7 @@ package be.kokw.controllers.magazines.search;
 import be.kokw.bean.magazines.Magazine;
 import be.kokw.controllers.MenuController;
 import be.kokw.repositories.magazines.MagazineRepo;
+import be.kokw.utility.controller.tables.MagazineTable;
 import be.kokw.utility.sceneControl.ChangeScene;
 import be.kokw.utility.validation.Validation;
 import be.kokw.utility.validation.Warning;
@@ -56,25 +57,14 @@ public class FindMagByPublisher {
     @FXML
     public void search() throws Exception {
         if (Validation.validate("name", publisherField.getText(), "[a-zA-Z \\-]+")) {
-            ObservableList<Magazine> list = observableArrayList(repo.findMagazinesByPublisher(publisher.getText()));
+            ObservableList<Magazine> list = observableArrayList(repo.findMagazinesByPublisher(publisherField.getText()));
             MenuController.window.close();
             if (list.isEmpty()){
                 Warning.alert("No Magazines found!", "Er werden geen magazines gevonden met '" + publisherField.getText() + "' als title gevonden.");
                 ChangeScene.init("/fxml/home.fxml", "KOKW - Het verleden draait altijd mee!");
             }else{
                 ChangeScene.init("/fxml/magazines/search/views/findMagByPublisherView.fxml", "Find magazines by publisher");
-                id.setCellValueFactory(new PropertyValueFactory<>("id"));
-                issn.setCellValueFactory(new PropertyValueFactory<>("issn"));
-                name.setCellValueFactory(new PropertyValueFactory<>("name"));
-                topic.setCellValueFactory(new PropertyValueFactory<>("theme"));
-                publisher.setCellValueFactory(new PropertyValueFactory<>("publisher"));
-                nr.setCellValueFactory(new PropertyValueFactory<>("nr"));
-                year.setCellValueFactory(new PropertyValueFactory<>("year"));
-                pages.setCellValueFactory(new PropertyValueFactory<>("nrOfPages"));
-                period.setCellValueFactory(new PropertyValueFactory<>("period"));
-                copies.setCellValueFactory(new PropertyValueFactory<>("copies"));
-                illustrated.setCellValueFactory(new PropertyValueFactory<>("illustrated"));
-                table.setItems(list);
+                MagazineTable.init(table, id, issn, name, topic, publisher, nr, year, pages, period, copies, illustrated, list);
             }
         }
     }

@@ -66,7 +66,12 @@ public class SearchBookByBoughtOnBetween {
     }
 
     @FXML
-    public void search() throws Exception {
+    public void initialize(){
+        end.setOnAction(event -> search());
+    }
+
+    @FXML
+    public void search(){
         ObservableList<Book> bookList = observableArrayList(bookRepo.findByBoughtOnBetween(start.getValue(), end.getValue()));
         if (bookList.isEmpty()) {
             Warning.alert("No Books found!", "Er werden geen boeken gevonden die tussen " + start.getValue() + " en " + end.getValue() + " werden aangekocht.");

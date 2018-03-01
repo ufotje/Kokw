@@ -23,4 +23,7 @@ public interface MagazineRepo extends JpaRepository<Magazine, Integer> {
 
     @Transactional
     List<Magazine> findMagazinesByPublisher(String publisher);
+
+    @Transactional
+    Magazine findMagazineByIssn(String issn);
 }

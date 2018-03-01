@@ -57,7 +57,12 @@ public class SearchBookByGiftedForOnBetween {
     }
 
     @FXML
-    public void search() throws Exception {
+    public void initialize(){
+        end.setOnAction(event -> search());
+    }
+
+    @FXML
+    public void search(){
         ObservableList<GiftedFor> bookList = observableArrayList(repo.findByContractDateBetween(start.getValue(), end.getValue()));
         if (bookList.isEmpty()) {
             Warning.alert("No Books found!", "Er werden geen boeken gevonden die tussen " + start.getValue() + " en " + end.getValue() + " werden gedoneerd met tegenprestatie.");

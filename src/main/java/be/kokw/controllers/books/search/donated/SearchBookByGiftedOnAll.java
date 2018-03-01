@@ -6,22 +6,15 @@ import be.kokw.repositories.books.BookRepo;
 import be.kokw.repositories.books.GiftedRepo;
 import be.kokw.utility.controller.tables.BookTable;
 import be.kokw.utility.rowFactories.RowFactoryGiftedBooks;
-import be.kokw.utility.sceneControl.ChangeScene;
-import be.kokw.utility.sceneControl.NewStage;
 import be.kokw.utility.validation.Warning;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.scene.control.DatePicker;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
-import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.stage.Stage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
-import java.time.LocalDate;
 import java.util.List;
 
 import static javafx.collections.FXCollections.observableArrayList;
@@ -60,7 +53,6 @@ public class SearchBookByGiftedOnAll {
     private TableColumn<Book, String> pagesCol;
     private GiftedRepo repo;
     private BookRepo bookRepo;
-    private Stage window;
 
     @Autowired
     private void setRepo(@Qualifier("giftedRepo") GiftedRepo repo) {

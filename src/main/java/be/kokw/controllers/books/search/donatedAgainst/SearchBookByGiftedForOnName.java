@@ -55,7 +55,12 @@ public class SearchBookByGiftedForOnName {
     }
 
     @FXML
-    public void search() throws Exception {
+    public void initialize(){
+        name.setOnAction(event -> search());
+    }
+
+    @FXML
+    public void search() {
         ObservableList<GiftedFor> bookList = observableArrayList(repo.findByName(name.getText()));
         if (bookList.isEmpty()) {
             Warning.alert("No Books found!", "Er werden geen boeken gevonden die door " + name.getText() + " werden geruild.");

@@ -213,6 +213,8 @@ public class MenuController {
     //Search for Magazines
     @FXML
     private void magByIssn() {
+        window = NewStage.getStage("Geef het issn van het magazine","/fxml/magazines/search/dialogs/byIssnDialog.fxml");
+        window.show();
     }
 
     @FXML

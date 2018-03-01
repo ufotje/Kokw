@@ -52,7 +52,12 @@ public class SearchBookByGiftedForOn {
     }
 
     @FXML
-    public void search() throws Exception {
+    public void initialize(){
+        date.setOnAction(event -> search());
+    }
+
+    @FXML
+    public void search(){
         ObservableList<GiftedFor> bookList = observableArrayList(repo.findByContractDate(date.getValue()));
         if (bookList.isEmpty()) {
             Warning.alert("No Books found!", "Er werden geen boeken gevonden die op " + date.getValue() + " werden geruild.");

@@ -20,9 +20,9 @@ import org.springframework.stereotype.Component;
 import static javafx.collections.FXCollections.observableArrayList;
 
 @Component
-public class FindMagByTopic {
+public class FindMagByIssn {
     @FXML
-    private TextField topicField;
+    private TextField issnField;
     @FXML
     private TableView<Magazine> table;
     @FXML
@@ -56,13 +56,14 @@ public class FindMagByTopic {
 
     @FXML
     public void search() throws Exception {
-        if (Validation.validate("name", topicField.getText(), "[a-zA-Z \\-]+")) {
-            ObservableList<Magazine> list = observableArrayList(repo.findMagazinesByTheme(topicField.getText()));
+        if (Validation.validate("name", issnField.getText(), "[0-9a-zA-Z \\-]+")) {
+            ObservableList<Magazine> list = observableArrayList(repo.findMagazineByIssn(issnField.getText()));
             MenuController.window.close();
             if (list.isEmpty()){
-                Warning.alert("No Magazines found!", "Er werden geen magazines gevonden met '" + topicField.getText() + "' als onderwerpe gevonden.");
+                Warning.alert("No Magazines found!", "Er werden geen magazines gevonden met het issnNummer: " + issnField.getText());
                 ChangeScene.init("/fxml/home.fxml", "KOKW - Het verleden draait altijd mee!");
             }else{
+                ChangeScene.init("/fxml/magazines/search/views/findMagByIssnView.fxml", "Find magazines by issnNumber");
                 MagazineTable.init(table, id, issn, name, topic, publisher, nr, year, pages, period, copies, illustrated, list);
             }
         }

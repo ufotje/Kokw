@@ -3,6 +3,7 @@ package be.kokw.controllers.books.search.other;
 import be.kokw.bean.books.Book;
 import be.kokw.controllers.MenuController;
 import be.kokw.repositories.books.BookRepo;
+import be.kokw.utility.controller.tables.BookTable;
 import be.kokw.utility.validation.Warning;
 import be.kokw.utility.sceneControl.ChangeScene;
 import be.kokw.utility.validation.Validation;
@@ -65,28 +66,19 @@ public class SearchBookByTitle {
     }
 
     @FXML
-    public void search() throws Exception {
+    public void initialize(){
+        title.setOnAction(event -> search());
+    }
+
+    @FXML
+    public void search(){
         if(Validation.emptyValidation("Titel",title.getText().isEmpty())){
             ObservableList<Book> bookList = observableArrayList(bookRepo.findByTitle(title.getText()));
             if(!bookList.isEmpty()){
                 MenuController.window.close();
                 ChangeScene.init("/fxml/books/found/other/tableViewByTitle.fxml", "Books by Title");
-                table.setEditable(true);
-                idCol.setCellValueFactory(new PropertyValueFactory<>("id"));
-                isbnCol.setCellValueFactory(new PropertyValueFactory<>("isbn"));
-                depotCol.setCellValueFactory(new PropertyValueFactory<>("depot"));
-                titleCol.setCellValueFactory(new PropertyValueFactory<>("title"));
-                editionCol.setCellValueFactory(new PropertyValueFactory<>("edition"));
-                volumeCol.setCellValueFactory(new PropertyValueFactory<>("volume"));
-                topicCol.setCellValueFactory(new PropertyValueFactory<>("topics"));
-                authorCol.setCellValueFactory(new PropertyValueFactory<>("authors"));
-                subTitleCol.setCellValueFactory(new PropertyValueFactory<>("subtitles"));
-                publisherCol.setCellValueFactory(new PropertyValueFactory<>("publisher"));
-                yearCol.setCellValueFactory(new PropertyValueFactory<>("yearPublished"));
-                pagesCol.setCellValueFactory(new PropertyValueFactory<>("nrOfPages"));
-                illusCol.setCellValueFactory(new PropertyValueFactory<>("illustrated"));
-                copiesCol.setCellValueFactory(new PropertyValueFactory<>("copies"));
-                table.setItems(bookList);
+                BookTable.init(table, idCol, isbnCol, depotCol, titleCol, editionCol, volumeCol, topicCol, authorCol,
+                        subTitleCol, publisherCol, yearCol, pagesCol, illusCol, copiesCol, bookList);
             }else{
                 Warning.alert("Book Not Found","The book '" + title.getText() + "' has not been found!");
                 MenuController.window.close();

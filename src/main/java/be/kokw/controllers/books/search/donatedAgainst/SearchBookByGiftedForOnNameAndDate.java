@@ -43,7 +43,7 @@ public class SearchBookByGiftedForOnNameAndDate {
     @FXML
     private TableColumn<GiftedFor, File> conCol;
     @FXML
-    private TableColumn<GiftedFor,LocalDate> conDateCol;
+    private TableColumn<GiftedFor, LocalDate> conDateCol;
     @FXML
     private TableColumn<GiftedFor, String> conNrCol;
     @FXML
@@ -58,27 +58,36 @@ public class SearchBookByGiftedForOnNameAndDate {
     }
 
     @FXML
-    public void search() throws Exception {
-        ObservableList<GiftedFor> bookList = observableArrayList(repo.findByContractDateAndName(date.getValue(),name.getText()));
-        if (bookList.isEmpty()) {
-            Warning.alert("No Books found!", "Er werden geen boeken gevonden die door " + name.getText() + " op " + date.getValue() + " werden gedoneerd met tegenprestatie.");
-            MenuController.window.close();
-        } else {
-            MenuController.window.close();
-            ChangeScene.init("/fxml/books/found/tableviewByGiftedForOnNameAndDate.fxml", "Books by Donated for by on");
-            table.setEditable(true);
-            idCol.setCellValueFactory(new PropertyValueFactory<>("id"));
-            isbnCol.setCellValueFactory(new PropertyValueFactory<>("issbn"));
-            boekIdCol.setCellValueFactory(new PropertyValueFactory<>("bookId"));
-            depotCol.setCellValueFactory(new PropertyValueFactory<>("depot"));
-            titleCol.setCellValueFactory(new PropertyValueFactory<>("title"));
-            authorCol.setCellValueFactory(new PropertyValueFactory<>("authors"));
-            conNrCol.setCellValueFactory(new PropertyValueFactory<>("contractNr"));
-            conDateCol.setCellValueFactory(new PropertyValueFactory<>("contractDate"));
-            conNameCol.setCellValueFactory(new PropertyValueFactory<>("name"));
-            conCol.setCellValueFactory(new PropertyValueFactory<>("contract"));
-            table.setItems(bookList);
-            RowFactoryGF.set(table);
+    public void initialize() {
+        date.setOnAction(event -> search());
+    }
+
+    @FXML
+    public void search() {
+        if (date.getValue() != null && name.getText() != null) {
+            ObservableList<GiftedFor> bookList = observableArrayList(repo.findByContractDateAndName(date.getValue(), name.getText()));
+            if (bookList.isEmpty()) {
+                Warning.alert("No Books found!", "Er werden geen boeken gevonden die door " + name.getText() + " op " + date.getValue() + " werden gedoneerd met tegenprestatie.");
+                MenuController.window.close();
+            } else {
+                MenuController.window.close();
+                ChangeScene.init("/fxml/books/found/tableviewByGiftedForOnNameAndDate.fxml", "Books by Donated for by on");
+                table.setEditable(true);
+                idCol.setCellValueFactory(new PropertyValueFactory<>("id"));
+                isbnCol.setCellValueFactory(new PropertyValueFactory<>("issbn"));
+                boekIdCol.setCellValueFactory(new PropertyValueFactory<>("bookId"));
+                depotCol.setCellValueFactory(new PropertyValueFactory<>("depot"));
+                titleCol.setCellValueFactory(new PropertyValueFactory<>("title"));
+                authorCol.setCellValueFactory(new PropertyValueFactory<>("authors"));
+                conNrCol.setCellValueFactory(new PropertyValueFactory<>("contractNr"));
+                conDateCol.setCellValueFactory(new PropertyValueFactory<>("contractDate"));
+                conNameCol.setCellValueFactory(new PropertyValueFactory<>("name"));
+                conCol.setCellValueFactory(new PropertyValueFactory<>("contract"));
+                table.setItems(bookList);
+                RowFactoryGF.set(table);
+            }
+        }else {
+            Warning.alert("Wrong value for inputfields", "Gelieve uw velden te controleren");
         }
     }
 }

@@ -64,6 +64,7 @@ public class SearchBookByIssbn {
     }
 
     public void initialize() {
+        isbn.setOnAction(event -> search());
         button.setOnAction(event -> search());
     }
 

@@ -4,6 +4,7 @@ import be.kokw.bean.magazines.Magazine;
 import be.kokw.bean.magazines.Trade;
 import be.kokw.repositories.magazines.MagazineRepo;
 import be.kokw.repositories.magazines.TradeRepo;
+import be.kokw.utility.controller.tables.MagazineTable;
 import be.kokw.utility.sceneControl.ChangeScene;
 import be.kokw.utility.sceneControl.NewStage;
 import be.kokw.utility.validation.Warning;
@@ -91,18 +92,7 @@ public class FindMagByTraded {
             Warning.alert("No Magazines found!", "Er werden geen magazines gevonden waar er een ruilabonnement is.");
             ChangeScene.init("/fxml/home.fxml", "KOKW - Het verleden draait altijd mee!");
         } else {
-            id.setCellValueFactory(new PropertyValueFactory<>("id"));
-            issn.setCellValueFactory(new PropertyValueFactory<>("issn"));
-            name.setCellValueFactory(new PropertyValueFactory<>("name"));
-            topic.setCellValueFactory(new PropertyValueFactory<>("theme"));
-            publisher.setCellValueFactory(new PropertyValueFactory<>("publisher"));
-            nr.setCellValueFactory(new PropertyValueFactory<>("nr"));
-            year.setCellValueFactory(new PropertyValueFactory<>("year"));
-            pages.setCellValueFactory(new PropertyValueFactory<>("nrOfPages"));
-            period.setCellValueFactory(new PropertyValueFactory<>("period"));
-            copies.setCellValueFactory(new PropertyValueFactory<>("copies"));
-            illustrated.setCellValueFactory(new PropertyValueFactory<>("illustrated"));
-            table.setItems(list);
+            MagazineTable.init(table, id, issn, name, topic, publisher, nr, year, pages, period, copies, illustrated, list);
         }
         table.setRowFactory(tv -> {
             TableRow<Magazine> row = new TableRow<>();

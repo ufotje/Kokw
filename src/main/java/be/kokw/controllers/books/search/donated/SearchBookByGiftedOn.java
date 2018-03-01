@@ -7,15 +7,12 @@ import be.kokw.repositories.books.GiftedRepo;
 import be.kokw.utility.controller.tables.BookTable;
 import be.kokw.utility.rowFactories.RowFactoryGiftedBooks;
 import be.kokw.utility.sceneControl.ChangeScene;
-import be.kokw.utility.sceneControl.NewStage;
 import be.kokw.utility.validation.Warning;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
-import javafx.stage.Stage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
@@ -59,14 +56,7 @@ public class SearchBookByGiftedOn {
     private TableColumn<Book, String> yearCol;
     @FXML
     private TableColumn<Book, String> pagesCol;
-    @FXML
-    private TextField firstName;
-    @FXML
-    private TextField lastName;
-    @FXML
-    private DatePicker dateValue;
     private GiftedRepo repo;
-    private Stage window;
 
     @Autowired
     private void setBookRepo(@Qualifier("giftedRepo") GiftedRepo repo) {
@@ -74,13 +64,18 @@ public class SearchBookByGiftedOn {
     }
 
     @FXML
-    public void search() throws Exception {
+    public void initialize(){
+        date.setOnAction(event -> search());
+    }
+
+    @FXML
+    public void search(){
         List<Gifted> list = observableArrayList(repo.findByGiftedOn(date.getValue()));
         ObservableList<Book> bookList = observableArrayList();
         for (Gifted g : list) {
             bookList.add(g.getBook());
         }
-        if (bookList.isEmpty()) {
+        if (list.isEmpty()) {
             Warning.alert("No Books found!", "Er werden geen boeken gevonden die op " + date.getValue() + " werden gedoneerd.");
             MenuController.window.close();
         } else {

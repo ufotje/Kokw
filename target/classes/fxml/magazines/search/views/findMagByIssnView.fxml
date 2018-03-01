@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.BorderPane?>
+
+<?import javafx.scene.layout.VBox?>
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="be.kokw.controllers.magazines.search.FindMagByIssnt">
+    <top>
+        <VBox BorderPane.alignment="CENTER">
+            <fx:include source="/fxml/menu.fxml" />
+        </VBox>
+    </top>
+    <bottom>
+        <VBox alignment="CENTER" style="-fx-background-color: #A9CCE3; -fx-background-radius: 10;" BorderPane.alignment="CENTER">
+            <fx:include source="/fxml/footer.fxml" />
+        </VBox>
+    </bottom>
+   <center>
+      <TableView fx:id="table" editable="true" BorderPane.alignment="CENTER">
+        <columns>
+          <TableColumn fx:id="id" prefWidth="75.0" text="ID" />
+          <TableColumn fx:id="issn" prefWidth="75.0" text="ISSN" />
+            <TableColumn fx:id="name" prefWidth="200.0" text="Naam" />
+            <TableColumn fx:id="publisher" prefWidth="200.0" text="Uitgeverij" />
+            <TableColumn fx:id="topic" prefWidth="75.0" text="Onderwerp" />
+            <TableColumn fx:id="period" prefWidth="75.0" text="Periodiciteit" />
+            <TableColumn fx:id="year" prefWidth="75.0" text="Jaargang" />
+            <TableColumn fx:id="nr" prefWidth="75.0" text="NR" />
+            <TableColumn fx:id="copies" prefWidth="75.0" text="Aantal" />
+            <TableColumn fx:id="pages" prefWidth="75.0" text="Pagina's" />
+            <TableColumn fx:id="illustrated" prefWidth="75.0" text="Geïllustreerd" />
+        </columns>
+      </TableView>
+   </center>
+</BorderPane>

@@ -54,7 +54,12 @@ public class SearchDigitalByBoughtOn {
     }
 
     @FXML
-    public void search() throws Exception {
+    public void initialize(){
+        date.setOnAction(event -> search());
+    }
+
+    @FXML
+    public void search() {
         ObservableList<Digital> digiList = observableArrayList(digiRepo.findByBoughtOn(date.getValue()));
         if (digiList.isEmpty()) {
             Warning.alert("No Digital Carriers found!", "Er werden geen digitale dragers gevonden die op " + date.getValue() + " werden aangekocht.");

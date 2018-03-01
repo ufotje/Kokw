@@ -3,6 +3,7 @@
 import be.kokw.bean.books.Book;
 import be.kokw.controllers.MenuController;
 import be.kokw.repositories.books.BookRepo;
+import be.kokw.utility.controller.tables.BookTable;
 import be.kokw.utility.sceneControl.ChangeScene;
 import be.kokw.utility.validation.Validation;
 import be.kokw.utility.validation.Warning;
@@ -66,7 +67,12 @@ public class SearchBookByName {
     }
 
     @FXML
-    public void search() throws Exception {
+    public void initialize(){
+        lastName.setOnAction(event -> search());
+    }
+
+    @FXML
+    public void search(){
         if (Validation.validate("Achternaam Auteur", lastName.getText(), "[a-zA-Z]+") &&
                 Validation.validate("Voornaam Auteur:", firstName.getText(), "[a-zA-Z]+")) {
             ObservableList<Book> bookList = observableArrayList(bookRepo.findByAuthorsContains(firstName.getText() + " " + lastName.getText()));
@@ -77,22 +83,8 @@ public class SearchBookByName {
 
                 MenuController.window.close();
                 ChangeScene.init("/fxml/books/found/other/tableView.fxml", "Books by Author's name");
-                table.setEditable(true);
-                idCol.setCellValueFactory(new PropertyValueFactory<>("id"));
-                isbnCol.setCellValueFactory(new PropertyValueFactory<>("isbn"));
-                depotCol.setCellValueFactory(new PropertyValueFactory<>("depot"));
-                titleCol.setCellValueFactory(new PropertyValueFactory<>("title"));
-                editionCol.setCellValueFactory(new PropertyValueFactory<>("edition"));
-                volumeCol.setCellValueFactory(new PropertyValueFactory<>("volume"));
-                topicCol.setCellValueFactory(new PropertyValueFactory<>("topics"));
-                authorCol.setCellValueFactory(new PropertyValueFactory<>("authors"));
-                subTitleCol.setCellValueFactory(new PropertyValueFactory<>("subtitles"));
-                publisherCol.setCellValueFactory(new PropertyValueFactory<>("publisher"));
-                yearCol.setCellValueFactory(new PropertyValueFactory<>("yearPublished"));
-                pagesCol.setCellValueFactory(new PropertyValueFactory<>("nrOfPages"));
-                illusCol.setCellValueFactory(new PropertyValueFactory<>("illustrated"));
-                copiesCol.setCellValueFactory(new PropertyValueFactory<>("copies"));
-                table.setItems(bookList);
+                BookTable.init(table, idCol, isbnCol, depotCol, titleCol, editionCol, volumeCol, topicCol, authorCol,
+                        subTitleCol, publisherCol, yearCol, pagesCol, illusCol, copiesCol, bookList);
             }
         }
     }

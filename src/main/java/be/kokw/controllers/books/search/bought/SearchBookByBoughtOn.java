@@ -64,7 +64,12 @@ public class SearchBookByBoughtOn {
     }
 
     @FXML
-    public void search() throws Exception {
+    public void initialize(){
+        date.setOnAction(event -> search());
+    }
+
+    @FXML
+    public void search() {
         ObservableList<Book> bookList = observableArrayList(bookRepo.findByBoughtOn(date.getValue()));
         if (bookList.isEmpty()) {
             Warning.alert("No Books found!", "Er werden geen boeken gevonden die op " + date.getValue() + " werden aangekocht.");
