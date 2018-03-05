@@ -62,8 +62,7 @@ public class Main extends Application {
         try {
             conn = DriverManager.getConnection(DB_URL, USER, PASS);
             Date date = Date.valueOf(LocalDate.now());
-            String sql = "UPDATE time_stamp SET last = ? WHERE id = ?";
-            PreparedStatement statement = conn.prepareStatement(sql);
+            PreparedStatement statement = conn.prepareStatement("UPDATE time_stamp SET last = ? WHERE id = ?");
             statement.setDate(1,date);
             statement.setInt(2,1);
             int result = statement.executeUpdate();

@@ -251,7 +251,7 @@ public class MenuController {
 
     @FXML
     private void magByTopic() {
-        ChangeScene.init("/fxml/magazines/search/dialogs/byTopicDialog.fxml", "Geef het onderwerp op");
+        window = NewStage.getStage("Geef het onderwerp op", "/fxml/magazines/search/dialogs/byTopicDialog.fxml");
     }
 
     //DigitalMethods

@@ -64,7 +64,7 @@ public class SearchBookByGiftedForOn {
             MenuController.window.close();
         } else {
             MenuController.window.close();
-            ChangeScene.init("/fxml/books/found/tableviewByGiftedForOn.fxml", "Books by Traded on");
+            ChangeScene.init("/fxml/books/found/giftedFor/tableviewGiftedForOn.fxml", "Books by Traded on");
             table.setEditable(true);
             idCol.setCellValueFactory(new PropertyValueFactory<>("id"));
             isbnCol.setCellValueFactory(new PropertyValueFactory<>("issbn"));
