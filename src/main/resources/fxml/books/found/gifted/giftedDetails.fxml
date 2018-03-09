@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="be.kokw.controllers.books.search.donated.SearchBookByGiftedOn">
+<VBox maxHeight="-Infinity" onKeyPressed="#close" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="be.kokw.controllers.books.search.donated.SearchBookByGiftedOn">
       <HBox>
             <Label text="Voornaam:">
                <font>

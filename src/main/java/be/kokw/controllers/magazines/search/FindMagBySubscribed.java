@@ -14,7 +14,6 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
-import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseButton;
 import javafx.stage.Stage;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -101,7 +100,7 @@ public class FindMagBySubscribed {
                     if (!row.isEmpty() && event.getButton() == MouseButton.PRIMARY
                                 && event.getClickCount() == 2) {
                             Magazine clickedRow = row.getItem();
-                            Subscribed subscribed = subRepo.findByNameMag(clickedRow.getName());
+                            Subscribed subscribed = subRepo.findOne(clickedRow.geId());
                         if (subscribed != null) {
                             try {
                                 window = NewStage.getStage("RijDetails!", "/fxml/magazines/search/views/subscriptionDetailsView.fxml");

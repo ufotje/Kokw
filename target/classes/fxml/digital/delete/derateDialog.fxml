@@ -13,56 +13,54 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="pane" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="be.kokw.controllers.books.delete.DerateBook">
-<DialogPane headerText="Zoek op Naam" layoutX="50.0" layoutY="50.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="480.0">
-    <header>
-        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="185.0" prefWidth="505.0">
-            <VBox layoutY="69.0">
-               <children>
-                  <HBox alignment="CENTER" prefHeight="30.0" prefWidth="480.0">
-                      <Label text="Id v/h Boek:" />
-                      <TextField fx:id="id" alignment="CENTER" prefHeight="31.0" prefWidth="318.0">
-                          <HBox.margin>
-                              <Insets left="30.0" />
-                          </HBox.margin>
-                      </TextField>
-                  </HBox>
-                  <HBox>
-                     <VBox.margin>
-                        <Insets top="30.0" />
-                     </VBox.margin>
-                     <children>
+<AnchorPane xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="be.kokw.controllers.books.delete.DerateBook">
+    <DialogPane headerText="Zoek op Naam" layoutX="50.0" layoutY="50.0" maxHeight="-Infinity" maxWidth="-Infinity"
+                minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="480.0">
+        <header>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="185.0" prefWidth="505.0">
+                <VBox layoutY="69.0">
+                    <HBox alignment="CENTER" prefHeight="30.0" prefWidth="480.0">
+                        <Label text="Id v/h Boek:"/>
+                        <TextField fx:id="id" alignment="CENTER" prefHeight="31.0" prefWidth="318.0">
+                            <HBox.margin>
+                                <Insets left="30.0"/>
+                            </HBox.margin>
+                        </TextField>
+                    </HBox>
+                    <HBox>
+                        <VBox.margin>
+                            <Insets top="30.0"/>
+                        </VBox.margin>
                         <Label text="Bestemming:">
-                           <HBox.margin>
-                              <Insets left="30.0" right="50.0" />
-                           </HBox.margin>
+                            <HBox.margin>
+                                <Insets left="30.0" right="50.0"/>
+                            </HBox.margin>
                         </Label>
                         <ChoiceBox fx:id="destination" prefHeight="25.0" prefWidth="250.0">
-                           <cursor>
-                              <Cursor fx:constant="HAND" />
-                           </cursor>
-                           <HBox.margin>
-                              <Insets left="20.0" />
-                           </HBox.margin>
+                            <cursor>
+                                <Cursor fx:constant="HAND"/>
+                            </cursor>
+                            <HBox.margin>
+                                <Insets left="20.0"/>
+                            </HBox.margin>
                         </ChoiceBox>
-                     </children>
-                  </HBox>
-                  <HBox alignment="CENTER">
-                     <VBox.margin>
-                        <Insets top="50.0" />
-                     </VBox.margin>
-                     <children>
-                        <Button alignment="CENTER" mnemonicParsing="false" onAction="#derate" style="-fx-background-radius: 10;" text="Declasseer">
-                           <font>
-                              <Font size="14.0" />
-                           </font>
+                    </HBox>
+                    <HBox alignment="CENTER">
+                        <VBox.margin>
+                            <Insets top="50.0"/>
+                        </VBox.margin>
+                        <Button alignment="CENTER" mnemonicParsing="false" onAction="#derate"
+                                style="-fx-background-radius: 10;" text="Declasseer">
+                            <font>
+                                <Font size="14.0"/>
+                            </font>
                         </Button>
-                     </children>
-                  </HBox>
-               </children>
-            </VBox>
-            <Region layoutX="-51.0" layoutY="-57.0" prefHeight="113.0" prefWidth="530.0" style="-fx-background-repeat: no-repeat; -fx-background-image: url('http://users.telenet.be/hbo5_java/pictures/kokw/logo.jpg'); -fx-background-size: 40%;" />
-        </AnchorPane>
-    </header>
-</DialogPane>
-        </AnchorPane>
+                    </HBox>
+                </VBox>
+                <Region layoutX="-51.0" layoutY="-57.0" prefHeight="113.0" prefWidth="530.0"
+                        style="-fx-background-repeat: no-repeat; -fx-background-image: url('http://users.telenet.be/hbo5_java/pictures/kokw/logo.jpg'); -fx-background-size: 40%;"/>
+            </AnchorPane>
+        </header>
+    </DialogPane>
+</AnchorPane>

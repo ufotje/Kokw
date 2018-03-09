@@ -19,7 +19,7 @@
                <padding>
                   <Insets top="30.0" />
                </padding></HBox>
-                    <TextField fx:id="name" layoutX="164.0" layoutY="119.0" prefHeight="25.0" prefWidth="257.0" />
+                    <TextField fx:id="name" layoutX="164.0" layoutY="119.0" prefHeight="25.0" prefWidth="257.0" onAction="#search" />
                              <Label layoutY="123.0" text="Naam v/d Contractant:" />
                 </AnchorPane>
             </header>

@@ -13,7 +13,7 @@
 <?import javafx.scene.text.Font?>
 
 
-<DialogPane fx:id="pane" prefHeight="365.0" prefWidth="546.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="be.kokw.controllers.books.search.donated.Details">
+<DialogPane fx:id="pane" onKeyPressed="#close" prefHeight="365.0" prefWidth="546.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="be.kokw.controllers.books.search.donated.Details">
    <content>
       <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="354.0" prefWidth="546.0">
          <ImageView fitHeight="145.0" pickOnBounds="true" preserveRatio="true">

@@ -68,7 +68,7 @@ public class DerateBook {
         if (b != null) {
             Copies copy = copyRepo.findByTitle(b.getTitle());
             StringBuilder sb = new StringBuilder();
-            if (copy.getNrOfCopies() > 0) {
+            if (copy.getNrOfCopies() > 1) {
                 copy.setNrOfCopies(copy.getNrOfCopies() - 1);
                 Derated derated = new Derated(b.getId(), LocalDate.now(), destination.getValue(), b.getIsbn(), b.getDepot(), b.getTitle(), b.getAuthors());
                 derateRepo.save(derated);

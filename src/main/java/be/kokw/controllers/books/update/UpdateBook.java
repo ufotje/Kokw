@@ -15,6 +15,7 @@ import be.kokw.utility.validation.Warning;
 import javafx.fxml.FXML;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
+import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.layout.*;
@@ -75,6 +76,10 @@ public class UpdateBook {
             for (String s : subTitles) {
                 SetTextField.set(hBox, s);
             }
+            for(Node n : hBox.getChildren()) {
+                HBox.setMargin(n, new Insets(0, 20, 30, 0));
+            }
+            HBox.setMargin(hBox.getChildren().get(0), new Insets(0,20,30,70));
             vBox.getChildren().add(hBox);
 
             String[] authors = book.getAuthors().split("\n");
@@ -82,6 +87,10 @@ public class UpdateBook {
             for (String author : authors) {
                 SetTextField.set(hb3, author);
             }
+            for(Node n : hb3.getChildren()) {
+                HBox.setMargin(n, new Insets(0, 20, 30, 0));
+            }
+            HBox.setMargin(hb3.getChildren().get(0), new Insets(0,20,30,70));
             vBox.getChildren().add(hb3);
 
             String[] topics = book.getTopics().split("\n");
@@ -89,6 +98,10 @@ public class UpdateBook {
             for (String topic : topics) {
                 SetTextField.set(hb2, topic);
             }
+            for(Node n : hb2.getChildren()) {
+                HBox.setMargin(n, new Insets(0, 20, 30, 0));
+            }
+            HBox.setMargin(hb2.getChildren().get(0), new Insets(0,20,30,70));
             vBox.getChildren().add(hb2);
 
             HBox hb4 = GetHbox.get("Uitgeverij:");
@@ -112,15 +125,15 @@ public class UpdateBook {
                 textField7.textProperty().addListener((observable, oldValue, newValue) -> gifted.setName(newValue));
                 hb7.getChildren().add(textField7);
                 HBox.setMargin(textField7, new Insets(0, 0, 30, 0));
-                vBox.getChildren().add(hb7);
-
-                HBox hb8 = GetHbox.get("Datum gift:");
+                Label label8 = new Label("Datum gift:");
+                hb7.getChildren().add(label8);
+                HBox.setMargin(label8, new Insets(0, 20, 30, 50));
                 DatePicker date = new DatePicker();
                 date.setValue(gifted.getGiftedOn());
                 date.valueProperty().addListener((observable, oldValue, newValue) -> gifted.setGiftedOn(date.getValue()));
-                hb8.getChildren().add(date);
+                hb7.getChildren().add(date);
                 HBox.setMargin(date, new Insets(0, 0, 30, 0));
-                vBox.getChildren().add(hb8);
+                vBox.getChildren().add(hb7);
             }
 
             if (book.getBoughtOn() != null) {

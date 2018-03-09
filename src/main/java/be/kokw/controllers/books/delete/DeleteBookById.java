@@ -62,7 +62,7 @@ public class DeleteBookById {
                     giftedForRepo.deleteByBookId(book.getId());
                 }
                 Copies copy = copyRepo.findByTitle(book.getTitle());
-                if (copy.getNrOfCopies() > 0) {
+                if (copy.getNrOfCopies() > 1) {
                     copy.setNrOfCopies(copy.getNrOfCopies() - 1);
                 } else {
                     copyRepo.delete(copy);

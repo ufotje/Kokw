@@ -15,7 +15,7 @@
                 <HBox alignment="CENTER" layoutY="69.0" prefHeight="30.0" prefWidth="480.0" />
                 <Region layoutX="-51.0" layoutY="-57.0" prefHeight="113.0" prefWidth="530.0" style="-fx-background-repeat: no-repeat; -fx-background-image: url('http://users.telenet.be/hbo5_java/pictures/kokw/logo.jpg'); -fx-background-size: 40%;" />
                  <Label layoutX="8.0" layoutY="104.0" text="Datum van donatie:" />
-                 <DatePicker fx:id="date" layoutX="150.0" layoutY="99.0" prefHeight="31.0" prefWidth="318.0" />
+                 <DatePicker fx:id="date" layoutX="150.0" layoutY="99.0" prefHeight="31.0" prefWidth="318.0" onAction="#search" />
             </AnchorPane>
         </header>
         <content>

@@ -5,10 +5,11 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import javax.transaction.Transactional;
+import java.util.List;
 
 @Repository("subscribedRepo")
 public interface SubscribedRepo extends JpaRepository<Subscribed,Integer> {
 
     @Transactional
-    Subscribed findByNameMag(String name);
+    List<Subscribed> findByNameMag(String name);
 }

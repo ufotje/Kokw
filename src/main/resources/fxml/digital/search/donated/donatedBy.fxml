@@ -23,7 +23,7 @@
                         </HBox>
                         <HBox alignment="CENTER" layoutY="112.0" prefHeight="30.0" prefWidth="480.0">
                                 <Label text="Achternaam Donateur:" />
-                                <TextField fx:id="lastName" alignment="CENTER" prefHeight="31.0" prefWidth="318.0">
+                                <TextField fx:id="lastName" alignment="CENTER" prefHeight="31.0" prefWidth="318.0" onAction="#search">
                                     <HBox.margin>
                                         <Insets left="20.0" />
                                     </HBox.margin>

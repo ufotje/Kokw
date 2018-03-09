@@ -28,7 +28,7 @@
                     </HBox>
                     <HBox alignment="CENTER" layoutY="69.0" prefHeight="30.0" prefWidth="480.0">
                         <Label text="einddatum:" />
-                        <DatePicker fx:id="end" prefHeight="31.0" prefWidth="318.0">
+                        <DatePicker fx:id="end" prefHeight="31.0" prefWidth="318.0" onAction="#search">
                             <HBox.margin>
                                 <Insets left="30.0" top="20.0" />
                             </HBox.margin>

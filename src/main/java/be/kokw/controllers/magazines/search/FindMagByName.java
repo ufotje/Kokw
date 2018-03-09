@@ -12,7 +12,6 @@ import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
-import javafx.scene.control.cell.PropertyValueFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
@@ -20,9 +19,9 @@ import org.springframework.stereotype.Component;
 import static javafx.collections.FXCollections.observableArrayList;
 
 @Component
-public class FindMagByTitle {
+public class FindMagByName {
     @FXML
-    private TextField title;
+    private TextField name;
     @FXML
     private TableView<Magazine> table;
     @FXML
@@ -30,7 +29,7 @@ public class FindMagByTitle {
     @FXML
     private TableColumn<Magazine,String> issn;
     @FXML
-    private TableColumn<Magazine,String> name;
+    private TableColumn<Magazine,String> nameCol;
     @FXML
     private TableColumn<Magazine,String> topic;
     @FXML
@@ -56,15 +55,15 @@ public class FindMagByTitle {
 
     @FXML
     public void search(){
-        if (Validation.validate("name", title.getText(), "[a-zA-Z \\-]+")) {
-            ObservableList<Magazine> list = observableArrayList(repo.findMagazinesByName(title.getText()));
+        if (Validation.validate("name", name.getText(), "[a-zA-Z \\-]+")) {
+            ObservableList<Magazine> list = observableArrayList(repo.findMagazinesByName(name.getText()));
             MenuController.window.close();
             if (list.isEmpty()){
-                Warning.alert("No Magazines found!", "Er werden geen magazines gevonden met '" + title.getText() + "' als title gevonden.");
+                Warning.alert("No Magazines found!", "Er werden geen magazines gevonden met '" + name.getText() + "' als naam gevonden.");
                 ChangeScene.init("/fxml/home.fxml", "KOKW - Het verleden draait altijd mee!");
             }else{
-                ChangeScene.init("/fxml/magazines/search/views/findMagByTitleView.fxml", "Magzines met '" + title.getText() + "' als titel");
-                MagazineTable.init(table, id, issn, name, topic, publisher, nr, year, pages, period, copies, illustrated, list);
+                ChangeScene.init("/fxml/magazines/search/views/findMagByNameView.fxml", "Exemplaren van " + name.getText());
+                MagazineTable.init(table, id, issn, nameCol, topic, publisher, nr, year, pages, period, copies, illustrated, list);
             }
         }
     }

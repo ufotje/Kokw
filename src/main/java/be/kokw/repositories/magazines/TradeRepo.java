@@ -5,10 +5,11 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import javax.transaction.Transactional;
+import java.util.List;
 
 @Repository("tradeRepo")
 public interface TradeRepo extends JpaRepository<Trade,Integer> {
 
     @Transactional
-    Trade findTradeByNameMag(String name);
+    List<Trade> findTradeByNameMag(String name);
 }

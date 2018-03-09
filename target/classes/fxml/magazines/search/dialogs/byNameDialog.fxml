@@ -7,14 +7,14 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.*?>
 <AnchorPane xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="be.kokw.controllers.books.search.other.SearchBookByPublisher">
+            fx:controller="be.kokw.controllers.magazines.search.FindMagByName">
     <DialogPane headerText="Zoek op Titel" layoutX="50.0" layoutY="50.0" maxHeight="-Infinity" maxWidth="-Infinity"
                 minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="480.0">
         <header>
             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="185.0" prefWidth="505.0">
                 <HBox alignment="CENTER" layoutY="69.0" prefHeight="30.0" prefWidth="480.0">
-                    <Label text="Uitgeverij v/h Boek:"/>
-                    <TextField fx:id="publisher" alignment="CENTER" prefHeight="31.0" prefWidth="318.0" onAction="#search">
+                    <Label text="Naam v/h Tijdschrift:"/>
+                    <TextField fx:id="name" onAction="#search" alignment="CENTER" prefHeight="31.0" prefWidth="318.0">
                         <HBox.margin>
                             <Insets left="30.0"/>
                         </HBox.margin>
@@ -29,5 +29,8 @@
                 <Button layoutX="215.0" layoutY="-1.0" mnemonicParsing="false" onAction="#search" text="Zoek"/>
             </AnchorPane>
         </content>
+        <expandableContent>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="320.0"/>
+        </expandableContent>
     </DialogPane>
 </AnchorPane>
