@@ -100,7 +100,7 @@ public class FindMagByTraded {
                 if (!row.isEmpty() && event.getButton() == MouseButton.PRIMARY
                         && event.getClickCount() == 2) {
                     Magazine clickedRow = row.getItem();
-                    Trade trade = tradeRepo.findTradeByNameMag(clickedRow.getName());
+                    Trade trade = tradeRepo.findOne(clickedRow.getId());
                     if(trade != null){
                         try {
                             window = NewStage.getStage("RijDetails!", "/fxml/magazines/search/views/tradeDetailsView.fxml");

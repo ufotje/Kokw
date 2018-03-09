@@ -100,7 +100,7 @@ public class FindMagBySubscribed {
                     if (!row.isEmpty() && event.getButton() == MouseButton.PRIMARY
                                 && event.getClickCount() == 2) {
                             Magazine clickedRow = row.getItem();
-                            Subscribed subscribed = subRepo.findOne(clickedRow.geId());
+                            Subscribed subscribed = subRepo.findOne(clickedRow.getId());
                         if (subscribed != null) {
                             try {
                                 window = NewStage.getStage("RijDetails!", "/fxml/magazines/search/views/subscriptionDetailsView.fxml");
