@@ -7,7 +7,6 @@ import be.kokw.bean.TimeStamp;
 import be.kokw.repositories.books.CheckOutRepo;
 import be.kokw.repositories.MemberRepo;
 import be.kokw.repositories.TimeStampRepo;
-import be.kokw.utility.maillings.Mail;
 import be.kokw.utility.validation.Warning;
 import javafx.application.Platform;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -52,8 +51,8 @@ public class AutomatedTasks {
                     Book b = c.getBook();
                     String name = m.getFirstName();
                     String title = b.getTitle();
-                    String text = "Geachte " + name + "\n \nHet boek: '" + title + "' geschreven door '" + "' werd te laat terug gebracht.\nGelieve zo spoedig mogelijk het boek in te leveren.\n \nMet vriendelijke groeten \n \n \nHet KOKW-Team";
-                    Mail.sendMail(m.getEmail(), "Boek Te Laat!", text);
+                    String text = "Geachte " + name + "\n \nHet boek: '" + title + "' geschreven door '" + b.getAuthors() + "' werd te laat terug gebracht.\nGelieve zo spoedig mogelijk het boek in te leveren.\n \nMet vriendelijke groeten \n \n \nHet KOKW-Team";
+                    SingleRecipient.sendMail(m.getEmail(), "Boek Te Laat!", text);
                 }
             } else {
                 Warning.alert("No Items Found", "Er zijn geen boeken gevonden die te laat zijn.");
@@ -83,11 +82,11 @@ public class AutomatedTasks {
                     bDay.setTime(d1);
                     if (bDay.get(Calendar.MONTH) == now.get(Calendar.MONTH) && bDay.get(Calendar.DAY_OF_MONTH) == now.get(Calendar.DAY_OF_MONTH)) {
                         text = "Beste " + m.getFirstName() + wens + "\n \nMet Vriendelijke Groeten\n \n \nHet KOKW-Team";
-                        Mail.sendMail(m.getEmail(), topic, text);
+                        SingleRecipient.sendMail(m.getEmail(), topic, text);
                     } else {
                         int difference = now.get(Calendar.DAY_OF_MONTH) - bDay.get(Calendar.DAY_OF_MONTH);
-                        text = "Beste " + m.getFirstName() + wens + "\nOok al zijn we " + difference + " dag(en) te hopen wij dat je toch genoten hebt van je verjaardag en wensen we je nog vele jaren. \n \nMet Vriendelijke Groeten\n \n \nHet KOKW-Team";
-                        Mail.sendMail(m.getEmail(), topic, text);
+                        text = "Beste " + m.getFirstName() + wens + "\nOok al zijn we " + difference + " dag(en) te laat, hopen wij dat je toch genoten hebt van je verjaardag en wensen we je nog vele jaren. \n \nMet Vriendelijke Groeten\n \n \nHet KOKW-Team";
+                        SingleRecipient.sendMail(m.getEmail(), topic, text);
                     }
                 }
             }
@@ -108,7 +107,7 @@ public class AutomatedTasks {
                     Member m = c.getMember();
                     String topic = "Uw uitleenbeurt vervalt binnen 2 dagen...";
                     String text = "Geachte " + name + "\n \nUw uitleenbeurt voor het boek '" + title + "' vervalt binnen 2 dagen!\nVergeet niet tijdig het boek binnen te brengen.\n \nMet vriendelijke groeten\n \n \n \nHet KOKW-Team";
-                    Mail.sendMail(m.getEmail(), topic, text);
+                    SingleRecipient.sendMail(m.getEmail(), topic, text);
                 }
             }
         });

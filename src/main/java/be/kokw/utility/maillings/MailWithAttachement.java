@@ -1,9 +1,9 @@
 package be.kokw.utility.maillings;
-
-
-import be.kokw.utility.controller.FileSelector;
+import be.kokw.bean.Member;
+import be.kokw.utility.validation.Warning;
 
 import java.io.File;
+import java.util.List;
 import java.util.Properties;
 
 import javax.activation.DataHandler;
@@ -22,9 +22,8 @@ import javax.mail.internet.MimeMessage;
 import javax.mail.internet.MimeMultipart;
 
 public class MailWithAttachement {
-    private void sendMail() {
-        String to = "reciever@gmail.com";
-        String from = "youraccount@gmail.com";
+    public static void sendMail(String subject, String text, File file, List<Member> recipients) {
+        String from = "d.demesmaecker@gmail.com";
         Properties props = new Properties();
         props.put("mail.smtp.auth", "true");
         props.put("mail.smtp.starttls.enable", "true");
@@ -33,22 +32,23 @@ public class MailWithAttachement {
         Session session = Session.getDefaultInstance(props,
                 new javax.mail.Authenticator() {
                     protected PasswordAuthentication getPasswordAuthentication() {
-                        return new PasswordAuthentication(from, "password");
+                        return new PasswordAuthentication(from, "SoetkinIsEen8erlijkeTrut");
                     }
                 });
 
         try {
             Message message = new MimeMessage(session);
             message.setFrom(new InternetAddress(from));
-            message.setRecipients(Message.RecipientType.TO,
-                    InternetAddress.parse(to));
-            message.setSubject("Testing Subject");
+            for(Member recipient : recipients) {
+                message.addRecipients(Message.RecipientType.BCC,
+                        InternetAddress.parse(recipient.getEmail()));
+            }
+            message.setSubject(subject);
             BodyPart messageBodyPart = new MimeBodyPart();
-            messageBodyPart.setText("This is message body");
+            messageBodyPart.setContent(text, "text/html");
             Multipart multipart = new MimeMultipart();
             multipart.addBodyPart(messageBodyPart);
             messageBodyPart = new MimeBodyPart();
-            File file = FileSelector.chooseFile();
             String filename = file.getAbsolutePath();
             DataSource source = new FileDataSource(filename);
             messageBodyPart.setDataHandler(new DataHandler(source));
@@ -56,8 +56,9 @@ public class MailWithAttachement {
             multipart.addBodyPart(messageBodyPart);
             message.setContent(multipart);
             Transport.send(message);
-            System.out.println("Sent message successfully....");
+            Warning.alert("Message sent", "De boodschap werd met succes verzonden.");
         } catch (MessagingException e) {
+            Warning.alert("Error!", "Er ging iets fout tijdens het versturen van de boodschap.");
             throw new RuntimeException(e);
         }
     }

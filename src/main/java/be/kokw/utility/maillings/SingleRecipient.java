@@ -1,17 +1,15 @@
 package be.kokw.utility.maillings;
 
-
 import be.kokw.bean.Member;
 import be.kokw.utility.validation.Warning;
 
 import javax.mail.*;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
-import java.util.List;
 import java.util.Properties;
 
-public interface Mail {
-    static void sendMail(List<Member> recipients, String subject, String text) {
+public interface SingleRecipient {
+    static void sendMail(String recipient, String subject, String text) {
         String from = "d.demesmaecker@gmail.com";
         Properties props = new Properties();
         props.put("mail.smtp.auth", "true");
@@ -27,10 +25,8 @@ public interface Mail {
 
         try {
             Message message = new MimeMessage(session);
-            for(Member recipient : recipients) {
-                message.addRecipients(Message.RecipientType.BCC,
-                        InternetAddress.parse(recipient.getEmail()));
-            }
+            message.setFrom(new InternetAddress(from));
+            message.addRecipient(Message.RecipientType.TO, new InternetAddress(recipient));
             message.setSubject(subject);
             message.setContent(text, "text/html");
             Transport.send(message);

@@ -19,8 +19,6 @@ import org.springframework.stereotype.Component;
 @Component
 public class AddToCheckedOut {
     @FXML
-    private TextField title;
-    @FXML
     private TextField firstName;
     @FXML
     private TextField lastName;
@@ -59,23 +57,24 @@ public class AddToCheckedOut {
         MenuController.window.close();
         if (member != null) {
             if (book != null) {
-                Copies copy = copyRepo.findByTitle(title.getText());
-                if (copy.getNrOfCopies() > 0) {
+                Copies copy = copyRepo.findByTitle(book.getTitle());
+                System.out.println(copy.getNrOfCopies());
+                if (copy.getNrOfCopies() > 1) {
                     copy.setNrOfCopies(copy.getNrOfCopies() - 1);
                     copyRepo.save(copy);
                 } else {
-                    Warning.alert("No More Copies", "Er zijn geen kopieën van het boek '" + title.getText() + "' meer beschikbaar.");
+                    Warning.alert("No More Copies", "Er zijn geen kopieën van het boek '" + book.getTitle() + "' meer beschikbaar.");
 
                 }
                 CheckedOut checkOut = checkOutRepo.save(book, member);
                 if (checkOut != null) {
                     StringBuilder sb = new StringBuilder(checkOut.getReturnDate().toString());
-                    Warning.alert("Book checked out!", "Het boek '" + title.getText() + "' werd succesvol uitgeleend aan '" + firstName.getText() + " " + lastName.getText() + "'!\nDe retourdatum is " + sb.reverse().toString());
+                    Warning.alert("Book checked out!", "Het boek '" + book.getTitle() + "' werd succesvol uitgeleend aan '" + firstName.getText() + " " + lastName.getText() + "'!\nDe retourdatum is " + sb.reverse().toString());
                 } else {
                     Warning.alert("Check out failed", "Er is iets fout gegaan!");
                 }
             } else {
-                Warning.alert("Book not found!", "Het boek '" + title.getText() + "' werd niet gevonden!");
+                Warning.alert("Book not found!", "Het boek met id: " + id.getText() + " werd niet gevonden!");
             }
         } else {
             Warning.alert("Member not found", "Het lid '" + firstName.getText() + " " + lastName.getText() + "' werd niet gevonden!");

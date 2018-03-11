@@ -9,7 +9,7 @@ public interface FileSelector {
 
     static File chooseFile(){
         FileChooser fileChooser = new FileChooser();
-        fileChooser.setTitle("Kies het Contract");
+        fileChooser.setTitle("Kies het Bestand");
         fileChooser.setInitialDirectory(new File(System.getProperty("user.home")));
         return fileChooser.showOpenDialog(new Stage());
     }

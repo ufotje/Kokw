@@ -176,25 +176,25 @@ public class MenuController {
     //checkOut Methods
     @FXML
     private void checkOut() {
-        window = NewStage.getStage("Check-Out Book!", "/fxml/books/checkOut/checkOutDialog.fxml");
+        window = NewStage.getStage("Check-Out Book!", "/fxml/checkOut/books/checkOutDialog.fxml");
         window.show();
     }
 
     @FXML
     private void returnBook() {
-        window = NewStage.getStage("Return Book!", "/fxml/books/checkOut/returnDialog.fxml");
+        window = NewStage.getStage("Return Book!", "/fxml/checkOut/books/returnDialog.fxml");
         window.show();
     }
 
     @FXML
     private void prolong() {
-        window = NewStage.getStage("Prolong Checked-Out Book!", "/fxml/books/checkOut/prolongDialog.fxml");
+        window = NewStage.getStage("Prolong Checked-Out Book!", "/fxml/checkOut/books/prolongDialog.fxml");
         window.show();
     }
 
     @FXML
     private void datesBetween() {
-        window = NewStage.getStage("Checked-Out Between", "/fxml/books/checkOut/betweenDialog.fxml");
+        window = NewStage.getStage("Checked-Out Between", "/fxml/checkOut/books/betweenDialog.fxml");
         window.show();
     }
 
@@ -252,6 +252,7 @@ public class MenuController {
     @FXML
     private void magByTopic() {
         window = NewStage.getStage("Geef het onderwerp op", "/fxml/magazines/search/dialogs/byTopicDialog.fxml");
+        window.show();
     }
 
     //DigitalMethods
