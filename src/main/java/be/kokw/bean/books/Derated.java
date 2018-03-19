@@ -10,7 +10,9 @@ public class Derated {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private int id;
-    private int bookId;
+    @JoinColumn(name = "id_books", referencedColumnName = "id", nullable = false)
+    @ManyToOne(optional = false, fetch = FetchType.EAGER)
+    private Book book;
     @Column(name = "derateDate")
     private LocalDate derated;
     @Column(name = "destination")
@@ -27,8 +29,8 @@ public class Derated {
     public Derated() {
     }
 
-    public Derated(int bookId, LocalDate derated, String destination, String isbn, String depot, String title, String authors) {
-        this.bookId = bookId;
+    public Derated(Book book, LocalDate derated, String destination, String isbn, String depot, String title, String authors) {
+        this.book = book;
         this.derated = derated;
         this.destination = destination;
         this.isbn = isbn;
@@ -45,12 +47,12 @@ public class Derated {
         this.id = id;
     }
 
-    public int getBookId() {
-        return bookId;
+    public Book getBook() {
+        return book;
     }
 
-    public void setBookId(int bookId) {
-        this.bookId = bookId;
+    public void setBook(Book book) {
+        this.book = book;
     }
 
     public LocalDate getDerated() {

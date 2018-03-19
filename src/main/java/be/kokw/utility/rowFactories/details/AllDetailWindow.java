@@ -1,4 +1,4 @@
-package be.kokw.utility.rowFactories;
+package be.kokw.utility.rowFactories.details;
 
 import be.kokw.utility.controller.GetHbox;
 import javafx.geometry.Pos;

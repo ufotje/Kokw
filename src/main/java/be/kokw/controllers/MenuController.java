@@ -145,6 +145,36 @@ public class MenuController {
         window.show();
     }
 
+    @FXML
+    private void findByDeratedAll(){
+        ChangeScene.init("/fxml/books/found/derated/tableviewDeratedAll.fxml", "Alle gedeclasseerde boeken");
+    }
+
+    @FXML
+    private void findByDeratedTitle(){
+        ChangeScene.init("/fxml/books/found/derated/dialogs/deratedTitleDialog.fxml", "Geef de titel in");
+    }
+
+    @FXML
+    private void findByDeratedDate(){
+        ChangeScene.init("/fxml/books/found/derated/dialogs/deratedDateDialog.fxml", "Geef de datum in");
+    }
+
+    @FXML
+    private void findByDeratedDestroyed(){
+        ChangeScene.init("/fxml/books/found/derated/views/tableviewDeratedDestroyed.fxml", "Alle vernietigde boeken");
+    }
+
+    @FXML
+    private void findByDeratedSold(){
+        ChangeScene.init("/fxml/books/found/derated/views/tableviewDeratedSold.fxml", "Alle verkochte boeken");
+    }
+
+    @FXML
+    private void findByDeratedGivenAway(){
+        ChangeScene.init("/fxml/books/found/derated/views/tableviewDeratedGivenAway.fxml", "Alle weggeschonken boeken");
+    }
+
     //Update a book
     @FXML
     private void updateBookByTitle() {

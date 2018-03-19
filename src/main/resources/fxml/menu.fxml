@@ -50,15 +50,23 @@
                             <MenuItem mnemonicParsing="false" onAction="#findByGiftedOnAll" text="Alle"/>
                             <MenuItem mnemonicParsing="false" onAction="#findByGiftedOn" text="Op Datum"/>
                             <MenuItem mnemonicParsing="false" onAction="#findByGiftedOnBetween" text="Op Datum Tussen"/>
-                            <Menu mnemonicParsing="false" text="Geschonken tegenprestatie">
-                                <MenuItem mnemonicParsing="false" onAction="#findByGiftedForOnAll" text="Alle"/>
-                                <MenuItem mnemonicParsing="false" onAction="#findByGiftedForOn" text="Op Datum"/>
-                                <MenuItem mnemonicParsing="false" onAction="#findByGiftedForOnBetween"
-                                          text="Op Datum tussen"/>
-                                <MenuItem mnemonicParsing="false" onAction="#findByGiftedForOnName" text="Op Naam"/>
-                                <MenuItem mnemonicParsing="false" onAction="#findByGiftedForOnNameAndDate"
-                                          text="Op Naam en Datum"/>
-                            </Menu>
+                        </Menu>
+                        <Menu mnemonicParsing="false" text="Geruild">
+                            <MenuItem mnemonicParsing="false" onAction="#findByGiftedForOnAll" text="Alle"/>
+                            <MenuItem mnemonicParsing="false" onAction="#findByGiftedForOn" text="Op Datum"/>
+                            <MenuItem mnemonicParsing="false" onAction="#findByGiftedForOnBetween"
+                                      text="Op Datum tussen"/>
+                            <MenuItem mnemonicParsing="false" onAction="#findByGiftedForOnName" text="Op Naam"/>
+                            <MenuItem mnemonicParsing="false" onAction="#findByGiftedForOnNameAndDate"
+                                      text="Op Naam en Datum"/>
+                        </Menu>
+                        <Menu mnemonicParsing="false" text="Gedeclasseerd">
+                            <MenuItem mnemonicParsing="false" text="Alle" onAction="#findByDeratedAll"/>
+                            <MenuItem mnemonicParsing="false" text="Op Titel" onAction="#findByDeratedTitle"/>
+                            <MenuItem mnemonicParsing="false" text="Op datum" onAction="#findByDeratedDate"/>
+                            <MenuItem mnemonicParsing="false" text="Vernietigd" onAction="#findByDeratedDestroyed"/>
+                            <MenuItem mnemonicParsing="false" text="Verkocht" onAction="#findByDeratedSold"/>
+                            <MenuItem mnemonicParsing="false" text="Weg Gegeven" onAction="#findByDeratedGivenAway"/>
                         </Menu>
                     </Menu>
                     <Menu mnemonicParsing="false" text="Verwijder">

@@ -69,7 +69,7 @@ public class DerateDigital {
             StringBuilder sb = new StringBuilder();
             if (copy.getNrOfCopies() > 0) {
                 copy.setNrOfCopies(copy.getNrOfCopies() - 1);
-                Derated derated = new Derated(b.getId(), LocalDate.now(), destination.getValue(), b.getIsbn(), b.getDepot(), b.getTitle(), b.getAuthors());
+                Derated derated = new Derated(b, LocalDate.now(), destination.getValue(), b.getIsbn(), b.getDepot(), b.getTitle(), b.getAuthors());
                 derateRepo.save(derated);
                 copyRepo.save(copy);
                 sb.append("Er zijn nog ").append(copy.getNrOfCopies()).append(" kopieën van het boek '").append(b.getTitle()).append("' in de bibliotheek van de kokw.");
