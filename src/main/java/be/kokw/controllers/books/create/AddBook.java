@@ -39,7 +39,7 @@ import java.util.List;
 @Component
 public class AddBook {
     @FXML
-    private TextField fullName, contractNr, firstName, lastName, title, author, publisher, subTitle, year, pages, isbn, depot, edition, copies;
+    private TextField fullName, contractNr, firstName, lastName, title, author, publisher, subTitle, year, pages, isbn, depot, edition;
     @FXML
     private DatePicker date, boughtOn;
     @FXML
@@ -91,8 +91,7 @@ public class AddBook {
         BookTextFields.autocomplete(repo.findAll(), title, author, subTitle, publisher);
     }
 
-    @FXML
-    public void save() {
+    private void save() {
         if (validated()) {
             book = new Book(isbn.getText(), depot.getText(), title.getText(), subTitles.toString(), Integer.parseInt(edition.getText()), volume.getValue(), publisher.getText(), Integer.parseInt(year.getText()), Integer.parseInt(pages.getText()), illustrated.isSelected(), authors.toString(), topics.append(topic.getValue()).toString());
             if (gifted.isSelected() && bought.isSelected() && !giftedFor.isSelected()) {
@@ -195,7 +194,8 @@ public class AddBook {
         LocalDate boughtDate = boughtOn.getValue();
         book.setBoughtOn(boughtDate);
         window.close();
-        saveBook(book);
+        repo.save(book);
+        saveCopies();
     }
 
     @FXML
@@ -215,7 +215,9 @@ public class AddBook {
                 Validation.validate("Uitgeverij:", publisher.getText(), "[a-zA-Z]+") &&
                 Validation.validate("Jaar van publicatie:", year.getText(), "[0-9999]+") &&
                 Validation.validate("Aantal Bladzijden:", pages.getText(), "[0-9999]+")) &&
-                Validation.validate("isbn", isbn.getText(), "[a-zA-Z0-9999 \\-]+") && Validation.validate("depot", depot.getText(), "[a-zA-Z0-9999 -]+") && Validation.validate("edition", edition.getText(), "[0-999]+") && Validation.validate("copies", copies.getText(), "[0-999]+")) {
+                Validation.validate("isbn", isbn.getText(), "[a-zA-Z0-9999 \\-]+") &&
+                Validation.validate("depot", depot.getText(), "[a-zA-Z0-9999 -]+") &&
+                Validation.validate("edition", edition.getText(), "[0-999]+")) {
             valid = true;
         } else {
             Warning.alert("Wrong input", "Verkeerde invoer!\nControleer uw velden aub.");
@@ -229,11 +231,9 @@ public class AddBook {
         if (copy != null) {
             copy.setNrOfCopies(copy.getNrOfCopies() + 1);
             copyRepo.save(copy);
-            ChangeScene.init("/fxml/home.fxml", "KOKW - Het Verleden Draait Altijd Mee!");
         } else {
-            Copies c = new Copies(title.getText(), "Boek");
+            Copies c = new Copies(title.getText(), "Boek", volume.getValue());
             copyRepo.save(c);
-            ChangeScene.init("/fxml/home.fxml", "KOKW - Het Verleden Draait Altijd Mee!");
         }
     }
 
@@ -244,7 +244,6 @@ public class AddBook {
         depot.clear();
         subTitle.clear();
         edition.clear();
-        copies.clear();
         illustrated.setSelected(false);
         giftedFor.setSelected(false);
         gifted.setSelected(false);
@@ -256,9 +255,9 @@ public class AddBook {
         pages.clear();
     }
 
-    private void saveBook(Book book) {
-        repo.save(book);
-        saveCopies();
+    @FXML
+    private void saveBook() {
+        save();
         bookList.add(book.getTitle());
         StringBuilder alert = new StringBuilder("The book(s) with title: ");
         for (String s : bookList) {

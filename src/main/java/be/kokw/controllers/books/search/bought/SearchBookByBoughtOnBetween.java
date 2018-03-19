@@ -43,8 +43,6 @@ public class SearchBookByBoughtOnBetween {
     @FXML
     private TableColumn<Book, LocalDate> boughtCol;
     @FXML
-    private TableColumn<Book, Integer> copiesCol;
-    @FXML
     private TableColumn<Book, String> titleCol;
     @FXML
     private TableColumn<Book, String> topicCol;
@@ -82,7 +80,7 @@ public class SearchBookByBoughtOnBetween {
             ChangeScene.init("/fxml/books/found/bought/tableviewByBoughtOnBetween.fxml", "Books by Bought Between");
             boughtCol.setCellValueFactory(new PropertyValueFactory<>("boughtOn"));
             BookTable.init(table, idCol, isbnCol, depotCol, titleCol, editionCol, volumeCol, topicCol, authorCol,
-                    subTitleCol, publisherCol, yearCol, pagesCol, illusCol, copiesCol, bookList);
+                    subTitleCol, publisherCol, yearCol, pagesCol, illusCol, bookList);
         }
     }
 }

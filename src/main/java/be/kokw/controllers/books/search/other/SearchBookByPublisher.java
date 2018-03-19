@@ -42,8 +42,6 @@ public class SearchBookByPublisher {
     @FXML
     private TableColumn<Book, Boolean> illusCol;
     @FXML
-    private TableColumn<Book, Integer> copiesCol;
-    @FXML
     private TableColumn<Book, String> titleCol;
     @FXML
     private TableColumn<Book, String> topicCol;
@@ -77,7 +75,7 @@ public class SearchBookByPublisher {
                 MenuController.window.close();
                 ChangeScene.init("/fxml/books/found/other/tableviewByPublisher.fxml", "Books by Publisher");
                 BookTable.init(table, idCol, isbnCol, depotCol, titleCol, editionCol, volumeCol, topicCol, authorCol,
-                        subTitleCol, publisherCol, yearCol, pagesCol, illusCol, copiesCol, bookList);
+                        subTitleCol, publisherCol, yearCol, pagesCol, illusCol, bookList);
             }else{
                 Warning.alert("Book Not Found","Er werden geen boeken gevonden die werden uitgegeven door: '" + publisher.getText() + "'!");
                 MenuController.window.close();

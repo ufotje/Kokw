@@ -12,7 +12,7 @@ public interface BookTable {
     static void init(TableView table, TableColumn idCol, TableColumn isbnCol, TableColumn depotCol, TableColumn titleCol,
                      TableColumn editionCol, TableColumn volumeCol, TableColumn topicCol, TableColumn authorCol,
                      TableColumn subTitleCol, TableColumn publisherCol, TableColumn yearCol, TableColumn pagesCol,
-                     TableColumn illusCol, TableColumn copiesCol, ObservableList<Book> bookList){
+                     TableColumn illusCol, ObservableList<Book> bookList){
         table.setEditable(true);
         idCol.setCellValueFactory(new PropertyValueFactory<>("id"));
         isbnCol.setCellValueFactory(new PropertyValueFactory<>("isbn"));
@@ -27,7 +27,6 @@ public interface BookTable {
         yearCol.setCellValueFactory(new PropertyValueFactory<>("yearPublished"));
         pagesCol.setCellValueFactory(new PropertyValueFactory<>("nrOfPages"));
         illusCol.setCellValueFactory(new PropertyValueFactory<>("illustrated"));
-        copiesCol.setCellValueFactory(new PropertyValueFactory<>("copies"));
         table.setItems(bookList);
     }
 }

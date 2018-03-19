@@ -41,8 +41,6 @@ public class SearchBookByIssbn {
     @FXML
     private TableColumn<Book, Boolean> illusCol;
     @FXML
-    private TableColumn<Book, Integer> copiesCol;
-    @FXML
     private TableColumn<Book, String> titleCol;
     @FXML
     private TableColumn<Book, String> topicCol;
@@ -78,7 +76,7 @@ public class SearchBookByIssbn {
             MenuController.window.close();
             ChangeScene.init("/fxml/books/found/other/tableviewByIsbn.fxml", "Books by IsbnNumber");
             BookTable.init(table, idCol, isbnCol, depotCol, titleCol, editionCol, volumeCol, topicCol, authorCol,
-                    subTitleCol, publisherCol, yearCol, pagesCol, illusCol, copiesCol, bookList);
+                    subTitleCol, publisherCol, yearCol, pagesCol, illusCol, bookList);
         }
     }
 }

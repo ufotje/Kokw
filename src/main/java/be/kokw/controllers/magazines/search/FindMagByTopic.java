@@ -54,7 +54,7 @@ public class FindMagByTopic {
     }
 
     @FXML
-    public void search() throws Exception {
+    public void search(){
         if (Validation.validate("name", topicField.getText(), "[a-zA-Z \\-]+")) {
             ObservableList<Magazine> list = observableArrayList(repo.findMagazinesByTheme(topicField.getText()));
             MenuController.window.close();

@@ -20,9 +20,9 @@
         <VBox alignment="CENTER" BorderPane.alignment="CENTER">
             <MenuBar style="-fx-background-color: #85C1E9; -fx-background-radius: 10; -fx-alignment: center; "
                      BorderPane.alignment="CENTER">
-                <Menu mnemonicParsing="false" onAction="#home" text="Home">
+                <Menu mnemonicParsing="false" onAction="#home" text="Home" fx:id="homeButton">
                     <graphic>
-                        <ImageView fitHeight="71.0" fitWidth="70.0" pickOnBounds="true" onKeyPressed="#home">
+                        <ImageView fitHeight="71.0" fitWidth="70.0" pickOnBounds="true">
                             <Image url="/images/house.png"/>
                         </ImageView>
                     </graphic>

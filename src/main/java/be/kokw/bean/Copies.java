@@ -10,16 +10,17 @@ public class Copies {
     @Column(name = "id")
     private int id;
     private String title;
-    private int nrOfCopies = 0;
+    private int nrOfCopies = 1;
     private String type;
+    private int volume;
 
     public Copies() {
     }
 
-    public Copies(String title, String type) {
+    public Copies(String title, String type, int volume) {
         this.title = title;
         this.type = type;
-        nrOfCopies += 1;
+        this.volume = volume;
     }
 
     public int getId() {
@@ -52,6 +53,14 @@ public class Copies {
 
     public void setNrOfCopies(int nrOfCopies) {
         this.nrOfCopies = nrOfCopies;
+    }
+
+    public int getVolume() {
+        return volume;
+    }
+
+    public void setVolume(int volume) {
+        this.volume = volume;
     }
 }
 

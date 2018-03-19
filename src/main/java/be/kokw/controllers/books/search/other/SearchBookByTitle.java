@@ -43,8 +43,6 @@ public class SearchBookByTitle {
     @FXML
     private TableColumn<Book, Boolean> illusCol;
     @FXML
-    private TableColumn<Book, Integer> copiesCol;
-    @FXML
     private TableColumn<Book, String> titleCol;
     @FXML
     private TableColumn<Book, String> topicCol;
@@ -78,7 +76,7 @@ public class SearchBookByTitle {
                 MenuController.window.close();
                 ChangeScene.init("/fxml/books/found/other/tableViewByTitle.fxml", "Books by Title");
                 BookTable.init(table, idCol, isbnCol, depotCol, titleCol, editionCol, volumeCol, topicCol, authorCol,
-                        subTitleCol, publisherCol, yearCol, pagesCol, illusCol, copiesCol, bookList);
+                        subTitleCol, publisherCol, yearCol, pagesCol, illusCol, bookList);
             }else{
                 Warning.alert("Book Not Found","The book '" + title.getText() + "' has not been found!");
                 MenuController.window.close();

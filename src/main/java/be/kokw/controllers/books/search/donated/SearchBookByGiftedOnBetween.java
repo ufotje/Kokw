@@ -42,8 +42,6 @@ public class SearchBookByGiftedOnBetween {
     @FXML
     private TableColumn<Book, Boolean> illusCol;
     @FXML
-    private TableColumn<Book, Integer> copiesCol;
-    @FXML
     private TableColumn<Book, String> titleCol;
     @FXML
     private TableColumn<Book, String> topicCol;
@@ -84,7 +82,7 @@ public class SearchBookByGiftedOnBetween {
             MenuController.window.close();
             ChangeScene.init("/fxml/books/found/gifted/tableviewGiftedOnBetween.fxml", "Books by Donated between " + start.getValue() + " and " + end.getValue());
             BookTable.init(table, idCol, isbnCol, depotCol, titleCol, editionCol, volumeCol, topicCol, authorCol,
-                    subTitleCol, publisherCol, yearCol, pagesCol, illusCol, copiesCol, bookList);
+                    subTitleCol, publisherCol, yearCol, pagesCol, illusCol, bookList);
             RowFactoryGiftedBooks.set(table, repo);
         }
     }

@@ -33,7 +33,6 @@
                 <TableColumn fx:id="yearCol" prefWidth="50.0" text="Jaar"/>
                 <TableColumn fx:id="pagesCol" prefWidth="60.0" text="Pages"/>
                 <TableColumn fx:id="illusCol" text="Geïllustreerd"/>
-                <TableColumn fx:id="copiesCol" prefWidth="60" text="Aantal"/>
             </columns>
         </TableView>
     </center>

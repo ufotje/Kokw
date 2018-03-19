@@ -59,7 +59,7 @@ public class AddToCheckedOut {
             if (book != null) {
                 Copies copy = copyRepo.findByTitle(book.getTitle());
                 System.out.println(copy.getNrOfCopies());
-                if (copy.getNrOfCopies() > 1) {
+                if (copy.getNrOfCopies() > 0) {
                     copy.setNrOfCopies(copy.getNrOfCopies() - 1);
                     copyRepo.save(copy);
                 } else {
@@ -69,7 +69,7 @@ public class AddToCheckedOut {
                 CheckedOut checkOut = checkOutRepo.save(book, member);
                 if (checkOut != null) {
                     StringBuilder sb = new StringBuilder(checkOut.getReturnDate().toString());
-                    Warning.alert("Book checked out!", "Het boek '" + book.getTitle() + "' werd succesvol uitgeleend aan '" + firstName.getText() + " " + lastName.getText() + "'!\nDe retourdatum is " + sb.reverse().toString());
+                    Warning.alert("Book checked out!", "Het boek '" + book.getTitle() + "' werd succesvol uitgeleend aan '" + firstName.getText() + " " + lastName.getText() + "'!\nDe retourdatum is " + sb.toString());
                 } else {
                     Warning.alert("Check out failed", "Er is iets fout gegaan!");
                 }

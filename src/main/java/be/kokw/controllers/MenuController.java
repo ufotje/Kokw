@@ -2,21 +2,15 @@ package be.kokw.controllers;
 
 import be.kokw.bean.*;
 import be.kokw.repositories.MemberRepo;
-import be.kokw.utility.controller.tables.MemberTable;
 import be.kokw.utility.sceneControl.ChangeScene;
 import be.kokw.utility.sceneControl.NewStage;
 import be.kokw.utility.validation.Warning;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
-
-import java.time.LocalDate;
 
 import static javafx.collections.FXCollections.observableArrayList;
 
@@ -29,7 +23,6 @@ import static javafx.collections.FXCollections.observableArrayList;
 public class MenuController {
     public static Stage window;
     private MemberRepo memberRepo;
-
 
     @Autowired
     private void setMemberRepo(@Qualifier("memberRepo") MemberRepo memberRepo) {
@@ -52,7 +45,6 @@ public class MenuController {
     @FXML
     private void findBookByTitle() {
         window = NewStage.getStage("Vind Boek op Titel!", "/fxml/books/search/other/dialogpaneByTitle.fxml");
-
         window.show();
     }
 

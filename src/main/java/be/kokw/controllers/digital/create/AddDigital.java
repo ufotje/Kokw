@@ -201,7 +201,6 @@ public class AddDigital {
         digital.setBoughtOn(boughtDate);
         window.close();
         saveDigital(digital);
-        ChangeScene.init("/fxml/home.fxml", "KOKW - Het Verleden Draait Altijd Mee!");
     }
 
     @FXML
@@ -235,7 +234,7 @@ public class AddDigital {
             copy.setNrOfCopies(copy.getNrOfCopies() + 1);
             copyRepo.save(copy);
         } else {
-            Copies c = new Copies(title.getText(), "Digitale Drager");
+            Copies c = new Copies(title.getText(), "Digitale Drager", volume.getValue());
             copyRepo.save(c);
         }
     }

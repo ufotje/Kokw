@@ -4,7 +4,7 @@
 <?import javafx.scene.layout.VBox?>
 
 <BorderPane maxHeight="-Infinity" prefWidth="800" prefHeight="600" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" style="-fx-background-image: url('/images/achtergrond.jpg');
--fx-background-position: center; -fx-background-repeat: no-repeat; -fx-background-size: cover;" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1">
+-fx-background-position: center; -fx-background-repeat: no-repeat; -fx-background-size: 90%;" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1">
       <top>
             <VBox BorderPane.alignment="CENTER">
                 <fx:include source="/fxml/menu.fxml" />

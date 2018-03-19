@@ -43,7 +43,7 @@ public class Main extends Application {
         stage.setTitle("KOKW-AdminApp");
         Image icon = new Image(getClass().getResourceAsStream("/images/logoKOKW.jpg"));
         stage.getIcons().add(icon);
-        stage.setScene(new Scene(root, 1200, 600));
+        stage.setScene(new Scene(root, 1200, 800));
         stage.show();
     }
 

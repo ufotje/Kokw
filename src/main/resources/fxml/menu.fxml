@@ -22,7 +22,7 @@
                      BorderPane.alignment="CENTER">
                 <Menu mnemonicParsing="false" onAction="#home" text="Home">
                     <graphic>
-                        <ImageView fitHeight="71.0" fitWidth="70.0" pickOnBounds="true" onKeyPressed="#home">
+                        <ImageView fitHeight="71.0" fitWidth="70.0" pickOnBounds="true">
                             <Image url="/images/house.png"/>
                         </ImageView>
                     </graphic>
