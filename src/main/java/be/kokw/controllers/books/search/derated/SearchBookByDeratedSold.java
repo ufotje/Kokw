@@ -2,6 +2,8 @@ package be.kokw.controllers.books.search.derated;
 
 import be.kokw.bean.books.Derated;
 import be.kokw.repositories.books.DerateRepo;
+import be.kokw.utility.sceneControl.ChangeScene;
+import be.kokw.utility.validation.Warning;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
@@ -38,21 +40,26 @@ public class SearchBookByDeratedSold {
     private DerateRepo repo;
 
     @Autowired
-    private void setRepo(@Qualifier("derateRepo") DerateRepo repo){
+    private void setRepo(@Qualifier("derateRepo") DerateRepo repo) {
         this.repo = repo;
     }
 
     @FXML
-    public void initialize(){
-        ObservableList<Derated> list = observableArrayList(repo.findByDestination("sold"));
-        idCol.setCellValueFactory(new PropertyValueFactory<>("id"));
-        isbnCol.setCellValueFactory(new PropertyValueFactory<>("isbn"));
-        depotCol.setCellValueFactory(new PropertyValueFactory<>("depot"));
-        bookIdCol.setCellValueFactory(new PropertyValueFactory<>("bookId"));
-        titleCol.setCellValueFactory(new PropertyValueFactory<>("title"));
-        authorCol.setCellValueFactory(new PropertyValueFactory<>("authors"));
-        deratedCol.setCellValueFactory(new PropertyValueFactory<>("derated"));
-        destinationCol.setCellValueFactory(new PropertyValueFactory<>("destination"));
-        table.setItems(list);
+    public void initialize() {
+        ObservableList<Derated> list = observableArrayList(repo.findByDestination("verkocht"));
+        if (list.isEmpty()) {
+            Warning.alert("No Items Found!", "Er werden geen verkochte boeken gevonden.");
+            ChangeScene.init("/fxml/home.fxml", "KOKW - Het Verleden Draait Altijd Mee!");
+        } else {
+            idCol.setCellValueFactory(new PropertyValueFactory<>("id"));
+            isbnCol.setCellValueFactory(new PropertyValueFactory<>("isbn"));
+            depotCol.setCellValueFactory(new PropertyValueFactory<>("depot"));
+            bookIdCol.setCellValueFactory(new PropertyValueFactory<>("bookId"));
+            titleCol.setCellValueFactory(new PropertyValueFactory<>("title"));
+            authorCol.setCellValueFactory(new PropertyValueFactory<>("authors"));
+            deratedCol.setCellValueFactory(new PropertyValueFactory<>("derated"));
+            destinationCol.setCellValueFactory(new PropertyValueFactory<>("destination"));
+            table.setItems(list);
+        }
     }
 }

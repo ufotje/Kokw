@@ -147,7 +147,7 @@ public class MenuController {
 
     @FXML
     private void findByDeratedAll(){
-        ChangeScene.init("/fxml/books/found/derated/tableviewDeratedAll.fxml", "Alle gedeclasseerde boeken");
+        ChangeScene.init("/fxml/books/found/derated/views/tableviewDeratedAll.fxml", "Alle gedeclasseerde boeken");
     }
 
     @FXML

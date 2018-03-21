@@ -68,10 +68,10 @@ public class DerateBook {
         if (b != null) {
             Copies copy = copyRepo.findByTitle(b.getTitle());
             StringBuilder sb = new StringBuilder();
+            Derated derated = new Derated(b, LocalDate.now(), destination.getValue(), b.getIsbn(), b.getDepot(), b.getTitle(), b.getAuthors());
+            derateRepo.save(derated);
             if (copy.getNrOfCopies() > 1) {
                 copy.setNrOfCopies(copy.getNrOfCopies() - 1);
-                Derated derated = new Derated(b, LocalDate.now(), destination.getValue(), b.getIsbn(), b.getDepot(), b.getTitle(), b.getAuthors());
-                derateRepo.save(derated);
                 copyRepo.save(copy);
                 sb.append("Er zijn nog ").append(copy.getNrOfCopies()).append(" kopieën van het boek '").append(b.getTitle()).append("' in de bibliotheek van de kokw.");
 
@@ -79,6 +79,7 @@ public class DerateBook {
                 repo.delete(b);
                 sb.append("Er zijn geen kopieën meer van het boek '").append(b.getTitle()).append("' in de bibliotheek van de kokw");
             }
+
             if(b.isGifted()){
                 giftedRepo.deleteByBookId(Integer.parseInt(id.getText()));
             }

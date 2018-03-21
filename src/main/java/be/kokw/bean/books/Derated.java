@@ -1,5 +1,7 @@
 package be.kokw.bean.books;
 
+import org.hibernate.jpa.criteria.expression.function.AggregationFunction;
+
 import javax.persistence.*;
 import java.time.LocalDate;
 
@@ -10,9 +12,10 @@ public class Derated {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private int id;
-    @JoinColumn(name = "id_books", referencedColumnName = "id", nullable = false)
-    @ManyToOne(optional = false, fetch = FetchType.EAGER)
+    @Lob
+    @Column(length = 78545465)
     private Book book;
+    private int bookId;
     @Column(name = "derateDate")
     private LocalDate derated;
     @Column(name = "destination")
@@ -31,6 +34,7 @@ public class Derated {
 
     public Derated(Book book, LocalDate derated, String destination, String isbn, String depot, String title, String authors) {
         this.book = book;
+        bookId = book.getId();
         this.derated = derated;
         this.destination = destination;
         this.isbn = isbn;
@@ -53,6 +57,14 @@ public class Derated {
 
     public void setBook(Book book) {
         this.book = book;
+    }
+
+    public int getBookId() {
+        return bookId;
+    }
+
+    public void setBookId(int bookId) {
+        this.bookId = bookId;
     }
 
     public LocalDate getDerated() {
