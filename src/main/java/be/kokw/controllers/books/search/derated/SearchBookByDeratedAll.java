@@ -2,8 +2,6 @@ package be.kokw.controllers.books.search.derated;
 
 import be.kokw.bean.books.Book;
 import be.kokw.bean.books.Derated;
-import be.kokw.controllers.MenuController;
-import be.kokw.repositories.books.BookRepo;
 import be.kokw.repositories.books.DerateRepo;
 import be.kokw.utility.controller.tables.BookTable;
 import be.kokw.utility.rowFactories.RowFactoryBookDerated;
@@ -13,12 +11,10 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
-import javafx.scene.control.cell.PropertyValueFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
-import java.time.LocalDate;
 import java.util.List;
 
 import static javafx.collections.FXCollections.observableArrayList;

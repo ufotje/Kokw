@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 import java.time.LocalDate;
 
 @Component
-public class Details {
+public class DonateDetails {
 
     @FXML
     private DialogPane pane;

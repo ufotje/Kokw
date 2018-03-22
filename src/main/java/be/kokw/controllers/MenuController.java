@@ -147,32 +147,34 @@ public class MenuController {
 
     @FXML
     private void findByDeratedAll(){
-        ChangeScene.init("/fxml/books/found/derated/views/tableviewDeratedAll.fxml", "Alle gedeclasseerde boeken");
+        ChangeScene.init("/fxml/books/derated/views/tableviewDeratedAll.fxml", "Alle gedeclasseerde boeken");
     }
 
     @FXML
     private void findByDeratedTitle(){
-        ChangeScene.init("/fxml/books/found/derated/dialogs/deratedTitleDialog.fxml", "Geef de titel in");
+        window = NewStage.getStage("Geef de titel in", "/fxml/books/derated/dialogs/deratedTitleDialog.fxml");
+        window.show();
     }
 
     @FXML
     private void findByDeratedDate(){
-        ChangeScene.init("/fxml/books/found/derated/dialogs/deratedDateDialog.fxml", "Geef de datum in");
+        window = NewStage.getStage("Geef de datum in", "/fxml/books/derated/dialogs/deratedByDate.fxml");
+        window.show();
     }
 
     @FXML
     private void findByDeratedDestroyed(){
-        ChangeScene.init("/fxml/books/found/derated/views/tableviewDeratedDestroyed.fxml", "Alle vernietigde boeken");
+        ChangeScene.init("/fxml/books/derated/views/tableviewDeratedDestroyed.fxml", "Alle vernietigde boeken");
     }
 
     @FXML
     private void findByDeratedSold(){
-        ChangeScene.init("/fxml/books/found/derated/views/tableviewDeratedSold.fxml", "Alle verkochte boeken");
+        ChangeScene.init("/fxml/books/derated/views/tableviewDeratedSold.fxml", "Alle verkochte boeken");
     }
 
     @FXML
     private void findByDeratedGivenAway(){
-        ChangeScene.init("/fxml/books/found/derated/views/tableviewDeratedGivenAway.fxml", "Alle weggeschonken boeken");
+        ChangeScene.init("/fxml/books/derated/views/tableviewDeratedGivenAway.fxml", "Alle weggeschonken boeken");
     }
 
     //Update a book

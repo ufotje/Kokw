@@ -1,4 +1,7 @@
 package be.kokw.bean.books;
+/**
+ * Author: Demesmaecker Daniel
+ */
 
 import be.kokw.bean.Member;
 

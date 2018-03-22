@@ -2,6 +2,7 @@ package be.kokw.controllers.books.search.derated;
 
 import be.kokw.bean.books.Book;
 import be.kokw.bean.books.Derated;
+import be.kokw.controllers.MenuController;
 import be.kokw.repositories.books.DerateRepo;
 import be.kokw.utility.controller.tables.BookTable;
 import be.kokw.utility.rowFactories.RowFactoryBookDerated;
@@ -11,17 +12,19 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
-import java.time.LocalDate;
 import java.util.List;
 
 import static javafx.collections.FXCollections.observableArrayList;
 
 @Component
-public class SearchBookByDeratedSold {
+public class SearchBookByDeratedTitle {
+    @FXML
+    private TextField title;
     @FXML
     private TableView<Book> table;
     @FXML
@@ -58,16 +61,18 @@ public class SearchBookByDeratedSold {
     }
 
     @FXML
-    public void initialize() {
-        List<Derated> derateList = repo.findByDestination("verkocht");
+    public void search() {
+        List<Derated> derateList = repo.findAll();
         ObservableList<Book> bookList = observableArrayList();
-        for(Derated d: derateList){
+        for (Derated d : derateList) {
             bookList.add(d.getBook());
         }
+        MenuController.window.close();
         if (bookList.isEmpty()) {
-            Warning.alert("No Books found!", "Er werden geen boeken gevonden die werden verkocht.");
+            Warning.alert("No Books found!", "Er werden geen gedeclasseerde boeken gevonden met " + title.getText() + " als titel.");
             ChangeScene.init("/fxml/home.fxml", "KOKW - Het Verleden Draait Altijd Mee!");
         } else {
+            ChangeScene.init("fxml/books/derated/views/tableviewDeratedTitle.fxml", "Alle gedeclasseerde boeken met " + title.getText() + " als titel.");
             BookTable.init(table, idCol, isbnCol, depotCol, titleCol, editionCol, volumeCol, topicCol, authorCol,
                     subTitleCol, publisherCol, yearCol, pagesCol, illusCol, bookList);
             RowFactoryBookDerated.set(table, repo);

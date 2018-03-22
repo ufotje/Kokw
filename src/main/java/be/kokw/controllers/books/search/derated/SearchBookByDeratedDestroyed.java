@@ -15,13 +15,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
-import java.time.LocalDate;
 import java.util.List;
 
 import static javafx.collections.FXCollections.observableArrayList;
 
 @Component
-public class SearchBookByDeratedSold {
+public class SearchBookByDeratedDestroyed {
     @FXML
     private TableView<Book> table;
     @FXML
@@ -59,13 +58,13 @@ public class SearchBookByDeratedSold {
 
     @FXML
     public void initialize() {
-        List<Derated> derateList = repo.findByDestination("verkocht");
+        List<Derated> derateList = repo.findByDestination("destroyed");
         ObservableList<Book> bookList = observableArrayList();
         for(Derated d: derateList){
             bookList.add(d.getBook());
         }
         if (bookList.isEmpty()) {
-            Warning.alert("No Books found!", "Er werden geen boeken gevonden die werden verkocht.");
+            Warning.alert("No Books found!", "Er werden geen vernietigde boeken gevonden.");
             ChangeScene.init("/fxml/home.fxml", "KOKW - Het Verleden Draait Altijd Mee!");
         } else {
             BookTable.init(table, idCol, isbnCol, depotCol, titleCol, editionCol, volumeCol, topicCol, authorCol,

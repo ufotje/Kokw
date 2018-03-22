@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.VBox?>
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0"
             prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="be.kokw.controllers.books.search.derated.SearchBookByDeratedAll">
+            fx:controller="be.kokw.controllers.books.search.derated.SearchBookByDeratedDestroyed">
     <top>
         <VBox BorderPane.alignment="CENTER">
             <fx:include source="/fxml/menu.fxml"/>
@@ -35,7 +35,6 @@
                 <TableColumn fx:id="yearCol" prefWidth="50.0" text="Jaar"/>
                 <TableColumn fx:id="pagesCol" prefWidth="60.0" text="Pages"/>
                 <TableColumn fx:id="illusCol" text="Geïllustreerd"/>
-                <TableColumn fx:id="boughtCol" prefWidth="100.0" text="Gekocht Op"/>
             </columns>
         </TableView>
     </center>

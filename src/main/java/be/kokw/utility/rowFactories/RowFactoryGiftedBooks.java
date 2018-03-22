@@ -3,7 +3,7 @@ package be.kokw.utility.rowFactories;
 import be.kokw.Main;
 import be.kokw.bean.books.Book;
 import be.kokw.bean.books.Gifted;
-import be.kokw.controllers.books.search.donated.Details;
+import be.kokw.controllers.books.search.donated.DonateDetails;
 import be.kokw.repositories.books.GiftedRepo;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -33,7 +33,7 @@ public interface RowFactoryGiftedBooks {
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
-                    Details controller = loader.getController();
+                    DonateDetails controller = loader.getController();
                     Scene scene = new Scene(root);
                     stage.setTitle("DonatieDetails van het boek '" + clickedRow.getTitle() + "'");
                     stage.setScene(scene);

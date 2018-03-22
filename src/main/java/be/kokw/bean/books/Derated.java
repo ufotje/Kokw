@@ -1,6 +1,8 @@
 package be.kokw.bean.books;
 
-import org.hibernate.jpa.criteria.expression.function.AggregationFunction;
+/**
+ * @Author: Demesmaecker Daniel
+ */
 
 import javax.persistence.*;
 import java.time.LocalDate;

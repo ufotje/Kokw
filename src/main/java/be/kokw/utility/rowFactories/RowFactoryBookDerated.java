@@ -19,8 +19,7 @@ public interface RowFactoryBookDerated {
                         && event.getClickCount() == 2) {
                     Book clickedRow = row.getItem();
                     Derated derated = repo.findByBook(clickedRow);
-                    DerateDetails.set(derated.getId(), clickedRow.getId(), clickedRow.getIsbn(), clickedRow.getTitle(),
-                            clickedRow.getAuthors(), derated.getDerated(), derated.getDestination());
+                    DerateDetails.set(derated.getId(), clickedRow.getTitle(),derated.getDerated(), derated.getDestination());
                 }
             });
             return row;

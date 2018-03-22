@@ -3,7 +3,7 @@ package be.kokw.utility.rowFactories;
 import be.kokw.Main;
 import be.kokw.bean.digital.Digital;
 import be.kokw.bean.digital.DigitalDonated;
-import be.kokw.controllers.books.search.donated.Details;
+import be.kokw.controllers.books.search.donated.DonateDetails;
 import be.kokw.repositories.digital.DigitalDonateRepo;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -33,7 +33,7 @@ public interface RowFactoryDigitalDonated {
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
-                    Details controller = loader.getController();
+                    DonateDetails controller = loader.getController();
                     Scene scene = new Scene(root);
                     stage.setTitle("DonatieDetails van digitale drager: '" + clickedRow.getTitle() + "'");
                     stage.setScene(scene);

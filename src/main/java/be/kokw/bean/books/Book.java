@@ -6,8 +6,7 @@ import java.io.Serializable;
 import java.time.LocalDate;
 
 /**
- * Created by ufotje on 4/10/2017.
- * This is the EntityClass for Table Books
+ * Created by Daniel Demesmaecker on 4/10/2017.
  */
 
 @Entity
