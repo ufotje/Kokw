@@ -7,9 +7,16 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 /**
- * Created by ufotje on 2/11/2017.
+ * Created by Demesmaecker Daniel on 2/11/2017.
  */
 public interface NewStage {
+
+    /**
+     * Opens a new dialogwindow
+     * @param title String
+     * @param resource String
+     * @return Stage
+     */
     static Stage getStage(String title, String resource){
         Stage window = new Stage();
         try {

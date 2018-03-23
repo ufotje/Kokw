@@ -7,6 +7,10 @@ import org.springframework.stereotype.Repository;
 import javax.transaction.Transactional;
 import java.util.List;
 
+/**
+ * Created By Demesmaecker Daniel
+ */
+
 @Repository("tradeRepo")
 public interface TradeRepo extends JpaRepository<Trade,Integer> {
 

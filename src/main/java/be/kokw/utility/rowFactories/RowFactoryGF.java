@@ -8,6 +8,10 @@ import javafx.scene.input.MouseButton;
 
 import java.io.File;
 
+/**
+ * Created By Demesmaecker Daniel
+ */
+
 @SuppressWarnings("unchecked")
 public interface RowFactoryGF {
     static void set(TableView table) {

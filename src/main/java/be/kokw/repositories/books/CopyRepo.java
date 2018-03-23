@@ -7,6 +7,10 @@ import org.springframework.stereotype.Repository;
 
 import javax.transaction.Transactional;
 
+/**
+ * Created By Demesmaecker Daniel
+ */
+
 @Repository("copyRepo")
 public interface CopyRepo extends JpaRepository <Copies, Integer>  {
 

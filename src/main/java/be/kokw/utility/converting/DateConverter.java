@@ -7,18 +7,28 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
 /**
- * Created by ufotje on 26/10/2017.
+ * Created by Demesmaecker Daniel on 26/10/2017.
  * Auto converter for Dates
  */
 
 @Converter(autoApply = true)
 public class DateConverter implements AttributeConverter<LocalDate, Date> {
 
+    /**
+     * Converts LocalDate to SQLDate
+     * @param locDate LocalDate
+     * @return Date
+     */
     @Override
     public Date convertToDatabaseColumn(LocalDate locDate) {
         return (locDate == null ? null : Date.valueOf(locDate));
     }
 
+    /**
+     * Converts SQLDate to LocalDate
+     * @param sqlDate Date
+     * @return LocalDate
+     */
     @Override
     public LocalDate convertToEntityAttribute(Date sqlDate) {
         LocalDate date = null;

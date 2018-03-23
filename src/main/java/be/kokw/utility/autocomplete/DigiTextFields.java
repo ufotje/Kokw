@@ -10,6 +10,10 @@ import org.controlsfx.control.textfield.TextFields;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Created By Demesmaecker Daniel
+ */
+
 public interface DigiTextFields {
 
     static void autocomplete(DigitalRepo repo, TextField title, TextField author, TextField subTitle, TextField publisher) {

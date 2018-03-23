@@ -11,7 +11,7 @@ import java.time.LocalDate;
 import java.util.List;
 
 /**
- * Created by ufotje on 7/10/2017.
+ * Created by Demesmaecker Daniel on 7/10/2017.
  */
 @Repository("bookRepo")
 public interface BookRepo extends JpaRepository<Book, Integer> {

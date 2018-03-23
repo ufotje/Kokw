@@ -1,4 +1,5 @@
 package be.kokw.utility.maillings;
+
 import be.kokw.bean.Member;
 import be.kokw.utility.validation.Warning;
 
@@ -21,8 +22,18 @@ import javax.mail.internet.MimeBodyPart;
 import javax.mail.internet.MimeMessage;
 import javax.mail.internet.MimeMultipart;
 
-public class MailWithAttachement {
-    public static void sendMail(String subject, String text, File file, List<Member> recipients) {
+/**
+ * Created By Demesmaecker Daniel
+ */
+public interface MailWithAttachement {
+    /**
+     * Allows the user to send an email with an attachement to a list of recipients
+     * @param subject String
+     * @param text String
+     * @param file File
+     * @param recipients List
+     */
+    static void sendMail(String subject, String text, File file, List<Member> recipients) {
         String from = "d.demesmaecker@gmail.com";
         Properties props = new Properties();
         props.put("mail.smtp.auth", "true");
@@ -39,7 +50,7 @@ public class MailWithAttachement {
         try {
             Message message = new MimeMessage(session);
             message.setFrom(new InternetAddress(from));
-            for(Member recipient : recipients) {
+            for (Member recipient : recipients) {
                 message.addRecipients(Message.RecipientType.BCC,
                         InternetAddress.parse(recipient.getEmail()));
             }

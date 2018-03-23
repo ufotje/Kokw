@@ -11,6 +11,10 @@ import javax.transaction.Transactional;
 import java.time.LocalDate;
 import java.util.List;
 
+/**
+ * Created By Demesmaecker Daniel
+ */
+
 public interface CheckOutRepo extends JpaRepository<CheckedOut,Integer>{
     @Transactional
     CheckedOut save(Book b, Member m);

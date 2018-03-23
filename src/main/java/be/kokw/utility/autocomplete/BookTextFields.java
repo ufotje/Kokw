@@ -1,7 +1,6 @@
 package be.kokw.utility.autocomplete;
 
 import be.kokw.bean.books.Book;
-import be.kokw.repositories.books.BookRepo;
 import be.kokw.utility.controller.SplitAuthor;
 import be.kokw.utility.controller.SplitSubs;
 import javafx.scene.control.TextField;
@@ -9,6 +8,10 @@ import org.controlsfx.control.textfield.TextFields;
 
 import java.util.ArrayList;
 import java.util.List;
+
+/**
+ * Created By Demesmaecker Daniel
+ */
 
 @SuppressWarnings("unchecked")
 public class BookTextFields {
@@ -52,7 +55,7 @@ public class BookTextFields {
         TextFields.bindAutoCompletion(topic, topics);
     }
 
-    public static void autoCompletPublisher(TextField publisher, List<Book> list) {
+    public static void autoCompletePublisher(TextField publisher, List<Book> list) {
         List<String> publishers = new ArrayList<>();
         for (Book b : list) {
             publishers = AddToList.add(publishers, b.getPublisher());

@@ -9,6 +9,10 @@ import org.springframework.stereotype.Repository;
 import javax.transaction.Transactional;
 import java.util.List;
 
+/**
+ * Created By Demesmaecker Daniel
+ */
+
 @Repository("magCountRepo")
 public interface MagazineCountRepo extends JpaRepository<MagazineCount, Integer> {
 

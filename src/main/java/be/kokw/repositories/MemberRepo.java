@@ -9,7 +9,7 @@ import java.time.LocalDate;
 import java.util.List;
 
 /**
- * Created by ufotje on 8/10/2017.
+ * Created by Demesmaecker Daniel on 8/10/2017.
  * This is the JPARepository fo the memberEntity
  */
 

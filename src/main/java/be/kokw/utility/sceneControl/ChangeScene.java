@@ -7,9 +7,16 @@ import javafx.scene.Parent;
 import javafx.stage.Stage;
 
 /**
- * Created by ufotje on 26/10/2017.
+ * Created by Demesmaecker Daniel on 26/10/2017.
  */
+
 public interface ChangeScene {
+
+    /**
+     * Changes the page in the current window
+     * @param resource String
+     * @param title String
+     */
     @FXML
     static void init(String resource, String title){
         Parent root = null;

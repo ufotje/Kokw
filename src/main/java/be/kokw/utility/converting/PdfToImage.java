@@ -9,9 +9,18 @@ import java.util.List;
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.rendering.PDFRenderer;
 
+/**
+ * Created By Demesmaecker Daniel
+ */
+
 public interface PdfToImage {
 
-
+    /**
+     * Converts PDF to an BufferedImage so it can be shown in an imageView
+     * @param file File
+     * @return BufferdImage
+     * @throws IOException ex
+     */
     static List<BufferedImage> convert(File file) throws IOException {
 
         PDDocument document = PDDocument.load(file);

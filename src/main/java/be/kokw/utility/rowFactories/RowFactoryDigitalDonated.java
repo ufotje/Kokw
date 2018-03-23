@@ -14,6 +14,10 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
+/**
+ * Created By Demesmaecker Daniel
+ */
+
 @SuppressWarnings("unchecked")
 public interface RowFactoryDigitalDonated {
 

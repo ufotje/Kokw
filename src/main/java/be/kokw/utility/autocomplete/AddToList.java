@@ -2,6 +2,10 @@ package be.kokw.utility.autocomplete;
 
 import java.util.List;
 
+/**
+ * Created By Demesmaecker Daniel
+ */
+
 @SuppressWarnings("unchecked")
 public interface AddToList {
 

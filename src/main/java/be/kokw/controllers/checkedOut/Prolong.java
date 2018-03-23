@@ -43,7 +43,7 @@ public class Prolong {
                 if (!title.getText().isEmpty() && title.getText() != null) {
                     String fullName = firstName.getText() + " " + lastName.getText();
                     try {
-                        CheckedOut record = repo.getOne(title.getText(), fullName);
+                        CheckedOut record = repo.findByTitleAndFullName(title.getText(), fullName);
                         LocalDate date = record.getReturnDate();
                         returnDate = date.plusWeeks(3);
                     } catch (NoResultException e) {

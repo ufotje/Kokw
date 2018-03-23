@@ -10,6 +10,10 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.time.LocalDate;
 
+/**
+ * Created By Demesmaecker Daniel
+ */
+
 public interface DerateDetails {
     static void set(int id, String title, LocalDate date, String destination){
         Stage stage = new Stage();

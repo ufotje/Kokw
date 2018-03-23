@@ -9,6 +9,11 @@ import javafx.scene.input.MouseButton;
 
 import java.io.File;
 
+/**
+ * Created By Demesmaecker Daniel
+ */
+
+@SuppressWarnings("unchecked")
 public interface RowFactoryDigitalTraded {
     static void set(TableView table) {
         table.setRowFactory(tv -> {

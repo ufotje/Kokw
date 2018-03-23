@@ -20,6 +20,10 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
+/**
+ * Created By Demesmaecker Daniel
+ */
+
 @Component
 public class AutomatedTasks {
     private CheckOutRepo checkOutRepo;
@@ -41,6 +45,10 @@ public class AutomatedTasks {
         this.memberRepo = memberRepo;
     }
 
+    /**
+     * Checks at 10 and 16h00 if there are any items overdue and
+     * sends automated mail to the member who checked out the item
+     */
     @Scheduled(cron = "0 0 10,16 * * *")
     public void mailOverDue() {
         Platform.runLater(() -> {
@@ -60,6 +68,10 @@ public class AutomatedTasks {
         });
     }
 
+    /**
+     * Checks at 10 and 16h00 if there are any member who had a Birthday since the program is last bin used and
+     * sends automated mail to them
+     */
     @Scheduled(cron = "0 0 10,16 * * *")
     public void mailBDay() {
         Platform.runLater(() -> {
@@ -93,6 +105,10 @@ public class AutomatedTasks {
         });
     }
 
+    /**
+     * Checks at 10 and 16h00 if there are any items due in two days and
+     * sends automated mail to the member who checked out the item
+     */
     @Scheduled(cron = "0 0 10,16 * * *")
     private void mailTwoDaysNotice() {
         Platform.runLater(() -> {

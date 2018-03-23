@@ -1,6 +1,5 @@
 package be.kokw.utility.maillings;
 
-import be.kokw.bean.Member;
 import be.kokw.utility.validation.Warning;
 
 import javax.mail.*;
@@ -8,6 +7,13 @@ import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 import java.util.Properties;
 
+/**
+ * Created By Demesmaecker Daniel
+ */
+
+/**
+ * Allows the user to send an email to a single recipient
+ */
 public interface SingleRecipient {
     static void sendMail(String recipient, String subject, String text) {
         String from = "d.demesmaecker@gmail.com";

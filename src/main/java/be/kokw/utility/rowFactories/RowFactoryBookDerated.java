@@ -9,6 +9,11 @@ import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
 import javafx.scene.input.MouseButton;
 
+/**
+ * Created By Demesmaecker Daniel
+ */
+
+@SuppressWarnings("unchecked")
 public interface RowFactoryBookDerated {
 
     static void set(TableView table, DerateRepo repo) {

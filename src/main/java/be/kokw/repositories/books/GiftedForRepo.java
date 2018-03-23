@@ -8,6 +8,10 @@ import javax.transaction.Transactional;
 import java.time.LocalDate;
 import java.util.List;
 
+/**
+ * Created By Demesmaecker Daniel
+ */
+
 @Repository("giftedForRepo")
 public interface GiftedForRepo extends JpaRepository<GiftedFor, Long> {
 

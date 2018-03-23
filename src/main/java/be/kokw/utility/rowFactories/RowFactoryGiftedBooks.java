@@ -15,6 +15,10 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
+/**
+ * Created By Demesmaecker Daniel
+ */
+
 @SuppressWarnings("unchecked")
 public interface RowFactoryGiftedBooks {
     static void set(TableView table, GiftedRepo repo) {

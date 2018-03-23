@@ -16,6 +16,9 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 import java.sql.*;
 import java.time.LocalDate;
 
+/**
+ * Created By Demesmaecker Daniel
+ */
 
 @SpringBootApplication
 @EnableJpaRepositories(basePackages = "be.kokw.repositories")

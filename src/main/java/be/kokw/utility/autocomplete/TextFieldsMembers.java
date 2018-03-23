@@ -7,6 +7,10 @@ import org.controlsfx.control.textfield.TextFields;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Created By Demesmaecker Daniel
+ */
+
 public class TextFieldsMembers {
 
     public static void autoCompleteAll(List<Member> list, TextField firstName, TextField lastName, TextField street, TextField city){

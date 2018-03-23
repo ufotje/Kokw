@@ -1,22 +1,18 @@
 package be.kokw.controllers;
 
-import be.kokw.bean.*;
 import be.kokw.repositories.MemberRepo;
 import be.kokw.utility.sceneControl.ChangeScene;
 import be.kokw.utility.sceneControl.NewStage;
-import be.kokw.utility.validation.Warning;
-import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.stage.Stage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 
-import static javafx.collections.FXCollections.observableArrayList;
-
 /**
- * Created by ufotje on 20/10/2017.
- * This is the MenuControllerClass
+ * Created by Demesmaecker Daniel on 20/10/2017.
+ * This is the MenuControllerClass containing all the methods of the menu.
+ * It has no businesslogic, but only passes the control to the right controller who handles it further
  */
 
 @Controller
@@ -146,34 +142,34 @@ public class MenuController {
     }
 
     @FXML
-    private void findByDeratedAll(){
+    private void findByDeratedAll() {
         ChangeScene.init("/fxml/books/derated/views/tableviewDeratedAll.fxml", "Alle gedeclasseerde boeken");
     }
 
     @FXML
-    private void findByDeratedTitle(){
+    private void findByDeratedTitle() {
         window = NewStage.getStage("Geef de titel in", "/fxml/books/derated/dialogs/deratedByTitle.fxml");
         window.show();
     }
 
     @FXML
-    private void findByDeratedDate(){
+    private void findByDeratedDate() {
         window = NewStage.getStage("Geef de datum in", "/fxml/books/derated/dialogs/deratedByDate.fxml");
         window.show();
     }
 
     @FXML
-    private void findByDeratedDestroyed(){
+    private void findByDeratedDestroyed() {
         ChangeScene.init("/fxml/books/derated/views/tableviewDeratedDestroyed.fxml", "Alle vernietigde boeken");
     }
 
     @FXML
-    private void findByDeratedSold(){
+    private void findByDeratedSold() {
         ChangeScene.init("/fxml/books/derated/views/tableviewDeratedSold.fxml", "Alle verkochte boeken");
     }
 
     @FXML
-    private void findByDeratedGivenAway(){
+    private void findByDeratedGivenAway() {
         ChangeScene.init("/fxml/books/derated/views/tableviewDeratedGivenAway.fxml", "Alle weggeschonken boeken");
     }
 
@@ -237,7 +233,7 @@ public class MenuController {
     //Search for Magazines
     @FXML
     private void magByIssn() {
-        window = NewStage.getStage("Geef het issn van het magazine","/fxml/magazines/search/dialogs/byIssnDialog.fxml");
+        window = NewStage.getStage("Geef het issn van het magazine", "/fxml/magazines/search/dialogs/byIssnDialog.fxml");
         window.show();
     }
 
@@ -289,6 +285,8 @@ public class MenuController {
     //Delete a Digital
     @FXML
     private void deleteDigi() {
+        window = NewStage.getStage("Enter id", "/fxml/digital/delete/derateDialog.fxml");
+        window.show();
     }
 
     //Search for Digitals
@@ -365,7 +363,7 @@ public class MenuController {
 
     @FXML
     private void digiTradedAll() {
-        ChangeScene.init( "/fxml/books/found/giftedFor/tableviewGiftedForOnAll.fxml","Alle geruilde digitale dragers");
+        ChangeScene.init("/fxml/books/found/giftedFor/tableviewGiftedForOnAll.fxml", "Alle geruilde digitale dragers");
     }
 
     @FXML
@@ -440,13 +438,7 @@ public class MenuController {
 
     @FXML
     private void findMemberByPayed() {
-        ObservableList<Member> memberList = observableArrayList(memberRepo.findByPayedIsFalse());
-        if (memberList.isEmpty()) {
-            Warning.alert("No Members found!", "Er werden geen leden gevonden van wie het lidgeld niet betaal werd!");
-        } else {
-            String title = "Zoeken op Lidgeld niet betaald";
-            initTable(title, memberList);
-        }
+        ChangeScene.init("/fxml/members/search/tableviewNotPayed.fxml", "All members who haven't payed");
     }
 
     @FXML
@@ -455,9 +447,6 @@ public class MenuController {
 
     }
 
-    private void initTable(String title, ObservableList<Member> memberList) {
-
-    }
 
     //Update Member
     @FXML

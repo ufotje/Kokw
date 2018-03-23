@@ -6,10 +6,18 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
- * Created by ufotje on 26/10/2017.
+ * Created by Demesmaecker Daniel on 26/10/2017.
  * utilityClass with ValidationMethods
  */
 public class Validation {
+
+    /**
+     * Checks if the input follows a specified pattern
+     * @param field String
+     * @param value String
+     * @param pattern String
+     * @return boolean
+     */
     public static boolean validate(String field, String value, String pattern){
         if(!value.isEmpty()){
             Pattern p = Pattern.compile(pattern);
@@ -26,6 +34,12 @@ public class Validation {
         }
     }
 
+    /**
+     * Checks if a field is empty
+     * @param field String
+     * @param empty String
+     * @return boolean
+     */
     public static boolean emptyValidation(String field, boolean empty){
         if(!empty){
             return true;
@@ -35,6 +49,11 @@ public class Validation {
         }
     }
 
+    /**
+     * Prompts the user with a warning when validation fails
+     * @param field String
+     * @param empty boolean
+     */
     private static void validationAlert(String field, boolean empty){
         Alert alert = new Alert(Alert.AlertType.WARNING);
         alert.setTitle("Validation Error");

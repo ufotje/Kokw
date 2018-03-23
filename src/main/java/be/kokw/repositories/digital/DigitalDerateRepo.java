@@ -10,6 +10,10 @@ import javax.transaction.Transactional;
 import java.time.LocalDate;
 import java.util.List;
 
+/**
+ * Created By Demesmaecker Daniel
+ */
+
 @Repository("digiDerateRepo")
 public interface DigitalDerateRepo extends JpaRepository<Derated,Integer> {
 

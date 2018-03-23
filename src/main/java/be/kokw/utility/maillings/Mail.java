@@ -10,7 +10,18 @@ import javax.mail.internet.MimeMessage;
 import java.util.List;
 import java.util.Properties;
 
+/**
+ * Created By Demesmaecker Daniel
+ */
+
 public interface Mail {
+
+    /**
+     * Allows to user to send e-mails to a list of recipients 
+     * @param recipients String
+     * @param subject String
+     * @param text String
+     */
     static void sendMail(List<Member> recipients, String subject, String text) {
         String from = "d.demesmaecker@gmail.com";
         Properties props = new Properties();
