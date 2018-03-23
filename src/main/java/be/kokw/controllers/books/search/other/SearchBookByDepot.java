@@ -19,6 +19,10 @@ import org.springframework.stereotype.Component;
 
 import static javafx.collections.FXCollections.observableArrayList;
 
+/**
+ * Created By Demesmaecker Daniel
+ */
+
 @Component
 public class SearchBookByDepot {
     @FXML
@@ -63,6 +67,9 @@ public class SearchBookByDepot {
         depot.setOnAction(event -> search());
     }
 
+    /**
+     * Shows the book with a by the user specified depotnumber
+     */
     @FXML
     public void search() {
         ObservableList<Book> bookList = observableArrayList(bookRepo.findByDepot(depot.getText()));

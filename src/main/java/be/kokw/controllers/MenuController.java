@@ -152,7 +152,7 @@ public class MenuController {
 
     @FXML
     private void findByDeratedTitle(){
-        window = NewStage.getStage("Geef de titel in", "/fxml/books/derated/dialogs/deratedTitleDialog.fxml");
+        window = NewStage.getStage("Geef de titel in", "/fxml/books/derated/dialogs/deratedByTitle.fxml");
         window.show();
     }
 

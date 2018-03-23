@@ -19,6 +19,10 @@ import org.springframework.stereotype.Component;
 
 import java.time.LocalDate;
 
+/**
+ * Created by Demesmaecker Daniel
+ */
+
 @Component
 public class DerateBook {
     @FXML
@@ -52,7 +56,7 @@ public class DerateBook {
     }
 
     @Autowired
-    private void setCopyRepo(@Qualifier("copyRepo") CopyRepo copyRepo){
+    private void setCopyRepo(@Qualifier("copyRepo") CopyRepo copyRepo) {
         this.copyRepo = copyRepo;
     }
 
@@ -62,29 +66,31 @@ public class DerateBook {
         destination.setValue("Vernietigd");
     }
 
+    /**
+     * Checks the available copies of a book and decrements it or removes the book completly
+     */
     @FXML
     private void derate() {
         Book b = repo.findOne(Integer.parseInt(id.getText()));
         if (b != null) {
-            Copies copy = copyRepo.findByTitle(b.getTitle());
+            Copies copy = copyRepo.findByTitleAndType(b.getTitle(),"boek");
             StringBuilder sb = new StringBuilder();
             Derated derated = new Derated(b, LocalDate.now(), destination.getValue(), b.getIsbn(), b.getDepot(), b.getTitle(), b.getAuthors());
             derateRepo.save(derated);
+            System.out.println(copy.getNrOfCopies());
             if (copy.getNrOfCopies() > 1) {
                 copy.setNrOfCopies(copy.getNrOfCopies() - 1);
                 copyRepo.save(copy);
                 sb.append("Er zijn nog ").append(copy.getNrOfCopies()).append(" kopieën van het boek '").append(b.getTitle()).append("' in de bibliotheek van de kokw.");
 
             } else {
-                repo.delete(b);
+                if (b.isGifted()) {
+                    giftedRepo.deleteByBookId(Integer.parseInt(id.getText()));
+                }
+                if (b.isGiftedFor()) {
+                    giftedForRepo.deleteByBookId(Integer.parseInt(id.getText()));
+                }
                 sb.append("Er zijn geen kopieën meer van het boek '").append(b.getTitle()).append("' in de bibliotheek van de kokw");
-            }
-
-            if(b.isGifted()){
-                giftedRepo.deleteByBookId(Integer.parseInt(id.getText()));
-            }
-            if(b.isGiftedFor()){
-                giftedForRepo.deleteByBookId(Integer.parseInt(id.getText()));
             }
             MenuController.window.close();
             Warning.alert("Derating succesvol", "Het boek '" + b.getTitle() + "' werd met succes gedeclasseerd.\n" + sb.toString());

@@ -6,6 +6,10 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDate;
 
+/**
+ * Created by Daniel Demesmaecker.
+ */
+
 @Entity
 @Table(name = "checked_out_digital")
 public class CheckOutDigi{

@@ -5,6 +5,10 @@ import java.io.File;
 import java.io.Serializable;
 import java.time.LocalDate;
 
+/**
+ * Created by Daniel Demesmaecker.
+ */
+
 @Entity
 @Table(name = "Gifted_for")
 public class GiftedFor implements Serializable{

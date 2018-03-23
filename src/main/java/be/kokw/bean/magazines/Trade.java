@@ -6,6 +6,11 @@ import javax.persistence.*;
 
 @Entity
 @Table
+
+/**
+ * Created by Daniel Demesmaecker.
+ */
+
 public class Trade {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

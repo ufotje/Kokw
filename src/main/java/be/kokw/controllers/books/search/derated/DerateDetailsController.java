@@ -9,6 +9,11 @@ import org.springframework.stereotype.Component;
 
 import java.time.LocalDate;
 
+/**
+ * Created by Demesmaecker Daniel
+ * This class handles the derateDetails
+ */
+
 @Component
 public class DerateDetailsController {
 

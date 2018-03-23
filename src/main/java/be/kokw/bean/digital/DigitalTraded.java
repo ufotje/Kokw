@@ -5,6 +5,10 @@ import java.io.File;
 import java.io.Serializable;
 import java.time.LocalDate;
 
+/**
+ * Created by Daniel Demesmaecker.
+ */
+
 @Entity
 @Table(name = "digital_traded")
 public class DigitalTraded implements Serializable{

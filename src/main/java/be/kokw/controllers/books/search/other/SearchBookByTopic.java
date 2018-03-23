@@ -19,6 +19,10 @@ import org.springframework.stereotype.Component;
 
 import static javafx.collections.FXCollections.observableArrayList;
 
+/**
+ * Created By Demesmaecker Daniel
+ */
+
 @Component
 public class SearchBookByTopic {
     @FXML
@@ -63,6 +67,9 @@ public class SearchBookByTopic {
         topic.setOnAction(event -> search());
     }
 
+    /**
+     * Shows a table with all books of a by the user specified topic
+     */
     @FXML
     public void search() {
         if (Validation.emptyValidation("Topic", topic.getText().isEmpty())) {

@@ -1,9 +1,11 @@
 package be.kokw.bean.digital;
 
-
-
 import javax.persistence.*;
 import java.time.LocalDate;
+
+/**
+ * Created by Daniel Demesmaecker.
+ */
 
 @Entity
 @Table

@@ -20,7 +20,7 @@ import org.springframework.stereotype.Component;
 import static javafx.collections.FXCollections.observableArrayList;
 
 /**
- * Created by ufotje on 3/11/2017.
+ * Created by Demesmaecker Daniel on 3/11/2017.
  */
 
 @Component
@@ -67,6 +67,9 @@ public class SearchBookByPublisher {
         publisher.setOnAction(event -> search());
     }
 
+    /**
+     * Shows a table with all books published by a by the user specified publisher
+     */
     @FXML
     public void search(){
         if(Validation.emptyValidation("Uitgeverij",publisher.getText().isEmpty())){

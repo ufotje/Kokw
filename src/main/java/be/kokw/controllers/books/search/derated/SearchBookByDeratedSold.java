@@ -15,10 +15,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
-import java.time.LocalDate;
 import java.util.List;
 
 import static javafx.collections.FXCollections.observableArrayList;
+
+/**
+ * Created by Demesmaecker Daniel
+ */
 
 @Component
 public class SearchBookByDeratedSold {
@@ -57,6 +60,10 @@ public class SearchBookByDeratedSold {
         this.repo = repo;
     }
 
+    /**
+     * Shows an table with all the books that have bin sold,
+     * when clicked on a row the derateDetails are opened
+     */
     @FXML
     public void initialize() {
         List<Derated> derateList = repo.findByDestination("verkocht");

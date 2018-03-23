@@ -10,9 +10,11 @@ import java.io.PrintWriter;
 import java.io.Writer;
 
 /**
+ * Created by Demesmaecker Daniel
  * Handles writing exceptions to the Logger Tab and and utility methods needed
  * to facilitate be.kokw.config.logging of exceptions
  */
+
 public class ExceptionWriter extends PrintWriter {
     public ExceptionWriter(Writer writer) {
         super(writer);

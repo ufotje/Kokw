@@ -2,6 +2,10 @@ package be.kokw.bean;
 
 import javax.persistence.*;
 
+/**
+ * Created by Daniel Demesmaecker.
+ */
+
 @Table
 @Entity
 public class Copies {

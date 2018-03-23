@@ -1,9 +1,10 @@
 package be.kokw.bean.magazines;
 
-import org.hibernate.validator.constraints.Email;
-
 import javax.persistence.*;
 
+/**
+ * Created by Daniel Demesmaecker.
+ */
 
 @Entity
 @Table(name = "magazines")

@@ -3,7 +3,7 @@ package be.kokw.repositories.implementations;
 
 import be.kokw.bean.Member;
 import be.kokw.bean.books.Book;
-import be.kokw.bean.books.CheckedOut;
+import be.kokw.bean.CheckedOut;
 import be.kokw.repositories.books.CheckOutRepo;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;

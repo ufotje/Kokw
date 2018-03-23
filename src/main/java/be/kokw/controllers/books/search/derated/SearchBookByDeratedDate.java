@@ -21,6 +21,10 @@ import java.util.List;
 
 import static javafx.collections.FXCollections.observableArrayList;
 
+/**
+ * Created By Demesmaecker Daniel
+ */
+
 @Component
 public class SearchBookByDeratedDate {
     @FXML
@@ -60,6 +64,10 @@ public class SearchBookByDeratedDate {
         this.repo = repo;
     }
 
+    /**
+     * Shows an table with all the books that have bin derated on a by the user specified date,
+     * when clicked on a row the derateDetails are opened
+     */
     @FXML
     public void search() {
         List<Derated> derateList = repo.findByDerated(date.getValue());

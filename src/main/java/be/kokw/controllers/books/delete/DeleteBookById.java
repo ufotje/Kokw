@@ -18,8 +18,10 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 /**
- * Created by ufotje on 2/11/2017.
+ * Created by Demesmaecker Daniel on 2/11/2017.
  * Delete Book By TitleClass
+ *
+ * @deprecated use {@link DerateBook} instead.
  */
 @Component
 public class DeleteBookById {
@@ -61,7 +63,7 @@ public class DeleteBookById {
                 if (book.isGiftedFor()) {
                     giftedForRepo.deleteByBookId(book.getId());
                 }
-                Copies copy = copyRepo.findByTitle(book.getTitle());
+                Copies copy = copyRepo.findByTitleAndType(book.getTitle(), "boek");
                 if (copy.getNrOfCopies() > 1) {
                     copy.setNrOfCopies(copy.getNrOfCopies() - 1);
                 } else {

@@ -20,6 +20,10 @@ import java.time.LocalDate;
 
 import static javafx.collections.FXCollections.observableArrayList;
 
+/**
+ * Created by Demesmaecker Daniel
+ */
+
 @Component
 public class SearchBookByBoughtOn {
     @FXML
@@ -66,6 +70,10 @@ public class SearchBookByBoughtOn {
         date.setOnAction(event -> search());
     }
 
+    /**
+     * Returns an table with all the books bought on a user specified date
+     * When no books are found, it prompts the user and returns to the homepage
+     */
     @FXML
     public void search() {
         ObservableList<Book> bookList = observableArrayList(bookRepo.findByBoughtOn(date.getValue()));

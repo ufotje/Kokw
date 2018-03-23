@@ -26,7 +26,7 @@ import org.springframework.stereotype.Component;
 
 
 /**
- * Created by ufotje on 20/10/2017.
+ * Created by Demesmaecker Daniel on 20/10/2017.
  * This class is used to update a book
  */
 
@@ -58,6 +58,9 @@ public class UpdateBook {
         this.giftedForRepo = giftedForRepo;
     }
 
+    /**
+     * opens the updatepage and prefills the inputfields
+     */
     @FXML
     public void search() {
         MenuController.window.close();
@@ -198,7 +201,6 @@ public class UpdateBook {
             scrollPane.setFitToHeight(true);
             vBox.setBackground(new Background(new BackgroundImage(new Image("/images/achtergrond.jpg"), null, null, BackgroundPosition.CENTER, new BackgroundSize(800, 400, false, false, false, true))));
             borderPane.setCenter(scrollPane);
-
         } else {
             Warning.alert("No Book Found!", "Het boek met " + "'" + id.getText() + "'" + " als id werd niet gevonden!");
             ChangeScene.init("/fxml/home.fxml", "KOKW - Het verleden draait altijd mee!");

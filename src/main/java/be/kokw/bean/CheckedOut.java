@@ -1,13 +1,15 @@
-package be.kokw.bean.books;
-/**
- * Author: Demesmaecker Daniel
- */
+package be.kokw.bean;
 
-import be.kokw.bean.Member;
+import be.kokw.bean.books.Book;
+import be.kokw.bean.digital.Digital;
 
 import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDate;
+
+/**
+ * Created by Daniel Demesmaecker.
+ */
 
 @Entity
 @Table(name = "checked_out_books")
@@ -16,9 +18,12 @@ public class CheckedOut implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private long id;
-    @JoinColumn(name = "id_books", referencedColumnName = "id", nullable = false)
-    @ManyToOne(optional = false, fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_books", referencedColumnName = "id")
+    @ManyToOne(fetch = FetchType.LAZY)
     private Book book;
+    @JoinColumn(name = "id_digital", referencedColumnName = "id")
+    @ManyToOne(fetch = FetchType.LAZY)
+    private Digital digital;
     @JoinColumn(name = "id_members", referencedColumnName = "id", nullable = false)
     @ManyToOne(optional = false, fetch = FetchType.LAZY)
     private Member member;
@@ -28,7 +33,7 @@ public class CheckedOut implements Serializable {
     private LocalDate checkOutDate;
     private LocalDate returnDate;
     private boolean returned;
-    private String address;
+    private String adress;
 
     public CheckedOut() {
     }
@@ -41,7 +46,18 @@ public class CheckedOut implements Serializable {
         title = book.getTitle();
         email = member.getEmail();
         fullName = member.getFirstName() + " " + member.getLastName();
-        address = member.getStreet() + " " + member.getHouseNr() + "\n" + member.getZip() + " " + member.getCity();
+        adress = member.getStreet() + " " + member.getHouseNr() + "\n" + member.getZip() + " " + member.getCity();
+    }
+
+    public CheckedOut(Digital digital, Member member) {
+        this.digital = digital;
+        this.member = member;
+        checkOutDate = LocalDate.now();
+        returnDate = checkOutDate.plusWeeks(3);
+        title = book.getTitle();
+        email = member.getEmail();
+        fullName = member.getFirstName() + " " + member.getLastName();
+        adress = member.getStreet() + " " + member.getHouseNr() + "\n" + member.getZip() + " " + member.getCity();
     }
 
     public long getId() {
@@ -58,6 +74,14 @@ public class CheckedOut implements Serializable {
 
     public void setBook(Book book) {
         this.book = book;
+    }
+
+    public Digital getDigital() {
+        return digital;
+    }
+
+    public void setDigital(Digital digital) {
+        this.digital = digital;
     }
 
     public Member getMember() {
@@ -117,11 +141,11 @@ public class CheckedOut implements Serializable {
     }
 
     public String getAdress() {
-        return address;
+        return adress;
     }
 
-    public void setAdress(String address) {
-        this.address = address;
+    public void setAdress(String adress) {
+        this.adress = adress;
     }
 }
 

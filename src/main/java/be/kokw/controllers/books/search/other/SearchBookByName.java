@@ -21,7 +21,7 @@ import static javafx.collections.FXCollections.observableArrayList;
 
 
 /**
- * Created by ufotje on 28/10/2017.
+ * Created by Demesmaecker on 28/10/2017.
  * The search byAuthorsNameControllerClass
  */
 
@@ -69,6 +69,9 @@ public class SearchBookByName {
         lastName.setOnAction(event -> search());
     }
 
+    /**
+     * Shows a table with all books written by a by the user specified Author
+     */
     @FXML
     public void search(){
         if (Validation.validate("Achternaam Auteur", lastName.getText(), "[a-zA-Z]+") &&

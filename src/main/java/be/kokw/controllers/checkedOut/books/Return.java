@@ -1,6 +1,6 @@
 package be.kokw.controllers.checkedOut.books;
 
-import be.kokw.bean.books.CheckedOut;
+import be.kokw.bean.CheckedOut;
 import be.kokw.controllers.MenuController;
 import be.kokw.repositories.books.CheckOutRepo;
 import be.kokw.utility.validation.Validation;

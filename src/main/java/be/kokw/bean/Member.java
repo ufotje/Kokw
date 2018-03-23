@@ -11,8 +11,7 @@ import java.io.Serializable;
 import java.time.LocalDate;
 
 /**
- * Created by ufotje on 8/10/2017.
- * This is the EntityClass for the table members
+ * Created by Demesmaecker Daniel on 8/10/2017.
  */
 @Entity
 @Table(name = "Members")

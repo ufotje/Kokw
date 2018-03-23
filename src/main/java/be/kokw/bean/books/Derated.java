@@ -1,11 +1,11 @@
 package be.kokw.bean.books;
 
-/**
- * @Author: Demesmaecker Daniel
- */
-
 import javax.persistence.*;
 import java.time.LocalDate;
+
+/**
+ * Created by Daniel Demesmaecker.
+ */
 
 @Entity
 @Table

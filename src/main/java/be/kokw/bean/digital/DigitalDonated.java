@@ -4,6 +4,10 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDate;
 
+/**
+ * Created by Daniel Demesmaecker.
+ */
+
 @Table(name = "digital_donated")
 @Entity
 public class DigitalDonated implements Serializable{

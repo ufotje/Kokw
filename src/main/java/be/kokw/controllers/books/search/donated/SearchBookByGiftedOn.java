@@ -22,6 +22,10 @@ import java.util.List;
 
 import static javafx.collections.FXCollections.observableArrayList;
 
+/**
+ * Created By Demesmaecker Daniel
+ */
+
 @Component
 public class SearchBookByGiftedOn {
     @FXML
@@ -66,6 +70,10 @@ public class SearchBookByGiftedOn {
         date.setOnAction(event -> search());
     }
 
+    /**
+     * Show an table with all the books that have bin donated on a by the user specified date,
+     * when clicked on a row it opens the donatedetails
+     */
     @FXML
     public void search(){
         List<Gifted> list = observableArrayList(repo.findByGiftedOn(date.getValue()));

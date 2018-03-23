@@ -11,5 +11,5 @@ import javax.transaction.Transactional;
 public interface CopyRepo extends JpaRepository <Copies, Integer>  {
 
     @Transactional
-    Copies findByTitle(String title);
+    Copies findByTitleAndType(String title, String type);
 }

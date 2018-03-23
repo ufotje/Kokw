@@ -4,6 +4,10 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDate;
 
+/**
+ * Created by Daniel Demesmaecker.
+ */
+
 @Table(name = "Gifted")
 @Entity
 public class Gifted implements Serializable{

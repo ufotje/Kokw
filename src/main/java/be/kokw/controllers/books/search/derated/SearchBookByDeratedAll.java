@@ -19,6 +19,10 @@ import java.util.List;
 
 import static javafx.collections.FXCollections.observableArrayList;
 
+/**
+ * Created by Demesmaecker Daniel
+ */
+
 @Component
 public class SearchBookByDeratedAll {
     @FXML
@@ -56,6 +60,10 @@ public class SearchBookByDeratedAll {
         this.repo = repo;
     }
 
+    /**
+     * Shows an table with all the books that have bin derated,
+     * when clicked on a row the derateDetails are opened
+     */
     @FXML
     public void initialize() {
         List<Derated> derateList = repo.findAll();

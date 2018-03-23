@@ -19,6 +19,10 @@ import java.util.List;
 
 import static javafx.collections.FXCollections.observableArrayList;
 
+/**
+ * Created by Demesmaecker Daniel
+ */
+
 @Component
 public class SearchBookByDeratedDestroyed {
     @FXML
@@ -56,9 +60,13 @@ public class SearchBookByDeratedDestroyed {
         this.repo = repo;
     }
 
+    /**
+     * Shows an table with all the books that have bin destroyed,
+     * when clicked on a row the derateDetails are opened
+     */
     @FXML
     public void initialize() {
-        List<Derated> derateList = repo.findByDestination("destroyed");
+        List<Derated> derateList = repo.findByDestination("vernietigd");
         ObservableList<Book> bookList = observableArrayList();
         for(Derated d: derateList){
             bookList.add(d.getBook());

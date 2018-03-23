@@ -9,6 +9,10 @@ import org.springframework.stereotype.Component;
 
 import java.time.LocalDate;
 
+/**
+ * Created By Demesmaecker Daniel
+ */
+
 @Component
 public class DonateDetails {
 

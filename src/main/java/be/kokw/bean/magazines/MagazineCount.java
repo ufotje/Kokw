@@ -2,6 +2,10 @@ package be.kokw.bean.magazines;
 
 import javax.persistence.*;
 
+/**
+ * Created by Daniel Demesmaecker.
+ */
+
 @Entity
 @Table
 public class MagazineCount {
@@ -16,13 +20,13 @@ public class MagazineCount {
     private boolean subscribed = false;
     @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "trade_id", referencedColumnName = "id")
-    Trade trade;
+    private Trade trade;
     @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "subscribed_id", referencedColumnName = "id")
-    Subscribed subscribtion;
+    private Subscribed subscribtion;
     @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "magazine_id", referencedColumnName = "id")
-    Magazine magazine;
+    private Magazine magazine;
 
     public MagazineCount() {
     }

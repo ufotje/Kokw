@@ -20,7 +20,7 @@ import org.springframework.stereotype.Component;
 import static javafx.collections.FXCollections.observableArrayList;
 
 /**
- * Created by ufotje on 3/11/2017.
+ * Created by Demesmaecker Daniel on 3/11/2017.
  * The find by titleClass
  */
 
@@ -31,7 +31,7 @@ public class SearchBookByTitle {
     @FXML
     private TableView<Book> table;
     @FXML
-    private TableColumn<Book,Integer> idCol;
+    private TableColumn<Book, Integer> idCol;
     @FXML
     private TableColumn<Book, String> isbnCol;
     @FXML
@@ -64,21 +64,24 @@ public class SearchBookByTitle {
     }
 
     @FXML
-    public void initialize(){
+    public void initialize() {
         title.setOnAction(event -> search());
     }
 
+    /**
+     * Shows a table with all the books with a by the user specified title
+     */
     @FXML
-    public void search(){
-        if(Validation.emptyValidation("Titel",title.getText().isEmpty())){
+    public void search() {
+        if (Validation.emptyValidation("Titel", title.getText().isEmpty())) {
             ObservableList<Book> bookList = observableArrayList(bookRepo.findByTitle(title.getText()));
-            if(!bookList.isEmpty()){
+            if (!bookList.isEmpty()) {
                 MenuController.window.close();
                 ChangeScene.init("/fxml/books/found/other/tableViewByTitle.fxml", "Books by Title");
                 BookTable.init(table, idCol, isbnCol, depotCol, titleCol, editionCol, volumeCol, topicCol, authorCol,
                         subTitleCol, publisherCol, yearCol, pagesCol, illusCol, bookList);
-            }else{
-                Warning.alert("Book Not Found","The book '" + title.getText() + "' has not been found!");
+            } else {
+                Warning.alert("Book Not Found", "The book '" + title.getText() + "' has not been found!");
                 MenuController.window.close();
             }
         }

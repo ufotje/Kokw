@@ -3,6 +3,10 @@ package be.kokw.bean;
 import javax.persistence.*;
 import java.time.LocalDate;
 
+/**
+ * Created by Daniel Demesmaecker.
+ */
+
 @Entity
 @Table
 public class TimeStamp {

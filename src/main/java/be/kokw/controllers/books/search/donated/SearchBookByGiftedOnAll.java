@@ -19,6 +19,10 @@ import java.util.List;
 
 import static javafx.collections.FXCollections.observableArrayList;
 
+/**
+ * Created By Demesmaecker Daniel
+ */
+
 @Component
 public class SearchBookByGiftedOnAll {
     @FXML
@@ -50,18 +54,16 @@ public class SearchBookByGiftedOnAll {
     @FXML
     private TableColumn<Book, String> pagesCol;
     private GiftedRepo repo;
-    private BookRepo bookRepo;
 
     @Autowired
     private void setRepo(@Qualifier("giftedRepo") GiftedRepo repo) {
         this.repo = repo;
     }
 
-    @Autowired
-    private void setBookRepo(@Qualifier("bookRepo") BookRepo repo) {
-        bookRepo = repo;
-    }
-
+    /**
+     * Show an table with all the books that have bin donated,
+     * when clicked on a row it opens the donatedetails
+     */
     @FXML
     public void initialize() {
         ObservableList<Book> bookList = observableArrayList();

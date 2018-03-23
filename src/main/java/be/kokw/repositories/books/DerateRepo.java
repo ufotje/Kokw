@@ -3,6 +3,7 @@ package be.kokw.repositories.books;
 import be.kokw.bean.books.Book;
 import be.kokw.bean.books.Derated;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import javax.transaction.Transactional;
@@ -23,4 +24,7 @@ public interface DerateRepo extends JpaRepository<Derated,Integer> {
 
     @Transactional
     Derated findByBook(Book book);
+
+    @Query("select d.title from derated d")
+    List<String> getTitle();
 }

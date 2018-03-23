@@ -22,6 +22,10 @@ import java.time.LocalDate;
 
 import static javafx.collections.FXCollections.observableArrayList;
 
+/**
+ * Created By Demesmaecker Daniel
+ */
+
 @Component
 public class SearchBookByGiftedForOnNameAndDate {
     @FXML
@@ -62,6 +66,10 @@ public class SearchBookByGiftedForOnNameAndDate {
         date.setOnAction(event -> search());
     }
 
+    /**
+     * Shows a table with all the books traded on a by the user specified date and by a user specified name
+     * When clicked on a row it opens the contract
+     */
     @FXML
     public void search() {
         if (date.getValue() != null && name.getText() != null) {

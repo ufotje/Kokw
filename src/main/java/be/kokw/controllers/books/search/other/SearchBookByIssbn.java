@@ -20,6 +20,10 @@ import org.springframework.stereotype.Component;
 
 import static javafx.collections.FXCollections.observableArrayList;
 
+/**
+ * Created By Demesmaecker Daniel
+ */
+
 @Component
 public class SearchBookByIssbn {
     @FXML
@@ -66,6 +70,9 @@ public class SearchBookByIssbn {
         button.setOnAction(event -> search());
     }
 
+    /**
+     * Shows the book with a by the user specified ISBNnumber
+     */
     @FXML
     public void search() {
         ObservableList<Book> bookList = observableArrayList(bookRepo.findByIsbn(isbn.getText()));

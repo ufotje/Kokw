@@ -27,12 +27,10 @@ import org.springframework.stereotype.Component;
 
 import java.io.File;
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
 
 
 /**
- * Created by ufotje on 20/10/2017.
+ * Created by Daniel Demesmaecker on 20/10/2017.
  * This class is used to save a book
  */
 
@@ -53,7 +51,6 @@ public class AddBook {
     private Stage window;
     private BookRepo repo;
     private StringBuilder authors = new StringBuilder();
-    private List<String> bookList = new ArrayList<>();
     private StringBuilder subTitles = new StringBuilder();
     private StringBuilder topics = new StringBuilder();
     private File file;
@@ -82,6 +79,9 @@ public class AddBook {
         this.copyRepo = copyRepo;
     }
 
+    /**
+     * The initialize method is used to fill the choiceboxes and to set an autocomplete on the textfields
+     */
     public void initialize() {
         ObservableList<String> topics = FXCollections.observableArrayList("Wereld Oorlog 1", "Wereld Oorlog 2", "MiddelEeuwen", "Gulden Sporenslag", "Brugse Metten");
         topic.setItems(topics);
@@ -91,6 +91,10 @@ public class AddBook {
         BookTextFields.autocomplete(repo.findAll(), title, author, subTitle, publisher);
     }
 
+    /**
+     * This method checks in which way the book is acquired and if there's not more then one way selected
+     * After the check is performed the correct detail window is opened.
+     */
     private void save() {
         if (validated()) {
             book = new Book(isbn.getText(), depot.getText(), title.getText(), subTitles.toString(), Integer.parseInt(edition.getText()), volume.getValue(), publisher.getText(), Integer.parseInt(year.getText()), Integer.parseInt(pages.getText()), illustrated.isSelected(), authors.toString(), topics.append(topic.getValue()).toString());
@@ -146,6 +150,10 @@ public class AddBook {
         }
     }
 
+    /**
+     * Checks the inputfields of the giftedByDetailswindow for incorrect values,
+     * Creates an new Giftedobject and saves the book and details to the db.
+     */
     @FXML
     private void giftedBy() {
         if (Validation.validate("firstName", firstName.getText(), "[a-zA-Z \\-]+")) {
@@ -157,20 +165,16 @@ public class AddBook {
                     window.close();
                     if (g != null) {
                         Warning.alert("Book saved!", "Het boek '" + book.getTitle() + "' werd succesvol opgeslaan");
-                    } else {
-                        Warning.alert("Error!", "Er ging iets fout");
                     }
-                } else {
-                    Warning.alert("Date Error", "Geef aub een geldige datum in.");
                 }
-            } else {
-                Warning.alert("Lastname Error", "Geef een geldige achternaam in.\nEnkel letters, spaties of - zijn toegestaan.");
             }
-        } else {
-            Warning.alert("Firstname Error", "Geef een geldige voornaam in.\nEnkel letters, spaties of - zijn toegestaan.");
         }
     }
 
+    /**
+     * Checks the inputfields of the giftedForDetailswindow for incorrect values,
+     * Creates an new GiftedForobject and saves the book and details to the db.
+     */
     @FXML
     private void giftedFor() {
         if (Validation.validate("fullName", fullName.getText(), "[a-zA-Z \\-]+")) {
@@ -180,15 +184,14 @@ public class AddBook {
             window.close();
             if (gf != null) {
                 Warning.alert("Book saved!", "Het boek '" + book.getTitle() + "' werd succesvol opgeslaan");
-            } else {
-                Warning.alert("Error!", "Er ging iets fout");
             }
-        } else {
-            Warning.alert("Wrong value", "De contractant is verkeerd ingevuld.");
         }
-
     }
 
+    /**
+     * Checks the inputfields of the BoughtDetailswindow for incorrect values
+     * and saves the book and details to the db.
+     */
     @FXML
     public void bought() {
         LocalDate boughtDate = boughtOn.getValue();
@@ -205,10 +208,16 @@ public class AddBook {
 
     @FXML
     public void more() {
+        authors = new StringBuilder();
+        subTitles = new StringBuilder();
         save();
         clearFields();
     }
 
+    /**
+     * Validates The Inputfields
+     * @return
+     */
     private boolean validated() {
         boolean valid = false;
         if (Validation.emptyValidation("Titel", title.getText().isEmpty() &&
@@ -226,8 +235,12 @@ public class AddBook {
         return valid;
     }
 
+    /**
+     * Checks if a book is already in the db, if so it increments the available copies by one,
+     * else it creates a new one
+     */
     private void saveCopies() {
-        Copies copy = copyRepo.findByTitle(book.getTitle());
+        Copies copy = copyRepo.findByTitleAndType(book.getTitle(),"boek");
         if (copy != null) {
             copy.setNrOfCopies(copy.getNrOfCopies() + 1);
             copyRepo.save(copy);
@@ -237,6 +250,9 @@ public class AddBook {
         }
     }
 
+    /**
+     * Removes the values from the inputfields
+     */
     private void clearFields() {
         title.clear();
         author.clear();
@@ -258,15 +274,6 @@ public class AddBook {
     @FXML
     private void saveBook() {
         save();
-        bookList.add(book.getTitle());
-        StringBuilder alert = new StringBuilder("The book(s) with title: ");
-        for (String s : bookList) {
-            alert.append("'");
-            alert.append(s);
-            alert.append("', '");
-        }
-        alert.append(" has been successfully saved!");
-        Warning.alert("Book saved!", alert.toString());
         ChangeScene.init("/fxml/menu.fxml", "KOKW - Het Verleden Draait Altijd Mee!");
     }
 }

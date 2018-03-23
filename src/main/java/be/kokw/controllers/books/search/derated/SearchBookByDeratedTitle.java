@@ -13,6 +13,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import org.controlsfx.control.textfield.TextFields;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
@@ -20,6 +21,10 @@ import org.springframework.stereotype.Component;
 import java.util.List;
 
 import static javafx.collections.FXCollections.observableArrayList;
+
+/**
+ * Created by Demesmaecker Daniel
+ */
 
 @Component
 public class SearchBookByDeratedTitle {
@@ -60,6 +65,16 @@ public class SearchBookByDeratedTitle {
         this.repo = repo;
     }
 
+    @FXML
+    public void initialize(){
+        List<String> titles = repo.getTitle();
+        TextFields.bindAutoCompletion(title, titles);
+    }
+
+    /**
+     * Shows an table with all the books with a by the user specified title that have bin derated,
+     * when clicked on a row the derateDetails are opened
+     */
     @FXML
     public void search() {
         List<Derated> derateList = repo.findAll();

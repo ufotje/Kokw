@@ -18,6 +18,10 @@ import java.time.LocalDate;
 
 import static javafx.collections.FXCollections.observableArrayList;
 
+/**
+ * Created by Demesmaecker Daniel
+ */
+
 @Component
 public class SearchBookByBoughtOnAll {
     @FXML
@@ -57,6 +61,10 @@ public class SearchBookByBoughtOnAll {
         bookRepo = repo;
     }
 
+    /**
+     * Returns a table with all the bought books,
+     * when no are found, it prompts the user and returns to the homepage
+     */
     @FXML
     public void initialize() {
         ObservableList<Book> bookList = observableArrayList(bookRepo.findBookByBoughtOnIsNotNull());
