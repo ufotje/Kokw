@@ -12,12 +12,15 @@ import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
-import javafx.scene.control.cell.PropertyValueFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 import static javafx.collections.FXCollections.observableArrayList;
+
+/**
+ * Created By Demesmaecker Daniel
+ */
 
 @Component
 public class FindMagByPublisher {
@@ -54,8 +57,11 @@ public class FindMagByPublisher {
         this.repo = repo;
     }
 
+    /**
+     * Shows a table with all the magazines of a by the user specified publisher
+     */
     @FXML
-    public void search() throws Exception {
+    public void search(){
         if (Validation.validate("name", publisherField.getText(), "[a-zA-Z \\-]+")) {
             ObservableList<Magazine> list = observableArrayList(repo.findMagazinesByPublisher(publisherField.getText()));
             MenuController.window.close();

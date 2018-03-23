@@ -21,6 +21,10 @@ import java.time.LocalDate;
 
 import static javafx.collections.FXCollections.observableArrayList;
 
+/**
+ * Created By Demesmaecker Daniel
+ */
+
 @Component
 public class MembersByCity {
     @FXML
@@ -60,8 +64,11 @@ public class MembersByCity {
         TextFieldsMembers.autoCompletCities(repo.findAll(), city);
     }
 
+    /**
+     * Shows a table with the members who live in a by the user specified city
+     */
     @FXML
-    public void search() throws Exception {
+    public void search(){
         if (Validation.validate("Stad", city.getText(), "[a-zA-Z -]+")) {
             ObservableList<Member> memberList = observableArrayList(repo.findByCity(city.getText()));
             if (memberList.isEmpty()) {

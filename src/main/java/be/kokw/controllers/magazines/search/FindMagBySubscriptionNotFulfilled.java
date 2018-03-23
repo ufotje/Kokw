@@ -24,6 +24,9 @@ import org.springframework.stereotype.Component;
 
 import static javafx.collections.FXCollections.observableArrayList;
 
+/**
+ * Created By Demesmaecker Daniel
+ */
 
 @Component
 public class FindMagBySubscriptionNotFulfilled {
@@ -87,6 +90,10 @@ public class FindMagBySubscriptionNotFulfilled {
         this.countRepo = countRepo;
     }
 
+    /**
+     * Shows a table with all the magazines of which the subscription is not fulfilled
+     * When clicked on a row it show the subscription details
+     */
     @FXML
     public void initialize() {
         ObservableList<MagazineCount> fulfilledList = observableArrayList(countRepo.findByExpectedIsGreaterThanReceived());

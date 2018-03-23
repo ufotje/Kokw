@@ -17,6 +17,10 @@ import org.springframework.stereotype.Component;
 import java.io.File;
 import java.util.List;
 
+/**
+ * Created By Demesmaecker Daniel
+ */
+
 @Component
 public class ToBoard {
     @FXML
@@ -31,6 +35,9 @@ public class ToBoard {
         this.repo = repo;
     }
 
+    /**
+     * Sends a e-mail to all boardMembers
+     */
     @FXML
     private void sendMessage() {
         List<Member> memberList = repo.findByBoardIsTrue();
@@ -45,6 +52,9 @@ public class ToBoard {
         }
     }
 
+    /**
+     * Enables Attachment to e-mail
+     */
     @FXML
     private void chooseFile() {
         file = FileSelector.chooseFile();

@@ -9,7 +9,7 @@ import java.time.LocalDate;
 import java.util.List;
 
 @Repository("digitalRepo")
-public interface DigitalRepo extends JpaRepository<Digital,Long> {
+public interface DigitalRepo extends JpaRepository<Digital,Integer> {
 
     @Transactional
     List<Digital> findByBoughtOn(LocalDate boughtOn);

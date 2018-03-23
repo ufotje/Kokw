@@ -1,10 +1,14 @@
 package be.kokw.controllers.digital.delete;
 
 import be.kokw.bean.Copies;
-import be.kokw.bean.books.Book;
-import be.kokw.bean.books.Derated;
+import be.kokw.bean.digital.Derated;
+import be.kokw.bean.digital.Digital;
 import be.kokw.controllers.MenuController;
 import be.kokw.repositories.books.*;
+import be.kokw.repositories.digital.DigitalDerateRepo;
+import be.kokw.repositories.digital.DigitalDonateRepo;
+import be.kokw.repositories.digital.DigitalRepo;
+import be.kokw.repositories.digital.DigitalTradeRepo;
 import be.kokw.utility.sceneControl.ChangeScene;
 import be.kokw.utility.validation.Warning;
 import javafx.collections.FXCollections;
@@ -18,36 +22,40 @@ import org.springframework.stereotype.Component;
 
 import java.time.LocalDate;
 
+/**
+ * Created By Demesmaecker Daniel
+ */
+
 @Component
 public class DerateDigital {
     @FXML
-    TextField id;
+    private TextField id;
     @FXML
-    ChoiceBox<String> destination;
-    private BookRepo repo;
-    private DerateRepo derateRepo;
-    private GiftedRepo giftedRepo;
-    private GiftedForRepo giftedForRepo;
+    private ChoiceBox<String> destination;
+    private DigitalRepo repo;
+    private DigitalDerateRepo derateRepo;
+    private DigitalDonateRepo donateRepo;
+    private DigitalTradeRepo tradeRepo;
     private CopyRepo copyRepo;
 
     @Autowired
-    private void setBookRepo(@Qualifier("bookRepo") BookRepo repo) {
+    private void setDigitalRepo(@Qualifier("digitalRepo") DigitalRepo repo) {
         this.repo = repo;
     }
 
     @Autowired
-    private void setDerateRepo(@Qualifier("derateRepo") DerateRepo derateRepo) {
+    private void setDerateRepo(@Qualifier("digiDerateRepo") DigitalDerateRepo derateRepo) {
         this.derateRepo = derateRepo;
     }
 
     @Autowired
-    private void setGiftedRepo(@Qualifier("giftedRepo") GiftedRepo repo) {
-        giftedRepo = repo;
+    private void setDonateRepo(@Qualifier("digitalDonateRepo") DigitalDonateRepo repo) {
+        donateRepo = repo;
     }
 
     @Autowired
-    private void setGiftedForRepo(@Qualifier("giftedForRepo") GiftedForRepo giftedForRepo) {
-        this.giftedForRepo = giftedForRepo;
+    private void setTradedRepo(@Qualifier("digitalTradeRepo") DigitalTradeRepo tradeRepo) {
+        this.tradeRepo = tradeRepo;
     }
 
     @Autowired
@@ -55,6 +63,9 @@ public class DerateDigital {
         this.copyRepo = copyRepo;
     }
 
+    /**
+     * Sets the destination choicebox
+     */
     public void initialize() {
         ObservableList<String> list = FXCollections.observableArrayList("Vernietigd", "Verkocht", "Weggeschonken");
         destination.setItems(list);
@@ -63,33 +74,52 @@ public class DerateDigital {
 
     @FXML
     private void derate() {
-        Book b = repo.findOne(Integer.parseInt(id.getText()));
-        if (b != null) {
-            Copies copy = copyRepo.findByTitle(b.getTitle());
+        Digital d = repo.findOne(Integer.parseInt(id.getText()));
+        if (d != null) {
+            Copies copy = copyRepo.findByTitleAndType(d.getTitle(), "Digitale Drager");
             StringBuilder sb = new StringBuilder();
-            if (copy.getNrOfCopies() > 0) {
-                copy.setNrOfCopies(copy.getNrOfCopies() - 1);
-                Derated derated = new Derated(b, LocalDate.now(), destination.getValue(), b.getIsbn(), b.getDepot(), b.getTitle(), b.getAuthors());
-                derateRepo.save(derated);
-                copyRepo.save(copy);
-                sb.append("Er zijn nog ").append(copy.getNrOfCopies()).append(" kopieën van het boek '").append(b.getTitle()).append("' in de bibliotheek van de kokw.");
-
-            } else {
-                repo.delete(b);
-                sb.append("Er zijn geen kopieën meer van het boek '").append(b.getTitle()).append("' in de bibliotheek van de kokw");
-            }
-            if(b.isGifted()){
-                giftedRepo.deleteByBookId(Integer.parseInt(id.getText()));
-            }
-            if(b.isGiftedFor()){
-                giftedForRepo.deleteByBookId(Integer.parseInt(id.getText()));
-            }
-            MenuController.window.close();
-            Warning.alert("Derating succesvol", "Het boek '" + b.getTitle() + "' werd met succes gedeclasseerd.\n" + sb.toString());
-        } else {
-            Warning.alert("No item found", "Het boek werd niet terug gevonden.");
-            ChangeScene.init("/fxml/home.fxml", "KOKW - Het verleden draait altijd mee!");
+            setCopies(copy, d, sb);
+            checkOrigin(d, sb);
+         } else {
+            Warning.alert("No item found", "de digitale drager werd niet terug gevonden.");
         }
+        ChangeScene.init("/fxml/home.fxml", "KOKW - Het verleden draait altijd mee!");
+    }
 
+    /**
+     * Checks for available copies and update the value
+     * Promopts user witj nr of available copies
+     * @param copy Copies
+     * @param d Digital
+     * @param sb StringBuilder
+     */
+    private void setCopies(Copies copy, Digital d, StringBuilder sb){
+        if (copy.getNrOfCopies() > 0) {
+            copy.setNrOfCopies(copy.getNrOfCopies() - 1);
+            copyRepo.save(copy);
+            sb.append("Er zijn nog ").append(copy.getNrOfCopies()).append(" kopieën van de digitale drager: '")
+                    .append(d.getTitle()).append("' in de bibliotheek van de kokw.");
+        } else {
+            repo.delete(d);
+            sb.append("Er zijn geen kopieën meer van de digitale drager '").append(d.getTitle()).append("' in de bibliotheek van de kokw");
+        }
+    }
+
+    /**
+     * Checks if a carrier is bought, donated or traded
+     * @param d Digital
+     * @param sb StringBuilder
+     */
+    private void checkOrigin(Digital d, StringBuilder sb){
+        Derated derated = new Derated(d, LocalDate.now(), destination.getValue(), d.getDepot(), d.getTitle(), d.getAuthors());
+        if(d.isDonated()){
+            donateRepo.deleteByDigitalId(Integer.parseInt(id.getText()));
+        }
+        if(d.isTraded()){
+            tradeRepo.deleteByDigitalId(Integer.parseInt(id.getText()));
+        }
+        derateRepo.save(derated);
+        MenuController.window.close();
+        Warning.alert("Derating succesvol", "de digitale drager: '" + d.getTitle() + "' werd met succes gedeclasseerd.\n" + sb.toString());
     }
 }

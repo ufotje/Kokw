@@ -1,15 +1,12 @@
 package be.kokw.controllers.digital.search.donated;
 
-import be.kokw.bean.books.Gifted;
 import be.kokw.bean.digital.Digital;
 import be.kokw.bean.digital.DigitalDonated;
 import be.kokw.controllers.MenuController;
-import be.kokw.repositories.books.GiftedRepo;
 import be.kokw.repositories.digital.DigitalDonateRepo;
 import be.kokw.utility.controller.tables.DigitalTable;
 import be.kokw.utility.rowFactories.RowFactoryDigitalDonated;
 import be.kokw.utility.sceneControl.ChangeScene;
-import be.kokw.utility.sceneControl.NewStage;
 import be.kokw.utility.validation.Warning;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -17,7 +14,6 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
-import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -63,11 +59,14 @@ public class SearchDigitalByDonatedOn {
         donateRepo = repo;
     }
 
+    /**
+     * Shows a table with all digital carriers donated on a by the user specified date
+     */
     @FXML
-    public void search() throws Exception {
+    public void search(){
         ObservableList<DigitalDonated> digiList = observableArrayList(donateRepo.findByGiftedOn(date.getValue()));
         if (digiList.isEmpty()) {
-            Warning.alert("No Books found!", "Er werden geen boeken gevonden die op " + date.getValue() + " werden gedoneerd.");
+            Warning.alert("No Carriers found!", "Er werden geen dragers gevonden die op " + date.getValue() + " werden gedoneerd.");
             MenuController.window.close();
         } else {
             MenuController.window.close();

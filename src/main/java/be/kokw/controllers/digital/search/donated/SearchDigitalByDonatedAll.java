@@ -16,6 +16,10 @@ import org.springframework.stereotype.Component;
 
 import static javafx.collections.FXCollections.observableArrayList;
 
+/**
+ * Created By Demesmaecker Daniel
+ */
+
 @Component
 public class SearchDigitalByDonatedAll {
     @FXML
@@ -51,6 +55,9 @@ public class SearchDigitalByDonatedAll {
         donateRepo = repo;
     }
 
+    /**
+     * Shows a table with all donated digital carriers
+     */
     @FXML
     public void initialize(){
         ObservableList<Digital> digiList = observableArrayList(digitalRepo.findByDonatedIsTrue());

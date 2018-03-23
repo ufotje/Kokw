@@ -2,10 +2,10 @@ package be.kokw.controllers.digital.delete;
 
 
 import be.kokw.bean.Copies;
-import be.kokw.bean.books.Book;
+import be.kokw.bean.digital.Digital;
 import be.kokw.controllers.MenuController;
-import be.kokw.repositories.books.BookRepo;
 import be.kokw.repositories.books.CopyRepo;
+import be.kokw.repositories.digital.DigitalRepo;
 import be.kokw.utility.sceneControl.ChangeScene;
 import be.kokw.utility.validation.Validation;
 import be.kokw.utility.validation.Warning;
@@ -16,19 +16,21 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 /**
- * Created by ufotje on 2/11/2017.
- * Delete Book By TitleClass
+ * Created by DemesmaeckerDaniel on 2/11/2017.
+ * Delete Book By IDClass
+ *
+ * @deprecated use {@link DerateDigital} instead.
  */
 @Component
 public class DeleteDigitalById {
     @FXML
-    private TextField title;
-    private BookRepo bookRepo;
+    private TextField id;
+    private DigitalRepo digitalRepo;
     private CopyRepo copyRepo;
 
     @Autowired
-    private void setBookRepo(@Qualifier("bookRepo") BookRepo repo) {
-        bookRepo = repo;
+    private void setDigitalRepo(@Qualifier("digitalRepo") DigitalRepo repo) {
+        digitalRepo = repo;
     }
 
     @Autowired
@@ -38,20 +40,20 @@ public class DeleteDigitalById {
 
     @FXML
     private void delete() {
-        if (Validation.emptyValidation("Titel", title.getText().isEmpty())) {
-            Book book = bookRepo.findOne(Integer.parseInt(title.getText()));
-            if (book != null) {
-                Copies copy = copyRepo.findByTitle(book.getTitle());
+        if (Validation.emptyValidation("ID", id.getText().isEmpty())) {
+            Digital digital = digitalRepo.findOne(Integer.parseInt(id.getText()));
+            if (digital != null) {
+                Copies copy = copyRepo.findByTitleAndType(digital.getTitle(), "Digitale Drager");
                 if (copy.getNrOfCopies() > 0) {
                     copy.setNrOfCopies(copy.getNrOfCopies() - 1);
                 }
-                bookRepo.delete(book);
-                Warning.alert("Book Deleted", "The book " + title.getText() + "has been successful deleted");
+                digitalRepo.delete(digital);
+                Warning.alert("Digital carrier Deleted", "The carrier with title: '" + digital.getTitle() + "' has been successful deleted");
                 MenuController.window.close();
             } else {
-                Warning.alert("Book Not Found", "The book '" + title.getText() + "' has not been found!");
-                ChangeScene.init("/fxml/home.fxml", "KOKW - Het verleden draait altijd mee!");
+                Warning.alert("Book Not Found", "The carrier with id: " + id.getText() + " has not been found!");
             }
+            ChangeScene.init("/fxml/home.fxml", "KOKW - Het verleden draait altijd mee!");
         }
     }
 }

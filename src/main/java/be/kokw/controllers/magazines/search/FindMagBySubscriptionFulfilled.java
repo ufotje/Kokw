@@ -15,7 +15,6 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
-import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseButton;
 import javafx.stage.Stage;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,6 +23,9 @@ import org.springframework.stereotype.Component;
 
 import static javafx.collections.FXCollections.observableArrayList;
 
+/**
+ * Created By Demesmaecker Daniel
+ */
 
 @Component
 public class FindMagBySubscriptionFulfilled {
@@ -87,6 +89,10 @@ public class FindMagBySubscriptionFulfilled {
         this.countRepo = countRepo;
     }
 
+    /**
+     * Shows a table with all the magazines of which the subscription is fulfilled
+     * When clicked on a row it show the subscription details
+     */
     @FXML
     public void initialize() {
         ObservableList<MagazineCount> fulfilledList = observableArrayList(countRepo.findByExpectedEqualsReceived());
@@ -95,7 +101,6 @@ public class FindMagBySubscriptionFulfilled {
             list.add(m.getMagazine());
         }
         if (list.isEmpty()) {
-
             ChangeScene.init("/fxml/home.fxml", "KOKW - Het verleden draait altijd mee!");
             Warning.alert("No Magazines found!", "Er werden geen magazines gevonden waar we alle editities van gekregen hebben.");
         } else {

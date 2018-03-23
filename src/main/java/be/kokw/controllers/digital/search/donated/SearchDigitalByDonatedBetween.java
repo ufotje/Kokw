@@ -6,19 +6,20 @@ import be.kokw.controllers.MenuController;
 import be.kokw.repositories.digital.DigitalDonateRepo;
 import be.kokw.utility.controller.tables.DigitalTable;
 import be.kokw.utility.sceneControl.ChangeScene;
-import be.kokw.utility.sceneControl.NewStage;
 import be.kokw.utility.rowFactories.RowFactoryDigitalDonated;
 import be.kokw.utility.validation.Warning;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
-import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.stage.Stage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 import static javafx.collections.FXCollections.observableArrayList;
+
+/**
+ * Created By Demesmaecker Daniel
+ */
 
 @Component
 public class SearchDigitalByDonatedBetween {
@@ -43,25 +44,21 @@ public class SearchDigitalByDonatedBetween {
     @FXML
     private TableColumn<Digital, String> yearCol;
     @FXML
-    private TextField firstName;
-    @FXML
-    private TextField lastName;
-    @FXML
-    private DatePicker date;
-    @FXML
     private DatePicker start;
     @FXML
     private DatePicker end;
     private DigitalDonateRepo donateRepo;
-    private Stage window;
 
     @Autowired
     private void setDonateRepo(@Qualifier("digiDonateRepo") DigitalDonateRepo repo) {
         donateRepo = repo;
     }
 
+    /**
+     * Shows a table with all digital carriers donated between two by the user specified dates
+     */
     @FXML
-    public void search() throws Exception {
+    public void search() {
         ObservableList<DigitalDonated> donateList = observableArrayList(donateRepo.findByGiftedOnBetween(start.getValue(), end.getValue()));
         ObservableList<Digital> digiList = observableArrayList();
         for (DigitalDonated donated : donateList) {

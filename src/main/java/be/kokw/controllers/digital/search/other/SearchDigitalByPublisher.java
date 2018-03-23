@@ -3,6 +3,7 @@ package be.kokw.controllers.digital.search.other;
 import be.kokw.bean.digital.Digital;
 import be.kokw.controllers.MenuController;
 import be.kokw.repositories.digital.DigitalRepo;
+import be.kokw.utility.controller.tables.DigitalTable;
 import be.kokw.utility.sceneControl.ChangeScene;
 import be.kokw.utility.validation.Validation;
 import be.kokw.utility.validation.Warning;
@@ -11,7 +12,6 @@ import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
-import javafx.scene.control.cell.PropertyValueFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
@@ -19,7 +19,7 @@ import org.springframework.stereotype.Component;
 import static javafx.collections.FXCollections.observableArrayList;
 
 /**
- * Created by ufotje on 3/11/2017.
+ * Created by Demesmaecker Daniel on 3/11/2017.
  */
 
 @Component
@@ -53,24 +53,17 @@ public class SearchDigitalByPublisher {
         this.repo = repo;
     }
 
+    /**
+     * Shows a table with all the carriers published by a user specified publisher
+     */
     @FXML
-    public void search() throws Exception {
+    public void search(){
         if(Validation.emptyValidation("Uitgeverij",publisher.getText().isEmpty())){
             ObservableList<Digital> digiList = observableArrayList(repo.findByPublisher(publisher.getText()));
             if(!(digiList.isEmpty())){
                 MenuController.window.close();
                 ChangeScene.init("/fxml/digital/found/other/tableviewByPublisher.fxml", "Books by Publisher");
-                table.setEditable(true);
-                idCol.setCellValueFactory(new PropertyValueFactory<>("id"));
-                depotCol.setCellValueFactory(new PropertyValueFactory<>("depot"));
-                titleCol.setCellValueFactory(new PropertyValueFactory<>("title"));
-                volumeCol.setCellValueFactory(new PropertyValueFactory<>("volume"));
-                topicCol.setCellValueFactory(new PropertyValueFactory<>("topics"));
-                authorCol.setCellValueFactory(new PropertyValueFactory<>("authors"));
-                subTitleCol.setCellValueFactory(new PropertyValueFactory<>("subtitles"));
-                publisherCol.setCellValueFactory(new PropertyValueFactory<>("publisher"));
-                yearCol.setCellValueFactory(new PropertyValueFactory<>("yearPublished"));
-                table.setItems(digiList);
+                DigitalTable.init(table, idCol, depotCol, volumeCol, titleCol, topicCol, authorCol, subTitleCol, publisherCol, yearCol, digiList);
             }else{
                 Warning.alert("Digital Carrier Not Found","Er werden geen digitale dragers gevonden die werden uitgegeven door: '" + publisher.getText() + "'!");
                 MenuController.window.close();

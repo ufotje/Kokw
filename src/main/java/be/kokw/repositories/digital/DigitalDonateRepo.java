@@ -21,4 +21,7 @@ public interface DigitalDonateRepo extends JpaRepository<DigitalDonated,Integer>
 
     @Transactional
     List<DigitalDonated> findByGiftedOn(LocalDate date);
+
+    @Transactional
+    int deleteByDigitalId(int id);
 }

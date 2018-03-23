@@ -25,5 +25,8 @@ public interface DigitalTradeRepo extends JpaRepository<DigitalTraded, Integer> 
     List<DigitalTraded> findByContractDateAndName(LocalDate date, String name);
 
     @Transactional
+    int deleteByDigitalId(int id);
+
+    @Transactional
     DigitalTraded findByDigitalId(int id);
 }

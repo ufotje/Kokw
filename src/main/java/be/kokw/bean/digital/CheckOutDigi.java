@@ -1,6 +1,7 @@
 package be.kokw.bean.digital;
 
 import be.kokw.bean.Member;
+import be.kokw.controllers.digital.delete.DerateDigital;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -8,6 +9,7 @@ import java.time.LocalDate;
 
 /**
  * Created by Daniel Demesmaecker.
+ * @deprecated use {@link be.kokw.bean.CheckedOut} instead.
  */
 
 @Entity

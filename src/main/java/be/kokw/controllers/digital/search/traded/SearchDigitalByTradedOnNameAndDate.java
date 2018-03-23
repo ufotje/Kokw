@@ -23,6 +23,10 @@ import java.time.LocalDate;
 
 import static javafx.collections.FXCollections.observableArrayList;
 
+/**
+ * Created By Demesmaecker Daniel
+ */
+
 @Component
 public class SearchDigitalByTradedOnNameAndDate {
     @FXML
@@ -60,8 +64,12 @@ public class SearchDigitalByTradedOnNameAndDate {
         NameTextField.bind(repo.findAll(), name);
     }
 
+    /**
+     * Shows a table with the carriers traded on a by the user specified Date and person
+     * When clicked on a row the contract opens
+     */
     @FXML
-    public void search() throws Exception {
+    public void search(){
         ObservableList<DigitalTraded> list = observableArrayList(repo.findByContractDateAndName(date.getValue(),name.getText()));
         if (list.isEmpty()) {
             Warning.alert("No Digital Carriers Found!", "Er werden geen digitale dragers gevonden die door " + name.getText() + " op " + date.getValue() + " werden geruild.");

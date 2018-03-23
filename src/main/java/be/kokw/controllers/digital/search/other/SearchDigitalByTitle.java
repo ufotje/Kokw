@@ -3,6 +3,7 @@ package be.kokw.controllers.digital.search.other;
 import be.kokw.bean.digital.Digital;
 import be.kokw.controllers.MenuController;
 import be.kokw.repositories.digital.DigitalRepo;
+import be.kokw.utility.controller.tables.DigitalTable;
 import be.kokw.utility.sceneControl.ChangeScene;
 import be.kokw.utility.validation.Validation;
 import be.kokw.utility.validation.Warning;
@@ -19,7 +20,7 @@ import org.springframework.stereotype.Component;
 import static javafx.collections.FXCollections.observableArrayList;
 
 /**
- * Created by ufotje on 3/11/2017.
+ * Created by Demesmaecker Daniel on 3/11/2017.
  * The find by titleClass
  */
 
@@ -54,25 +55,17 @@ public class SearchDigitalByTitle {
         this.repo = repo;
     }
 
+    /**
+     * Returns all the carriers with a by the user specified title
+     */
     @FXML
-    public void search() throws Exception {
+    public void search(){
         if(Validation.emptyValidation("Titel",title.getText().isEmpty())){
             ObservableList<Digital> digiList = observableArrayList(repo.findByTitle(title.getText()));
             if(digiList.get(0) != null){
-
                 MenuController.window.close();
                 ChangeScene.init("/fxml/books/found/other/tableViewByTitle.fxml", "Books by Title");
-                table.setEditable(true);
-                idCol.setCellValueFactory(new PropertyValueFactory<>("id"));
-                depotCol.setCellValueFactory(new PropertyValueFactory<>("depot"));
-                titleCol.setCellValueFactory(new PropertyValueFactory<>("title"));
-                volumeCol.setCellValueFactory(new PropertyValueFactory<>("volume"));
-                topicCol.setCellValueFactory(new PropertyValueFactory<>("topics"));
-                authorCol.setCellValueFactory(new PropertyValueFactory<>("authors"));
-                subTitleCol.setCellValueFactory(new PropertyValueFactory<>("subtitles"));
-                publisherCol.setCellValueFactory(new PropertyValueFactory<>("publisher"));
-                yearCol.setCellValueFactory(new PropertyValueFactory<>("yearPublished"));
-                table.setItems(digiList);
+                DigitalTable.init(table, idCol, depotCol, volumeCol, titleCol, topicCol, authorCol, subTitleCol, publisherCol, yearCol, digiList);
             }else{
                 Warning.alert("Book Not Found","The book '" + title.getText() + "' has not been found!");
                 MenuController.window.close();

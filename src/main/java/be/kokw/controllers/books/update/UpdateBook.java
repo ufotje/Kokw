@@ -207,6 +207,9 @@ public class UpdateBook {
         }
     }
 
+    /**
+     * Updates the book in the database
+     */
     @FXML
     private void update() {
         if (book.isGifted()) {

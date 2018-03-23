@@ -36,8 +36,11 @@ public class UpdateMember {
         TextFieldsMembers.autoCompleteAll(repo.findAll(), firstName, lastName, street, city);
     }
 
+    /**
+     * Searches for the up to date member and prefills the fields
+     */
     @FXML
-    public void search() throws Exception {
+    public void search() {
         member = repo.findByFirstNameAndLastName(firstName.getText(), lastName.getText());
         if (member != null) {
             MenuController.window.close();
@@ -63,6 +66,9 @@ public class UpdateMember {
         }
     }
 
+    /**
+     * Updates the member
+     */
     @FXML
     private void update() {
         if (valid()) {
@@ -83,6 +89,10 @@ public class UpdateMember {
         }
     }
 
+    /**
+     * Validates the inputfields
+     * @return boolean
+     */
     private boolean valid() {
         boolean validated = false;
         if (Validation.validate("Voornaam:", firstName.getText(), "[a-zA-Z]+") &&

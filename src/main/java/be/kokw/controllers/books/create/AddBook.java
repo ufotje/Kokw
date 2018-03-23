@@ -216,7 +216,7 @@ public class AddBook {
 
     /**
      * Validates The Inputfields
-     * @return
+     * @return boolean
      */
     private boolean validated() {
         boolean valid = false;

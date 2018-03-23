@@ -19,6 +19,10 @@ import java.time.LocalDate;
 
 import static javafx.collections.FXCollections.observableArrayList;
 
+/**
+ * Created By Demesmaecker Daniel
+ */
+
 @Component
 public class SearchDigitalByTradedAll {
     @FXML
@@ -49,6 +53,10 @@ public class SearchDigitalByTradedAll {
         this.repo = repo;
     }
 
+    /**
+     * Shows a table with all traded digital carriers
+     * When clicked on a row The contract opens
+     */
     @FXML
     public void initialize() {
         ObservableList<DigitalTraded> tradedList = observableArrayList(repo.findAll());

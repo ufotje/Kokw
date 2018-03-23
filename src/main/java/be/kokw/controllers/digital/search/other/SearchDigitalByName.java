@@ -11,7 +11,6 @@ import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
-import javafx.scene.control.cell.PropertyValueFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
@@ -20,7 +19,7 @@ import static javafx.collections.FXCollections.observableArrayList;
 
 
  /**
-  * Created by ufotje on 28/10/2017.
+  * Created by Demesmaecker Daniel on 28/10/2017.
   * The search byAuthorsNameControllerClass
   */
 
@@ -55,29 +54,21 @@ import static javafx.collections.FXCollections.observableArrayList;
          this.repo = repo;
      }
 
+     /**
+      * Shows a table with all digita Carriers directed by a user specified director
+      */
      @FXML
-     public void search() throws Exception {
+     public void search(){
          if (Validation.validate("Achternaam Auteur", lastName.getText(), "[a-zA-Z]+") &&
                  Validation.validate("Voornaam Auteur:", firstName.getText(), "[a-zA-Z]+")) {
              ObservableList<Digital> digiList = observableArrayList(repo.findByAuthorsContains(firstName.getText() + " " + lastName.getText()));
              if (digiList.isEmpty()) {
-                 Warning.alert("No Books found!", "Er werden geen boeken gevonden geschreven door " + firstName.getText() + " " + lastName.getText());
+                 Warning.alert("No Carriers found!", "Er werden geen dragers gevonden geregiseerd door " + firstName.getText() + " " + lastName.getText());
                  MenuController.window.close();
              } else {
 
                  MenuController.window.close();
                  ChangeScene.init("/fxml/digital/found/other/tableView.fxml", "Books by Director's name");
-                 table.setEditable(true);
-                 idCol.setCellValueFactory(new PropertyValueFactory<>("id"));
-                 depotCol.setCellValueFactory(new PropertyValueFactory<>("depot"));
-                 titleCol.setCellValueFactory(new PropertyValueFactory<>("title"));
-                 volumeCol.setCellValueFactory(new PropertyValueFactory<>("volume"));
-                 topicCol.setCellValueFactory(new PropertyValueFactory<>("topics"));
-                 authorCol.setCellValueFactory(new PropertyValueFactory<>("authors"));
-                 subTitleCol.setCellValueFactory(new PropertyValueFactory<>("subtitles"));
-                 publisherCol.setCellValueFactory(new PropertyValueFactory<>("publisher"));
-                 yearCol.setCellValueFactory(new PropertyValueFactory<>("yearPublished"));
-                 table.setItems(digiList);
              }
          }
      }

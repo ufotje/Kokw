@@ -3,6 +3,7 @@ package be.kokw.controllers.digital.search.other;
 import be.kokw.bean.digital.Digital;
 import be.kokw.controllers.MenuController;
 import be.kokw.repositories.digital.DigitalRepo;
+import be.kokw.utility.controller.tables.DigitalTable;
 import be.kokw.utility.sceneControl.ChangeScene;
 import be.kokw.utility.validation.Warning;
 import javafx.collections.ObservableList;
@@ -10,12 +11,15 @@ import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
-import javafx.scene.control.cell.PropertyValueFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 import static javafx.collections.FXCollections.observableArrayList;
+
+/**
+ * Created By Demesmaecker Daniel
+ */
 
 @Component
 public class SearchDigitalByDepot {
@@ -48,8 +52,11 @@ public class SearchDigitalByDepot {
         this.repo = repo;
     }
 
+    /**
+     * Shows an table with the digital carrier containing the by the user defined depotnumber
+     */
     @FXML
-    public void search() throws Exception {
+    public void search(){
         ObservableList<Digital> digiList = observableArrayList(repo.findByDepot(depot.getText()));
         if (digiList.isEmpty()) {
             Warning.alert("No Digital Carriers found!", "Er werden geen digitale dragers gevonden met " + depot.getText() + " als depotnummer.");
@@ -58,17 +65,7 @@ public class SearchDigitalByDepot {
             MenuController.window.close();
             ChangeScene.init("/fxml/digital/found/other/tableviewByDepot.fxml", "Books by DepotNumber");
             table.setEditable(true);
-            idCol.setCellValueFactory(new PropertyValueFactory<>("id"));
-            depotCol.setCellValueFactory(new PropertyValueFactory<>("depot"));
-            titleCol.setCellValueFactory(new PropertyValueFactory<>("title"));
-            volumeCol.setCellValueFactory(new PropertyValueFactory<>("volume"));
-            topicCol.setCellValueFactory(new PropertyValueFactory<>("topics"));
-            authorCol.setCellValueFactory(new PropertyValueFactory<>("authors"));
-            subTitleCol.setCellValueFactory(new PropertyValueFactory<>("subtitles"));
-            publisherCol.setCellValueFactory(new PropertyValueFactory<>("publisher"));
-            yearCol.setCellValueFactory(new PropertyValueFactory<>("yearPublished"));
-
-            table.setItems(digiList);
+            DigitalTable.init(table, idCol, depotCol, volumeCol, titleCol, topicCol, authorCol, subTitleCol, publisherCol, yearCol, digiList);
         }
     }
 }

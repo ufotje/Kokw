@@ -20,6 +20,10 @@ import java.time.LocalDate;
 
 import static javafx.collections.FXCollections.observableArrayList;
 
+/**
+ * Created By Demesmaecker Daniel
+ */
+
 @Component
 public class SearchDigitalByBoughtOnBetween {
     @FXML
@@ -55,6 +59,9 @@ public class SearchDigitalByBoughtOnBetween {
         digitalRepo = repo;
     }
 
+    /**
+     * Shows a table with all digital carriers bought between two by the user specified dates
+     */
     @FXML
     public void search() throws Exception {
         ObservableList<Digital> digiList = observableArrayList(digitalRepo.findByBoughtOnBetween(start.getValue(), end.getValue()));

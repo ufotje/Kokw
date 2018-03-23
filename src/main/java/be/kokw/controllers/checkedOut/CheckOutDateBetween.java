@@ -1,8 +1,8 @@
-package be.kokw.controllers.checkedOut.books;
+package be.kokw.controllers.checkedOut;
 
 import be.kokw.bean.CheckedOut;
 import be.kokw.controllers.MenuController;
-import be.kokw.repositories.books.CheckOutRepo;
+import be.kokw.repositories.CheckOutRepo;
 import be.kokw.utility.sceneControl.ChangeScene;
 import be.kokw.utility.validation.Warning;
 import javafx.collections.ObservableList;
@@ -16,6 +16,10 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 import static javafx.collections.FXCollections.observableArrayList;
+
+/**
+ * Created By Demesmaecker Daniel
+ */
 
 @Component
 public class CheckOutDateBetween {
@@ -38,11 +42,7 @@ public class CheckOutDateBetween {
     @FXML
     private TableColumn<CheckedOut,String> publisherCol;
     @FXML
-    private TableColumn<CheckedOut,String> placeCol;
-    @FXML
     private TableColumn<CheckedOut,String>yearCol;
-    @FXML
-    private TableColumn<CheckedOut,String>pagesCol;
     private CheckOutRepo repo;
 
     @Autowired
@@ -50,14 +50,17 @@ public class CheckOutDateBetween {
         this.repo = repo;
     }
 
+    /**
+     * Opens a table with all Objects checked out between two by the user defined dates
+     */
     @FXML
-    public void search() throws Exception {
+    public void search(){
         if(startDate.getValue() != null){
             if(endDate.getValue() != null){
                 ObservableList<CheckedOut> dates = observableArrayList(repo.findByCheckOutDateBetween(startDate.getValue(), endDate.getValue()));
                 if(!dates.isEmpty()){
                     MenuController.window.close();
-                    ChangeScene.init("/fxml/checkOut/books/tableViewDatesBetween.fxml", "Books by Dates between");
+                    ChangeScene.init("/fxml/checkOut/tableViewDatesBetween.fxml", "Objects by Dates between");
                     table.setEditable(true);
                     idCol.setCellValueFactory(new PropertyValueFactory<>("id"));
                     titleCol.setCellValueFactory(new PropertyValueFactory<>("title"));
@@ -65,9 +68,7 @@ public class CheckOutDateBetween {
                     firstNameCol.setCellValueFactory(new PropertyValueFactory<>("authorFirstName"));
                     lastNameCol.setCellValueFactory(new PropertyValueFactory<>("authorLastName"));
                     publisherCol.setCellValueFactory(new PropertyValueFactory<>("publisher"));
-                    placeCol.setCellValueFactory(new PropertyValueFactory<>("place"));
                     yearCol.setCellValueFactory(new PropertyValueFactory<>("yearPublished"));
-                    pagesCol.setCellValueFactory(new PropertyValueFactory<>("nrOfPages"));
                     table.setItems(dates);
                 }else{
                     Warning.alert("No Results", "Er werden geen boeken gevonden die werden uitgeleend tussen " + startDate.getValue() + " en " + endDate.getValue());

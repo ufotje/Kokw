@@ -17,7 +17,7 @@ public class CheckedOut implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private long id;
+    private int id;
     @JoinColumn(name = "id_books", referencedColumnName = "id")
     @ManyToOne(fetch = FetchType.LAZY)
     private Book book;
@@ -34,6 +34,7 @@ public class CheckedOut implements Serializable {
     private LocalDate returnDate;
     private boolean returned;
     private String adress;
+    private String type;
 
     public CheckedOut() {
     }
@@ -41,6 +42,7 @@ public class CheckedOut implements Serializable {
     public CheckedOut(Book book, Member member) {
         this.book = book;
         this.member = member;
+        type = "Boek";
         checkOutDate = LocalDate.now();
         returnDate = checkOutDate.plusWeeks(3);
         title = book.getTitle();
@@ -52,6 +54,7 @@ public class CheckedOut implements Serializable {
     public CheckedOut(Digital digital, Member member) {
         this.digital = digital;
         this.member = member;
+        type = "Digitale Drager";
         checkOutDate = LocalDate.now();
         returnDate = checkOutDate.plusWeeks(3);
         title = book.getTitle();
@@ -64,7 +67,7 @@ public class CheckedOut implements Serializable {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -90,6 +93,14 @@ public class CheckedOut implements Serializable {
 
     public void setMember(Member member) {
         this.member = member;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
     }
 
     public LocalDate getCheckOutDate() {

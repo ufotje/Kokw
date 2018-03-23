@@ -18,6 +18,10 @@ import org.springframework.stereotype.Component;
 
 import static javafx.collections.FXCollections.observableArrayList;
 
+/**
+ * Created By Demesmaecker Daniel
+ */
+
 @Component
 public class FindMagByTopic {
     @FXML
@@ -53,6 +57,9 @@ public class FindMagByTopic {
         this.repo = repo;
     }
 
+    /**
+     * Shows a table of magzines related to a by the user specified topic
+     */
     @FXML
     public void search(){
         if (Validation.validate("name", topicField.getText(), "[a-zA-Z \\-]+")) {

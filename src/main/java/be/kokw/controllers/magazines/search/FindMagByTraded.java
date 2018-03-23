@@ -14,7 +14,6 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
-import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseButton;
 import javafx.stage.Stage;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,6 +21,10 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 import static javafx.collections.FXCollections.observableArrayList;
+
+/**
+ * Created By Demesmaecker Daniel
+ */
 
 @Component
 public class FindMagByTraded {
@@ -85,6 +88,10 @@ public class FindMagByTraded {
         tradeRepo = repo;
     }
 
+    /**
+     * Shows a table with all the traded magazines
+     * When clicked on a row it show the trade details
+     */
     @FXML
     public void initialize() {
         ObservableList<Magazine> list = observableArrayList(repo.findMagazinesByTradedIsTrue());

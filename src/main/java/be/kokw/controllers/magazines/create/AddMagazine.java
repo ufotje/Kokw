@@ -17,7 +17,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
-
+/**
+ * Created By Demesmaecker Daniel
+ */
 
 @Component
 public class AddMagazine {
@@ -76,11 +78,7 @@ public class AddMagazine {
     @FXML
     private void save() {
         if (saveMag()) {
-            try {
-                ChangeScene.init("/fxml/home.fxml", "KOKW - Het verleden draait altijd mee!");
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
+            ChangeScene.init("/fxml/home.fxml", "KOKW - Het verleden draait altijd mee!");
         }
     }
 
@@ -210,6 +208,10 @@ public class AddMagazine {
         telephone.clear();
     }
 
+    /**
+     * Validates the basefields
+     * @return boolean
+     */
     private boolean validated() {
         boolean validation = false;
         if (Validation.validate("name", name.getText(), "[a-zA-Z \\-]+")) {
@@ -232,6 +234,10 @@ public class AddMagazine {
         return validation;
     }
 
+    /**
+     * Validates the details
+     * @return boolean
+     */
     private boolean validateDetail() {
         boolean validation = false;
         if (Validation.validate("expected", expected.getText(), "[0-9]+")) {
@@ -250,8 +256,8 @@ public class AddMagazine {
                                             sb.append(zip.getText());
                                             sb.append(" ");
                                             sb.append(city.getText());
+                                            validation = true;
                                         }
-                                        validation = true;
                                     }
                                 }
                             }

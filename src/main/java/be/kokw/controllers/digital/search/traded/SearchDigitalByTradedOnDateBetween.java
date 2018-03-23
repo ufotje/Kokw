@@ -21,6 +21,10 @@ import java.time.LocalDate;
 
 import static javafx.collections.FXCollections.observableArrayList;
 
+/**
+ * Created By Demesmaecker Daniel
+ */
+
 @Component
 public class SearchDigitalByTradedOnDateBetween {
     @FXML
@@ -54,6 +58,10 @@ public class SearchDigitalByTradedOnDateBetween {
         this.repo = repo;
     }
 
+    /**
+     * Shows a table with the carriers traded between two by the user specified Dates
+     * When clicked on a row the contract opens
+     */
     @FXML
     public void search() throws Exception {
         ObservableList<DigitalTraded> list = observableArrayList(repo.findByContractDateBetween(start.getValue(), end.getValue()));

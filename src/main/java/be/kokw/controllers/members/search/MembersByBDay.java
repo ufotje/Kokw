@@ -19,6 +19,10 @@ import java.time.LocalDate;
 
 import static javafx.collections.FXCollections.observableArrayList;
 
+/**
+ * Created By Demesmaecker Daniel
+ */
+
 @Component
 public class MembersByBDay {
     @FXML
@@ -54,8 +58,11 @@ public class MembersByBDay {
         this.repo = repo;
     }
 
+    /**
+     * Shows a table of all members with a by the user specified Birthday
+     */
     @FXML
-    public void search() throws Exception {
+    public void search() {
         ObservableList<Member> memberList = observableArrayList(repo.findByBDay(bDay.getValue()));
         if (memberList.isEmpty()) {
             Warning.alert("No Members found!", "Er werden geen leden geboren op " + bDay.getValue() + " gevonden!");

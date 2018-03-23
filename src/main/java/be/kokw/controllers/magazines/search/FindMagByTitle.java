@@ -12,12 +12,15 @@ import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
-import javafx.scene.control.cell.PropertyValueFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 import static javafx.collections.FXCollections.observableArrayList;
+
+/**
+ * Created By Demesmaecker Daniel
+ */
 
 @Component
 public class FindMagByTitle {
@@ -54,6 +57,9 @@ public class FindMagByTitle {
         this.repo = repo;
     }
 
+    /**
+     * Shows a table of magazines with a by the user specified title
+     */
     @FXML
     public void search(){
         if (Validation.validate("name", title.getText(), "[a-zA-Z \\-]+")) {

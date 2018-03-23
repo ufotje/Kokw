@@ -22,6 +22,9 @@ import org.springframework.stereotype.Component;
 
 import static javafx.collections.FXCollections.observableArrayList;
 
+/**
+ * Created By Demesmaecker Daniel
+ */
 
 @Component
 public class FindMagBySubscribed {
@@ -85,6 +88,10 @@ public class FindMagBySubscribed {
         this.subRepo = subRepo;
     }
 
+    /**
+     * Shows a table with all the magazines the kokw is subscribed to
+     * When clicked on a row it show the subscription details
+     */
     @FXML
     public void initialize() {
         ObservableList<Magazine> list = observableArrayList(repo.findMagazinesBySubscribedIsTrue());

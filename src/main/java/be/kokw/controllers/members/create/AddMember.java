@@ -32,7 +32,7 @@ import java.util.List;
 import java.util.Set;
 
 /**
- * Created by ufotje on 21/10/2017.
+ * Created by Demesmaecker Daniel on 21/10/2017.
  * ControllerClass to save (a) new Member(s)
  */
 
@@ -58,6 +58,9 @@ public class AddMember {
         repo = memberRepo;
     }
 
+    /**
+     * Sets autocomplete on textfields and fills genderchoicebox
+     */
     @FXML
     private void initialize(){
         TextFieldsMembers.autoCompleteAll(repo.findAll(), firstName, lastName, street, city);
@@ -92,6 +95,10 @@ public class AddMember {
         clearFields();
     }
 
+    /**
+     * Validates the fields
+     * @return boolean
+     */
     private boolean valid() {
         boolean validated = false;
         if (Validation.validate("Voornaam:", firstName.getText(), "[a-zA-Z ]+") &&
@@ -107,6 +114,11 @@ public class AddMember {
         return validated;
     }
 
+    /**
+     * Let's the user prefill the fields with data from e-id
+     * @throws InterruptedException ie
+     * @throws IOException ioe
+     */
     @FXML
     private void eId() throws InterruptedException, IOException {
         final BeIDCards beIDCards = new BeIDCards();

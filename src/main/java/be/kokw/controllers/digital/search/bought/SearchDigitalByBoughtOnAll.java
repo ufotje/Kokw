@@ -18,6 +18,10 @@ import java.time.LocalDate;
 
 import static javafx.collections.FXCollections.observableArrayList;
 
+/**
+ * Created By Demesmaecker Daniel
+ */
+
 @Component
 public class SearchDigitalByBoughtOnAll {
     @FXML
@@ -49,6 +53,9 @@ public class SearchDigitalByBoughtOnAll {
         digitalRepo = repo;
     }
 
+    /**
+     * Shows a table with all digital carriers bought
+     */
     @FXML
     public void initialize(){
         ObservableList<Digital> digiList = observableArrayList(digitalRepo.findByBoughtOnIsNotNull());

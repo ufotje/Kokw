@@ -17,7 +17,7 @@ import java.time.LocalDate;
 import static javafx.collections.FXCollections.observableArrayList;
 
 /**
- * Created by ufotje on 5/11/2017.
+ * Created by Demesmaecker Daniel on 5/11/2017.
  * View for Searchquery ByAnalNotPayed
  */
 
@@ -54,6 +54,9 @@ public class MemberByAnal {
         this.repo = repo;
     }
 
+    /**
+     * Shows a table of members who haven't received their annals
+     */
     public void initialize() {
         ObservableList<Member> memberList = observableArrayList(repo.findByAnalIsFalse());
         if (memberList.isEmpty()) {

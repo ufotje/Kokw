@@ -1,7 +1,7 @@
-package be.kokw.controllers.checkedOut.books;
+package be.kokw.controllers.checkedOut;
 
 import be.kokw.bean.CheckedOut;
-import be.kokw.repositories.books.CheckOutRepo;
+import be.kokw.repositories.CheckOutRepo;
 import be.kokw.utility.validation.Validation;
 import be.kokw.utility.validation.Warning;
 import javafx.fxml.FXML;
@@ -12,6 +12,10 @@ import org.springframework.stereotype.Component;
 
 import javax.persistence.NoResultException;
 import java.time.LocalDate;
+
+/**
+ * Created By Demesmaecker Daniel
+ */
 
 @Component
 public class Prolong {
@@ -29,6 +33,9 @@ public class Prolong {
         this.repo = repo;
     }
 
+    /**
+     * Enables to prolong a checked out item with three weeks
+     */
     @FXML
     private void prolong() {
         if (Validation.validate("Voornaam", firstName.getText(), "[A-Za-z]+")) {

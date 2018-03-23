@@ -22,7 +22,7 @@ import java.time.LocalDate;
 import static javafx.collections.FXCollections.observableArrayList;
 
 /**
- * Created by ufotje on 5/11/2017.
+ * Created by Demesmaecker Daniel on 5/11/2017.
  * View for Searchquery ByFullName
  */
 
@@ -65,8 +65,11 @@ public class MemberByFullName {
         TextFieldsMembers.autoCompletNames(repo.findAll(), firstName, lastName);
     }
 
+    /**
+     * Shows a table of a member with the by the user specified name
+     */
     @FXML
-    public void search() throws Exception {
+    public void search(){
         if (Validation.validate("Achternaam", lastName.getText(), "[a-zA-Z ]+") &&
                 Validation.validate("Voornaam", firstName.getText(), "[a-zA-Z]+")) {
             ObservableList<Member> memberList = observableArrayList(repo.findByFirstNameAndLastName(firstName.getText(), lastName.getText()));

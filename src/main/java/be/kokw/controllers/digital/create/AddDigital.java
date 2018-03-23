@@ -35,8 +35,8 @@ import java.util.List;
 
 
 /**
- * Created by ufotje on 20/10/2017.
- * This class is used to save a book
+ * Created by Demesmaecker Daniel on 20/10/2017.
+ * This class is used to save a Digtal Carrier
  */
 
 @Component
@@ -85,6 +85,9 @@ public class AddDigital {
         this.copyRepo = copyRepo;
     }
 
+    /**
+     * The initialize method is used to fill the choiceboxes and to set an autocomplete on the textfields
+     */
     public void initialize() {
         ObservableList<String> topics = FXCollections.observableArrayList("Wereld Oorlog 1", "Wereld Oorlog 2", "MiddelEeuwen", "Gulden Sporenslag", "Brugse Metten");
         topic.setItems(topics);
@@ -94,6 +97,10 @@ public class AddDigital {
         DigiTextFields.autocomplete(digiRepo, title, nameAuthor, subTitle, publisher);
     }
 
+    /**
+     * This method checks in which way the carrier is acquired and if there's not more then one way selected
+     * After the check is performed the correct detail window is opened.
+     */
     @FXML
     public void save() {
         if (validated()) {
@@ -149,7 +156,10 @@ public class AddDigital {
             topics.append("\n");
         }
     }
-
+    /**
+     * Checks the inputfields of the donatedDetailswindow for incorrect values,
+     * Creates an new DigitalDonatedobject and saves the carrier and details to the db.
+     */
     @FXML
     private void giftedBy() {
         if (Validation.validate("firstName", firstName.getText(), "[a-zA-Z \\-]+")) {
@@ -176,6 +186,10 @@ public class AddDigital {
         }
     }
 
+    /**
+     * Checks the inputfields of the tradedDetailswindow for incorrect values,
+     * Creates an new DigitalTradedobject and saves the carrier and details to the db.
+     */
     @FXML
     private void giftedFor() {
         if (Validation.validate("fullName", fullName.getText(), "[a-zA-Z \\-]+")) {
@@ -195,6 +209,10 @@ public class AddDigital {
 
     }
 
+    /**
+     * Checks the inputfields of the BoughtDetailswindow for incorrect values
+     * and saves the carrier to the db.
+     */
     @FXML
     public void bought() {
         LocalDate boughtDate = boughtOn.getValue();
@@ -214,6 +232,10 @@ public class AddDigital {
         clearFields();
     }
 
+    /**
+     * Validates The Inputfields
+     * @return
+     */
     private boolean validated() {
         boolean valid = false;
         if (Validation.emptyValidation("Titel", title.getText().isEmpty() &&
@@ -228,8 +250,12 @@ public class AddDigital {
         return valid;
     }
 
+    /**
+     * Checks if a carrier is already in the db, if so it increments the available copies by one,
+     * else it creates a new one
+     */
     private void saveCopies() {
-        Copies copy = copyRepo.findByTitle(digital.getTitle());
+        Copies copy = copyRepo.findByTitleAndType(digital.getTitle(), "Digitale Drager");
         if (copy != null) {
             copy.setNrOfCopies(copy.getNrOfCopies() + 1);
             copyRepo.save(copy);
@@ -239,6 +265,9 @@ public class AddDigital {
         }
     }
 
+    /**
+     * Removes the values from the inputfields
+     */
     private void clearFields() {
         title.clear();
         nameAuthor.clear();
