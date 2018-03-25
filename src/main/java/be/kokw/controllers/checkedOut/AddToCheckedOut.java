@@ -77,7 +77,7 @@ public class AddToCheckedOut {
                 setBook();
                 if (book != null) {
                     setRemainingCopies(copyRepo.findByTitleAndType(book.getTitle(), "boek"));
-                    alertMessage(checkOutRepo.save(book, member));
+                    alertMessage(checkOutRepo.save(new CheckedOut(book, member)));
                 } else {
                     Warning.alert("Book not found!", "Het boek met id: " + id.getText() + " werd niet gevonden!");
                 }
@@ -85,7 +85,7 @@ public class AddToCheckedOut {
                 Digital digital = digitalRepo.findOne((Integer.parseInt(id.getText())));
                 if (digital != null) {
                     setRemainingCopies(copyRepo.findByTitleAndType(digital.getTitle(), "Digitale Drager"));
-                    alertMessage(checkOutRepo.save(digital, member));
+                    alertMessage(checkOutRepo.save(new CheckedOut(digital, member)));
                 } else {
                     Warning.alert("Digital Carrier not found!", "De digitale drager met id: " + id.getText() + " werd niet gevonden!");
                 }
@@ -109,7 +109,7 @@ public class AddToCheckedOut {
     /**
      * Checks if there are any copies left of the to checkout object
      * Decrements the available copies or warns the user if there aren't any left
-     * @param copy
+     * @param copy Copy
      */
     private void setRemainingCopies(Copies copy) {
         if (copy.getNrOfCopies() > 0) {
@@ -123,7 +123,7 @@ public class AddToCheckedOut {
 
     /**
      * Prompts the user with a resultmessage
-     * @param checkOut
+     * @param checkOut CheckedOut
      */
     private void alertMessage(CheckedOut checkOut) {
         if (checkOut != null) {

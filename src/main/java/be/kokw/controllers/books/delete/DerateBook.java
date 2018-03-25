@@ -2,9 +2,10 @@ package be.kokw.controllers.books.delete;
 
 import be.kokw.bean.Copies;
 import be.kokw.bean.books.Book;
-import be.kokw.bean.books.Derated;
+import be.kokw.bean.Derated;
 
 import be.kokw.controllers.MenuController;
+import be.kokw.repositories.DerateRepo;
 import be.kokw.repositories.books.*;
 import be.kokw.utility.sceneControl.ChangeScene;
 import be.kokw.utility.validation.Warning;

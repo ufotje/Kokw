@@ -16,11 +16,6 @@ import java.util.List;
  */
 
 public interface CheckOutRepo extends JpaRepository<CheckedOut,Integer>{
-    @Transactional
-    CheckedOut save(Book b, Member m);
-
-    @Transactional
-    CheckedOut save(Digital d, Member m);
 
     @Query("update CheckedOut set returnDate =:returnDate where title=:title and fullName=:fullName")
     int prolong(String title, String fullName, LocalDate returnDate);

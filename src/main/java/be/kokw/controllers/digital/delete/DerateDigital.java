@@ -1,11 +1,11 @@
 package be.kokw.controllers.digital.delete;
 
 import be.kokw.bean.Copies;
-import be.kokw.bean.digital.Derated;
+import be.kokw.bean.Derated;
 import be.kokw.bean.digital.Digital;
 import be.kokw.controllers.MenuController;
+import be.kokw.repositories.DerateRepo;
 import be.kokw.repositories.books.*;
-import be.kokw.repositories.digital.DigitalDerateRepo;
 import be.kokw.repositories.digital.DigitalDonateRepo;
 import be.kokw.repositories.digital.DigitalRepo;
 import be.kokw.repositories.digital.DigitalTradeRepo;
@@ -33,7 +33,7 @@ public class DerateDigital {
     @FXML
     private ChoiceBox<String> destination;
     private DigitalRepo repo;
-    private DigitalDerateRepo derateRepo;
+    private DerateRepo derateRepo;
     private DigitalDonateRepo donateRepo;
     private DigitalTradeRepo tradeRepo;
     private CopyRepo copyRepo;
@@ -44,17 +44,17 @@ public class DerateDigital {
     }
 
     @Autowired
-    private void setDerateRepo(@Qualifier("digiDerateRepo") DigitalDerateRepo derateRepo) {
+    private void setDerateRepo(@Qualifier("derateRepo") DerateRepo derateRepo) {
         this.derateRepo = derateRepo;
     }
 
     @Autowired
-    private void setDonateRepo(@Qualifier("digitalDonateRepo") DigitalDonateRepo repo) {
+    private void setDonateRepo(@Qualifier("digiDonateRepo") DigitalDonateRepo repo) {
         donateRepo = repo;
     }
 
     @Autowired
-    private void setTradedRepo(@Qualifier("digitalTradeRepo") DigitalTradeRepo tradeRepo) {
+    private void setTradedRepo(@Qualifier("digiTradeRepo") DigitalTradeRepo tradeRepo) {
         this.tradeRepo = tradeRepo;
     }
 
@@ -111,14 +111,14 @@ public class DerateDigital {
      * @param sb StringBuilder
      */
     private void checkOrigin(Digital d, StringBuilder sb){
-        Derated derated = new Derated(d, LocalDate.now(), destination.getValue(), d.getDepot(), d.getTitle(), d.getAuthors());
+        Derated deratedDigital = new Derated(d, LocalDate.now(), destination.getValue(), d.getDepot(), d.getTitle(), d.getAuthors());
         if(d.isDonated()){
             donateRepo.deleteByDigitalId(Integer.parseInt(id.getText()));
         }
         if(d.isTraded()){
             tradeRepo.deleteByDigitalId(Integer.parseInt(id.getText()));
         }
-        derateRepo.save(derated);
+        derateRepo.save(deratedDigital);
         MenuController.window.close();
         Warning.alert("Derating succesvol", "de digitale drager: '" + d.getTitle() + "' werd met succes gedeclasseerd.\n" + sb.toString());
     }

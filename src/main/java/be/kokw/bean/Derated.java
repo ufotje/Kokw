@@ -1,4 +1,7 @@
-package be.kokw.bean.books;
+package be.kokw.bean;
+
+import be.kokw.bean.books.Book;
+import be.kokw.bean.digital.Digital;
 
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -18,6 +21,10 @@ public class Derated {
     @Column(length = 78545465)
     private Book book;
     private int bookId;
+    @Lob
+    @Column(length = 78545465)
+    private Digital digital;
+    private int digitalId;
     @Column(name = "derateDate")
     private LocalDate derated;
     @Column(name = "destination")
@@ -30,6 +37,7 @@ public class Derated {
     private String title;
     @Column(name = "authors")
     private String authors;
+    private String type;
 
     public Derated() {
     }
@@ -43,6 +51,18 @@ public class Derated {
         this.depot = depot;
         this.title = title;
         this.authors = authors;
+        type = "Boek";
+    }
+
+    public Derated(Digital digital, LocalDate derated, String destination, String depot, String title, String authors) {
+        this.digital = digital;
+        digitalId = digital.getId();
+        this.derated = derated;
+        this.destination = destination;
+        this.depot = depot;
+        this.title = title;
+        this.authors = authors;
+        type = "digital";
     }
 
     public int getId() {
@@ -59,6 +79,30 @@ public class Derated {
 
     public void setBook(Book book) {
         this.book = book;
+    }
+
+    public Digital getDigital() {
+        return digital;
+    }
+
+    public void setDigital(Digital digital) {
+        this.digital = digital;
+    }
+
+    public int getDigitalId() {
+        return digitalId;
+    }
+
+    public void setDigitalId(int digitalId) {
+        this.digitalId = digitalId;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
     }
 
     public int getBookId() {

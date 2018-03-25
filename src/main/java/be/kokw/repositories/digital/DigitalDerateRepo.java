@@ -1,7 +1,8 @@
 package be.kokw.repositories.digital;
 
-import be.kokw.bean.digital.Derated;
+import be.kokw.bean.digital.DeratedDigital;
 import be.kokw.bean.digital.Digital;
+import be.kokw.repositories.DerateRepo;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
@@ -12,23 +13,25 @@ import java.util.List;
 
 /**
  * Created By Demesmaecker Daniel
+ *
+ * @deprecated use {@link DerateRepo} instead.
  */
 
 @Repository("digiDerateRepo")
-public interface DigitalDerateRepo extends JpaRepository<Derated,Integer> {
+public interface DigitalDerateRepo extends JpaRepository<DeratedDigital, Integer> {
 
     @Transactional
-    Derated findByTitle(String title);
+    DeratedDigital findByTitle(String title);
 
     @Transactional
-    List<Derated> findByDestination(String destination);
+    List<DeratedDigital> findByDestination(String destination);
 
     @Transactional
-    List<Derated> findByDerated(LocalDate date);
+    List<DeratedDigital> findByDerated(LocalDate date);
 
     @Transactional
-    Derated findByDigital(Digital digital);
+    DeratedDigital findByDigital(Digital digital);
 
-    @Query("select d.title from derated d")
+    @Query("select d.title from Derated d")
     List<String> getTitle();
 }

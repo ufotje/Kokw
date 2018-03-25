@@ -1,6 +1,6 @@
-package be.kokw.utility.controller;
+package be.kokw.utility.converting;
 
-import be.kokw.utility.converting.PdfToImage;
+
 import javafx.embed.swing.SwingFXUtils;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;

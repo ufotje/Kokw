@@ -260,7 +260,7 @@ public class AddDigital {
             copy.setNrOfCopies(copy.getNrOfCopies() + 1);
             copyRepo.save(copy);
         } else {
-            Copies c = new Copies(title.getText(), "Digitale Drager", volume.getValue());
+            Copies c = new Copies(title.getText(), "Digitale Drager", volume.getValue(), digital);
             copyRepo.save(c);
         }
     }

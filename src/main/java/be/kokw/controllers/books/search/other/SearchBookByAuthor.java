@@ -26,7 +26,7 @@ import static javafx.collections.FXCollections.observableArrayList;
  */
 
 @Component
-public class SearchBookByName {
+public class SearchBookByAuthor {
     @FXML
     private TextField firstName, lastName;
     @FXML

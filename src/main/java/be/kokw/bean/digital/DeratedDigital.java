@@ -5,11 +5,12 @@ import java.time.LocalDate;
 
 /**
  * Created by Daniel Demesmaecker.
+ * @deprecated use {@link be.kokw.bean.Derated} instead.
  */
 
 @Entity
 @Table
-public class Derated {
+public class DeratedDigital {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
@@ -29,10 +30,10 @@ public class Derated {
     @Column(name = "authors")
     private String authors;
 
-    public Derated() {
+    public DeratedDigital() {
     }
 
-    public Derated(Digital digital, LocalDate derated, String destination, String depot, String title, String authors) {
+    public DeratedDigital(Digital digital, LocalDate derated, String destination, String depot, String title, String authors) {
         this.digital = digital;
         digitalId = digital.getId();
         this.derated = derated;

@@ -245,7 +245,7 @@ public class AddBook {
             copy.setNrOfCopies(copy.getNrOfCopies() + 1);
             copyRepo.save(copy);
         } else {
-            Copies c = new Copies(title.getText(), "Boek", volume.getValue());
+            Copies c = new Copies(title.getText(), "Boek", volume.getValue(), book);
             copyRepo.save(c);
         }
     }

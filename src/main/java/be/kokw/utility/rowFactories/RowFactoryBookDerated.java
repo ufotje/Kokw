@@ -2,8 +2,8 @@ package be.kokw.utility.rowFactories;
 
 
 import be.kokw.bean.books.Book;
-import be.kokw.bean.books.Derated;
-import be.kokw.repositories.books.DerateRepo;
+import be.kokw.bean.Derated;
+import be.kokw.repositories.DerateRepo;
 import be.kokw.utility.rowFactories.details.DerateDetails;
 import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;

@@ -1,9 +1,9 @@
 package be.kokw.controllers.books.search.derated;
 
 import be.kokw.bean.books.Book;
-import be.kokw.bean.books.Derated;
+import be.kokw.bean.Derated;
 import be.kokw.controllers.MenuController;
-import be.kokw.repositories.books.DerateRepo;
+import be.kokw.repositories.DerateRepo;
 import be.kokw.utility.controller.tables.BookTable;
 import be.kokw.utility.rowFactories.RowFactoryBookDerated;
 import be.kokw.utility.sceneControl.ChangeScene;

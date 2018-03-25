@@ -17,7 +17,7 @@ import java.util.Properties;
 public interface Mail {
 
     /**
-     * Allows to user to send e-mails to a list of recipients 
+     * Allows to user to send e-mails to a list of recipients
      * @param recipients String
      * @param subject String
      * @param text String
