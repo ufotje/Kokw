@@ -255,14 +255,14 @@ public class AddDigital {
      * else it creates a new one
      */
     private void saveCopies() {
-        Copies copy = copyRepo.findByTitleAndType(digital.getTitle(), "Digitale Drager");
+     /*   Copies copy = copyRepo.findByTitleAndType(digital.getTitle(), "Digitale Drager");
         if (copy != null) {
             copy.setNrOfCopies(copy.getNrOfCopies() + 1);
             copyRepo.save(copy);
         } else {
             Copies c = new Copies(title.getText(), "Digitale Drager", volume.getValue(), digital);
             copyRepo.save(c);
-        }
+        }*/
     }
 
     /**

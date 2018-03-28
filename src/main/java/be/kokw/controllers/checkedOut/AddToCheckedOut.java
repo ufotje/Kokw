@@ -12,12 +12,15 @@ import be.kokw.repositories.MemberRepo;
 import be.kokw.repositories.books.CopyRepo;
 import be.kokw.repositories.digital.DigitalRepo;
 import be.kokw.utility.validation.Warning;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
+
+import static javafx.collections.FXCollections.observableArrayList;
 
 /**
  * Created By Demesmaecker Daniel
@@ -64,6 +67,12 @@ public class AddToCheckedOut {
     @Autowired
     private void setCopyRepo(@Qualifier("copyRepo") CopyRepo copyRepo) {
         this.copyRepo = copyRepo;
+    }
+
+    @FXML
+    public void initialize(){
+        ObservableList<String> items = observableArrayList("Boek", "Digitale Drager");
+        type.setItems(items);
     }
 
     /**

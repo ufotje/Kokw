@@ -28,6 +28,8 @@ public interface MagazineRepo extends JpaRepository<Magazine, Integer> {
     @Transactional
     List<Magazine> findMagazinesByPublisher(String publisher);
 
+    @Transactional
+    int deleteById(int id);
 
     @Transactional
     Magazine findByTitle(String title);

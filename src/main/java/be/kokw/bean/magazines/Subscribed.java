@@ -16,11 +16,12 @@ public class Subscribed {
     @Column(name = "id")
     private int id;
     @JoinColumn(name = "id_mag", referencedColumnName = "id")
-    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private Magazine mag;
     private String nameMag;
     private String publisher;
     private boolean completed = false;
+    private int expected;
     private String contactInfo;
     @Email(message = "*Please provide a valid Email")
     private String email;
@@ -29,13 +30,14 @@ public class Subscribed {
     public Subscribed() {
     }
 
-    public Subscribed(Magazine mag, String contactInfo, String email, String tel) {
+    public Subscribed(Magazine mag, String contactInfo, String email, String tel, int expected) {
         this.mag = mag;
         nameMag = mag.getName();
         publisher = mag.getPublisher();
         this.contactInfo = contactInfo;
         this.email = email;
         this.tel = tel;
+        this.expected = expected;
     }
 
     public int getId() {
@@ -100,5 +102,13 @@ public class Subscribed {
 
     public void setTel(String tel) {
         this.tel = tel;
+    }
+
+    public int getExpected() {
+        return expected;
+    }
+
+    public void setExpected(int expected) {
+        this.expected = expected;
     }
 }

@@ -2,6 +2,7 @@ package be.kokw.repositories.books;
 
 import be.kokw.bean.books.GiftedFor;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import javax.transaction.Transactional;
@@ -32,4 +33,8 @@ public interface GiftedForRepo extends JpaRepository<GiftedFor, Long> {
 
     @Transactional
     GiftedFor findByBookId(int bookId);
+
+    @Transactional
+    @Query("select gf.name from GiftedFor gf")
+    List<String> getNames();
 }

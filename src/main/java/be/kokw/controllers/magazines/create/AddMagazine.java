@@ -26,6 +26,11 @@ public class AddMagazine {
     @FXML
     private TextField name;
     @FXML
+    private TextField nameSubscribed;
+    @FXML
+    private TextField nameTrade;
+
+    @FXML
     private TextField title;
     @FXML
     private TextField issn;
@@ -35,6 +40,10 @@ public class AddMagazine {
     private TextField pages;
     @FXML
     private TextField publisher;
+    @FXML
+    private TextField publisherSubscribed;
+    @FXML
+    private TextField publisherTrade;
     @FXML
     private TextField period;
     @FXML
@@ -101,14 +110,14 @@ public class AddMagazine {
                 Warning.alert("Selection error", "Een magazine kan niet zowel geruild als deel van een abonnement zijn.\nGelieve 1 iets te selecteren");
             } else if (traded.isSelected()) {
                 magazine.setTraded(true);
-                if (count != null) {
+                if (count != null ) {
                     count.setReceived(count.getReceived() + 1);
                     countRepo.saveAndFlush(count);
                 } else {
                     try {
                         window = NewStage.getStage("Ruilabonnement Info", "/fxml/magazines/create/tradeDetails.fxml");
-                        publisher.setText(magazine.getPublisher());
-                        name.setText(magazine.getName());
+                        publisherTrade.setText(magazine.getPublisher());
+                        nameTrade.setText(magazine.getName());
                         window.show();
                     } catch (Exception e) {
                         e.printStackTrace();
@@ -116,21 +125,21 @@ public class AddMagazine {
                 }
             } else if (subscription.isSelected()) {
                 magazine.setSubscribed(true);
-                if (count != null) {
+                if (count != null ) {
                     count.setReceived(count.getReceived() + 1);
                     countRepo.saveAndFlush(count);
                 } else {
                     try {
                         window = NewStage.getStage("AbonnementInfo!", "/fxml/magazines/create/subsciptionDetails.fxml");
                         window.show();
-                        publisher.setText(magazine.getPublisher());
-                        name.setText(magazine.getName());
+                        publisherSubscribed.setText(magazine.getPublisher());
+                        nameSubscribed.setText(magazine.getName());
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
                 }
-                if (!traded.isSelected() && !subscription.isSelected()) {
-                    if (count != null) {
+                if (!traded.isSelected()) {
+                    if (count != null && count.getMagazine().getYear().equalsIgnoreCase(year.getText())) {
                         count.setReceived(count.getReceived() + 1);
                         countRepo.saveAndFlush(count);
                     } else {
@@ -170,7 +179,7 @@ public class AddMagazine {
     @FXML
     private void saveSubscriptionDetail() {
         if (validateDetail()) {
-            Subscribed subscribed = new Subscribed(magazine, sb.toString(), email.getText(), telephone.getText());
+            Subscribed subscribed = new Subscribed(magazine, sb.toString(), email.getText(), telephone.getText(), Integer.parseInt(expected.getText()));
             MagazineCount mc = new MagazineCount(name.getText(), Integer.parseInt(expected.getText()));
             mc.setSubscribed(true);
             mc.setSubscribtion(subscribed);

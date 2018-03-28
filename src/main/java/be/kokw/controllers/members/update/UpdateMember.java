@@ -33,7 +33,7 @@ public class UpdateMember {
     }
 
     public void initialize() {
-        TextFieldsMembers.autoCompleteAll(repo.findAll(), firstName, lastName, street, city);
+      //  TextFieldsMembers.autoCompleteAll(repo.findAll(), firstName, lastName, street, city);
     }
 
     /**

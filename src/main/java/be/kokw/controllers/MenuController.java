@@ -1,12 +1,9 @@
 package be.kokw.controllers;
 
-import be.kokw.repositories.MemberRepo;
 import be.kokw.utility.sceneControl.ChangeScene;
 import be.kokw.utility.sceneControl.NewStage;
 import javafx.fxml.FXML;
 import javafx.stage.Stage;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 
 /**
@@ -18,12 +15,6 @@ import org.springframework.stereotype.Controller;
 @Controller
 public class MenuController {
     public static Stage window;
-    private MemberRepo memberRepo;
-
-    @Autowired
-    private void setMemberRepo(@Qualifier("memberRepo") MemberRepo memberRepo) {
-        this.memberRepo = memberRepo;
-    }
 
     @FXML
     private void home() {
@@ -228,6 +219,15 @@ public class MenuController {
     //Delete a Magazine
     @FXML
     private void deleteMag() {
+        window = NewStage.getStage("Geef de id van het te verwijderen magazine", "/fxml/magazines/delete/deleteMag.fxml");
+        window.show();
+    }
+
+    //Update Magazine
+    @FXML
+    private void updateMag(){
+        window = NewStage.getStage("Geef de id van het te updaten Magazine", "/fxml/magazines/update/updateMagDialog.fxml");
+        window.show();
     }
 
     //Search for Magazines
@@ -388,7 +388,7 @@ public class MenuController {
     //Checkout Digi
     @FXML
     private void checkOutDVD() {
-        window = NewStage.getStage("Check-Out DVD!", "/fxml/checkOut/dvd/checkOutDialog.fxml");
+        window = NewStage.getStage("Check-Out DVD!", "/fxml/checkOut/checkOutDialog.fxml");
         window.show();
     }
 
@@ -463,19 +463,19 @@ public class MenuController {
     //Mailings
     @FXML
     private void mailMen() {
-        window = NewStage.getStage("Mail naar alle mannelijke leden", "/fxml/mailings/toBoard.fxml");
+        window = NewStage.getStage("Mail naar alle mannelijke leden", "/fxml/mailings/male.fxml");
         window.show();
     }
 
     @FXML
     private void mailWomen() {
-        window = NewStage.getStage("Mail naar alle vrouwelijke leden", "/fxml/mailings/toBoard.fxml");
+        window = NewStage.getStage("Mail naar alle vrouwelijke leden", "/fxml/mailings/female.fxml");
         window.show();
     }
 
     @FXML
     private void mailMembers() {
-        window = NewStage.getStage("Mail naar alle Leden", "/fxml/mailings/toBoard.fxml");
+        window = NewStage.getStage("Mail naar alle Leden", "/fxml/mailings/allMembers.fxml");
         window.show();
     }
 

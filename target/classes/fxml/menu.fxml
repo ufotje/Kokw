@@ -96,6 +96,7 @@
                         </Menu>
                         <MenuItem mnemonicParsing="false" onAction="#magByTopic" text="Op Onderwerp"/>
                     </Menu>
+                    <MenuItem mnemonicParsing="false" onAction="#updateMag" text="Updaten" />
                     <MenuItem mnemonicParsing="false" onAction="#deleteMag" text="Verwijderen"/>
                 </Menu>
 

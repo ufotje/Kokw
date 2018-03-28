@@ -87,7 +87,7 @@ public class SearchBookByDeratedTitle {
             Warning.alert("No Books found!", "Er werden geen gedeclasseerde boeken gevonden met " + title.getText() + " als titel.");
             ChangeScene.init("/fxml/home.fxml", "KOKW - Het Verleden Draait Altijd Mee!");
         } else {
-            ChangeScene.init("fxml/books/derated/views/tableviewDeratedTitle.fxml", "Alle gedeclasseerde boeken met " + title.getText() + " als titel.");
+            ChangeScene.init("/fxml/books/derated/views/tableviewDeratedTitle.fxml", "Alle gedeclasseerde boeken met " + title.getText() + " als titel.");
             BookTable.init(table, idCol, isbnCol, depotCol, titleCol, editionCol, volumeCol, topicCol, authorCol,
                     subTitleCol, publisherCol, yearCol, pagesCol, illusCol, bookList);
             RowFactoryBookDerated.set(table, repo);

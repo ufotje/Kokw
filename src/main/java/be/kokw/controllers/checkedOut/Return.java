@@ -36,7 +36,7 @@ public class Return {
     }
 
     @Autowired
-    private void setCopyRepo(@Qualifier("copyRepo") CopyRepo copyRepo){
+    private void setCopyRepo(@Qualifier("copyRepo") CopyRepo copyRepo) {
         this.copyRepo = copyRepo;
     }
 
@@ -47,41 +47,49 @@ public class Return {
         if (Validation.validate("Naam", fullName.getText(), "[A-Za-z ]+")) {
             if (!title.getText().isEmpty() && title.getText() != null) {
                 MenuController.window.close();
-                int result = repo.returnItem(title.getText(),fullName.getText());
-                if(result > 0){
+                int result = repo.returnItem(title.getText(), fullName.getText());
+                if (result > 0) {
                     CheckedOut record = repo.findByTitleAndFullName(title.getText(), fullName.getText());
                     Warning.alert("Item Returned!", "Het/de " + record.getType() + ": " + title.getText() + "' werd succesvol terug gebracht door '" + fullName.getText() + "'!");
                     setCopies(record);
                     calculateFine(record);
-                }else{
+                    repo.delete(record);
+                } else {
                     Warning.alert("Error!", "Het corresponderende record werd niet terug gevonden.\nControleer aub uw invoer.\nDenk er ook aan dat u eerst de voornaam en dan de achternaam invult, gescheiden door een spatie.");
                 }
-            }else{
+            } else {
                 Warning.alert("Invalid title", "Voen een titel in aub!");
             }
-        }else{
+        } else {
             Warning.alert("Invalid Name!", "De voor- en Achternaam kan enkel uit grote of kleine letters bestaan gescheiden door een spatie!");
         }
     }
 
     /**
      * Increments the nr of available copies by one
-     * @param record
+     *
+     * @param record CheckedOut
      */
-    private void setCopies(CheckedOut record){
+    private void setCopies(CheckedOut record) {
         Copies copy = copyRepo.findByTitleAndType(record.getTitle(), record.getType());
-        copy.setNrOfCopies(copy.getNrOfCopies() +1 );
+        if (copy.getNrOfCopies() == 0) {
+            copy.setNrOfCopies(1);
+        } else {
+            copy.setNrOfCopies(copy.getNrOfCopies() + 1);
+        }
+        copyRepo.save(copy);
     }
 
     /**
      * Checks if a book is overdue and calculates the fine(nr of days overdue * 0.25)
-     * @param record
+     *
+     * @param record CheckedOut
      */
-    private void calculateFine(CheckedOut record){
-        if (record.getReturnDate().isBefore(LocalDate.now())){
-            Long daysOverdue = DAYS.between(record.getReturnDate(),LocalDate.now());
-            Double fine = daysOverdue *0.25;
-            Warning.alert("Book Overdue!","Het boek werd te laat binnen gebracht!\nEr dient een boete van " + fine + "€ betaald te worden.");
+    private void calculateFine(CheckedOut record) {
+        if (record.getReturnDate().isBefore(LocalDate.now())) {
+            Long daysOverdue = DAYS.between(record.getReturnDate(), LocalDate.now());
+            Double fine = daysOverdue * 0.25;
+            Warning.alert("Book Overdue!", "Het boek werd te laat binnen gebracht!\nEr dient een boete van " + fine + "€ betaald te worden.");
         }
     }
 }

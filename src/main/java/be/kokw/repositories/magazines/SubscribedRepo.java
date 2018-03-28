@@ -1,5 +1,6 @@
 package be.kokw.repositories.magazines;
 
+import be.kokw.bean.magazines.Magazine;
 import be.kokw.bean.magazines.Subscribed;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
@@ -16,4 +17,7 @@ public interface SubscribedRepo extends JpaRepository<Subscribed,Integer> {
 
     @Transactional
     List<Subscribed> findByNameMag(String name);
+
+    @Transactional
+    Subscribed findByMag(Magazine mag);
 }

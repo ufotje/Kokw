@@ -28,6 +28,8 @@ import org.springframework.stereotype.Component;
 import java.io.File;
 import java.time.LocalDate;
 
+import static javafx.collections.FXCollections.observableArrayList;
+
 
 /**
  * Created by Daniel Demesmaecker on 20/10/2017.
@@ -83,9 +85,9 @@ public class AddBook {
      * The initialize method is used to fill the choiceboxes and to set an autocomplete on the textfields
      */
     public void initialize() {
-        ObservableList<String> topics = FXCollections.observableArrayList("Wereld Oorlog 1", "Wereld Oorlog 2", "MiddelEeuwen", "Gulden Sporenslag", "Brugse Metten");
+        ObservableList<String> topics = observableArrayList("Wereld Oorlog 1", "Wereld Oorlog 2", "MiddelEeuwen", "Gulden Sporenslag", "Brugse Metten");
         topic.setItems(topics);
-        ObservableList<Integer> volumes = FXCollections.observableArrayList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
+        ObservableList<Integer> volumes = observableArrayList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
         volume.setItems(volumes);
         volume.setValue(1);
         BookTextFields.autocomplete(repo.findAll(), title, author, subTitle, publisher);
@@ -208,14 +210,17 @@ public class AddBook {
 
     @FXML
     public void more() {
+        save();
+        if (validated()) {
+            clearFields();
+        }
         authors = new StringBuilder();
         subTitles = new StringBuilder();
-        save();
-        clearFields();
     }
 
     /**
      * Validates The Inputfields
+     *
      * @return boolean
      */
     private boolean validated() {
@@ -228,8 +233,6 @@ public class AddBook {
                 Validation.validate("depot", depot.getText(), "[a-zA-Z0-9999 -]+") &&
                 Validation.validate("edition", edition.getText(), "[0-999]+")) {
             valid = true;
-        } else {
-            Warning.alert("Wrong input", "Verkeerde invoer!\nControleer uw velden aub.");
         }
 
         return valid;
@@ -240,7 +243,7 @@ public class AddBook {
      * else it creates a new one
      */
     private void saveCopies() {
-        Copies copy = copyRepo.findByTitleAndType(book.getTitle(),"boek");
+        Copies copy = copyRepo.findByTitleAndType(book.getTitle(), "boek");
         if (copy != null) {
             copy.setNrOfCopies(copy.getNrOfCopies() + 1);
             copyRepo.save(copy);

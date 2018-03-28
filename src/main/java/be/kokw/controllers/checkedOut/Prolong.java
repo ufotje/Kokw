@@ -1,7 +1,9 @@
 package be.kokw.controllers.checkedOut;
 
 import be.kokw.bean.CheckedOut;
+import be.kokw.controllers.MenuController;
 import be.kokw.repositories.CheckOutRepo;
+import be.kokw.utility.sceneControl.ChangeScene;
 import be.kokw.utility.validation.Validation;
 import be.kokw.utility.validation.Warning;
 import javafx.fxml.FXML;
@@ -44,18 +46,22 @@ public class Prolong {
                     String fullName = firstName.getText() + " " + lastName.getText();
                     try {
                         CheckedOut record = repo.findByTitleAndFullName(title.getText(), fullName);
-                        LocalDate date = record.getReturnDate();
-                        returnDate = date.plusWeeks(3);
+                        if (record != null) {
+                            LocalDate date = record.getReturnDate();
+                            returnDate = date.plusWeeks(3);
+                        } else {
+                            Warning.alert("Record Not Found!", "Het record werd niet terug gevonden.");
+                        }
                     } catch (NoResultException e) {
                         Warning.alert("No Result Exception", "Het corresponderende record werd niet teruggevonden");
                     }
                     int result = repo.prolong(title.getText(), fullName, returnDate);
                     if (result > 0) {
-                        StringBuilder sb = new StringBuilder(returnDate.toString());
-                        Warning.alert("Succes", "De uitleenbeurt voor '" + title.getText() + "' werd succesvol verlengd voor '" + fullName + "' tot " + sb.reverse().toString() + "!");
+                        Warning.alert("Succes", "De uitleenbeurt voor '" + title.getText() + "' werd succesvol verlengd voor '" + fullName + "' tot " + returnDate.toString() + "!");
                     } else {
                         Warning.alert("Error", "Er ging iets fout!\nControleer uw invoer!");
                     }
+                    ChangeScene.init("/fxml/home.fxml", "KOKW - Het Verleden Draait Altijd Mee");
                 } else {
                     Warning.alert("Invalid Title", "Voeg een titel toe aub");
                 }
@@ -65,5 +71,6 @@ public class Prolong {
         } else {
             Warning.alert("Invalid Firstname", "De voornaam kan enkel uit grote of kleine letters bestaan");
         }
+        MenuController.window.close();
     }
 }

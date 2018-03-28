@@ -11,9 +11,9 @@
 <?import javafx.scene.layout.Region?>
 
 <AnchorPane xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="be.kokw.controllers.checkedOut.AddToCheckedOut">
-    <DialogPane headerText="Leen Boek uit" layoutX="50.0" layoutY="50.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="350.0" prefWidth="480.0">
+    <DialogPane headerText="Leen Boek uit" layoutX="50.0" layoutY="50.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="303.0" prefWidth="480.0">
         <header>
-            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="185.0" prefWidth="505.0">
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="245.0" prefWidth="460.0">
                 <HBox alignment="CENTER" layoutY="69.0" prefHeight="30.0" prefWidth="480.0">
                     <Label text="Voornaam:" />
                     <TextField fx:id="firstName" alignment="CENTER" prefHeight="31.0" prefWidth="318.0">
@@ -32,17 +32,17 @@
                 </HBox>
                 <Region layoutX="-51.0" layoutY="-57.0" prefHeight="113.0" prefWidth="530.0" style="-fx-background-repeat: no-repeat; -fx-background-image: url('http://users.telenet.be/hbo5_java/pictures/kokw/logo.jpg'); -fx-background-size: 40%;" />
                 <HBox alignment="CENTER" layoutY="180.0" prefHeight="30.0" prefWidth="480.0">
-                    <Label text="id v/h Boek:" />
+                    <Label text="id v/h Item:" />
                     <TextField fx:id="id" alignment="CENTER" prefHeight="31.0" prefWidth="58.0">
                         <HBox.margin>
-                            <Insets left="20.0" />
+                            <Insets left="25.0" />
                         </HBox.margin>
                     </TextField>
                <Label text="Type: ">
                   <HBox.margin>
                      <Insets left="30.0" />
                   </HBox.margin></Label>
-               <ChoiceBox fx:id="type" prefHeight="25.0" prefWidth="184.0">
+               <ChoiceBox fx:id="type" prefHeight="25.0" prefWidth="175.0">
                   <HBox.margin>
                      <Insets left="20.0" />
                   </HBox.margin>
@@ -52,7 +52,7 @@
         </header>
         <content>
             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="150.0" prefWidth="320.0">
-                <Button layoutX="200.0" layoutY="100.0" mnemonicParsing="false" onAction="#save" text="Check-Out" />
+                <Button layoutX="182.0" layoutY="18.0" mnemonicParsing="false" onAction="#save" text="Check-Out" />
             </AnchorPane>
         </content>
     </DialogPane>

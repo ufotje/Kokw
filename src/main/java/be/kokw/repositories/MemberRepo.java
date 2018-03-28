@@ -39,4 +39,10 @@ public interface MemberRepo extends JpaRepository<Member, Long> {
 
     @Transactional
     List<Member> findByAnalIsFalse();
+
+    @Transactional
+    List<Member> findByGenderEquals(char c);
+
+    @Transactional
+    int deleteById(Long id);
 }

@@ -12,7 +12,7 @@ import java.time.LocalDate;
  */
 
 @Entity
-@Table(name = "checked_out_books")
+@Table(name = "checked_out")
 public class CheckedOut implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -33,7 +33,7 @@ public class CheckedOut implements Serializable {
     private LocalDate checkOutDate;
     private LocalDate returnDate;
     private boolean returned;
-    private String adress;
+    private String address;
     private String type;
 
     public CheckedOut() {
@@ -48,7 +48,7 @@ public class CheckedOut implements Serializable {
         title = book.getTitle();
         email = member.getEmail();
         fullName = member.getFirstName() + " " + member.getLastName();
-        adress = member.getStreet() + " " + member.getHouseNr() + "\n" + member.getZip() + " " + member.getCity();
+        address = member.getStreet() + " " + member.getHouseNr() + "\n" + member.getZip() + " " + member.getCity();
     }
 
     public CheckedOut(Digital digital, Member member) {
@@ -60,7 +60,7 @@ public class CheckedOut implements Serializable {
         title = book.getTitle();
         email = member.getEmail();
         fullName = member.getFirstName() + " " + member.getLastName();
-        adress = member.getStreet() + " " + member.getHouseNr() + "\n" + member.getZip() + " " + member.getCity();
+        address = member.getStreet() + " " + member.getHouseNr() + "\n" + member.getZip() + " " + member.getCity();
     }
 
     public long getId() {
@@ -151,12 +151,12 @@ public class CheckedOut implements Serializable {
         this.fullName = fullName;
     }
 
-    public String getAdress() {
-        return adress;
+    public String getAddress() {
+        return address;
     }
 
-    public void setAdress(String adress) {
-        this.adress = adress;
+    public void setAddress(String address) {
+        this.address = address;
     }
 }
 

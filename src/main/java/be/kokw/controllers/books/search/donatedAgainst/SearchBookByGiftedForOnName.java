@@ -12,12 +12,14 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import org.controlsfx.control.textfield.TextFields;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 import java.io.File;
 import java.time.LocalDate;
+import java.util.List;
 
 import static javafx.collections.FXCollections.observableArrayList;
 
@@ -61,6 +63,8 @@ public class SearchBookByGiftedForOnName {
     @FXML
     public void initialize(){
         name.setOnAction(event -> search());
+        List<String> names = repo.getNames();
+        TextFields.bindAutoCompletion(name, names);
     }
 
     /**

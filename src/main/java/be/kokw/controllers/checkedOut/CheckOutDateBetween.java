@@ -15,6 +15,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
+import java.time.LocalDate;
+
 import static javafx.collections.FXCollections.observableArrayList;
 
 /**
@@ -34,15 +36,18 @@ public class CheckOutDateBetween {
     @FXML
     private TableColumn<CheckedOut,String> titleCol;
     @FXML
-    private TableColumn<CheckedOut,String> topicCol;
+    private TableColumn<CheckedOut,LocalDate> startCol;
     @FXML
-    private TableColumn<CheckedOut,String> firstNameCol;
+    private TableColumn<CheckedOut,LocalDate> endCol;
     @FXML
-    private TableColumn<CheckedOut,String> lastNameCol ;
+    private TableColumn<CheckedOut,String> typeCol ;
     @FXML
-    private TableColumn<CheckedOut,String> publisherCol;
+    private TableColumn<CheckedOut,String> nameCol;
     @FXML
-    private TableColumn<CheckedOut,String>yearCol;
+    private TableColumn<CheckedOut,String>addressCol;
+
+    @FXML
+    private TableColumn<CheckedOut,String> mailCol;
     private CheckOutRepo repo;
 
     @Autowired
@@ -64,11 +69,12 @@ public class CheckOutDateBetween {
                     table.setEditable(true);
                     idCol.setCellValueFactory(new PropertyValueFactory<>("id"));
                     titleCol.setCellValueFactory(new PropertyValueFactory<>("title"));
-                    topicCol.setCellValueFactory(new PropertyValueFactory<>("topic"));
-                    firstNameCol.setCellValueFactory(new PropertyValueFactory<>("authorFirstName"));
-                    lastNameCol.setCellValueFactory(new PropertyValueFactory<>("authorLastName"));
-                    publisherCol.setCellValueFactory(new PropertyValueFactory<>("publisher"));
-                    yearCol.setCellValueFactory(new PropertyValueFactory<>("yearPublished"));
+                    typeCol.setCellValueFactory(new PropertyValueFactory<>("type"));
+                    startCol.setCellValueFactory(new PropertyValueFactory<>("checkOutDate"));
+                    endCol.setCellValueFactory(new PropertyValueFactory<>("returnDate"));
+                    nameCol.setCellValueFactory(new PropertyValueFactory<>("fullName"));
+                    addressCol.setCellValueFactory(new PropertyValueFactory<>("address"));
+                    mailCol.setCellValueFactory(new PropertyValueFactory<>("email"));
                     table.setItems(dates);
                 }else{
                     Warning.alert("No Results", "Er werden geen boeken gevonden die werden uitgeleend tussen " + startDate.getValue() + " en " + endDate.getValue());

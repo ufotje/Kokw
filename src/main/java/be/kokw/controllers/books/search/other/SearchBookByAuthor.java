@@ -1,4 +1,4 @@
- package be.kokw.controllers.books.search.other;
+package be.kokw.controllers.books.search.other;
 
 import be.kokw.bean.books.Book;
 import be.kokw.controllers.MenuController;
@@ -12,10 +12,13 @@ import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
-import javafx.scene.control.cell.PropertyValueFactory;
+import org.controlsfx.control.textfield.TextFields;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import static javafx.collections.FXCollections.observableArrayList;
 
@@ -65,15 +68,36 @@ public class SearchBookByAuthor {
     }
 
     @FXML
-    public void initialize(){
+    public void initialize() {
         lastName.setOnAction(event -> search());
+        List<String> names = bookRepo.findAuthors();
+        List<String> authors = new ArrayList<>();
+        for (String s : names) {
+            String[] split = s.split("\n");
+            for (String sr : split) {
+                if (!authors.contains(sr)) {
+                    authors.add(sr);
+                }
+            }
+        }
+        List<String> firstNames = new ArrayList<>();
+        List<String> lastNames = new ArrayList<>();
+        for (String s : authors) {
+            String[] split = s.split(" ");
+            firstNames.add(split[0]);
+            for (int i = 1; i < split.length; i++) {
+                lastNames.add(split[i]);
+            }
+        }
+        TextFields.bindAutoCompletion(firstName, firstNames);
+        TextFields.bindAutoCompletion(lastName, lastNames);
     }
 
     /**
      * Shows a table with all books written by a by the user specified Author
      */
     @FXML
-    public void search(){
+    public void search() {
         if (Validation.validate("Achternaam Auteur", lastName.getText(), "[a-zA-Z]+") &&
                 Validation.validate("Voornaam Auteur:", firstName.getText(), "[a-zA-Z]+")) {
             ObservableList<Book> bookList = observableArrayList(bookRepo.findByAuthorsContains(firstName.getText() + " " + lastName.getText()));

@@ -103,7 +103,7 @@ public class AddMember {
         boolean validated = false;
         if (Validation.validate("Voornaam:", firstName.getText(), "[a-zA-Z ]+") &&
                 Validation.validate("Achternaam:", lastName.getText(), "[a-zA-Z ]+")
-                && Validation.validate("Straatnaam:", street.getText(), "[a-zA-Z]+")
+                && Validation.validate("Straatnaam:", street.getText(), "[a-zA-Z ]+")
                 && Validation.validate("Huisnummer:", houseNr.getText(), "[0-9]+")
                 && Validation.validate("Postcode:", zip.getText(), "[0-9]+[0-9]+[0-9]+[0-9]")
                 && Validation.validate("Stad:", city.getText(), "[a-zA-Z-]+")

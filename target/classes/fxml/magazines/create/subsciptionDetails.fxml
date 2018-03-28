@@ -22,7 +22,7 @@
                     <Insets left="50.0" right="30.0"/>
                 </HBox.margin>
             </Label>
-            <TextField fx:id="name" alignment="CENTER" prefHeight="25.0" prefWidth="365.0"/>
+            <TextField fx:id="nameSubscribed" alignment="CENTER" prefHeight="25.0" prefWidth="365.0"/>
             <VBox.margin>
                 <Insets top="30.0"/>
             </VBox.margin>
@@ -39,7 +39,7 @@
                     <Font size="14.0"/>
                 </font>
             </Label>
-            <TextField fx:id="publisher" alignment="CENTER" prefHeight="25.0" prefWidth="365.0">
+            <TextField fx:id="publisherSubscribed" alignment="CENTER" prefHeight="25.0" prefWidth="365.0">
                 <HBox.margin>
                     <Insets left="30.0"/>
                 </HBox.margin>

@@ -22,11 +22,12 @@
             <columns>
                 <TableColumn fx:id="idCol" prefWidth="40.0" text="ID" />
                 <TableColumn fx:id="titleCol" prefWidth="250.0" text="Titel" />
-                <TableColumn fx:id="topicCol" prefWidth="100.0" text="Onderwerp" />
-                <TableColumn fx:id="firstNameCol" prefWidth="150.0" text="Voornaam Auteur/Regiseur" />
-                <TableColumn fx:id="lastNameCol" prefWidth="190.0" text="Achternaam Auteur/Regiseur" />
-                <TableColumn fx:id="publisherCol" text="Uitgeverij" />
-                <TableColumn fx:id="yearCol" prefWidth="50.0" text="Jaar" />
+                <TableColumn fx:id="typeCol" prefWidth="100.0" text="Type" />
+                <TableColumn fx:id="startCol" prefWidth="100.0" text="StartDatum" />
+                <TableColumn fx:id="endCol" prefWidth="100.0" text="EindDatum" />
+                <TableColumn fx:id="nameCol" prefWidth="150.0" text="Ontlener" />
+                <TableColumn fx:id="addressCol" prefWidth="250.0" text="Adress" />
+                <TableColumn fx:id="mailCol" prefWidth="150.0" text="E-mail" />
             </columns>
         </TableView>
     </center>

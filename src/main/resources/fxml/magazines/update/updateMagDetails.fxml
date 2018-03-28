@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0"
+            prefWidth="600.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="be.kokw.controllers.magazines.update.UpdateMagDetails">
+    <VBox prefHeight="400.0" prefWidth="600.0">
+        <HBox alignment="CENTER" prefWidth="200.0">
+            <Label text="Identificatie:">
+                <font>
+                    <Font size="14.0"/>
+                </font>
+                <HBox.margin>
+                    <Insets right="20.0"/>
+                </HBox.margin>
+            </Label>
+            <TextField fx:id="detailsId" alignment="CENTER" prefHeight="25.0" prefWidth="58.0"/>
+            <Label text="MagazineId:">
+                <HBox.margin>
+                    <Insets left="50.0" right="20.0"/>
+                </HBox.margin>
+                <font>
+                    <Font size="14.0"/>
+                </font>
+            </Label>
+            <TextField fx:id="magId" alignment="CENTER"/>
+            <VBox.margin>
+                <Insets top="30.0"/>
+            </VBox.margin>
+        </HBox>
+        <HBox alignment="CENTER" prefWidth="200.0">
+            <VBox.margin>
+                <Insets top="20.0"/>
+            </VBox.margin>
+            <Label alignment="CENTER" text="Naam v/h Magazine:">
+                <font>
+                    <Font size="14.0"/>
+                </font>
+            </Label>
+            <TextField fx:id="title" prefHeight="25.0" prefWidth="279.0">
+                <HBox.margin>
+                    <Insets left="40.0"/>
+                </HBox.margin>
+            </TextField>
+        </HBox>
+        <HBox alignment="CENTER" layoutX="10.0" layoutY="40.0" prefWidth="200.0">
+            <Label text="Organisatie:">
+                <font>
+                    <Font size="14.0"/>
+                </font>
+                <HBox.margin>
+                    <Insets right="20.0"/>
+                </HBox.margin>
+            </Label>
+            <TextField fx:id="org" alignment="CENTER" prefHeight="25.0" prefWidth="185.0"/>
+            <Label text="Verwacht:">
+                <HBox.margin>
+                    <Insets left="50.0" right="20.0"/>
+                </HBox.margin>
+                <font>
+                    <Font size="14.0"/>
+                </font>
+            </Label>
+            <TextField fx:id="expected" alignment="CENTER" prefHeight="25.0" prefWidth="37.0"/>
+            <VBox.margin>
+                <Insets top="20.0"/>
+            </VBox.margin>
+        </HBox>
+        <HBox alignment="CENTER" layoutX="10.0" layoutY="130.0" prefWidth="200.0">
+            <Label text="Adres:">
+                <font>
+                    <Font size="14.0"/>
+                </font>
+                <HBox.margin>
+                    <Insets right="20.0"/>
+                </HBox.margin>
+            </Label>
+            <TextArea fx:id="address" prefHeight="86.0" prefWidth="393.0"/>
+            <VBox.margin>
+                <Insets top="20.0"/>
+            </VBox.margin>
+        </HBox>
+        <HBox alignment="CENTER" layoutX="10.0" layoutY="85.0" prefWidth="200.0">
+            <Label alignment="CENTER" text="Telefoonnummer:">
+                <font>
+                    <Font size="14.0"/>
+                </font>
+            </Label>
+            <TextField fx:id="telephone" prefHeight="25.0" prefWidth="298.0">
+                <HBox.margin>
+                    <Insets left="40.0"/>
+                </HBox.margin>
+            </TextField>
+            <VBox.margin>
+                <Insets top="20.0"/>
+            </VBox.margin>
+        </HBox>
+        <HBox alignment="CENTER" layoutX="10.0" layoutY="265.0" prefWidth="200.0">
+            <Label alignment="CENTER" text="E-mail:">
+                <font>
+                    <Font size="14.0"/>
+                </font>
+            </Label>
+            <TextField fx:id="mail" prefHeight="25.0" prefWidth="361.0">
+                <HBox.margin>
+                    <Insets left="40.0"/>
+                </HBox.margin>
+            </TextField>
+            <VBox.margin>
+                <Insets top="20.0"/>
+            </VBox.margin>
+        </HBox>
+        <HBox alignment="CENTER" style="-fx-background-radius: 10;">
+            <VBox.margin>
+                <Insets top="20.0"/>
+            </VBox.margin>
+            <Button alignment="CENTER" mnemonicParsing="false" onAction="#update" style="-fx-background-radius: 10;"
+                    text="Updaten">
+                <font>
+                    <Font size="18.0"/>
+                </font>
+            </Button>
+        </HBox>
+    </VBox>
+</AnchorPane>

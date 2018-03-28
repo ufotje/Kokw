@@ -17,7 +17,7 @@ public class Trade {
     @Column(name = "id")
     private int id;
     @JoinColumn(name = "id_mag", referencedColumnName = "id")
-    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private Magazine mag;
     private String nameMag;
     private String nameOrg;
